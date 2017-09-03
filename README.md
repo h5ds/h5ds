@@ -1,6 +1,6 @@
 ### **简介** 
 
-H5DS 官方 Git (https://gitee.com/ComsenzDiscuz/DiscuzX) ，简体中文 UTF8 版本，其他版本请自行转码
+H5DS 官方 Git (https://gitee.com/676015863/H5DS) ，简体中文 UTF8 版本，其他版本请自行转码
 
 ### **声明**
 
