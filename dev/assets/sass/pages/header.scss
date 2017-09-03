@@ -1,0 +1,53 @@
+$yellow: #ff5402;
+$font: #949494;
+$abg: #444749;
+$headerBg: #323436;
+
+.header{
+	background: $headerBg;
+	height: 60px;
+	position: fixed;
+	z-index: 1000;
+	top: 0;
+	width: 100%;
+	border-bottom: 4px solid $yellow;
+	.header-box{
+		width: 1300px;
+		height: 100%;
+		margin: 0 auto;
+		position: relative;
+		.logo{
+			margin-top: 10px;
+		}
+		&:before{
+			content: '';
+			display: inline-block;
+			height: 100%;
+			width: 0;
+			vertical-align: middle;
+		}
+	}
+	.header-nav{
+		float: right;
+		height: 100%;
+		ul{
+			height: 100%;
+		}
+		li{
+			line-height: 56px;
+			text-align: center;
+			display: inline-block;
+			height: 100%;
+			a{
+				color: $font;
+				display: inline-block;
+				height: 100%;
+				padding: 0 20px;
+			}
+			&.active a{
+				color: #fff;
+				background: $abg;
+			}
+		}
+	}
+}

@@ -1,0 +1,90 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>登录</title>
+    <meta name="description" content="帮助">
+    <meta name="keywords" content="帮助">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<!-- Set render engine for 360 browser -->
+<meta name="renderer" content="webkit">
+<!-- No Baidu Siteapp-->  
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+<link rel="stylesheet" type="text/css" href="http://at.alicdn.com/t/font_p27hnfue2k18xgvi.css">
+<link rel="stylesheet" type="text/css" href="./assets/plugin/amazeui/amazeui.min.css">
+<link rel="stylesheet" type="text/css" href="./assets/css/ui.css">
+<link rel="stylesheet" type="text/css" href="./assets/css/index.css">
+<!--js-->
+<script src="./assets/plugin/jquery-2.1.1.js"></script>
+<script src="./assets/plugin/lodash.min.js"></script>
+<script src="./assets/plugin/amazeui/amazeui.min.js"></script>
+<script src="./assets/plugin/template.js"></script>
+<script src="./assets/js/index.js"></script>
+</head>
+
+<body>
+    <!--header-->
+    <!--头部-->
+<div class="header">
+	<div class="header-box clearfix">
+		<img class="logo" src="/assets/images/logo.png" alt="">
+		<div class="header-nav">
+			<ul>
+				<li data-name="/"><a href="/">首页</a></li>
+				<li data-name="/plus"><a href="/plus">插件库</a></li>
+				<li data-name="/edit"><a href="/edit">编辑器</a></li>
+				<li data-name="/help"><a href="/help">帮助</a></li>
+				<li data-name="/case"><a href="/case">H5模板</a></li>
+				<li data-name="/4"><a href="/">技术社区</a></li>
+				<li data-name="/5"><a href="/">用户</a></li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+<script>
+	$(function () {
+		var name = '/' + location.pathname.split('/')[1];
+		$('.header-nav').find('li[data-name="' + name + '"]').addClass('active');
+	});
+
+</script>
+
+    <!--bodyer-->
+    <div class="bodyer">
+        帮助
+    </div>
+
+    <!--footer-->
+    <!--底部-->
+<div class="footer">
+	<div class="footer-inner">
+		<div class="links">
+			<h1>友情链接：</h1>
+			<ul>
+				<li><a href="#">THX</a></li>
+				<li><a href="#">淘宝UED</a></li>
+				<li><a href="#">阿里巴巴国际站</a></li>
+				<li><a href="#">天猫UED</a></li>
+				<li><a href="#">React</a></li>
+				<li><a href="#">Vue</a></li>
+			</ul>
+			<div class="copyright">
+				Copyright © 2010-2014 成都飞酷网络科技有限公司 版权所有. 蜀ICP备14012609
+			</div>
+		</div>
+		<div class="qrcode">
+			<img width="100" src="/assets/images/qrcode.jpg" alt="">
+		</div>
+	</div>
+</div>
+
+</body>
+
+<script>
+    
+</script>
+
+</html>

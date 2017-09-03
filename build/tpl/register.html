@@ -1,0 +1,119 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>注册</title>
+    <meta name="description" content="注册">
+    <meta name="keywords" content="注册">
+    <!-- inject:meta -->
+<script>
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?476b4d0da31c1280efca527753a93d2d";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<!-- Set render engine for 360 browser -->
+<meta name="renderer" content="webkit">
+<!-- No Baidu Siteapp-->
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+<link rel="stylesheet" type="text/css" href="http://at.alicdn.com/t/font_p27hnfue2k18xgvi.css">
+<link rel="stylesheet" href="./assets/plugin/animate.css">
+<!--js-->
+<script src="./assets/plugin/jquery-2.1.1.js"></script>
+<script src="./assets/plugin/template.js"></script>
+
+<!--临时加入-->
+<!-- <script src="http://localhost:8000/webpack-dev-server.js"></script> -->
+<!-- endinject -->
+<link href="/assets/css/main.css?a3c5355673fe5fcf6b8c" rel="stylesheet"></head>
+
+<body>
+    <!-- inject:header -->
+<!--头部-->
+<div class="header">
+	<div class="header-box clearfix">
+		<a href="/"><img class="logo" src="/assets/images/logo.png" alt=""></a>
+		<div class="header-nav">
+			<ul>
+				<li data-name="/"><a href="/">首页</a></li>
+				<!-- <li data-name="/help"><a href="/help">帮助</a></li> -->
+				<li data-name="/case"><a href="/case">编辑器</a></li>
+				<li style="display: none" data-name="logout"><a href="/api/logout">退出</a></li>
+				<!-- <li data-name="/4"><a href="/">社区</a></li> -->
+			</ul>
+		</div>
+	</div>
+</div>
+
+<script>
+	$(function () {
+		var name = '/' + location.pathname.split('/')[1];
+		$('.header-nav').find('li[data-name="' + name + '"]').addClass('active');
+	});
+
+</script>
+<!-- endinject -->
+
+    <!--bodyer-->
+    <div class="bodyer">
+        <div class="register">
+            <div class="form-box">
+                <h1 class="logo">H5DS 注册</h1>
+                <!-- <div class="item">
+                    <input id="email" type="text" placeholder="邮箱">
+                </div> -->
+                <div class="item">
+                    <input id="tel" type="text" placeholder="手机号">
+                </div>
+                <div class="item">
+                    <input id="password" type="password" placeholder="密码">
+                </div>
+                <div class="item">
+                    <input id="repassword" type="password" placeholder="重复密码">
+                </div>
+                <div class="item">
+                    <img class="img-code" src="/api/imgCode" alt="" /> <input id="imgcode" type="text" placeholder="请输入验证码">
+                </div>
+                <div class="item">
+                    <a id="registerBtn" class="mt-btn mt-btn-block">注&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;册</a>
+                </div>
+                <div class="item">
+                    已有账号？ <a href="/login">去登录</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- inject:footer -->
+<!--底部-->
+<div class="footer">
+	<div class="footer-inner">
+		<div class="links">
+			<h1>友情链接：</h1>
+			<ul>
+				<li><a href="#">THX</a></li>
+				<li><a href="#">淘宝UED</a></li>
+				<li><a href="#">阿里巴巴国际站</a></li>
+				<li><a href="#">天猫UED</a></li>
+				<li><a href="#">React</a></li>
+				<li><a href="#">Vue</a></li>
+			</ul>
+			<div class="copyright">
+				Copyright © 2010-2014 成都飞酷网络科技有限公司 版权所有. 蜀ICP备14012609
+			</div>
+		</div>
+		<div class="qrcode">
+			<img width="100" src="/assets/images/qrcode.jpg" alt="">
+		</div>
+	</div>
+</div>
+<!-- endinject -->
+
+<script type="text/javascript" src="/assets/js/main.js?a3c5355673fe5fcf6b8c"></script></body>
+</html>

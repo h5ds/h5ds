@@ -1,0 +1,166 @@
+@import './var.scss';
+
+.layer-group-select{
+	position: absolute;
+	z-index: 3000;
+	background: rgba(0, 0, 0, .2);
+	border: 1px dotted $yellow;
+}
+.layer-group-eventbox {
+	position: absolute;
+	z-index: 100;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+.phone{
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	transition:0.5s;
+	overflow:hidden;
+	overflow-y:auto;
+	background:#f0f0f0;
+	z-index:99;
+}
+
+#appViewShow{
+	.mt-modal-box{
+		height: 600px;
+		width: 1000px;
+    }
+	.view-phone{
+		width: 473px;
+		height: 100%;
+		float: left;
+		position: relative;
+		.h5ds-video-icon{
+			top: 58px;
+			right: 100px;
+		}
+		.h5ds-swiper{
+			width: 320px;
+			height: 487px;
+			margin: 51px 0 0 60px;
+		}
+		.change-page{
+			width: 43px;
+			height: 120px;
+			position: absolute;
+			z-index: 1;
+			top: 224px;
+			left: 397px;
+			text-align: center;
+			a{
+				display: block;
+				width: 42px;
+				height: 42px;
+				border-radius: 100px;
+				background: $blue2;
+				color: $blue1;
+				line-height: 42px;
+				margin: 10px 0;
+				&:hover{
+					background: $yellow;
+					color: #fff;
+				}
+			}
+			p{
+				color: $blue1;
+			}
+		}
+	}
+	.other-info{
+		float: left;
+		width: 527px;
+		height: 100%;
+		color: $blue1;
+		.qrcode-tips{
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			color: $blue2;
+			font-size: 12px;
+		}
+
+		.box-left{
+			position: absolute;
+			left: 0;
+			top: 31px;
+			width: 140px;
+			height: 140px;
+			background: $blue4;
+			img{
+				width: 100%;
+				height: 140px;
+			}
+		}
+		.box-right{
+			margin-left: 158px;
+			position: relative;
+			.app-info-textarea,
+			.app-name-input{
+				width: 306px;
+				height: 16px;
+				padding: 10px;
+				outline: none;
+				border: none;
+				background: $blue4;
+				color: $blue1;
+			}
+			.app-info-textarea{
+				height: 66px;
+				margin-top: 18px;
+			}
+			&.qrcode-url-box{
+				user-select: initial;
+				width: 306px;
+				background: $blue4;
+				height: 120px;
+				padding: 10px;
+				word-break: break-all;
+			}
+		}
+		h2{
+			margin-top: 51px;
+			padding-left: 5px;
+			border-left: 7px solid $yellow;
+			color: $blue1;
+			font-size: 16px;
+			margin-bottom: 10px;
+		}
+		.infos{
+			position: relative;
+			min-height: 170px;
+		}
+		.qrcode{
+			min-height: 170px;
+			position: relative;
+		}
+		.btns {
+			margin-top: 32px;
+			a{
+				display: inline-block;
+				width: 224px;
+				height: 56px;
+				line-height: 56px;
+				text-align: center;
+				font-size: 16px;
+			}
+			.btn-edit{
+				background: $blue2;
+				color: $blue1;
+			}
+			.btn-publish{
+				background: $yellow;
+				color: #fff;
+				margin-left: 30px;
+			}
+		}
+	}
+}

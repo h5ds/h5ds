@@ -1,0 +1,36 @@
+@import './var.scss';
+
+.temps{
+	position: absolute;
+	width: 330px;
+	background: $blue3;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	z-index: 100;
+	transition:0.5s;
+
+	&[data-status="hide"]{
+		transform:translateX(-330px);
+	}
+	&[data-status="show"]{
+		transform:translateX(0);
+	}
+
+	//折叠按钮
+	.flod-btn{
+		position: absolute;
+		top: 50%;
+		margin-top: -54px;
+		right: -24px;
+		width: 24px;
+		height: 108px;
+		line-height: 108px;
+		text-align: center;
+		color: #fff;
+		background:$yellow; 
+		&:hover{
+			background: $yellow_hover;
+		}
+	}
+}

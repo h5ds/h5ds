@@ -1,0 +1,240 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>UI库</title>
+    <meta name="description" content="Mantou">
+    <meta name="keywords" content="Mantou">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <!-- Set render engine for 360 browser -->
+    <meta name="renderer" content="webkit">
+    <!-- No Baidu Siteapp-->
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <link rel="stylesheet" type="text/css" href="./assets/css/animate.css">
+    <link rel="stylesheet" type="text/css" href="./assets/css/h5ds.css">
+    <link rel="stylesheet" type="text/css" href="./assets/font/iconfont.css">
+    <!--js-->
+    <script src="./assets/plugin/jquery-2.1.1.js"></script>
+    <style type="text/css">
+        body {
+            padding: 20px;
+        }
+        
+        h1 {
+            color: #fff;
+            font-size: 16px;
+        }
+        
+        code {
+            color: #ddd;
+            padding: 0 10px;
+        }
+        
+        .uniq {
+            width: 300px;
+        }
+        
+        .layer {
+            width: 200px;
+            height: 150px;
+            background: #ccc;
+            position: absolute;
+        }
+        
+        .layer img {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+
+<body style="background:#30373f; padding-bottom:200px;position: initial;overflow: initial;">
+
+    <br>
+
+    <input class="mt-input" type="" placeholder="输入框" name="">
+
+    <br>
+    <br>
+
+    <div class="mt-input-search">
+        <input class="" type="" name="">
+        <a class="mt-search-btn iconfont icon-unie664"></a>
+    </div>
+
+    <br>
+    <br>
+
+    <div id="sliderDemo" class="mt-slider-bar" data-val="0.5"></div>
+
+    <br>
+    <br>
+
+    <div id="switchDemo" class="mt-switch" data-val="on">
+        <a class="mt-switch-btn"></a>
+    </div>
+
+    <br>
+
+    <div class="mt-switch" data-val="off">
+        <a class="mt-switch-btn"></a>
+    </div>
+
+    <br>
+
+    <a class="mt-btn-yellow">发布/预览</a>
+
+    <br>
+    <br>
+
+    <div class="mt-select">
+        <select value="0" placeholder="下拉选择">
+		<option value="1">选项1</option>
+		<option value="2">选项2</option>
+		<option value="3">选项3</option>
+		<option value="4">选项4</option>
+		<option value="5">选项5</option>
+	</select>
+    </div>
+
+    <br>
+    <br>
+
+    <div class="mt-select-diy">
+        <div class="mt-select-title">测试</div>
+        <div class="mt-select-body">
+            这里随便写点什么...
+        </div>
+    </div>
+
+    <br>
+    <br>
+
+    <a data-title="这里是提示信息！">提示信息</a>
+
+    <br>
+    <br>
+
+    <a id="tip">点击tip</a>
+
+    <br>
+    <br>
+    
+    <a id="modal" mt-modal='#modalbox1'>Modal弹窗1</a>
+    <!--弹窗-->
+    <div class="mt-modal" id="modalbox1">
+        <div class="mt-modal-box" style="width: 400px; height: 300px;">
+            <a class="mt-modal-close">
+               <i class="iconfont icon-close"></i> 
+            </a>
+            <div class="mt-modal-title">
+                标题
+            </div>
+            <div class="mt-modal-content">
+                ....
+            </div>
+        </div>
+    </div>
+
+    <br>
+    <br>
+
+    <a data-toggle='[{"dom":"#tip","class":"hide"}]'>toggle</a>
+
+    <br>
+    <br>
+
+    <a class="mt-more">more</a>
+
+    <br>
+    <br>
+
+    <div id="pagelist"></div>
+
+    <br>
+    <br>
+
+    <div class="mt-tab mt-tab-style1">
+        <div class="mt-tab-header">
+            <ul>
+                <li class="mt-tab-head mt-active">tab1</li>
+                <li class="mt-tab-head">tab2</li>
+                <li class="mt-tab-head">tab3</li>
+            </ul>
+        </div>
+        <div class="mt-tab-body">
+            <div class="mt-tab-box mt-active">1</div>
+            <div class="mt-tab-box">2</div>
+            <div class="mt-tab-box">3</div>
+        </div>
+    </div>
+
+    <br>
+    <br>
+
+    <div class="mt-tab mt-tab-style2">
+        <div class="mt-tab-header">
+            <ul>
+                <li class="mt-tab-head mt-active">tab1</li>
+                <li class="mt-tab-head">tab2</li>
+                <li class="mt-tab-head">tab3</li>
+            </ul>
+        </div>
+        <div class="mt-tab-body">
+            <div class="mt-tab-box mt-active">1</div>
+            <div class="mt-tab-box">2</div>
+            <div class="mt-tab-box">3</div>
+        </div>
+    </div>
+
+    <br>
+    <br>
+
+    <div class="mt-drag" data-dragset='{"limit":true}'>
+        可拖动框
+    </div>
+
+    <br>
+    <br>
+
+    <div class="uniq">
+        <ul class="mt-uniqlist">
+            <li><a>1</a></li>
+            <li><a>2</a></li>
+            <li class="mt-active"><a>3</a></li>
+            <li><a>4</a></li>
+            <li><a>5</a></li>
+            <li><a>6</a></li>
+        </ul>
+    </div>
+
+    <br>
+    <br>
+
+    <div style="transform:scale(1); position:relative;">
+        <div class="layer" id="resize" style="left:0;top:0; transform:scale(1) translate(10px,10px); display:block;">
+            <img src="/assets/images/pic.jpg" alt="">
+        </div>
+    </div>
+
+    <br> <br> <br> <br> <br> <br> <br>
+    <br> <br> <br>
+
+    <div style="position:relative;">
+
+        <div id="cropimg" data-src="/assets/images/pic.jpg">
+            <img id="cropimg" src="/assets/images/pic.jpg" data-src="/assets/images/pic.jpg" alt="">
+        </div>
+
+    </div>
+
+    <br> <br> <br> <br>
+
+    <a id="upload" class="mt-btn-yellow mt-upload-btn">图片上传</a>
+    <div class="upload-box"></div>
+
+</body>
+
+</html>

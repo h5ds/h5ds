@@ -1,0 +1,15 @@
+$yellow: #ff7800;
+$grey: #666;
+
+// 帮助信息
+.helps{
+    width: 1300px;
+    margin: 0 auto;
+
+    h1{
+        padding: 20px 0;
+        font-size: 16px;
+        text-indent: 10px;
+        border-left: 10px solid $yellow;
+    }
+}

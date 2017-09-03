@@ -1,0 +1,159 @@
+@import './var.scss';
+$head: 60px;
+$boderHei: 4px;
+.source-img {
+    position: relative;
+}
+
+.source {
+    position: absolute;
+    left: 0;
+    top: $head;
+    right: 400px;
+    bottom: 0;
+    background: $blue3;
+    z-index: 1100;
+    display: none;
+    .source-header {
+        height: $head;
+        background: $blue3;
+        line-height: $head;
+        border-bottom: $boderHei solid $blue4;
+        h1 {
+            font-size: 16px;
+            padding-left: 20px;
+            color: $blue1;
+            em {
+                font-size: 12px;
+                color: $yellow;
+            }
+        }
+        .close-source {
+            position: absolute;
+            color: $yellow;
+            right: 10px;
+            top: 0;
+            .iconfont {
+                font-size: 20px;
+            }
+        }
+    }
+    .source-body {
+        position: absolute;
+        top: $head + $boderHei;
+        width: 100%;
+        bottom: 0;
+    }
+    .source-menu {
+        width: 120px;
+        background: $blue4;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        overflow: auto;
+    }
+    .source-content {
+        margin-left: 120px;
+        height: 100%;
+        overflow: auto;
+    }
+    .source-menu {
+        li {
+            margin: 10px;
+            font-size: 14px;
+            padding: 5px 0;
+            text-align: center;
+        }
+        .active {
+            background: $blue3;
+            a {
+                color: $yellow;
+            }
+        }
+        a {
+            font-size: 14px;
+        }
+    }
+    .source-type {
+        position: relative;
+        height: 40px;
+        overflow: hidden;
+        .source-type-more {}
+        ul {
+            margin: 10px;
+            .active {
+                a {
+                    color: #fff;
+                }
+                background: $yellow;
+                &:hover {
+                    background: $yellow;
+                }
+            }
+        }
+        .item,
+        .more {
+            display: inline-block;
+            font-size: 14px;
+            padding: 3px 12px;
+            margin: 0 5px 10px 0;
+            background: $blue4;
+            a {
+                color: $blue1;
+            }
+            &:hover {
+                a {
+                    color: #fff;
+                }
+                background: $blue2;
+            }
+        }
+    }
+}
+
+.sourceitem {
+    display: none;
+}
+
+.imgsys-list {
+    margin: 10px;
+    li {
+        float: left;
+        position: relative;
+        margin: 0 10px 10px 0;
+        cursor: pointer;
+        .del-my-img {
+            display: inline-block;
+            position: absolute;
+            top: 0;
+            right: 0;
+            background: $yellow;
+            color: #fff;
+            z-index: 100;
+            padding: 0 2px;
+        }
+        .imgbox {
+            width: 120px;
+            height: 80px;
+            text-align: center;
+            background: $bg;
+            &:before {
+                content: '';
+                display: inline-block;
+                width: 0px;
+                height: 100%;
+                vertical-align: middle;
+            }
+            img {
+                display: inline-block;
+                max-width: 99%;
+                max-height: 99%;
+                vertical-align: middle;
+            }
+        }
+    }
+}
+
+.img-pagelist {
+    margin: 10px;
+}

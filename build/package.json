@@ -1,0 +1,32 @@
+{
+  "name": "h5",
+  "version": "0.0.1",
+  "description": "Mantou",
+  "keywords": [
+    "spider"
+  ],
+  "homepage": "",
+  "author": "mantou",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-cli": "^6.24.0",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-es2015": "^6.24.0",
+    "babel-watch": "^2.0.7",
+    "body-parser": "^1.17.1",
+    "cookie-parser": "^1.4.3",
+    "cookie-session": "^2.0.0-beta.1",
+    "express": "^4.15.2",
+    "express-session": "^1.15.5",
+    "formidable": "^1.1.1",
+    "mysql": "^2.13.0"
+  },
+  "scripts": {
+    "start": "babel-watch server"
+  },
+  "dependencies": {
+    "captchapng": "^0.0.1",
+    "compression": "^1.7.0",
+    "silly-datetime": "^0.1.2"
+  }
+}

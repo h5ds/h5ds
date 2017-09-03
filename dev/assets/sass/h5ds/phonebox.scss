@@ -1,0 +1,97 @@
+@import './var.scss';
+
+.phonebox{
+	width:320px;
+	height:486px;
+	background:$white;
+	display:inline-block;
+	box-shadow:0 0 5px rgba(0,0,0,.5);
+	position:absolute;
+	left: 50%;
+	top: 40px;
+	margin:0 0 40px -160px;
+	transform-origin: top;
+	transition: 0.3s;
+	z-index: 100;
+
+	.element-show{
+		.element {
+			opacity: 1!important;
+		}
+	}
+
+	// 网格
+	.grid-box{
+		pointer-events: none;
+		position: absolute;
+		z-index: 1100;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+		.row, .col{
+			position: absolute;
+			z-index: 10;
+			top: 0;
+			left: 0;
+			height: 100%;
+			width: 100%;
+			opacity: 0.3;
+		}
+		.row li{
+			height: 1px;
+			background: #00ffff;
+			width: 100%;
+			margin-top: 15px;
+		}
+
+		.col li{
+			width: 1px;
+			background: #00ffff;
+			height: 100%;
+			float: left;
+			margin-left: 15px;
+		}
+	}
+
+	.animation-disabled{
+		.layer .element{
+			animation: none!important;
+		}
+	}
+	
+	.phone-app{
+		width: 100%;
+		height: 100%;
+		position:relative;
+		z-index: 999;
+	}
+
+	.page-view{
+		width: 100%;
+		height: 100%;
+		position:relative;
+		z-index: 1000;
+	}
+
+	.layer{
+		position: absolute;
+		box-sizing: border-box;
+		.element{
+			width: 100%;
+			height: 100%;
+			position: relative;
+			overflow: hidden;
+			box-sizing: border-box;
+		}
+	}
+
+	.layer-img{
+		img{
+			width: 100%;
+			height: 100%;
+			border-radius: inherit;
+		}
+	}
+}

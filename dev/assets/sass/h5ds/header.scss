@@ -1,0 +1,99 @@
+@import './var.scss';
+
+//顶部
+.header{
+	background: $blue4;
+	color: $blue1;
+	vertical-align: middle;
+	height: 60px;
+	position: absolute;
+	left: 0;
+	right: 0;
+	top:0;
+	z-index: 1000;
+	.logo{
+		display: inline-block;
+		// width:140px;
+		height:100%;
+		line-height:60px;
+		text-align:center;
+		text-indent: 20px;
+		font-size: 20px;
+		span{
+			color: $yellow;
+		}
+		i{
+			font-size: 12px;
+			font-style: normal;
+			color: #5C6773;
+			margin-left: 10px;
+		}
+	}
+
+	.appset{
+		position:absolute;
+		width: 750px;
+		height:100%;
+		left:45%;
+		transform: translateX(-50%);
+		right:200px;
+		top: 0;
+		vertical-align:middle;
+		text-align:center;
+
+		&:before{
+			height:100%;
+			content:'';
+			display:inline-block;
+			vertical-align:middle;
+		}
+
+		/*设置按钮*/
+		.set-btn{
+			font-size:14px;
+			vertical-align:middle;
+			color:$blue1;
+			.iconfont{
+				margin:0 5px;
+				font-size:20px;
+				vertical-align:middle;
+			}
+			margin-right: 10px;
+		}
+		.appname{
+			display:inline-block;
+			background:$blue4;
+			width:200px;
+			height:28px;
+			vertical-align:middle;
+			background:$blue3;
+			border-radius:100px;
+			position:relative;
+			margin-right:20px;
+			font-size: 14px;
+			line-height:28px;
+			padding: 0 30px 0 10px;
+			transition: 0.5s;
+			cursor: pointer;
+			&:hover{
+				background:$blue5;
+			}
+			.input{
+				border:none;
+				height:100%;
+				color:$blue1;
+				overflow:hidden;
+				width:200px;
+				overflow:hidden;
+				text-overflow: ellipsis;
+				white-space:nowrap; 
+			}
+			a{
+				position:absolute;
+				right:10px;
+				top:50%;
+				margin-top:-12px;
+			}
+		}
+	}
+}

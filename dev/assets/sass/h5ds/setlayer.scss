@@ -1,0 +1,243 @@
+@import './var.scss';
+
+.setlayer{
+	position:absolute;
+	top:0;
+	left:50px;
+	right: 0;
+	bottom:0;
+
+	// 页面名字
+	.setname{
+		padding:5px;
+		font-size: 12px;
+		color: $blue1;
+		span{
+			height: 20px;
+			width: 260px;
+			display: inline-block;
+			overflow: hidden;
+			color: $white;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+			vertical-align: middle;
+		}
+	}
+	.tabsbox{
+		.mt-tab-head{
+			width: 27.5%;
+			text-align: center;
+		}
+		.mt-tab-body{
+			position:absolute;
+			top: 60px;
+			bottom:0;
+			left: 0;
+			right: 0;
+			overflow-y: auto;
+			overflow-x: hidden;
+		}
+		.mt-tab-box{
+			padding:12px;
+			padding-bottom:40px;
+		}
+	}
+
+	.img-null{
+		width: 323px;
+		height: 218px;
+		cursor: pointer;
+		background: $blue4;
+		color: $blue2;
+		display: inline-block;
+		position: relative;
+		text-align: center;
+		line-height: 280px;
+		transition: 0.3s;
+		&:hover{
+			background: $blue5;
+		}
+		&:after{
+			display: inline-block;
+			content: '\e602';
+			font-family: "iconfont" !important;
+			position: absolute;
+		    font-size: 60px;
+		    left: 50%;
+		    top: 50%;
+		    margin: -50px 0 0 -32px;
+		    opacity: 0.2;
+		    line-height: normal;
+		}
+	}
+
+	.tr{
+		padding:10px 0;
+		color: $blue1;
+		font-size: 14px;
+		.mt-switch,.iconfont,.mt-input,.mt-slider-bar,input[type="color"]{
+			vertical-align:middle;
+		}
+	}
+	input[type="color"]{
+		margin-right: 10px;
+	}
+	
+	//设置APP基本信息
+	.set-appinfo{
+		border-bottom:1px solid $blue4;
+		padding-bottom: 10px;
+		.mt-input,.mt-textarea{
+			width: 280px;
+			text-align: left;
+			text-indent: 10px;
+		}
+		.mt-textarea{
+			height: 80px;
+		}
+		img{
+			vertical-align: top;
+		}
+		.mt-upload-btn{
+			width: 100px;
+			height: 100px;
+			display: inline-block;
+		}
+	}
+
+	//设置背景
+	.set-bg{
+		.mt-selectone{
+			display: inline-block;
+			.option{
+				background:$blue4;
+				padding:2px 6px;
+				margin-right:5px;
+			}
+			.mt-selected{
+				background:$yellow;
+				color: #fff;
+			}
+		}
+	}
+
+	.set-bgcolor{
+		border-bottom:1px solid $blue4;
+		margin-bottom: 10px;
+	}
+
+	//设置翻页动画
+	.set-slider{
+		.mt-selectone{
+			.option{
+				display: inline-block;
+				width: 50px;
+				height: 70px;
+				background:$blue2;
+			}
+			.mt-selected{
+				background:$yellow;
+			}
+		}
+		.mt-input{
+			width: 40px;
+		}
+	}
+	
+	//设置基本
+	.set-baisc{
+		.tr{
+			padding:0 0 10px 0;
+		}
+		em{
+			display: inline-block;
+			width: 55px;
+			text-align: right;
+			font-size: 12px;
+			&:after{
+				content: '：';
+				display: inline-block;
+			}
+		}
+		span{
+			display: inline-block;
+			margin-right: 20px;
+		}
+	}
+
+	//设置更多
+	.set-baiscmore{
+		margin-top: 10px;
+		h5{
+			display: inline-block;
+			width: 50px;
+		}
+		.tr{
+			padding:8px 0;
+		}
+	}
+
+	// 交互设置
+	.set-layer-ue{
+		li{
+			float: left;
+			width: 60px;
+			height: 50px;
+			background:$blue4;
+			margin:0 5px 5px 0;
+			padding-top:10px;
+			text-align: center;
+			color: $blue1;
+			cursor: pointer;
+			.iconfont{
+				font-size: 20px;
+			}
+			span{
+				display: block;
+				font-size: 12px;
+			}
+			&:hover{
+				color:$white;
+				background: $yellow;
+			}
+		}
+	}
+	.setue-set{
+		position: absolute;
+		width: 100%;
+		z-index: 1000;
+		background: $blue3;
+		top: 4px;
+		bottom: 0;
+		left: 0;
+		transition: .4s;
+		transform: translateX(0);
+		.close-setue{
+			position: absolute;
+			font-weight: bolder;
+			right: 10px;
+			top: 10px;
+			color: $yellow;
+		}
+		.setue-title{
+			margin: 10px;
+			color: $blue1;
+			font-size: 14px;
+		}
+		.setue-set-box{
+			.uebox{
+				margin: 0 10px;
+			}
+			position: absolute;
+			top: 40px;
+			bottom: 0;
+			left: 0;
+			width: 100%;
+			overflow: auto;
+		}
+	}
+	.setue-set-hide{
+		transform: translateX(350px);
+	}
+
+}

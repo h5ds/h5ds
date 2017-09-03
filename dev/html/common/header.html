@@ -1,0 +1,23 @@
+<!--头部-->
+<div class="header">
+	<div class="header-box clearfix">
+		<a href="/"><img class="logo" src="/assets/images/logo.png" alt=""></a>
+		<div class="header-nav">
+			<ul>
+				<li data-name="/"><a href="/">首页</a></li>
+				<!-- <li data-name="/help"><a href="/help">帮助</a></li> -->
+				<li data-name="/case"><a href="/case">编辑器</a></li>
+				<li style="display: none" data-name="logout"><a href="/api/logout">退出</a></li>
+				<!-- <li data-name="/4"><a href="/">社区</a></li> -->
+			</ul>
+		</div>
+	</div>
+</div>
+
+<script>
+	$(function () {
+		var name = '/' + location.pathname.split('/')[1];
+		$('.header-nav').find('li[data-name="' + name + '"]').addClass('active');
+	});
+
+</script>
