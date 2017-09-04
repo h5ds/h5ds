@@ -61,6 +61,7 @@ function router(app, express) {
     app.get('/register', function (req, res) { res.sendfile('./tpl/register.html'); }); // 注册
     app.get('/help', function (req, res) { res.sendfile('./tpl/help.html'); }); // 帮助
     app.get('/plus', function (req, res) { res.sendfile('./tpl/plus.html'); }); // 插件
+    app.get('/license', function (req, res) { res.sendfile('./tpl/license.html'); }); // 插件
 
     app.get('/case', authorize, function (req, res) { res.sendfile('./tpl/case.html'); }); // 案例
     app.get('/edit', authorize, function (req, res) { res.sendfile('./tpl/edit.html'); }); // 编辑器

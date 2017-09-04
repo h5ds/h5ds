@@ -952,6 +952,11 @@ body {
       right: 0;
       width: 100px;
       padding-top: 20px; }
+  .footer .powerby {
+    font-size: 12px;
+    color: #fff;
+    margin-top: 20px;
+    display: block; }
 
 .header {
   background: #323436;
@@ -1005,9 +1010,9 @@ body {
   background: #222; }
   .main-pic .main-inner {
     height: 100%;
-    width: 1200px;
+    width: 1300px;
     margin: 0 auto;
-    background: url("/assets/images/pic.jpg") no-repeat;
+    background: url("/assets/images/pic.jpg") no-repeat center;
     text-align: center; }
     .main-pic .main-inner h1 {
       font-size: 43px;
@@ -1053,7 +1058,7 @@ body {
         display: inline-block; }
 
 .main-module {
-  width: 1200px;
+  width: 1300px;
   margin: 0 auto;
   text-align: center; }
   .main-module h1.title {
@@ -1101,16 +1106,16 @@ body {
 .plus {
   background: #222; }
   .plus .slider {
-    width: 1200px;
+    width: 1300px;
     height: 380px;
     background: #fff;
     margin: 10px auto; }
   .plus .list {
-    width: 1200px;
+    width: 1300px;
     overflow: hidden;
     margin: 0 auto; }
     .plus .list .ul-list {
-      width: 1220px; }
+      width: 1320px; }
     .plus .list .item {
       float: left;
       display: inline-block;
@@ -1236,9 +1241,29 @@ body {
 
 .helps {
   width: 1300px;
-  margin: 0 auto; }
+  margin: 0 auto;
+  padding: 40px 0;
+  text-align: center; }
   .helps h1 {
-    padding: 20px 0;
     font-size: 16px;
     text-indent: 10px;
-    border-left: 10px solid #ff7800; }
+    border-left: 10px solid #ff7800;
+    margin-bottom: 20px; }
+  .helps img {
+    width: 1000px; }
+
+.license {
+  width: 1300px;
+  margin: 0 auto;
+  padding: 40px 0; }
+  .license .license-read {
+    text-align: center;
+    padding: 40px 0 100px 0; }
+  .license .read-no, .license .read-ok {
+    display: inline-block;
+    padding: 10px 35px;
+    margin: 0 10px;
+    background: #ff7800;
+    color: #fff; }
+  .license .read-no {
+    background: #666; }

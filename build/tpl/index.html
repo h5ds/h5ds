@@ -31,7 +31,7 @@
 <!--临时加入-->
 <!-- <script src="http://localhost:8000/webpack-dev-server.js"></script> -->
 <!-- endinject -->
-<link href="/assets/css/main.css?a3c5355673fe5fcf6b8c" rel="stylesheet"></head>
+<link href="/assets/css/main.css?2a200bb9d71fcb4336da" rel="stylesheet"></head>
 
 <body>
     <!-- inject:header -->
@@ -42,10 +42,10 @@
 		<div class="header-nav">
 			<ul>
 				<li data-name="/"><a href="/">首页</a></li>
-				<!-- <li data-name="/help"><a href="/help">帮助</a></li> -->
-				<li data-name="/case"><a href="/case">编辑器</a></li>
+				<li data-name="/case"><a href="/case">免费试用</a></li>
+				<li data-name="/license"><a href="/license">源码下载</a></li>
+				<li data-name="/help"><a href="/help">产品介绍</a></li>
 				<li style="display: none" data-name="logout"><a href="/api/logout">退出</a></li>
-				<!-- <li data-name="/4"><a href="/">社区</a></li> -->
 			</ul>
 		</div>
 	</div>
@@ -56,7 +56,6 @@
 		var name = '/' + location.pathname.split('/')[1];
 		$('.header-nav').find('li[data-name="' + name + '"]').addClass('active');
 	});
-
 </script>
 <!-- endinject -->
 
@@ -68,7 +67,7 @@
                 <h1>汇集最优秀的coding，做最优秀的产品</h1>
                 <h2>HTML5 Design Softwore</h2>
                 <div class="btns">
-                    <a href="javascript:alert('敬请期待！');" class="btn btn-introduce"><i class="iconfont"></i>产品介绍</a>
+                    <a href="/license" class="btn btn-introduce"><i class="iconfont"></i>源码下载</a>
                     <a href="/case" class="btn btn-downcode"><i class="iconfont"></i>开始创作</a>
                 </div>
                 <div class="downcount">
@@ -156,15 +155,14 @@
 		<div class="links">
 			<h1>友情链接：</h1>
 			<ul>
-				<li><a href="#">THX</a></li>
-				<li><a href="#">淘宝UED</a></li>
-				<li><a href="#">阿里巴巴国际站</a></li>
-				<li><a href="#">天猫UED</a></li>
-				<li><a href="#">React</a></li>
-				<li><a href="#">Vue</a></li>
+				<li><a href="http://h5ds.com">h5ds</a></li>
+				<li><a href="http://jquery.com">jquery</a></li>
+				<li><a href="http://www.aliued.com">淘宝UED</a></li>
+				<li><a href="http://www.iconfont.cn">iconfont</a></li>
 			</ul>
+			<a class="powerby" href="http://h5ds.com">Powered by H5DS</a>
 			<div class="copyright">
-				Copyright © 2010-2014 成都飞酷网络科技有限公司 版权所有. 蜀ICP备14012609
+				Copyright © 2010-2017 成都飞酷网络科技有限公司 版权所有. 蜀ICP备14012609
 			</div>
 		</div>
 		<div class="qrcode">
@@ -174,6 +172,6 @@
 </div>
 <!-- endinject -->
 
-<script type="text/javascript" src="/assets/js/main.js?a3c5355673fe5fcf6b8c"></script></body>
+<script type="text/javascript" src="/assets/js/main.js?2a200bb9d71fcb4336da"></script></body>
 
 </html>

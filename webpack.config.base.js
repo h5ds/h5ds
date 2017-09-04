@@ -116,6 +116,12 @@ export default {
             template: './dev/html/noFind.html', // 当前目录下
             filename: 'tpl/noFind.html' // 生成到build目录
         }),
+        new HtmlWebpackPlugin({
+            hash: true,
+            chunks: ['main'],
+            template: './dev/html/license.html', // 当前目录下
+            filename: 'tpl/license.html' // 生成到build目录
+        }),
         new HtmlInjectPlugin({ // html 拆分
             bodys: [{
                 flagname: 'center',

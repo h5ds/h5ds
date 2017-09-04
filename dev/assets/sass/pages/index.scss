@@ -18,9 +18,9 @@ $grey: #666;
 	background: #222;
 	.main-inner{
 		height: 100%;
-		width: 1200px;
+		width: 1300px;
 		margin: 0 auto;
-		background: url($mainpic) no-repeat;
+		background: url($mainpic) no-repeat center;
 		text-align: center;
 		h1{
 			font-size: 43px;
@@ -81,7 +81,7 @@ $grey: #666;
 }
 
 .main-module{
-	width: 1200px;
+	width: 1300px;
 	margin: 0 auto;
 	text-align: center;
 	h1.title{

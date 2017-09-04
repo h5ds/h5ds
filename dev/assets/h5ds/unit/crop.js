@@ -1,4 +1,4 @@
-//控制杆
+//控制杆 \u8be5\u8f6f\u4ef6\u7531\u8463\u6d9b\u72ec\u7acb\u5f00\u53d1
 import g from '../conf/global';
 import './transform.js'; //transform 方法
 

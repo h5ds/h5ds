@@ -5,11 +5,37 @@ $grey: #666;
 .helps{
     width: 1300px;
     margin: 0 auto;
+    padding: 40px 0;
+    text-align: center;
 
     h1{
-        padding: 20px 0;
         font-size: 16px;
         text-indent: 10px;
         border-left: 10px solid $yellow;
+        margin-bottom: 20px;
+    }
+
+    img{
+        width: 1000px;
+    }
+}
+
+.license{
+    width: 1300px;
+    margin: 0 auto;
+    padding: 40px 0;
+    .license-read{
+        text-align: center;
+        padding: 40px 0 100px 0;
+    }
+    .read-no, .read-ok{
+        display: inline-block;
+        padding: 10px 35px;
+        margin: 0 10px;
+        background: $yellow;
+        color: #fff;
+    }
+    .read-no{
+        background: $grey;
     }
 }
