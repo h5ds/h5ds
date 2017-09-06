@@ -122,9 +122,20 @@ export function initCrop(self, $crop, set, callback) {
     //     // console.log('换图', val);
     // })
 
-    // 选择图片
+    // 选择图片, 这里感觉右侧的编辑区域，判断当前应该调用哪个事件
+    let evName = 'layer';
+    if(!$('#setAppBox').is(':hidden')) {
+        evName = 'app';
+    }else if(!$('#setPageBox').is(':hidden')) {
+        evName = AppData.edit.pageType;
+    }else if(!$('#setLayerBox').is(':hidden')) {
+        evName = 'layer';
+    }else {
+        // ...
+    }
+
     // console.log('初始化选择图片的方法');
-    $crop.off('selectImg.layer').on('selectImg.layer', (e, val) => {
+    $crop.off('selectImg.' + evName).on('selectImg.' + evName, (e, val) => {
         $crop.attr({
             'data-oldsrc': val,
             'data-src': val
