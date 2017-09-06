@@ -918,6 +918,21 @@ input[type="color"]::-webkit-color-swatch-wrapper {
     .mt-contextmenu li:hover {
       background: #ff5402;
       color: #fff; }
+
+.mt-checkbox-group {
+  display: inline-block; }
+
+.mt-checkbox-item {
+  display: inline-block;
+  font-size: 13px;
+  padding: 5px 15px;
+  color: #252a2e;
+  background: #a5b6c8;
+  cursor: pointer; }
+
+.mt-checkbox-active {
+  background: #ff5402;
+  color: #fff; }
 body {
   user-select: initial; }
 

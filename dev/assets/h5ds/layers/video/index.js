@@ -10,7 +10,7 @@ export function videoDom(obj) {
     let shtml = '';
     let d = obj.data;
     return `
-    <div data-uefun="${obj.ue ? $.escape(obj.ue) : ''}" class="layer layer-text" style="${$.toStyle(obj.style)}">
+    <div id="${obj.id || ''}" data-uefun="${obj.ue ? $.escape(obj.ue) : ''}" class="layer layer-text" style="${$.toStyle(obj.style)}">
         <div class="element" style="${$.toStyle(obj.estyle, obj.animate)}">
             ${obj.data}
         </div>

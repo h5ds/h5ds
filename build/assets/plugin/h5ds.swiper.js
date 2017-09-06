@@ -323,7 +323,7 @@ $(function () {
 // 交互事件
 function initH5dsSwiperUeFun(swiper) {
 
-    $('#h5dsSwiper').find('.layer[data-uefun]').each(function () {
+    $(document).find('[data-uefun]').each(function () {
         var $this = $(this);
         var obj = $this.attr('data-uefun'); // 
         if (obj) {
@@ -339,6 +339,7 @@ function initH5dsSwiperUeFun(swiper) {
                     case 'toPage': toPage(obj, $this, swiper); break;
                     case 'tel': toTel(obj, $this, swiper); break;
                     case 'msg': toMsg(obj, $this, swiper); break;
+                    case 'hideShow': toHideShow(obj, $this, swiper); break;
                 }
             }
         }
@@ -377,6 +378,35 @@ function toPage(obj, $layer, swiper) {
     $layer.swipe({
         tap: function (e) {
             swiper.toPage(obj.data);
+        }
+    });
+}
+
+// 隐藏显示元素
+function toHideShow(obj, $layer, swiper) {
+    $layer.swipe({
+        tap: function (e) {
+            var ids = obj.data.ids.split(',');
+            if(obj.data.type === 'hide') {
+                ids.forEach(function(elem, index){
+                    $('#' + elem).hide();
+                });
+            }else if(obj.data.type === 'show') {
+                ids.forEach(function(elem, index){
+                    $('#' + elem).show();
+                });
+            }else if(obj.data.type === 'showhide') {
+                ids.forEach(function(elem, index){
+                    var $dom = $('#' + elem);
+                    if($dom.is(':hidden')) {
+                        $dom.show();
+                    }else {
+                        $dom.hide();
+                    }
+                });
+            }else {
+                // ...
+            }
         }
     });
 }

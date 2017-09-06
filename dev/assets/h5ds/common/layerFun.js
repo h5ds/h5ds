@@ -1,12 +1,12 @@
 import { asyncBasic } from '../templete/basicTpl'; //基础模版
 import { asyncRotate } from '../templete/basicMoreTpl'; // 拓展模版
-import { setAppDataEdit, AppDataChange } from './AppDataFun.js';
+import { setAppDataEdit, AppDataChange, saveHistory, getViewDom } from './AppDataFun.js';
 
 //初始化控制器
 // 通过 AppData里面的 参数 自动实例化
 export function initControl(self) {
 
-    var $pageView = $('#pageView');
+    var $pageView = getViewDom();
     var $nowlayer = $pageView.find('.layer').eq(AppData.edit.layerIndex);
 
     var $control = $pageView.find('.mt-control');
@@ -85,8 +85,12 @@ export function layerShow(dom) {
 */
 export function uniqendLayer(self, data) {
     console.log('排序', data);
+
+    // 存个历史记录
+    saveHistory();
+
     //交换layers。需要重新排序 from 变成了 to， 但是 from - to 中间这段，都加了1
-    let arr = self.page.layers;
+    let arr = self[self.className].layers;
     let fromData = arr[data.from];
 
     // 从下往上

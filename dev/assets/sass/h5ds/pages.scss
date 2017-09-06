@@ -48,6 +48,12 @@ $liwidth : 22px;
 		position:relative;
 		overflow: hidden;
 		background:$blue2;
+		span{
+			display: block;
+			overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+		}
 	}
 	.page-info{
 		position:absolute;

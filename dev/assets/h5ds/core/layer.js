@@ -46,7 +46,7 @@ class Layer {
             y: style.top,
             height: style.height,
             width: style.width
-        })
+        });
 
         // 拓展模板 - 滚动条
         let boxshadow = boxshadowFilter(estyle['box-shadow']);

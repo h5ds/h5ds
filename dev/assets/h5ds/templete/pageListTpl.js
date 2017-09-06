@@ -2,16 +2,18 @@
  * page 列表的模板
 */
 
-export function pageListTpl(obj) {
+export function pageListTpl(obj, type) {
     return ` 
 	<li class="page-item" data-name="${obj.name}">
 		<div class="page-content">
-			${obj.name}
+            <span class="page-name">${obj.name}</span>
+            ${!obj.id ? '' : `<span class="page-id">ID: ${obj.id}</span>`}
 		</div>
 		<div class="page-info">
-		 	<a class="important edit-page" data-title="编辑页面信息"><i class="iconfont icon-bianji1"></i></a>
-		 	<a class="copy-page" data-title="复制页面"><i class="iconfont icon-fuzhi"></i></a>
-			<a class="del-page" data-title="删除页面"><i class="iconfont icon-icodel"></i></a>
+             <a class="important edit-page" data-title="编辑页面信息"><i class="iconfont icon-bianji1"></i></a>
+             ${type !== 'fixed' ? 
+             `<a class="copy-page" data-title="复制页面"><i class="iconfont icon-fuzhi"></i></a>
+             <a class="del-page" data-title="删除页面"><i class="iconfont icon-icodel"></i></a>` : ''}
 		</div>
 	</li>`
 }
@@ -32,7 +34,7 @@ export function destoryControl() {
 // page 列表的事件
 export function initPageListEvent(self) {
     //选择page    , canRender 强行渲染
-    $('#pagesList').off('click').on('click', '.page-item', function (e, canRender) {
+    $('#pagesList, #popupsList, #fixedsList').off('click').on('click', '.page-item', function (e, canRender) {
         e.stopPropagation();
         $(this).addClass('active').siblings('.page-item').not('.mt-uniq-clone').removeClass('active');
         let index = $(this).index();
@@ -43,14 +45,24 @@ export function initPageListEvent(self) {
         // 销毁控制器
         destoryControl();
 
+        console.log(e.delegateTarget.id);
+
+        let pageType = 'pages';
+        if(e.delegateTarget.id === 'popupsList') {
+            pageType = 'popups';
+        }else if(e.delegateTarget.id === 'fixedsList') {
+            pageType = 'fixeds';
+        }
+        AppData.edit.pageType = pageType;
+
         //new page
         self.newPage(index, canRender);
     });
 
     //排序回调
-    $('#pagesList').off('uniqend').on('uniqend', function (e, data) {
+    $('#pagesList, #popupsList, #fixedsList').off('uniqend').on('uniqend', function (e, data) {
         //交换pages。需要重新排序 from 变成了 to， 但是 from - to 中间这段，都加了1
-        let pages = self[self.className].pages;
+        let pages = self.app[AppData.edit.pageType];
         let fromData = pages[data.from];
 
         // 从下往上

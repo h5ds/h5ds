@@ -23,6 +23,7 @@ a,button,input,optgroup,select,textarea{
     position: relative;
     width: 100%;
     height: 100%;
+    z-index: 100;
     display: inline-block;
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
@@ -48,7 +49,7 @@ a,button,input,optgroup,select,textarea{
     position: absolute;
     top: 0;
     left: 0;
-    opacity: 0;
+    opacity: 0; /* 先渲染，兼容苹果的bug */
 }
 .h5ds-swiper-current{
     z-index: 100;
@@ -157,4 +158,41 @@ a,button,input,optgroup,select,textarea{
 }
 .h5ds-video-iconing i:nth-child(4) {
     animation-delay: 0.4s;
+}
+
+/* 弹窗 */
+#h5dsPopups, #h5dsFixeds{
+    position: absolute;
+    z-index: 1000;
+    width: 0;
+    height: 0;
+    top: 0;
+    left: 0;
+}
+#h5dsFixeds{
+    z-index: 900;
+}
+#h5dsFixeds .h5ds-swiper-page,
+#h5dsPopups .h5ds-swiper-page{
+    display: none;
+    height: 486px;
+    width: 320px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 1;
+}
+#h5dsFixeds .h5ds-swiper-page{
+    display: block;
+    overflow: visible;
+    width: 0;
+    height: 0;
+}
+#h5dsFixeds .h5ds-swiper-page .h5ds-swiper-layers {
+    width: 0;
+    height: 0;
+}
+#h5dsFixeds .h5ds-swiper-page .layer,
+#h5dsPopups .h5ds-swiper-page .layer{
+    display: block;
 }

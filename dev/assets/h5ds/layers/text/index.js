@@ -13,7 +13,7 @@ export function textDom(obj) {
         shtml = `<div class="el-text" style="${d.fontStyle}">${d.data}</div>`
     }
     return `
-    <div data-uefun="${obj.ue ? $.escape(obj.ue) : ''}" class="layer layer-text" style="${$.toStyle(obj.style)}">
+    <div id="${obj.id || ''}" data-uefun="${obj.ue ? $.escape(obj.ue) : ''}" class="layer layer-text" style="${$.toStyle(obj.style)}">
         <div class="element" style="${$.toStyle(obj.estyle, obj.animate)}">
             ${shtml || '<div>请输入文本内容</div>'}
         </div>
@@ -54,16 +54,27 @@ export default class Text extends Layer {
 
         // 自定义事件
         $exTextEdit.off('keyup').on('keyup', function (e) {
-            // let sHtml = filterTxt($(this));
-            $(this).trigger('edit');
+            // 复制内
+            if(e.ctrlKey && e.keyCode === 86) {
+                e.stopPropagation();
+                $(this).trigger('edit', 'copy');
+            }else {
+                $(this).trigger('edit');
+            }
         });
 
         // 变化事件监听
         // console.log('绑定');
-        $exTextEdit.off('edit').on('edit', function (e) {
+        $exTextEdit.off('edit').on('edit', function (e, copy) {
             let $this = $(this);
             let style = $this.attr('style');
-            let sHtml = $this.html();
+            let sHtml = '';
+
+            // 如果是复制内容, 自动清除格式
+            if(copy) {
+                $this.removeAttr('style').find('span').removeAttr('style');
+            }
+            sHtml = $this.html();
             let eHtml = `<div style="${style}" class="el-text">${sHtml}</div>`;
             // console.log('$$$$', style);
             // 重新设置layer 对象

@@ -9,12 +9,15 @@ import { setPage } from '../common/pageFun';
 import { layerShow } from '../common/layerFun'; //控制编辑区域显示隐藏的方法
 import { addLayer } from '../common/layerSwitch';
 import g from '../conf/global';
-import { getDataPage, AppDataChange, removeDataPage, copyPageData, addNewPageData } from '../common/AppDataFun.js';
+import { getDataPage, AppDataChange, removeDataPage, copyPageData, addNewPageData, getViewDom, getPageListDom } from '../common/AppDataFun.js';
 import { appToHTML, eventAppViewShow } from '../common/saveApp';
 
 import Page from './page.js';
+import Popup from './popup.js';
+import Fixed from './fixed.js';
 import Animate from './animate.js';
-import { iniFastEvent, groupLayers } from '../common/appFun'; // 画布的快捷操作
+import { iniFastEvent } from '../common/appFun'; // 画布的快捷操作
+import { groupLayers } from '../common/appFunLayerGroup'; // layer 组的操作
 
 import { loadHTML } from '../conf/loading'; // 加载图标
 
@@ -30,7 +33,9 @@ class AppNew {
         this.loading = loading || 0;
         this.slider = slider || 0;
         this.style = style || '';
-        this.pages = pages || [];
+        this.pages = pages || []; // 页面
+        this.popups = popups || []; // 弹窗
+        this.fixeds = fixeds || []; // 浮动层
     }
 }
 
@@ -41,17 +46,49 @@ class App {
         this.className = 'app';
     }
 
-    //设置左侧页面列表
+    // 设置左侧页面列表， 内部调用
     setPageList() {
+        let tpls = '';
+        let pages = this.app[AppData.edit.pageType];
+        for (let i = 0; i < pages.length; i++) {
+            let page = pages[i];
+            tpls += pageListTpl(page, 'page');
+        }
+        getPageListDom().html(tpls);
+    }
+
+    //设置左侧页面列表
+    setPagePage() {
         let tpls = '';
         let pages = this.app.pages;
         for (let i = 0; i < pages.length; i++) {
             let page = pages[i];
-            tpls += pageListTpl({
-                name: page.name
-            });
+            tpls += pageListTpl(page, 'page');
         }
-        $('#pagesList').empty().html(tpls);
+        $('#pagesList').html(tpls);
+    }
+
+    //设置左侧弹窗列表
+    setPagePopup() {
+        let tpls = '';
+        let popups = this.app.popups;
+        for (let i = 0; i < popups.length; i++) {
+            let popup = popups[i];
+            tpls += pageListTpl(popup, 'popup');
+        }
+        $('#popupsList').html(tpls);
+    }
+
+    //设置左侧浮动元素列表
+    setPageFlex() {
+        // ...
+        let tpls = '';
+        let fixeds = this.app.fixeds;
+        for (let i = 0; i < fixeds.length; i++) {
+            let fixed = fixeds[i];
+            tpls += pageListTpl(fixed, 'fixed');
+        }
+        $('#fixedsList').html(tpls);
     }
 
     // 释放组合的选择
@@ -131,16 +168,6 @@ class App {
         });
     }
 
-    //设置左侧弹窗列表
-    setPagePopup() {
-        // ...
-    }
-
-    //设置左侧浮动元素列表
-    setPageFlex() {
-        // ...
-    }
-
     //设置操作区
     initSet() {
         let { style, name, info, img, slider } = this.app;
@@ -194,7 +221,7 @@ class App {
     // 事件
     eventFun() {
         let self = this;
-        let $pagesList = $('#pagesList');
+        let $pagesList = $('#pagesList, #popupsList, #fixedsList');
 
         // loading 选择
         $('#setAppLoading').on('click', '.loader', function (e) {
@@ -209,7 +236,6 @@ class App {
         initAppSliderAnimate(this);
 
         // app 翻页模式
-        console.log(this);
         initAppSliderType(this);
 
         // 点击空白，销毁layer控制器
@@ -217,7 +243,7 @@ class App {
             if (!$(e.target).closest('.layer')[0] && $(e.target).closest('#phone')[0]) {
                 destoryControl();
                 // 然后默认选择page
-                $('#pagesList').find('.active').trigger('click');
+                getPageListDom().find('.active').trigger('click');
 
                 // 点击空白，重新释放 组的选择
                 self.destoryGroup();
@@ -248,17 +274,24 @@ class App {
             e.stopPropagation();
             let $item = $(this).closest('.page-item');
             let index = $item.index();
-            let page = self.app.pages[index];
+            let page = self.app[AppData.edit.pageType][index];
             // self.delPage(index);
             $.confirms({
                 title: '修改页面名字',
-                content: `<input id="editPageInput" class="edit-page-input" value="${page.name}" type="text" placeholder="请输入页面名称"/>`,
+                content: `
+                <input id="editPageInputId" class="edit-page-input" value="${page.id || ''}" type="text" placeholder="页面ID"/>
+                <input id="editPageInput" class="edit-page-input" value="${page.name || ''}" type="text" placeholder="请输入页面名称"/>`,
                 callback: (mark) => {
                     if (mark) {
-                        let val = $('#editPageInput').val();
-                        page.name = val;
-                        $item.find('.page-content').html(val);
-                        $('#setPageName').html(val);
+                        let name = $('#editPageInput').val();
+                        let id = $('#editPageInputId').val();
+                        page.name = name;
+                        page.id = id;
+                        $item.find('.page-content').html(`
+                        <span class="page-name">${name}</span>
+                        ${!id ? '' : `<span class="page-id">ID: ${id}</span>`}
+                        `);
+                        $('#setPageName').html(name);
                         AppDataChange();
                     }
                 }
@@ -271,6 +304,33 @@ class App {
             let $item = $(this).closest('.page-item');
             let index = $item.index();
             self.copyPage(index);
+        });
+
+        // 选择页面类型，切换，弹窗，浮动，页面
+        $('#leftPagesList').on('changes', function(e, obj) {
+            // 切换后，pageIndex 设置为 null,默认不选中，然后触发选中效果
+            AppData.edit.pageIndex = null;
+            AppData.edit.pageType = obj.dom.attr('data-name');
+            if( AppData.edit.pageType === 'popups') {
+                $('#pageViewPopup').show();
+            }else {
+                $('#pageViewPopup').hide();
+            }
+            
+            if( AppData.edit.pageType === 'fixeds') {
+                $('#pageViewFixed').addClass('page-viewup-full');
+            }else {
+                $('#pageViewFixed').removeClass('page-viewup-full'); 
+            }
+
+            // 切换后，设置默认选中
+            let $active = getPageListDom().find('.active');
+            if($active[0]) {
+                $active.trigger('click');
+            }else {
+                getPageListDom().find('.page-item').eq(0).trigger('click');
+            }
+
         });
 
     }
@@ -329,7 +389,7 @@ class App {
         //显示设置区域
         layerShow('#setPageBox');
 
-        //如果选择同一个页面，不再重复渲染
+        //如果选择同一个类型的同一个页面，不再重复渲染
         if (AppData.edit.pageIndex == index && !canRender) {
             return;
         }
@@ -338,11 +398,33 @@ class App {
         setPage(index, this);
 
         // console.log('app.js 183 => 设置当前选中的page', AppData.edit.pageIndex)
-
         var p = getDataPage(index);
         p['index'] = index;
-        var page = new Page(p);
-        page.init();
+
+        console.log('new page ----------------------', AppData.edit.pageType, p);
+
+        if(AppData.edit.pageType === 'pages') {
+            new Page({
+                className: 'page',
+                page: p,
+                pagesList: 'pagesList'
+            }).init();
+        }else if(AppData.edit.pageType === 'popups') {
+            new Popup({
+                className: 'popup',
+                popup: p,
+                pagesList: 'popupsList'
+            }).init();
+        }else if(AppData.edit.pageType === 'fixeds') {
+            new Fixed({
+                className: 'fixed',
+                fixed: p,
+                pagesList: 'fixedsList'
+            }).init();
+        }else {
+            // ...
+        }
+        
     }
 
     // 初始化 动画 模块 选项
@@ -370,19 +452,20 @@ class App {
             callback: (mark) => {
                 if (mark) {
                     // 清除DOM
-                    $('#pagesList').find('.page-item').eq(index).remove();
+                    getPageListDom().find('.page-item').eq(index).remove();
 
                     // 移除data page 数据
                     removeDataPage(index);
 
                     // 默认选择第一个
-                    let $page = $('#pagesList').find('.page-item').eq(0);
+                    let $page = getPageListDom().find('.page-item').eq(0);
                     if ($page[0]) {
+                        AppData.edit.pageIndex = null;
                         $page.trigger('click')
                     } else {
                         $('#layerlist').html('');
                         $('.appname').trigger('click');
-                        $('#pageView').html('');
+                        getViewDom().html('');
                     }
                 }
             }
@@ -390,8 +473,22 @@ class App {
 
     }
 
-    //新增页面
+    //新增页面, 这里目前只能新增页面，不能新增 popup ,fixed 后期加 ，在 tplSource.js 里面调用
     addPage(index, page) {
+
+        if(AppData.edit.pageType === 'fixeds') {
+            $.tip({
+                msg: '浮动层只能加一个',
+                type: 'danger',
+                time: 3000
+            });
+            return;
+        }
+
+        if(!page) {
+            console.error('App.addPage 方法，必须传入 page 对象');
+            return;
+        }
 
         // 插入pages
         addNewPageData({
@@ -403,7 +500,7 @@ class App {
         this.setPageList();
 
         // 默认选择新增的那一个
-        $('#pagesList').find('.page-item').eq(index + 1).trigger('click');
+        getPageListDom().find('.page-item').eq(index + 1).trigger('click');
     }
 
     //复制页面
@@ -416,7 +513,7 @@ class App {
         this.setPageList();
 
         // 默认选择新增的那一个
-        $('#pagesList').find('.page-item').eq(index + 1).trigger('click');
+        getPageListDom().find('.page-item').eq(index + 1).trigger('click');
     }
 
     // 发布预览
@@ -443,7 +540,9 @@ class App {
         this.renderPhone();
 
         //设置page 列表
-        this.setPageList();
+        this.setPagePopup();
+        this.setPagePage();
+        this.setPageFlex();
         this.eventFun();
 
         // 默认选中第一页, 这里new Layer 设置了 local

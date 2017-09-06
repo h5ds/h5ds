@@ -1,0 +1,12 @@
+@import '../../../sass/h5ds/var.scss';
+
+.uebox-hideshow{
+    textarea{
+        margin-top: 10px;
+        background: #252a2e;
+        height: 100px;
+        width: 100%;
+        overflow: auto;
+        color: $blue1;
+    }
+}

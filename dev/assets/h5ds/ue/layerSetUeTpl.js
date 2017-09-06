@@ -7,11 +7,15 @@ import { linkTpl, linkEvent } from './links/linkTpl';
 import { toPageTpl, toPageEvent } from './toPage/toPageTpl';
 import { telTpl, telEvent } from './tel/telTpl';
 import { msgTpl, msgEvent } from './msg/msgTpl';
+import { hideShowTpl, hideShowEvent } from './hideShow/hideShowTpl';
 
 /**
  * @desc layer 的交互
 */
 function switchUeTpl(self) {
+    if(!self.layer.ue.data) {
+        self.layer.ue.data = {};
+    }
     let ue = self.layer.ue;
     let tpl = '';
     switch(ue.fun) {
@@ -19,6 +23,7 @@ function switchUeTpl(self) {
         case 'toPage': tpl = toPageTpl(self); break;
         case 'tel': tpl = telTpl(self); break;
         case 'msg': tpl = msgTpl(self); break;
+        case 'hideShow': tpl = hideShowTpl(self); break;
     }
     return tpl;
 }
@@ -34,8 +39,11 @@ function switchUeEvent(self) {
         case 'toPage': toPageEvent(self); break;
         case 'tel': telEvent(self); break;
         case 'msg': msgEvent(self); break;
+        case 'hideShow': hideShowEvent(self); break;
     }
 }
+
+// 以下非配置项 ////////////////////////////////////////////////////////////////////////////////////////
 
 /**
  * @desc 设置交互名字

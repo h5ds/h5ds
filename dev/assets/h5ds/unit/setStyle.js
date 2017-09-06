@@ -64,4 +64,6 @@ $.fn.setStyle = function (obj) {
         $element.attr('style', '').css(elementObj);
     }
 
+    return this;
+
 }

@@ -42,10 +42,15 @@
 			top: 58px;
 			right: 100px;
 		}
+		#h5dsPopups, #h5dsFixeds{
+			top: 51px;
+			left: 60px;
+		}
 		.h5ds-swiper{
 			width: 320px;
 			height: 487px;
 			margin: 51px 0 0 60px;
+			position: relative;
 		}
 		.change-page{
 			width: 43px;

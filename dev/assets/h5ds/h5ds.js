@@ -14,6 +14,7 @@ import './unit/accCount.js'; // 浮点数计算
 //import './unit/Matrix.js'; // 矩阵算法
 
 //插件
+import './unit/checkboxGroup.js'; // 复选框
 import './unit/help.js'; // 帮助提示
 import './unit/contextMenu.js'; // 右键菜单初始化
 import './unit/escape.js'; // json转码escape
@@ -61,6 +62,8 @@ import { setPhoneScale } from './common/appFun';
     window.AppData = {
         data: null, //缓存APP数据
         edit: {
+            pageType: 'pages', // 当前编辑的类型，pages, popups, fixeds 对应 data里面的 key
+            copyLayer: null, // 复制layer内容
             history: [], // 历史记录
             setapp: true, // 我喜欢就加上咯，任性！
             phoneScale: null, // 手机缩放比例
@@ -76,7 +79,17 @@ import { setPhoneScale } from './common/appFun';
 
 // 初始化App
 function iniApp(res) {
+
+    // 新增扩展
+    if(!res.fixeds) {
+        res.fixeds = [];
+    }
+    if(!res.popups) {
+        res.popups = [];
+    }
+
     AppData.data = res;
+    
     var app = new App(res);
     app.init();
 

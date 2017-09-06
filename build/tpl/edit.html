@@ -34,7 +34,7 @@
 <script src="/assets/plugin/h5ds.swiper.js"></script>
 
 <!-- endinject -->
-<link href="/assets/css/h5ds.css?2a200bb9d71fcb4336da" rel="stylesheet"></head>
+<link href="/assets/css/h5ds.css?48ab99aff2f34ee1ddba" rel="stylesheet"></head>
 <body ondragstart="return false">
 <!-- inject:header_h5ds -->
 <!--头部-->
@@ -65,12 +65,12 @@
 <!-- endinject -->
 <!-- inject:left -->
 <div class="left">
-	<div class="mt-tab">
+	<div class="mt-tab" id="leftPagesList">
 		<div class="mt-tab-header left-btn">
 			<ul>
-				<li class="mt-tab-head mt-active">页面</li>
-				<li class="mt-tab-head">弹窗</li>
-				<li class="mt-tab-head">浮动</li>
+				<li data-name="pages" class="mt-tab-head mt-active">页面</li>
+				<li data-name="popups" class="mt-tab-head">弹窗</li>
+				<li data-name="fixeds" class="mt-tab-head">浮动</li>
 			</ul>
 		</div>
 		<div class="mt-tab-body left-pages">
@@ -78,8 +78,14 @@
 				<ul id="pagesList" class="a-pages mt-uniqlist">
 				</ul>
 			</div>
-			<div id="a_popup" class="mt-tab-box">即将开放</div>
-			<div id="a_fixed" class="mt-tab-box">即将开放</div>
+			<div id="a_popup" class="mt-tab-box">
+				<ul id="popupsList" class="a-pages mt-uniqlist">
+				</ul>
+			</div>
+			<div id="a_fixed" class="mt-tab-box">
+				<ul id="fixedsList" class="a-pages mt-uniqlist">
+				</ul>
+			</div>
 		</div>
 	</div>
 </div>
@@ -192,6 +198,8 @@
 				<div class="set-page-height hide" id="setPageHeight">
 					<a class="set-page-height-btn" id="setPageHeightBtn"><i class="iconfont icon-shangxiafanye"></i></a>
 				</div>
+				<div class="page-viewup" id="pageViewPopup"></div>
+				<div class="page-viewup" id="pageViewFixed"></div>
 				<div class="page-view" id="pageView"></div>
 			</div>
 		</div>
@@ -339,8 +347,8 @@
 							<li id="groupAlignRight"><i class="iconfont icon-duiqi_youduiqi"></i> <span>右对齐</span></li>
 							<li id="groupAlignUpDown"><i class="iconfont icon-duiqi_xiangxia"></i> <span>上对齐</span></li>
 							<li id="groupAlignDown"><i class="iconfont icon-duiqi_xiangshang"></i> <span>下对齐</span></li>
-							<li id="groupAlignLeftRightCenter"><i class="iconfont icon-duiqi_hengxiangjuzhong"></i> <span>水平居中对齐</span></li>
-							<li id="groupAlignUpDownCenter"><i class="iconfont icon-duiqi_juzhong"></i> <span>垂直居中对齐</span></li>
+							<li id="groupAlignLeftRightCenter"><i class="iconfont icon-duiqi_hengxiangjuzhong"></i> <span>水平居中</span></li>
+							<li id="groupAlignUpDownCenter"><i class="iconfont icon-duiqi_juzhong"></i> <span>垂直居中</span></li>
 							<li id="groupAlignUpDownEven"><i class="iconfont icon-meun"></i> <span>垂直均分</span></li>
 							<li id="groupAlignRightLeftEven"><i class="iconfont icon-caidan1"></i> <span>水平均分</span></li>
 						</ul>
@@ -497,5 +505,5 @@
         </div>
     </div>
 </div>
-<script type="text/javascript" src="/assets/js/h5ds.js?2a200bb9d71fcb4336da"></script></body>
+<script type="text/javascript" src="/assets/js/h5ds.js?48ab99aff2f34ee1ddba"></script></body>
 </html>

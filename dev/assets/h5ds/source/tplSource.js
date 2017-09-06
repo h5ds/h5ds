@@ -1,6 +1,5 @@
 import { getSysTpls, getSysTplsTypes, getUserTpls, delUserTpls } from '../server/ajax.js'; // ajax
 import { newPage, PAGE_SIZE } from './imgSource';
-import { addNewPageData } from '../common/AppDataFun';
 import nullImg from '../../images/null.png';
 
 // 获取系统模板分类

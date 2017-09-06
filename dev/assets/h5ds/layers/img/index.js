@@ -6,7 +6,7 @@ import { blankImg } from '../../conf/set';
 // layer 模板
 export function imgDom(obj) {
     return `
-    <div data-uefun="${obj.ue ? $.escape(obj.ue) : ''}" class="layer layer-img" style="${$.toStyle(obj.style)}">
+    <div id="${obj.id || ''}" data-uefun="${obj.ue ? $.escape(obj.ue) : ''}" class="layer layer-img" style="${$.toStyle(obj.style)}">
         <div class="element" style="${$.toStyle(obj.estyle, obj.animate)}"><img src="${obj.data.src || 'none'}" /></div>
     </div>`;
 }
@@ -89,7 +89,7 @@ export default class Img extends Layer {
         var { basicTpls, bgColorTpls, basicMoreTpls } = this._getSetBoxTpl();
 
         // 编辑区域
-        $('#setStyle').empty().html(basicTpls + imgTpls + bgColorTpls + basicMoreTpls);
+        $('#setStyle').html(basicTpls + imgTpls + bgColorTpls + basicMoreTpls);
     }
 
     // 初始化

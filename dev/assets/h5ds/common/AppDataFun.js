@@ -6,28 +6,49 @@ export function addNewPageData(obj) {
     if(typeof obj !== 'object') {
         return;
     }
-    let index = obj['index'] || (AppData.data.pages.length + 1);
+    let index = obj['index'] || (AppData.data[AppData.edit.pageType].length + 1);
 
     // slider 继承上一次
-    let page = obj.page || {
-        name: '空白页面',
-        style: {},
-        layers: [],
-        slider: {  // AppData.data.pages[index - 1].slider
-            animate: 1,
-            autoplay: false,
-            lock: false,
-            time: 5
-        }
-    };
-    AppData.data.pages.splice(index, 0, page);
+    let page = obj.page;
+    AppData.data[AppData.edit.pageType].splice(index, 0, page);
     AppDataChange();
+}
+
+// 获取view 对象
+// 获取当前的 view 区域对象
+export function getViewDom() {
+    let $view = null;
+    if(AppData.edit.pageType === 'pages') {
+        $view = $('#pageView');
+    }else if(AppData.edit.pageType === 'popups') {
+        $view = $('#pageViewPopup');
+    }else if(AppData.edit.pageType === 'fixeds') {
+        $view = $('#pageViewFixed');
+    }else {
+        // ... 其他
+    }
+    return $view;
+}
+
+// 获取当前的 getPageListDom
+export function getPageListDom() {
+    let $list = null;
+    if(AppData.edit.pageType === 'pages') {
+        $list = $('#pagesList');
+    }else if(AppData.edit.pageType === 'popups') {
+        $list = $('#popupsList');
+    }else if(AppData.edit.pageType === 'fixeds') {
+        $list = $('#fixedsList');
+    }else {
+        // ... 其他
+    }
+    return $list;
 }
 
 // 复制页面
 export function copyPageData(index) {
-    let page = JSON.parse(JSON.stringify(AppData.data.pages[index - 1]));
-    AppData.data.pages.splice(index, 0, page);
+    let page = JSON.parse(JSON.stringify(AppData.data[AppData.edit.pageType][index - 1]));
+    AppData.data[AppData.edit.pageType].splice(index, 0, page);
     AppDataChange();
 }
 
@@ -49,13 +70,15 @@ export function pushLayerData(obj, Page) {
     layers.splice(0, 0, obj);
     // console.log(layers, AppData.edit.pageIndex)
     // 重置layers
-    Page.page.layers = layers;
+    Page[Page.className].layers = layers;
     AppDataChange();
 }
 
 // 设置 page 类
-export function setPageClass(self) {
+export function setPageClass(self) {    
+    console.log('setPageClass', self.className)
     AppData.edit.pageClass = self;
+    AppData.edit.pageType = self.className + 's'; // 设置类型
 }
 
 // 获取当前编辑的页面的 类
@@ -74,18 +97,18 @@ export function getLayerClass() {
 
 //获取 当前页面的 layers
 export function getDataLayers() {
-    let page = AppData.data.pages[AppData.edit.pageIndex] || [];
+    let page = AppData.data[AppData.edit.pageType][AppData.edit.pageIndex] || [];
     return page.layers
 }
 
 //获取 当前页面的 layer
 export function getDataLayer() {
-    return AppData.data.pages[AppData.edit.pageIndex].layers[AppData.edit.layerIndex];
+    return AppData.data[AppData.edit.pageType][AppData.edit.pageIndex].layers[AppData.edit.layerIndex];
 }
 
 //获取 index  页面
 export function getDataPage(index) {
-    return AppData.data.pages[index];
+    return AppData.data[AppData.edit.pageType][index];
 }
 
 // 获取当前page
@@ -99,13 +122,14 @@ export function getNowPage() {
 
 // 删除 index 的 页面
 export function removeDataPage(index) {
-    AppData.data.pages.remove(index);
+    AppData.data[AppData.edit.pageType].remove(index);
     AppDataChange();
 }
 
 // 删除 对应 page 下面的 index
 export function removeDataLayer(index) {
-    AppData.data.pages[AppData.edit.pageIndex].layers.remove(index);
+    let cName = AppData.edit.pageType;
+    AppData.data[cName][AppData.edit.pageIndex].layers.remove(index);
     AppDataChange();
 }
 
@@ -138,6 +162,18 @@ export function AppDataChange() {
     setStorage('APP_DATA', AppData.data);
     $(document).trigger('appDataChange', true);
     console.log('app data 改变, 设置缓存');
+}
+
+// 存个历史记录，自动监听了输入框，表单的历史记录，其他历史记录需要手动加入
+export function saveHistory() {
+    let cName = AppData.edit.pageType;
+    let index = AppData.edit.pageIndex;
+    let page = AppData.data[cName][index];
+    // 删除之前先存个历史记录
+    AppData.edit.history.push(JSON.stringify({
+        page: page,
+        index: index
+    }));
 }
 
 // // 

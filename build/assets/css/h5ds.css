@@ -918,6 +918,21 @@ input[type="color"]::-webkit-color-swatch-wrapper {
     .mt-contextmenu li:hover {
       background: #ff5402;
       color: #fff; }
+
+.mt-checkbox-group {
+  display: inline-block; }
+
+.mt-checkbox-item {
+  display: inline-block;
+  font-size: 13px;
+  padding: 5px 15px;
+  color: #252a2e;
+  background: #a5b6c8;
+  cursor: pointer; }
+
+.mt-checkbox-active {
+  background: #ff5402;
+  color: #fff; }
 @charset "UTF-8";
 body {
   position: fixed;
@@ -1053,6 +1068,7 @@ body {
   z-index: 1000; }
 
 #setLayerGroupBox #setGroupSet li {
+  vertical-align: top;
   display: inline-block;
   text-align: center;
   color: #a5b6c8;
@@ -1399,10 +1415,14 @@ body {
   #appViewShow .view-phone .h5ds-video-icon {
     top: 58px;
     right: 100px; }
+  #appViewShow .view-phone #h5dsPopups, #appViewShow .view-phone #h5dsFixeds {
+    top: 51px;
+    left: 60px; }
   #appViewShow .view-phone .h5ds-swiper {
     width: 320px;
     height: 487px;
-    margin: 51px 0 0 60px; }
+    margin: 51px 0 0 60px;
+    position: relative; }
   #appViewShow .view-phone .change-page {
     width: 43px;
     height: 120px;
@@ -1544,6 +1564,11 @@ body {
   position: relative;
   overflow: hidden;
   background: #535f6b; }
+  .a-pages .page-content span {
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap; }
 
 .a-pages .page-info {
   position: absolute;
@@ -1916,6 +1941,19 @@ body {
     height: 100%;
     position: relative;
     z-index: 1000; }
+  .phonebox .page-viewup {
+    position: absolute;
+    width: 0;
+    height: 0;
+    z-index: 1100; }
+  .phonebox .page-viewup-full {
+    width: 100%;
+    height: 100%; }
+  .phonebox #pageViewPopup {
+    display: none;
+    height: 100%;
+    width: 100%;
+    z-index: 1200; }
   .phonebox .layer {
     position: absolute;
     box-sizing: border-box; }
@@ -2243,6 +2281,13 @@ body {
   overflow: auto;
   color: #a5b6c8;
   text-indent: 10px; }
+.uebox-hideshow textarea {
+  margin-top: 10px;
+  background: #252a2e;
+  height: 100px;
+  width: 100%;
+  overflow: auto;
+  color: #a5b6c8; }
 .ex-set-text {
   padding: 10px 0;
   border-top: 1px solid #252a2e; }

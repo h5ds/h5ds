@@ -899,3 +899,20 @@ input[type="color"]::-webkit-color-swatch-wrapper { padding:0; border:none;}
 		}
 	}
 }
+
+// 复选框
+.mt-checkbox-group{
+	display: inline-block;
+}
+.mt-checkbox-item{
+	display: inline-block;
+	font-size: 13px;
+	padding: 5px 15px;
+	color: $blue4;
+	background: $blue1;
+	cursor: pointer;
+}
+.mt-checkbox-active{
+	background: $yellow;
+	color: #fff;
+}

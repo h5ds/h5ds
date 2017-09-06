@@ -70,18 +70,42 @@ export function appToHtmlFile(app) {
             <script src="/assets/plugin/h5ds.swiper.js"></script>
         </head>
         <body ondragstart="return false">
-            <div class="h5ds-video-icon"><i></i><i></i><i></i><i></i></div>
+            ${ app.mp3.url ? '<div class="h5ds-video-icon"><i></i><i></i><i></i><i></i></div>' : ''}
+            <div id="h5dsPopups">
+                ${app.popups.map((popup, index) => {
+                    return `
+                            <div class="h5ds-swiper-page" id="${popup.id || ''}" style="${$.toStyle(popup.style)}">
+                                <div class="h5ds-swiper-layers">
+                                ${ popup.layers.map((layer, index) => {
+                                    return getLayerDom(layer);
+                                }).join('')}
+                                </div>
+                            </div>`;
+                }).join('')}
+            </div>
+            <div id="h5dsFixeds">
+                ${app.fixeds.map((fixed, index) => {
+                    return `
+                            <div class="h5ds-swiper-page" id="${fixed.id || ''}" style="${$.toStyle(fixed.style)}">
+                                <div class="h5ds-swiper-layers">
+                                ${ fixed.layers.map((layer, index) => {
+                                    return getLayerDom(layer);
+                                }).join('')}
+                                </div>
+                            </div>`;
+                }).join('')}
+            </div>
             <div class="h5ds-loading" id="h5dsLoading">
                 <div class="h5ds-loadinner">
                 ${loadArr[app.loading]}
-                    <div class="h5ds-progress" id="h5dsProgress">2%</div>
+                    <div class="h5ds-progress" id="h5dsProgress">0</div>
                 </div>
             </div>
             <div id="h5dsSwiper" pages-length="${app.pages.length}" class="h5ds-swiper" style="${$.toStyle(app.style)}">
             ${
         app.pages.map((page, index) => {
             return `
-                    <div data-autoplay="${page.slider.autoplay ? page.slider.time : false}" data-lock="${page.slider.lock}" class="h5ds-swiper-page" style="${$.toStyle(page.style)}">
+                    <div id="${page.id || ''}" data-autoplay="${page.slider.autoplay ? page.slider.time : false}" data-lock="${page.slider.lock}" class="h5ds-swiper-page" style="${$.toStyle(page.style)}">
                         <div class="h5ds-swiper-layers">
                         ${
                 page.layers.map((layer, index) => {
@@ -108,20 +132,43 @@ function appHTML(app) {
                 <a class="next" id="pageToNext"><i class="iconfont icon-a3down"></i></a>
             </div>
             ${ app.mp3.url ? `<audio style="display:none; height:0;" autoplay="autoplay" id="h5dsBgMusic" preload="auto" src="${app.mp3.url}" loop="loop"></audio>` : ''}
-            <div class="h5ds-video-icon"><i></i><i></i><i></i><i></i></div>
-            <div id="h5dsSwiper" class="h5ds-swiper" style="${$.toStyle(app.style)}">
-            ${
-        app.pages.map((page, index) => {
-            return `
-                    <div data-autoplay="${page.slider.autoplay ? page.slider.time : false}" data-lock="${page.slider.lock}" class="h5ds-swiper-page" style="${$.toStyle(page.style)}">
-                        <div class="h5ds-swiper-layers">
-                        ${
-                page.layers.map((layer, index) => {
-                    return getLayerDom(layer);
+            ${ app.mp3.url ? '<div class="h5ds-video-icon"><i></i><i></i><i></i><i></i></div>' : ''}
+            <div id="h5dsPopups">
+                ${app.popups.map((popup, index) => {
+                    return `
+                            <div id="${popup.id || ''}" class="h5ds-swiper-page" style="${$.toStyle(popup.style)}">
+                                <div class="h5ds-swiper-layers">
+                                ${ popup.layers.map((layer, index) => {
+                                    return getLayerDom(layer);
+                                }).join('')}
+                                </div>
+                            </div>`;
                 }).join('')}
-                        </div>
-                    </div>`;
-        }).join('')}
+            </div>
+            <div id="h5dsFixeds">
+                ${app.fixeds.map((fixed, index) => {
+                    return `
+                            <div id="${fixed.id || ''}" class="h5ds-swiper-page" style="${$.toStyle(fixed.style)}">
+                                <div class="h5ds-swiper-layers">
+                                ${ fixed.layers.map((layer, index) => {
+                                    return getLayerDom(layer);
+                                }).join('')}
+                                </div>
+                            </div>`;
+                }).join('')}
+            </div>
+            <div id="h5dsSwiper" class="h5ds-swiper" style="${$.toStyle(app.style)}">
+            ${app.pages.map((page, index) => {
+                return `
+                        <div id="${page.id || ''}" data-autoplay="${page.slider.autoplay ? page.slider.time : false}" data-lock="${page.slider.lock}" class="h5ds-swiper-page" style="${$.toStyle(page.style)}">
+                            <div class="h5ds-swiper-layers">
+                            ${
+                    page.layers.map((layer, index) => {
+                        return getLayerDom(layer);
+                    }).join('')}
+                            </div>
+                        </div>`;
+            }).join('')}
             </div>
         </div>
         <div class="other-info">
@@ -159,7 +206,8 @@ function newQrcode() {
     let id = $.getUrlData('id');
     let path = `${location.origin}/apps/${owner}/${id}/index.html`;
     $('.qrcode-url-box').html(path);
-    new QRCode($('#qrcode')[0], {
+    let $qrcode = $('#qrcode').empty();
+    new QRCode($qrcode[0], {
         text: path,
         width: 140,
         height: 140,

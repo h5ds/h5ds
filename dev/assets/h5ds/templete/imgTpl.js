@@ -66,7 +66,7 @@ export function initCrop(self, $crop, set, callback) {
 
     // 如果没图
     if(!$crop.crop(set)) {
-        $crop.empty().html(imgNullTpl);
+        $crop.html(imgNullTpl);
     }
 
     // 绑定剪切事件
@@ -124,7 +124,7 @@ export function initCrop(self, $crop, set, callback) {
 
     // 选择图片
     // console.log('初始化选择图片的方法');
-    $crop.off('selectImg.' + self.className).on('selectImg.' + self.className, (e, val) => {
+    $crop.off('selectImg.' + AppData.edit.pageType).on('selectImg.' + AppData.edit.pageType, (e, val) => {
         $crop.attr({
             'data-oldsrc': val,
             'data-src': val

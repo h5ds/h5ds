@@ -8,9 +8,9 @@ class Animate{
     }
 
     render(){
-        $('#animationIn').empty().html(animtesToHtml(animatesIn));
-        $('#animationOut').empty().html(animtesToHtml(animatesOut));
-        $('#animationEm').empty().html(animtesToHtml(animatesEm));
+        $('#animationIn').html(animtesToHtml(animatesIn));
+        $('#animationOut').html(animtesToHtml(animatesOut));
+        $('#animationEm').html(animtesToHtml(animatesEm));
     }
 
     //初始化方法

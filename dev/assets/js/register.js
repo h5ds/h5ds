@@ -87,7 +87,7 @@ $(function () {
                     location.href = '/login';
                 } else {
                     $.tip({
-                        msg: '该手机号已被注册！',
+                        msg: res.msg,
                         type: 'danger',
                         time: 3000
                     });

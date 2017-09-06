@@ -27,6 +27,9 @@ export function asyncBasic(style) {
 
 // 同时设置 DOM，self 的值
 export function domDataBindSelf(obj, self) {
+    if(!AppData.edit.layerDom) {
+        return false;
+    }
     for (var key in obj) {
         self.layer.style[key] = obj[key];
     }

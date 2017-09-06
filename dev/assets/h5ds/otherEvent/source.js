@@ -33,7 +33,7 @@ $(function() {
         }
         // page 设置
         if(!$('#setPageBox').is(':hidden')) {
-            $('#setPageBox').find('.set_img_crop').trigger('selectImg.page', $(this).attr('src'));
+            $('#setPageBox').find('.set_img_crop').trigger('selectImg.' + AppData.edit.pageType, $(this).attr('src'));
         }
         // layer 设置
         if(!$('#setLayerBox').is(':hidden')) {
