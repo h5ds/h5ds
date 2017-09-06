@@ -46,10 +46,10 @@ export function imgURLClear(APP_DATA, callback) {
                 clearStyleImg(APP_DATA, imgCacheObj);
                 for (let i = 0; i < APP_DATA.pages.length; i++) {
                     // 过滤 pages
-                    clearStyleImg(APP_DATA.pages[i], imgCacheObj);
-                    for (let j = 0; j < APP_DATA.pages[i].layers.length; j++) {
+                    clearStyleImg(APP_DATA[AppData.edit.pageType][i], imgCacheObj);
+                    for (let j = 0; j < APP_DATA[AppData.edit.pageType][i].layers.length; j++) {
                         // 过滤 layers
-                        clearStyleImg(APP_DATA.pages[i].layers[j], imgCacheObj);
+                        clearStyleImg(APP_DATA[AppData.edit.pageType][i].layers[j], imgCacheObj);
                     }
                 }
 

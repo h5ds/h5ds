@@ -38,18 +38,22 @@
 		height: 100%;
 		float: left;
 		position: relative;
-		.h5ds-video-icon{
-			top: 58px;
-			right: 100px;
-		}
-		#h5dsPopups, #h5dsFixeds{
+		.view-phone-window{
+			position: absolute;
+			width: 320px;
+			height: 486px;
 			top: 51px;
 			left: 60px;
+			background: $blue4;
+			overflow: hidden;
+		}
+		.h5ds-video-icon{
+			top: 8px;
+			right: 10px;
 		}
 		.h5ds-swiper{
 			width: 320px;
-			height: 487px;
-			margin: 51px 0 0 60px;
+			height: 486px;
 			position: relative;
 		}
 		.change-page{

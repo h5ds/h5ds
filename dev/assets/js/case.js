@@ -86,6 +86,13 @@ function addNewPage() {
                 url: ''
             },
             name: '点石H5',
+            fixeds: [{
+                id: '',
+                name: '浮动层',
+                style: {},
+                layers: []
+            }],
+            popups: [],
             pages: [],
             pagesize: 0,
             slider: {

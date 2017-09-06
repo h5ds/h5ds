@@ -8,7 +8,7 @@ export function toPageTpl(self) {
     let { data, name, fun } = self.layer.ue;
     let shtml = '';
     for(let i = 0; i < AppData.data.pages.length; i++) {
-        let d = AppData.data.pages[i];
+        let d = AppData.data[AppData.edit.pageType][i];
         shtml += `<li title="${d.name}" data-page="${i}" class="${data === i ? 'active' : ''}">
             <span class="num">${i + 1}</span>
             <span class="name">${d.name}</span>

@@ -80,9 +80,14 @@ import { setPhoneScale } from './common/appFun';
 // 初始化App
 function iniApp(res) {
 
-    // 新增扩展
+    // 新增扩展, 浮动层, 弹窗层，兼容老版本.ss
     if(!res.fixeds) {
-        res.fixeds = [];
+        res.fixeds = [{
+            id: '',
+            name: '浮动层',
+            style: {},
+            layers: []
+        }];
     }
     if(!res.popups) {
         res.popups = [];

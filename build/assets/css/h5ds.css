@@ -1412,16 +1412,20 @@ body {
   height: 100%;
   float: left;
   position: relative; }
-  #appViewShow .view-phone .h5ds-video-icon {
-    top: 58px;
-    right: 100px; }
-  #appViewShow .view-phone #h5dsPopups, #appViewShow .view-phone #h5dsFixeds {
+  #appViewShow .view-phone .view-phone-window {
+    position: absolute;
+    width: 320px;
+    height: 486px;
     top: 51px;
-    left: 60px; }
+    left: 60px;
+    background: #252a2e;
+    overflow: hidden; }
+  #appViewShow .view-phone .h5ds-video-icon {
+    top: 8px;
+    right: 10px; }
   #appViewShow .view-phone .h5ds-swiper {
     width: 320px;
-    height: 487px;
-    margin: 51px 0 0 60px;
+    height: 486px;
     position: relative; }
   #appViewShow .view-phone .change-page {
     width: 43px;

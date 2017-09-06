@@ -60,7 +60,7 @@ export function changeLayerGroupArr(arr, x, y) {
 export function setLayerGroupArr(arr) {
     arr.forEach(elem => {
         let index = 9999 - elem.dom.css('z-index');
-        let layer = AppData.data.pages[AppData.edit.pageIndex].layers[index];
+        let layer = AppData.data[AppData.edit.pageType][AppData.edit.pageIndex].layers[index];
         layer.style.left = elem.nleft + 'px';
         layer.style.top = elem.ntop + 'px';
     });

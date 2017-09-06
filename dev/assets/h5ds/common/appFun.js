@@ -1,5 +1,5 @@
 import g from '../conf/global';
-import { getNowPage, AppDataChange, pushLayerData } from './AppDataFun';
+import { getNowPage, AppDataChange, pushLayerData, getViewDom } from './AppDataFun';
 import { uploadImgBase64, addUserTpls } from '../server/ajax';
 import { getUserTplsFun } from '../source/tplSource';
 import { setStorage, getStorage } from '../localSave/localStorage.js';
@@ -94,10 +94,12 @@ function savePage(self) {
             delete page['index'];
 
             let load = $.loading();
+            $('#phoneApp').addClass('element-show');
             html2canvas($('#pageView')[0], {
                 height: 486,
                 width: 320
             }).then(function (canvas) {
+                $('#phoneApp').removeClass('element-show');
                 uploadImgBase64({
                     imgData: canvas.toDataURL("image/jpeg", 0.5)
                 }).done(res => {
@@ -140,7 +142,7 @@ function unRedoFun(self) {
         }
 
         let index = AppData.edit.pageIndex;
-        let page = AppData.data.pages[index];
+        let page = AppData.data[AppData.edit.pageType][index];
         let pageStr = JSON.stringify(page);
         if (mark && appPageHistory !== pageStr) {
             console.log('发生变化，进行缓存记录');
@@ -174,7 +176,7 @@ function unRedoFun(self) {
             let his = history[appHistoryIndex];
             if (his) {
                 let obj = JSON.parse(his);
-                AppData.data.pages[obj.index] = obj.page;
+                AppData.data[AppData.edit.pageType][obj.index] = obj.page;
                 $('#pagesList').find('.page-item').eq(obj.index).trigger('click', true);
             }
         }
@@ -349,7 +351,7 @@ function shortcuts() {
                     case 39: setXYPoint('x', num); break; // 右
                     case 40: setXYPoint('y', num); break; // 下
                 }
-            }else if( $('#pageView').find('.mt-control').length > 1) { // 选择组
+            }else if( getViewDom().find('.mt-control').length > 1) { // 选择组
                 let arr = getLayerGroupArr();
                 switch (code) {
                     case 38: changeLayerGroupArr(arr, null, -num); break; // 上
