@@ -2,6 +2,7 @@
 
 - H5DS (HTML5 Design software) 这是一款基于WEB的 H5制作工具。让不会写代码的人也能轻松快速上手制作H5页面。
 - H5DS 官方 Git (https://gitee.com/676015863/H5DS) ，简体中文 UTF8 版本，其他版本请自行转码
+- h5ds 官方站：http://www.h5ds.com
 
 ![img](build/assets/images/demo.png)
 
