@@ -124,7 +124,7 @@ export function initCrop(self, $crop, set, callback) {
 
     // 选择图片
     // console.log('初始化选择图片的方法');
-    $crop.off('selectImg.' + AppData.edit.pageType).on('selectImg.' + AppData.edit.pageType, (e, val) => {
+    $crop.off('selectImg.layer').on('selectImg.layer', (e, val) => {
         $crop.attr({
             'data-oldsrc': val,
             'data-src': val

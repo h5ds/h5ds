@@ -37,6 +37,7 @@ $(function() {
         }
         // layer 设置
         if(!$('#setLayerBox').is(':hidden')) {
+            console.log('xxx' + AppData.edit.pageType);
             $('#setLayerBox').find('.set_img_crop').trigger('selectImg.layer', $(this).attr('src'));
         }
         // 关闭弹窗

@@ -124,7 +124,7 @@ function getUserImgsFun(p) {
             for (let i = 0; i < res.data.length; i++) {
                 str += userImgTpl(res.data[i]);
             }
-            $('#imgMyList').empty().html(str);
+            $('#imgMyList').html(str);
 
             // 分页
             let $imgPagelist = $('#imgUserPagelist');

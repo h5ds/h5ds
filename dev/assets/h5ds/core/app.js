@@ -311,12 +311,15 @@ class App {
             // 切换后，pageIndex 设置为 null,默认不选中，然后触发选中效果
             AppData.edit.pageIndex = null;
             AppData.edit.pageType = obj.dom.attr('data-name');
+
+            // 如果是弹窗层，弹窗层显示
             if( AppData.edit.pageType === 'popups') {
                 $('#pageViewPopup').show();
             }else {
                 $('#pageViewPopup').hide();
             }
             
+            // 如果是浮动层，全屏，就不能触发底层事件了
             if( AppData.edit.pageType === 'fixeds') {
                 $('#pageViewFixed').addClass('page-viewup-full');
             }else {
@@ -546,7 +549,9 @@ class App {
         this.eventFun();
 
         // 默认选中第一页, 这里new Layer 设置了 local
-        $('#pagesList').find('.page-item').eq(0).trigger('click');
+        $('#fixedsList').find('.page-item').eq(0).trigger('click');
+        // $('#pagesList').find('.page-item').eq(0).trigger('click');
+        $('#leftPagesList').find('[data-name="pages"]').trigger('click');
 
         this.addLayerModule(); // 添加layer模块
 
