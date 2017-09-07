@@ -34,7 +34,7 @@ export class TextLayer {
             height: '160px',
             top: '10px',
             left: '10px',
-            zIndex: 9999
+            'z-index': 9999
         };
         this.ue = null;
         this.type = type || 'text';

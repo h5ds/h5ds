@@ -2,7 +2,7 @@ import { AppDataChange } from '../common/AppDataFun.js';
 import { isNull } from '../unit/funs';
 
 export function bgColorTpl(obj) {
-    console.log('==>', obj);
+    // console.log('==>', obj);
     return `
     <div class="set-bgcolor">
         <div class="tr">

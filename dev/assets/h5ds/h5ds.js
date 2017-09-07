@@ -47,7 +47,6 @@ import * as db from './localSave/indexedDB.js'; // indexedDB
 
 //APP 类
 import App from './core/app.js'; //..
-import { AppDataChange } from './common/AppDataFun.js'; // AppData 设置
 import { setStorage, getStorage } from './localSave/localStorage.js';
 import { openDB } from './localSave/indexedDB.js';
 import { imgURLClear } from './unit/imgURLClear.js';

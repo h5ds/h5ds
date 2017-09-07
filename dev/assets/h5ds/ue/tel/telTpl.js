@@ -5,7 +5,7 @@ import { AppDataChange } from '../../common/AppDataFun.js';
  * @desc 超链接
  */
 export function telTpl(self) {
-    let { data, name, fun } = self.layer.ue;
+    let { data, name, fun } = self.layer.ue.tel;
     return `
         <div class="uebox uebox-tel">
             <div class="uebox-tel-input">
@@ -27,7 +27,7 @@ export function telTpl(self) {
 export function telEvent(self) {
     $('#ueBoxLinksTel').off('change').on('change', function(){
         let val = $(this).val();
-        self.layer.ue.data = val;
+        self.layer.ue.tel.data = val;
         AppDataChange();
     });
 }

@@ -198,6 +198,10 @@
 			}
 			&:hover{
 				color:$white;
+				background: $blue5;
+			}
+			&.active, &.active:hover {
+				color:$white;
 				background: $yellow;
 			}
 		}
@@ -211,18 +215,43 @@
 		bottom: 0;
 		left: 0;
 		transition: .4s;
-		transform: translateX(0);
-		.close-setue{
+		transform: translateX(350px);
+		.clear-setue, .close-setue{
 			position: absolute;
 			font-weight: bolder;
 			right: 10px;
 			top: 10px;
-			color: $yellow;
+			color: $blue1;
+			.iconfont{
+				display: inline-block;
+				border-radius: 100px;
+				background: $yellow;
+				width: 20px;
+				height: 20px;
+				color: #fff;
+				text-align: center;
+				line-height: 20px;
+				font-size: 12px;
+				position: relative;
+				top: -1px;
+			}
+		}
+		.clear-setue{
+			font-size: 14px;
+			font-weight: normal;
+			.iconfont{
+				font-size: 14px;
+				font-weight: bolder;
+			}
+		}
+		.close-setue {
+			right: 320px;
 		}
 		.setue-title{
 			margin: 10px;
 			color: $blue1;
 			font-size: 14px;
+			text-indent: 28px;
 		}
 		.setue-set-box{
 			.uebox{
@@ -236,8 +265,8 @@
 			overflow: auto;
 		}
 	}
-	.setue-set-hide{
-		transform: translateX(350px);
+	.setue-set-show{
+		transform: translateX(0);
 	}
 
 }

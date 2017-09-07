@@ -1,4 +1,4 @@
-import PageClass from './PageClass';
+import PageClass from './pageClass';
 import { layerListTpl } from '../templete/layerListTpl'; //layer list
 
 /**

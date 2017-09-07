@@ -197,6 +197,7 @@ export default class PageClass {
             obj = JSON.parse(JSON.stringify(obj));
 
             // 复制内容存放到 copyLayer 里面
+            delete obj['z-index'];
             AppData.edit.copyLayer = obj;
 
             $.tip({
@@ -229,14 +230,15 @@ export default class PageClass {
             }
 
             // 前面插入
-            self[self.className].layers.splice(index, 0, AppData.edit.copyLayer);
-
-            AppDataChange();
+            let layer = JSON.parse(JSON.stringify(AppData.edit.copyLayer)); // 拷贝对象
+            self[self.className].layers.splice(index, 0, layer);
 
             // 重新渲染列表
             self.initLayerList();
             // 重新渲染viewPage
             self.initPageDom();
+
+            AppDataChange();
 
             // 设置选中
             $('#layerlist').find('.layer-item').eq(index).trigger('click');

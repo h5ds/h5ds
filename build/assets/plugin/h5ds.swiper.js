@@ -144,9 +144,9 @@ $.fn.h5dsSwiper = function (setting) {
 function uniqueArr(arr) {
     var obj = {};
     var newArr = [];
-    for(let i = 0; i < arr.length; i++) {
+    for (let i = 0; i < arr.length; i++) {
         let d = arr[i];
-        if(!obj[d]) {
+        if (!obj[d]) {
             obj[d] = true;
             newArr.push(d);
         }
@@ -178,9 +178,9 @@ function lazyLoad() {
 
     // 进度条，绑定事件
     var $h5dsProgress = $('#h5dsProgress');
-    $('#h5dsLoading').on('load', function(e, pre) {
+    $('#h5dsLoading').on('load', function (e, pre) {
         $h5dsProgress.text(pre.toFixed(2) * 100 + '%');
-        if(pre === 1) {
+        if (pre === 1) {
             $(this).hide();
             // 自动播放音乐
             autoPlayMusic();
@@ -206,21 +206,19 @@ function lazyLoad() {
         var num = 0;
         // 默认加载前20个图
         imgSource.forEach(function (elem, index) {
-            if(index > maxLoad) {
+            num++;
+            if (index > maxLoad) {
                 return;
             }
             var img = new Image();
             img.src = elem;
             if (img.complete) { // 如果图片已经存在于浏览器缓存 或者加载失败
-                num++;
                 $loading.trigger('load', num / len);
-            }else {
+            } else {
                 img.onload = function () {
-                    num++;
                     $loading.trigger('load', num / len);
                 }
-                img.onerror = function() {
-                    num++;
+                img.onerror = function () {
                     $loading.trigger('load', num / len);
                 }
             }
@@ -235,7 +233,7 @@ function lazyLoad() {
 function autoPlayMusic() {
     var $audio = $('#h5dsBgMusic');
     var $icon = $('.h5ds-video-icon');
-    if($audio[0]) {
+    if ($audio[0]) {
         $audio[0].play();
         $(document).one('WeixinJSBridgeReady', function () {
             $audio[0].play();
@@ -246,10 +244,10 @@ function autoPlayMusic() {
     // 控制音乐
     $icon.swipe({
         tap: function (e) {
-            if($(this).hasClass('h5ds-video-iconing')) {
+            if ($(this).hasClass('h5ds-video-iconing')) {
                 $audio[0].pause();
                 $(this).removeClass('h5ds-video-iconing');
-            }else {
+            } else {
                 $audio[0].play();
                 $(this).addClass('h5ds-video-iconing');
             }
@@ -261,8 +259,8 @@ function autoPlayMusic() {
  * @desc 屏幕变化
 */
 function resizeWindow() {
-    $(window).resize(function() {
-        if(!IsPC()) {
+    $(window).resize(function () {
+        if (!IsPC()) {
             var scaleNew = h5dsScreen();
             $('[name="viewport"]').attr('content', 'width=320, initial-scale=' + scaleNew + ', maximum-scale=' + scaleNew + ', user-scalable=no');
             // 计算出当前宽度
@@ -334,13 +332,20 @@ function initH5dsSwiperUeFun(swiper) {
                 console.warn('data-uefun 格式错误！具体见：', unescape(obj), this);
             }
             if (obj) {
-                switch (obj.fun) {
-                    case 'link': toLink(obj, $this, swiper); break;
-                    case 'toPage': toPage(obj, $this, swiper); break;
-                    case 'tel': toTel(obj, $this, swiper); break;
-                    case 'msg': toMsg(obj, $this, swiper); break;
-                    case 'hideShow': toHideShow(obj, $this, swiper); break;
-                }
+                // 监听点击事件
+                $this.swipe({
+                    tap: function (e) {
+                        for (var key in obj) {
+                            switch (key) {
+                                case 'link': toLink(obj[key], $this, swiper); break;
+                                case 'toPage': toPage(obj[key], $this, swiper); break;
+                                case 'tel': toTel(obj[key], $this, swiper); break;
+                                case 'msg': toMsg(obj[key], $this, swiper); break;
+                                case 'hideShow': toHideShow(obj[key], $this, swiper); break;
+                            }
+                        }
+                    }
+                });
             }
         }
     });
@@ -348,65 +353,51 @@ function initH5dsSwiperUeFun(swiper) {
 
 // 超链接
 function toLink(obj, $layer, swiper) {
-    $layer.swipe({
-        tap: function (e) {
-            location.href = obj.data;
-        }
-    });
+    location.href = obj.data;
 }
 
 // 发短信
 function toMsg(obj, $layer, swiper) {
-    $layer.swipe({
-        tap: function (e) {
-            location.href = 'sms:' + obj.data;
-        }
-    });
+    location.href = 'sms:' + obj.data;
 }
 
 // 打电话
 function toTel(obj, $layer, swiper) {
-    $layer.swipe({
-        tap: function (e) {
-            location.href = 'tel:' + obj.data;
-        }
-    });
+    location.href = 'tel:' + obj.data;
 }
 
 // 页面跳转
 function toPage(obj, $layer, swiper) {
-    $layer.swipe({
-        tap: function (e) {
-            swiper.toPage(obj.data);
-        }
-    });
+    swiper.toPage(obj.data);
 }
 
 // 隐藏显示元素
 function toHideShow(obj, $layer, swiper) {
-    $layer.swipe({
-        tap: function (e) {
-            var ids = obj.data.ids.split(',');
-            if(obj.data.type === 'hide') {
-                ids.forEach(function(elem, index){
-                    $('#' + elem).hide();
-                });
-            }else if(obj.data.type === 'show') {
-                ids.forEach(function(elem, index){
-                    $('#' + elem).show();
-                });
-            }else if(obj.data.type === 'showhide') {
-                ids.forEach(function(elem, index){
-                    var $dom = $('#' + elem);
-                    if($dom.is(':hidden')) {
-                        $dom.show();
-                    }else {
-                        $dom.hide();
-                    }
-                });
-            }else {
-                // ...
+    var ids = [];
+    try {
+        ids = obj.data.ids.split(',');
+    } catch (e) {
+        // ...
+        console.warn('obj.data.ids 为 null');
+    }
+    if (obj.data.type === 'hide') {
+        ids.forEach(function (elem, index) {
+            $('#' + elem).hide();
+        });
+    } else if (obj.data.type === 'show') {
+        ids.forEach(function (elem, index) {
+            $('#' + elem).show();
+        });
+    } else if (obj.data.type === 'showhide') {
+        ids.forEach(function (elem, index) {
+            var $dom = $('#' + elem);
+            if ($dom.is(':hidden')) {
+                $dom.show();
+            } else {
+                $dom.hide();
             }
-        }
-    });
+        });
+    } else {
+        // ...
+    }
 }

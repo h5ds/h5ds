@@ -5,8 +5,10 @@ import { AppDataChange } from '../../common/AppDataFun.js';
  * @desc 超链接
  */
 export function hideShowTpl(self) {
-    let { data, name, fun } = self.layer.ue;
-    data = data || {};
+    if(!self.layer.ue.hideShow.data) {
+        self.layer.ue.hideShow.data = {};
+    }
+    let { data, name, fun } = self.layer.ue.hideShow;
     return `
         <div class="uebox uebox-hideshow">
             <div class="uebox-hideshow-box">
@@ -32,14 +34,14 @@ export function hideShowTpl(self) {
 */
 export function hideShowEvent(self) {
     $('#ueBoxShowHideCheckbox').off('changes').on('changes', function(e, data){
-        self.layer.ue.data.type = data.val;
+        self.layer.ue.hideShow.data.type = data.val;
         AppDataChange();
     });
 
     $('#ueBoxHideShowTextArea').off('change').on('change', function(e){
         let val = $(this).val();
         if(/[a-zA-z_0-9,]+/.test(val)) {
-            self.layer.ue.data.ids = val;
+            self.layer.ue.hideShow.data.ids = val;
             AppDataChange();
         }else {
             $.tip({

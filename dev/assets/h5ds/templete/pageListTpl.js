@@ -45,7 +45,7 @@ export function initPageListEvent(self) {
         // 销毁控制器
         destoryControl();
 
-        console.log(e.delegateTarget.id);
+        // console.log(e.delegateTarget.id);
 
         let pageType = 'pages';
         if(e.delegateTarget.id === 'popupsList') {

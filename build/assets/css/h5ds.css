@@ -1857,6 +1857,9 @@ body {
       font-size: 12px; }
     .setlayer .set-layer-ue li:hover {
       color: #fff;
+      background: #0e1113; }
+    .setlayer .set-layer-ue li.active, .setlayer .set-layer-ue li.active:hover {
+      color: #fff;
       background: #ff5402; }
   .setlayer .setue-set {
     position: absolute;
@@ -1867,17 +1870,38 @@ body {
     bottom: 0;
     left: 0;
     transition: .4s;
-    transform: translateX(0); }
-    .setlayer .setue-set .close-setue {
+    transform: translateX(350px); }
+    .setlayer .setue-set .clear-setue, .setlayer .setue-set .close-setue {
       position: absolute;
       font-weight: bolder;
       right: 10px;
       top: 10px;
-      color: #ff5402; }
+      color: #a5b6c8; }
+      .setlayer .setue-set .clear-setue .iconfont, .setlayer .setue-set .close-setue .iconfont {
+        display: inline-block;
+        border-radius: 100px;
+        background: #ff5402;
+        width: 20px;
+        height: 20px;
+        color: #fff;
+        text-align: center;
+        line-height: 20px;
+        font-size: 12px;
+        position: relative;
+        top: -1px; }
+    .setlayer .setue-set .clear-setue {
+      font-size: 14px;
+      font-weight: normal; }
+      .setlayer .setue-set .clear-setue .iconfont {
+        font-size: 14px;
+        font-weight: bolder; }
+    .setlayer .setue-set .close-setue {
+      right: 320px; }
     .setlayer .setue-set .setue-title {
       margin: 10px;
       color: #a5b6c8;
-      font-size: 14px; }
+      font-size: 14px;
+      text-indent: 28px; }
     .setlayer .setue-set .setue-set-box {
       position: absolute;
       top: 40px;
@@ -1887,8 +1911,8 @@ body {
       overflow: auto; }
       .setlayer .setue-set .setue-set-box .uebox {
         margin: 0 10px; }
-  .setlayer .setue-set-hide {
-    transform: translateX(350px); }
+  .setlayer .setue-set-show {
+    transform: translateX(0); }
 
 .phonebox {
   width: 320px;
@@ -1950,9 +1974,12 @@ body {
     width: 0;
     height: 0;
     z-index: 1100; }
-  .phonebox .page-viewup-full {
+  .phonebox #pageViewFixed {
+    pointer-events: none; }
+  .phonebox .page-viewup-full#pageViewFixed {
     width: 100%;
-    height: 100%; }
+    height: 100%;
+    pointer-events: inherit; }
   .phonebox #pageViewPopup {
     display: none;
     height: 100%;

@@ -15,7 +15,7 @@ exports.register = function(req, res) {
     }
 
     // 验证码验证码
-    if(req.session.code !== req.body.code) {
+    if(req.session.code != req.body.code) {
         result(req, res, {
             code: 500,
             data: null,

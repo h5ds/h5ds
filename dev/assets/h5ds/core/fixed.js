@@ -1,4 +1,4 @@
-import PageClass from './PageClass';
+import PageClass from './pageClass';
 
 /**
  * 页面

@@ -5,7 +5,7 @@ import { AppDataChange } from '../../common/AppDataFun.js';
  * @desc 发短信
  */
 export function msgTpl(self) {
-    let { data, name, fun } = self.layer.ue;
+    let { data, name, fun } = self.layer.ue.msg;
     return `
         <div class="uebox uebox-tel">
             <div class="uebox-tel-input">
@@ -27,7 +27,7 @@ export function msgTpl(self) {
 export function msgEvent(self) {
     $('#ueBoxMsg').off('change').on('change', function(){
         let val = $(this).val();
-        self.layer.ue.data = val;
+        self.layer.ue.msg.data = val;
         AppDataChange();
     });
 }

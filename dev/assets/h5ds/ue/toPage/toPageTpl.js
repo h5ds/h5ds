@@ -2,13 +2,13 @@ import './toPage.scss';
 import { AppDataChange } from '../../common/AppDataFun.js';
 
 /**
- * @desc 超链接
+ * @desc 页面跳转
  */
 export function toPageTpl(self) {
-    let { data, name, fun } = self.layer.ue;
+    let { data, name, fun } = self.layer.ue.toPage;
     let shtml = '';
     for(let i = 0; i < AppData.data.pages.length; i++) {
-        let d = AppData.data[AppData.edit.pageType][i];
+        let d = AppData.data.pages[i];
         shtml += `<li title="${d.name}" data-page="${i}" class="${data === i ? 'active' : ''}">
             <span class="num">${i + 1}</span>
             <span class="name">${d.name}</span>
@@ -39,7 +39,7 @@ export function toPageEvent(self) {
     $('#ueBoxToPage').off('click').on('click', 'li', function(){
         let val = $(this).attr('data-page');
         $(this).addClass('active').siblings('li').removeClass('active');
-        self.layer.ue.data = parseInt(val, 10);
+        self.layer.ue.toPage.data = parseInt(val, 10);
         AppDataChange();
     });
 }

@@ -285,6 +285,14 @@ class App {
                     if (mark) {
                         let name = $('#editPageInput').val();
                         let id = $('#editPageInputId').val();
+                        if(!/^[_a-zA-Z][_a-zA-Z0-9]+/.test(id)) {
+                            $.tip({
+                                msg: 'id必须是字母或者下划线开头，且必须由字母，数字，或者下划线组成！', //
+                                type: 'danger', //success,danger,warning
+                                time: 5000 //
+                            });
+                            return;
+                        }
                         page.name = name;
                         page.id = id;
                         $item.find('.page-content').html(`
@@ -450,6 +458,15 @@ class App {
     //删除页面
     delPage(index) {
 
+        if(AppData.edit.pageType === 'fixeds') {
+            $.tip({
+                msg: '浮动层不可删除',
+                type: 'danger',
+                time: 3000
+            });
+            return;
+        }
+
         $.confirms({
             content: '是否要删除当前页面？',
             callback: (mark) => {
@@ -508,6 +525,15 @@ class App {
 
     //复制页面
     copyPage(index) {
+
+        if(AppData.edit.pageType === 'fixeds') {
+            $.tip({
+                msg: '浮动层不可复制',
+                type: 'danger',
+                time: 3000
+            });
+            return;
+        }
 
         // 复制pages
         copyPageData(index + 1);

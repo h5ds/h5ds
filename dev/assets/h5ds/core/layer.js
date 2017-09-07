@@ -103,6 +103,8 @@ class Layer {
         setAnimateList(this);
 
         // ue 设置
+        // 默认隐藏面板
+        $('.setue-set-hide').removeClass('setue-set-show');
         initUeSet(this);
         
         // 事件绑定
