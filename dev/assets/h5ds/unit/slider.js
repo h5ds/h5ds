@@ -17,6 +17,7 @@ function initSlider() {
 
 // 事件 change,start, end
 g.$doc.on('mousedown.slider', '.mt-slider-btn', function (e) {
+    e.stopPropagation();
     let xs = e.pageX,
         $slider = $(this).closest('.mt-slider-bar'),
         $active = $slider.find('.mt-slider-active'),
@@ -26,6 +27,7 @@ g.$doc.on('mousedown.slider', '.mt-slider-btn', function (e) {
         val = null;
     $slider.trigger('start', (defaultVal / max).toFixed(2));
     g.$doc.on('mousemove.slider', function (e) {
+        e.stopPropagation();
         let mx = e.pageX;
         val = wid + (mx - xs);
         if (val < 0) {
@@ -37,6 +39,7 @@ g.$doc.on('mousedown.slider', '.mt-slider-btn', function (e) {
         $slider.attr('data-val', (val / max).toFixed(2));
         $slider.trigger('change', (val / max).toFixed(2));
     }).on('mouseup.slider', function (e) {
+        e.stopPropagation();
         let dval = (val / max).toFixed(2);
         $slider.attr('data-val', dval);
         $slider.trigger('end', dval);

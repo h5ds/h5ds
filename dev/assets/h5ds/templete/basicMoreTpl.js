@@ -10,19 +10,25 @@ export function basicMoreTpl(obj) {
 	<div class="set-baiscmore">
 		<div class="tr">
 			<h5>旋转角度</h5>
-			<div mt-bind="basicMoreTpl_rotate_input" id="basicMoreTpl_rotate" mt-filter="*360" class="mt-slider-bar" data-val="${parseInt(obj.rotate || 0, 10) / 360}"></div>
+			<div mt-bind="basicMoreTpl_rotate_input" id="basicMoreTpl_rotate" mt-filter="*360" class="mt-slider-bar" data-val="${parseInt(obj.rotate || 0, 10) / 360 || 0}"></div>
 			<input mt-wheel="0,1,360" mt-bind="basicMoreTpl_rotate" id="basicMoreTpl_rotate_input" mt-filter="/360" mt-min="0" mt-max="360" mt-type="deg" mt-fixed="4" class="mt-input" value="${obj.rotate || 0}" placeholder="度数">
 		</div>
 		<div class="tr">
 			<h5>圆角</h5>
-			<div mt-bind="basicMoreTpl_radius_input" mt-filter="*${radiusMax}" id="basicMoreTpl_radius" class="mt-slider-bar" data-val="${parseInt(obj.radius || 0, 10) / radiusMax}"></div>
+			<div mt-bind="basicMoreTpl_radius_input" mt-filter="*${radiusMax}" id="basicMoreTpl_radius" class="mt-slider-bar" data-val="${parseInt(obj.radius || 0, 10) / radiusMax || 0}"></div>
 			<input mt-wheel="0,1,${radiusMax}" mt-fixed="5" mt-bind="basicMoreTpl_radius" mt-filter="/${radiusMax}" id="basicMoreTpl_radius_input" class="mt-input" mt-type="px" mt-min="0" mt-max="${radiusMax}" value="${obj.radius || 0}">
 		</div>
 		<div class="tr">
 			<h5>透明度</h5>
 			<div mt-bind="basicMoreTpl_opacity_input" id="basicMoreTpl_opacity" class="mt-slider-bar" data-val="${ isNull(obj.opacity) ? 1 : obj.opacity }"></div>
 			<input mt-wheel="0,0.1,1" mt-bind="basicMoreTpl_opacity" id="basicMoreTpl_opacity_input" class="mt-input" mt-type="" mt-min="0" mt-max="1" value="${obj.opacity}">
-		</div>
+        </div>
+        <div class="tr">
+            <h5>隐藏元素</h5>
+            <div id="basicMoreTpl_hide_layer" class="mt-switch" data-val="${ obj.display === 'none' ? 'on' : 'off'}">
+                <a class="mt-switch-btn"></a>
+            </div>
+        </div>
 		<div class="tr">
 			<h5>开启阴影</h5>
 			<div id="basicMoreTpl_boxshadow_switch" data-toggle='[{"dom":"#basicMoreTpl_boxshadowStyleId","class":"show"}]' class="mt-switch" data-val="${ isNull(obj.boxshadow) ? 'off' : 'on'}">
@@ -306,6 +312,13 @@ export function baiscMoreEvent(self) {
             'border': val
         }, self)
 
+    });
+
+    // 隐藏元素
+    $('#basicMoreTpl_hide_layer').off('change').on('change', function(e, val) {
+        setLayerDomAndObj('layer', {
+            display: val ? 'none' : 'block'
+        }, self)
     });
 
 }

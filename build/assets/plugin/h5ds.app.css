@@ -16,14 +16,22 @@ a,button,input,optgroup,select,textarea{
     -webkit-tap-highlight-color: rgba(0,0,0,0);
     border: 0;
 }
+body * {
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    text-shadow: none!important;
+}
 .h5ds-swiper{
-    perspective: 1200px; 
+    perspective: 1000px; 
     transform-style: preserve-3d; 
     overflow: hidden; 
-    position: relative;
+    position: absolute;
     width: 100%;
     height: 100%;
-    z-index: 100;
+    z-index: 800;
+    top: 0;
+    left: 0;
     display: inline-block;
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
@@ -36,25 +44,37 @@ a,button,input,optgroup,select,textarea{
 }
 .h5ds-swiper-page{
     width: 100%;
-    height: 100%;
-    overflow: hidden;
+    height: 100%!important;
+    overflow: auto;
     z-index: 0;
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
-    -webkit-transform: translate3d(0, 0, 0);
-    transform: translate3d(0, 0, 0);
+    -webkit-transform: translate3d(0, 0, 0) rotateZ(0deg);
+    transform: translate3d(0, 0, 0) rotateZ(0deg);
     -webkit-transform-style: preserve-3d;
     transform-style: preserve-3d;
+    transition-timing-function: cubic-bezier(0.1, 0.57, 0.1, 1);
     user-select: none;
     position: absolute;
     top: 0;
     left: 0;
     opacity: 0; /* 先渲染，兼容苹果的bug */
 }
+.h5ds-swiper-pageinner{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+    top: 0;
+    left: 0;
+}
+.h5ds-swiper-pageinner[style~='486px'] {
+    height: 100%!important;
+}
 .h5ds-swiper-current{
     z-index: 100;
-    -webkit-transform: translate3d(0, 0, 0);
-    transform: translate3d(0, 0, 0);
+    -webkit-transform: translate3d(0, 0, 0) rotateZ(0deg);
+    transform: translate3d(0, 0, 0) rotateZ(0deg);
     animation-fill-mode : forwards;
     opacity: 1;
 }
@@ -67,11 +87,10 @@ a,button,input,optgroup,select,textarea{
     height:486px;
 }
 .h5ds-swiper-layers .layer{
-    -webkit-transform: translate3d(0, 0, 0);
-    transform: translate3d(0, 0, 0);
+    -webkit-transform: translate3d(0, 0, 0) rotateZ(0deg);
+    transform: translate3d(0, 0, 0) rotateZ(0deg);
     position: absolute;
     box-sizing: border-box;
-    display: none;
 }
 .h5ds-swiper-layers .element{
     width: 100%;
@@ -82,10 +101,16 @@ a,button,input,optgroup,select,textarea{
     -webkit-animation-fill-mode: forwards;
     animation-fill-mode: forwards;
 }
-.h5ds-swiper-layers .layer-img img{
+.h5ds-swiper-layers .layer-img img,
+.h5ds-swiper-layers .layer-svg svg{
     width: 100%;
     height: 100%;
+    position: relative;
+    float: left;
+    top: 0;
+    left: 0;
     border-radius: inherit;
+    transform: translateZ(0); /* 防止图片模糊 */
 }
 
 .h5ds-loading{
@@ -161,7 +186,7 @@ a,button,input,optgroup,select,textarea{
 }
 
 /* 弹窗 */
-#h5dsPopups, #h5dsFixeds{
+#h5dsPopups, #h5dsFixedsUp, #h5dsFixedsDown{
     position: absolute;
     z-index: 1000;
     width: 0;
@@ -169,30 +194,59 @@ a,button,input,optgroup,select,textarea{
     top: 0;
     left: 0;
 }
-#h5dsFixeds{
+#h5dsFixedsUp{
     z-index: 900;
 }
-#h5dsFixeds .h5ds-swiper-page,
+#h5dsFixedsDown{
+    z-index: 700;
+}
+#h5dsFixedsUp .h5ds-swiper-page,
+#h5dsFixedsDown .h5ds-swiper-page,
 #h5dsPopups .h5ds-swiper-page{
     display: none;
-    height: 486px;
-    width: 320px;
+    height: 100vh;
+    width: 100vw;
     position: absolute;
     top: 0;
     left: 0;
     opacity: 1;
 }
-#h5dsFixeds .h5ds-swiper-page{
+#h5dsFixedsUp .h5ds-swiper-page,
+#h5dsFixedsDown .h5ds-swiper-page{
     display: block;
     overflow: visible;
     width: 0;
     height: 0;
 }
-#h5dsFixeds .h5ds-swiper-page .h5ds-swiper-layers {
+#h5dsFixedsUp .h5ds-swiper-page .h5ds-swiper-layers,
+#h5dsFixedsDown .h5ds-swiper-page .h5ds-swiper-layers {
     width: 0;
     height: 0;
 }
-#h5dsFixeds .h5ds-swiper-page .layer,
+#h5dsFixedsUp .h5ds-swiper-page .layer,
+#h5dsFixedsDown .h5ds-swiper-page .layer,
 #h5dsPopups .h5ds-swiper-page .layer{
     display: block;
+}
+
+.amap-adcombo-close {
+	position: absolute;
+	top: 4px;
+	right: 4px;
+	background: url(http://webapi.amap.com/images/close.png) center center no-repeat #ccc;
+	width: 18px;
+	height: 18px;
+	text-indent: -9999em
+}
+.amap-infos{
+	padding: 20px;
+	font-size: 14px;
+}
+.amap-adcontent-body {
+    width: 200px;
+	box-shadow: 0 0 .5px rgba(0,0,100,.6);
+	background: #fff;
+	border-radius: 2px;
+	text-align: left;
+	border: 1px solid silver
 }

@@ -84,6 +84,35 @@ function addPage(self) {
 }
 
 /**
+ * 长页设置
+*/
+function changePage(self) {
+
+    // 最大高度 486px
+    $('#setPageHeight').on('mousedown', function (e) {
+        e.stopPropagation();
+        let y0 = e.pageY;
+        let $phonebox = $('.phonebox');
+        let oldHei = $phonebox.height();
+        let nowHei = 0;
+        g.$doc.on('mousemove', function (e) {
+            nowHei = (oldHei + (e.pageY - y0) / AppData.edit.phoneScale);
+            if(nowHei < g.defaultHeight) {
+                nowHei = g.defaultHeight;
+            }
+            $phonebox.css({
+                height: nowHei
+            });
+        }).on('mouseup', function (e) {
+            g.$doc.off('mousemove mouseup');
+            let page = AppData.edit.pageClass[AppData.edit.pageClass.className];
+            page.style.height = nowHei + 'px';
+            AppDataChange();
+        })
+    });
+}
+
+/**
  * 保存当前模板
 */
 function savePage(self) {
@@ -96,8 +125,8 @@ function savePage(self) {
             let load = $.loading();
             $('#phoneApp').addClass('element-show');
             html2canvas($('#pageView')[0], {
-                height: 486,
-                width: 320
+                height: g.defaultHeight,
+                width: g.defaultWidth
             }).then(function (canvas) {
                 $('#phoneApp').removeClass('element-show');
                 uploadImgBase64({
@@ -296,20 +325,27 @@ function mouseRightBtn(self) {
 
 // 快捷按钮操作
 function shortcuts() {
-    $(document).on("keydown.shortcuts", (e) => {
-        var ev = window.event || e;
-        var code = ev.keyCode || ev.which;
+
+    $(document).on("keydown.shortcuts", (ev) => {
+        // var ev = window.event || e;
+        var code = ev.keyCode;
         //ctrl+s + code
-        console.log(code, ev.shiftKey);
+        // console.log(code, ev.ctrlKey, ev.shiftKey);
 
         // 这里加个锁吧
-        if($(':focus').length !== 0) {
-            console.log('不监听');
+        if ($(':focus').length !== 0) {
+            // console.log('不监听');
             return;
         }
 
         if (ev.ctrlKey && [83, 90, 89, 189, 187, 80, 75, 72, 67, 86].indexOf(code) !== -1) {
             ev.preventDefault();
+            let copyDo = function () {
+                let $active = $('#layerlist').find('.active');
+                if ($active[0]) {
+                    $active.find('.copylayer').trigger('click');
+                }
+            }
             switch (code) {
                 case 83: $('#appPublish').trigger('click'); break; // ctrl+s 保存预览APP
                 case 90: $('#fastToNext').trigger('click'); break; // ctrl+z 撤销
@@ -320,17 +356,12 @@ function shortcuts() {
                 case 75: $('.close-animation-do').trigger('click'); break; // ctrl+ k 元素可见
                 case 72: $('#gridBoxBtn').trigger('click'); break; // ctrl+ h 显示网格
                 case 86: $(document).trigger('pastelayer'); break; // ctrl+ v 粘贴
-                case 67: {
-                    let $active = $('#layerlist').find('.active');
-                    if ($active[0]) {
-                        $active.find('.copylayer').trigger('click');
-                    }
-                }; break; // ctrl+ c 复制
+                case 67: copyDo(); break; // ctrl+ c 复制
             }
         }
 
         // 删除
-        if(code === 46) {
+        if (code === 46) {
             ev.preventDefault();
             $('#layerlist').find('.active .dellayer').trigger('click'); // delete 删除layer
         }
@@ -344,14 +375,14 @@ function shortcuts() {
                 num = 20;
             }
 
-            if(AppData.edit.layerIndex !== null) {
+            if (AppData.edit.layerIndex !== null) {
                 switch (code) {
                     case 38: setXYPoint('y', -num); break; // 上
                     case 37: setXYPoint('x', -num); break; // 左
                     case 39: setXYPoint('x', num); break; // 右
                     case 40: setXYPoint('y', num); break; // 下
                 }
-            }else if( getViewDom().find('.mt-control').length > 1) { // 选择组
+            } else if (getViewDom().find('.mt-control').length > 1) { // 选择组
                 let arr = getLayerGroupArr();
                 switch (code) {
                     case 38: changeLayerGroupArr(arr, null, -num); break; // 上
@@ -378,6 +409,7 @@ export function iniFastEvent(self) {
     savePage(self);
     unRedoFun(self);
     shortcuts(); // 快捷键
+    changePage(); // 改变长页
     mouseRightBtn(self); // 鼠标右键
 }
 

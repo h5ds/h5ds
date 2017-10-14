@@ -1,4 +1,5 @@
-var { pool, pageSql } = require('../lib/mysql');
+var Sequelize = require('sequelize');
+var { sequelize } = require('../lib/mysql');
 
 /**
  * @desc 删除数据
@@ -11,34 +12,25 @@ var { pool, pageSql } = require('../lib/mysql');
 exports.deleteSQL = function ({
     req = req,
     id = id,
-    uid = uid,
     table = table,
-    callBack = callBack
+    callBack = callBack,
+    sequeObj = { type: Sequelize.INTEGER, primaryKey: true }
 }) {
-    pool.getConnection(function (err, connection) {
-        if (err) {
-            callBack(null, err);
-            connection.release();
-            return;
-            // throw err;
-        }
-        // id 不能为空
-        if (!id && !uid) {
-            console.error('没有登录');
-            callBack(null);
-            connection.release();
-            return;
-        }
 
-        let params = [id, uid];
-        connection.query('DELETE FROM ' + table + ' WHERE `id`=? AND `owner`=?', params, function (err, result) {
-            if (err) {
-                callBack(null, err);
-            } else {
-                callBack(result);
-            }
-            // 接下来connection已经无法使用，它已经被返回到连接池中
-            connection.release();
-        })
+    let Task = sequelize.define(table, sequeObj, {
+        timestamps: false,
+        freezeTableName: true
     });
+
+    Task.destroy({
+        where: {
+            id: id,
+            owner: req.session.user.id
+        }
+    }).then(result => {
+        callBack(result);
+    }).catch(err => {
+        callBack(null, err);
+    });
+
 }

@@ -134,6 +134,10 @@
 				width: 50px;
 				height: 70px;
 				background:$blue2;
+				font-size: 12px;
+				color: $blue4;
+				vertical-align: top;
+				margin: 0 3px 3px 0;
 			}
 			.mt-selected{
 				background:$yellow;
@@ -162,6 +166,16 @@
 		span{
 			display: inline-block;
 			margin-right: 20px;
+		}
+		.set-basic-tips{
+			span{
+				margin-right: 0;
+			}
+			i{
+				font-size: 12px;
+				font-style: normal;
+				color: $yellow;
+			}
 		}
 	}
 

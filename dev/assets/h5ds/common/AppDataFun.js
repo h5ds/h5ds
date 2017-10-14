@@ -23,7 +23,8 @@ export function getViewDom() {
     }else if(AppData.edit.pageType === 'popups') {
         $view = $('#pageViewPopup');
     }else if(AppData.edit.pageType === 'fixeds') {
-        $view = $('#pageViewFixed');
+        let index = $('#fixedsList').find('.active').index();
+        $view = $('.pageViewFixed').eq(index);
     }else {
         // ... 其他
     }

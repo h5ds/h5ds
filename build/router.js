@@ -5,12 +5,15 @@ var { authorize } = require('./lib/filter');
 var { limitReq } = require('./lib/limitRequest');
 var { getSysMp3 } = require('./action/sysMp3.js'); // mp3
 var { getSysImgs, getSysImgTypes } = require('./action/sysImgs.js'); // 系统图片
+var { getSysSvgs } = require('./action/sysSvgs.js'); // 系统svg
 var { getSysTpls, getSysTplsTypes } = require('./action/sysTpls.js'); // 系统模板
 var { getUserImgs, delUserImgs } = require('./action/userImgs.js'); // 用户图片
 var { getUserTpls, delUserTpls, addUserTpls } = require('./action/userTpls.js'); // 用户模板
-var { saveData, addData } = require('./action/saveData.js'); // 保存app 
-var { getUserApps, getUserApp, delApp } = require('./action/userApp.js'); // 
+var { saveData } = require('./action/saveData.js'); // 保存app 
+var { getUserApps, getUserApp, delApp, addData } = require('./action/userApp.js'); // 
 var { imgCode } = require('./action/imgCode.js'); // 验证码
+
+var { getH5 } = require('./action/getH5'); // SEO专用
 
 // 路由
 function router(app, express) {
@@ -20,8 +23,10 @@ function router(app, express) {
     app.use('/json', express.static('json')); // 存放测试 json
     app.use('/mp3', express.static('mp3')); // 存放mp3
     app.use('/apps', express.static('apps')); // 存放app
+    app.use('/images', express.static('images')); // 存放爬取的图片
 
     // 接口文件
+    // app.get('/api/AESPassword', require('./action/AESPassword').AESPassword); // 更新所有的密码
     app.get('/api/imgCode', imgCode); // 验证码
     app.get('/api/logout', logout); // 退出
     app.post('/api/login', limitReq, login); // 登录
@@ -32,6 +37,8 @@ function router(app, express) {
     app.post('/api/getUser', authorize, getUser); // 获取用户信息
 
     // app.post('/api/getData', getData); // 获取app数据 @param: appid
+    app.post('/api/getSysSvgs', authorize, getSysSvgs); // 获取系统svg素材 @param: type, key
+
     app.post('/api/getSysImgs', authorize, getSysImgs); // 获取系统图片素材 @param: type, key
     app.post('/api/getSysImgTypes', authorize, getSysImgTypes); // 获取系统图片素材分类
 
@@ -56,6 +63,16 @@ function router(app, express) {
 
     // url路由
     app.get('/', function (req, res) { res.sendfile('./tpl/index.html'); }); // 主页
+    app.get('/h5', function (req, res) {
+        getH5(req, res, function(data) {
+            console.log(data);
+            data = JSON.parse(data);
+            res.render('h5.ejs', {
+                list: data.rows,
+                count: data.count
+            });
+        });
+    }); // ui
     app.get('/ui', function (req, res) { res.sendfile('./tpl/ui.html'); }); // ui
     app.get('/login', function (req, res) { res.sendfile('./tpl/login.html'); }); // 登录
     app.get('/register', function (req, res) { res.sendfile('./tpl/register.html'); }); // 注册

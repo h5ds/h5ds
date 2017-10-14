@@ -11,8 +11,8 @@
 	top: 40px;
 	margin:0 0 40px -160px;
 	transform-origin: top;
-	transition: 0.3s;
 	z-index: 100;
+	margin-bottom: 400px;
 
 	.element-show{
 		.element {
@@ -70,7 +70,7 @@
 
 	.page-view{
 		width: 100%;
-		height: 100%;
+		height: 100%!important;
 		position:relative;
 		z-index: 1000;
 	}
@@ -80,10 +80,13 @@
 		height: 0;
 		z-index: 1100;
 	}
-	#pageViewFixed{
+	#pageViewFixedDown{
+		z-index: 900;
+	}
+	.pageViewFixed{
 		pointer-events: none;
 	}
-	.page-viewup-full#pageViewFixed{
+	.page-viewup-full.pageViewFixed{
 		width: 100%;
 		height: 100%;
 		pointer-events: inherit;
@@ -112,6 +115,20 @@
 			width: 100%;
 			height: 100%;
 			border-radius: inherit;
+			position: relative;
+			top: 0;
+			left: 0;
+		}
+	}
+
+	.layer-svg{
+		svg{
+			width: 100%;
+			height: 100%;
+			border-radius: inherit;
+			position: relative;
+			top: 0;
+			left: 0;
 		}
 	}
 }

@@ -120,6 +120,18 @@ input[type="color"]::-webkit-color-swatch-wrapper {
 .hide {
   display: none !important; }
 
+/* 公用按钮 */
+.mt-set-btn {
+  background: #ff5402;
+  display: inline-block;
+  line-height: 40px;
+  width: 300px;
+  text-align: center;
+  margin: 10px 0;
+  color: #fff; }
+  .mt-set-btn:hover {
+    color: #fff; }
+
 /* 帮助信息 */
 .mt-helps {
   position: absolute;
@@ -1184,6 +1196,9 @@ body {
     display: inline-block;
     width: 50px;
     height: 50px;
+    text-align: center;
+    line-height: 50px;
+    overflow: hidden;
     margin: 2px;
     font-size: 12px;
     background: #535f6b;
@@ -1390,6 +1405,36 @@ body {
   left: 0;
   width: 100%;
   height: 100%; }
+
+.set-page-height {
+  border-left: 1px dashed #ff5402;
+  border-right: 1px dashed #ff5402;
+  text-align: center;
+  bottom: -40px;
+  position: absolute;
+  width: 100%;
+  background: none;
+  height: 40px;
+  line-height: 40px;
+  z-index: 9999;
+  cursor: move; }
+  .set-page-height a {
+    cursor: move; }
+  .set-page-height .iconfont {
+    color: #fff;
+    font-size: 20px;
+    background: #ff5402;
+    border-radius: 4px;
+    position: relative;
+    z-index: 100;
+    top: 1px; }
+  .set-page-height:after {
+    content: '';
+    display: block;
+    border-top: 1px dashed #ff5402;
+    position: absolute;
+    top: 50%;
+    width: 100%; }
 
 .phone {
   position: absolute;
@@ -1815,7 +1860,11 @@ body {
     display: inline-block;
     width: 50px;
     height: 70px;
-    background: #535f6b; }
+    background: #535f6b;
+    font-size: 12px;
+    color: #252a2e;
+    vertical-align: top;
+    margin: 0 3px 3px 0; }
   .setlayer .set-slider .mt-selectone .mt-selected {
     background: #ff5402; }
   .setlayer .set-slider .mt-input {
@@ -1833,6 +1882,12 @@ body {
   .setlayer .set-baisc span {
     display: inline-block;
     margin-right: 20px; }
+  .setlayer .set-baisc .set-basic-tips span {
+    margin-right: 0; }
+  .setlayer .set-baisc .set-basic-tips i {
+    font-size: 12px;
+    font-style: normal;
+    color: #ff5402; }
   .setlayer .set-baiscmore {
     margin-top: 10px; }
     .setlayer .set-baiscmore h5 {
@@ -1925,8 +1980,8 @@ body {
   top: 40px;
   margin: 0 0 40px -160px;
   transform-origin: top;
-  transition: 0.3s;
-  z-index: 100; }
+  z-index: 100;
+  margin-bottom: 400px; }
   .phonebox .element-show .element {
     opacity: 1 !important; }
   .phonebox .grid-box {
@@ -1966,7 +2021,7 @@ body {
     z-index: 999; }
   .phonebox .page-view {
     width: 100%;
-    height: 100%;
+    height: 100% !important;
     position: relative;
     z-index: 1000; }
   .phonebox .page-viewup {
@@ -1974,9 +2029,11 @@ body {
     width: 0;
     height: 0;
     z-index: 1100; }
-  .phonebox #pageViewFixed {
+  .phonebox #pageViewFixedDown {
+    z-index: 900; }
+  .phonebox .pageViewFixed {
     pointer-events: none; }
-  .phonebox .page-viewup-full#pageViewFixed {
+  .phonebox .page-viewup-full.pageViewFixed {
     width: 100%;
     height: 100%;
     pointer-events: inherit; }
@@ -1997,7 +2054,17 @@ body {
   .phonebox .layer-img img {
     width: 100%;
     height: 100%;
-    border-radius: inherit; }
+    border-radius: inherit;
+    position: relative;
+    top: 0;
+    left: 0; }
+  .phonebox .layer-svg svg {
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+    position: relative;
+    top: 0;
+    left: 0; }
 
 .fastbtns {
   position: absolute;
@@ -2031,28 +2098,6 @@ body {
     color: #ff5402; }
   .fastbtns .iconfont {
     font-size: 14px; }
-  .fastbtns .left-btns .set-page-height {
-    position: absolute;
-    bottom: -30px;
-    text-align: center;
-    height: 30px;
-    width: 100%;
-    background: #f3f3f3; }
-    .fastbtns .left-btns .set-page-height .iconfont {
-      font-size: 16px;
-      position: absolute;
-      top: 50%;
-      transform: translateY(-55%);
-      color: #ff5402;
-      background: #fff; }
-    .fastbtns .left-btns .set-page-height:before {
-      content: '';
-      display: block;
-      width: 100%;
-      height: 1px;
-      background: #ff5402;
-      position: absolute;
-      top: 14px; }
   .fastbtns .bottom-btns {
     border-top: 1px solid #0e1113;
     margin-top: 4px; }
@@ -2159,7 +2204,8 @@ body {
     .source .source-header h1 {
       font-size: 16px;
       padding-left: 20px;
-      color: #a5b6c8; }
+      color: #a5b6c8;
+      display: inline-block; }
       .source .source-header h1 em {
         font-size: 12px;
         color: #ff5402; }
@@ -2319,36 +2365,6 @@ body {
   width: 100%;
   overflow: auto;
   color: #a5b6c8; }
-.ex-set-text {
-  padding: 10px 0;
-  border-top: 1px solid #252a2e; }
-  .ex-set-text .ex-btns {
-    line-height: 30px; }
-    .ex-set-text .ex-btns a {
-      color: #a5b6c8;
-      vertical-align: middle;
-      margin: 0 2px; }
-    .ex-set-text .ex-btns .mt-input {
-      width: 78px; }
-    .ex-set-text .ex-btns .line {
-      display: inline-block;
-      height: 19px;
-      width: 1px;
-      background: #252a2e;
-      margin: 0 1px; }
-    .ex-set-text .ex-btns .mt-select-diy {
-      width: 230px; }
-  .ex-set-text .ex-btn-fontcolor {
-    position: relative;
-    width: 16px;
-    height: 21px; }
-  .ex-set-text .ex-text-edit {
-    background: #252a2e;
-    height: 160px;
-    overflow: auto; }
-    .ex-set-text .ex-text-edit #exTextEdit {
-      height: 100%;
-      outline: none; }
 .ex-set-text {
   padding: 10px 0;
   border-top: 1px solid #252a2e; }

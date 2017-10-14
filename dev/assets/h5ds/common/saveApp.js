@@ -1,8 +1,10 @@
 import * as db from '../localSave/indexedDB.js'; // indexedDB
 import { uploadImgBase64, saveData } from '../server/ajax';
 import { AppDataChange } from './AppDataFun';
-import { getLayerDom } from './layerSwitch';
 import { loadArr } from '../conf/loading';
+import { sliderAnimate } from '../conf/sliderAnimate';
+import { totalLayerType } from './totalLayerType';
+import { popupHtml, fixedUpHtml, fixedDownHtml, pageHtml } from './saveAppHtml';
 
 /**
  * @desc 将AppData里面的 img 单独拿出来
@@ -35,6 +37,10 @@ function getAppDataImgs(data) {
  * 因为这个方法被案例中心，新建app的时候调用
 */
 export function appToHtmlFile(app) {
+    let types = totalLayerType(app);
+    let fixedUp = app.fixeds[0];
+    let fixedDown = app.fixeds[1];
+
     return `
         <!doctype html>
         <html>
@@ -65,57 +71,27 @@ export function appToHtmlFile(app) {
             <link rel="stylesheet" type="text/css" href="/assets/plugin/h5ds.app.css">
             <!--js-->
             <script src="/assets/plugin/jquery-2.1.1.js"></script>
+            ${types.map ? `<script type="text/javascript" src="http://webapi.amap.com/maps?v=1.4.0&key=b10045abfc1d4d22446efdc74f85c238"></script>` : ''}
             <script src="/assets/plugin/jquery.touchSwipe.min.js"></script>
-            <script>var IMG_SOURCE = '${JSON.stringify(getAppDataImgs(app))}';</script>
+            <script>
+            var IMG_SOURCE = '${JSON.stringify(getAppDataImgs(app))}';
+            var sliderAnimate = ${ JSON.stringify(sliderAnimate[app.slider.animate]) || '{}'};
+            </script>
             <script src="/assets/plugin/h5ds.swiper.js"></script>
         </head>
         <body ondragstart="return false">
             ${ app.mp3.url ? '<div class="h5ds-video-icon"><i></i><i></i><i></i><i></i></div>' : ''}
-            <div id="h5dsPopups">
-                ${app.popups.map((popup, index) => {
-                    return `
-                            <div class="h5ds-swiper-page" id="${popup.id || ''}" style="${$.toStyle(popup.style)}">
-                                <div class="h5ds-swiper-layers">
-                                ${ popup.layers.map((layer, index) => {
-                                    return getLayerDom(layer);
-                                }).join('')}
-                                </div>
-                            </div>`;
-                }).join('')}
-            </div>
-            <div id="h5dsFixeds">
-                ${app.fixeds.map((fixed, index) => {
-                    return `
-                            <div class="h5ds-swiper-page" id="${fixed.id || ''}" style="${$.toStyle(fixed.style)}">
-                                <div class="h5ds-swiper-layers">
-                                ${ fixed.layers.map((layer, index) => {
-                                    return getLayerDom(layer);
-                                }).join('')}
-                                </div>
-                            </div>`;
-                }).join('')}
-            </div>
+            ${ app.mp3.url ? `<audio style="display:none; height:0;" autoplay="autoplay" id="h5dsBgMusic" preload="auto" src="${app.mp3.url}" loop="loop"></audio>` : ''}
+            <div id="h5dsPopups">${popupHtml(app.popups)}</div>
+            <div id="h5dsFixedsUp">${fixedUpHtml(fixedUp)}</div>
+            <div id="h5dsFixedsDown">${fixedDownHtml(fixedDown)}</div>
             <div class="h5ds-loading" id="h5dsLoading">
                 <div class="h5ds-loadinner">
-                ${loadArr[app.loading]}
+                    ${loadArr[app.loading]}
                     <div class="h5ds-progress" id="h5dsProgress">0</div>
                 </div>
             </div>
-            <div id="h5dsSwiper" pages-length="${app.pages.length}" class="h5ds-swiper" style="${$.toStyle(app.style)}">
-            ${
-        app.pages.map((page, index) => {
-            return `
-                    <div id="${page.id || ''}" data-autoplay="${page.slider.autoplay ? page.slider.time : false}" data-lock="${page.slider.lock}" class="h5ds-swiper-page" style="${$.toStyle(page.style)}">
-                        <div class="h5ds-swiper-layers">
-                        ${
-                page.layers.map((layer, index) => {
-                    return getLayerDom(layer);
-                }).join('')}
-                        </div>
-                    </div>`;
-        }).join('')}
-            </div>
-            ${ app.mp3.url ? `<audio style="display:none; height:0;" autoplay="autoplay" id="h5dsBgMusic" preload="auto" src="${app.mp3.url}" loop="loop"></audio>` : ''}
+            <div id="h5dsSwiper" pages-length="${app.pages.length}" class="h5ds-swiper" style="${$.toStyle(app.style)}">${pageHtml(app.pages)}</div>
         </body>
         </html>`;
 }
@@ -124,6 +100,8 @@ export function appToHtmlFile(app) {
  * @desc 设置弹窗的预览数据
 */
 function appHTML(app) {
+    let fixedUp = app.fixeds[0];
+    let fixedDown = app.fixeds[1];
     return `
         <div class="view-phone">
             <div class="change-page">
@@ -134,43 +112,10 @@ function appHTML(app) {
             <div class="view-phone-window">
                 ${ app.mp3.url ? `<audio style="display:none; height:0;" autoplay="autoplay" id="h5dsBgMusic" preload="auto" src="${app.mp3.url}" loop="loop"></audio>` : ''}
                 ${ app.mp3.url ? '<div class="h5ds-video-icon"><i></i><i></i><i></i><i></i></div>' : ''}
-                <div id="h5dsPopups">
-                    ${app.popups.map((popup, index) => {
-                        return `
-                                <div id="${popup.id || ''}" class="h5ds-swiper-page" style="${$.toStyle(popup.style)}">
-                                    <div class="h5ds-swiper-layers">
-                                    ${ popup.layers.map((layer, index) => {
-                                        return getLayerDom(layer);
-                                    }).join('')}
-                                    </div>
-                                </div>`;
-                    }).join('')}
-                </div>
-                <div id="h5dsFixeds">
-                    ${app.fixeds.map((fixed, index) => {
-                        return `
-                                <div id="${fixed.id || ''}" class="h5ds-swiper-page" style="${$.toStyle(fixed.style)}">
-                                    <div class="h5ds-swiper-layers">
-                                    ${ fixed.layers.map((layer, index) => {
-                                        return getLayerDom(layer);
-                                    }).join('')}
-                                    </div>
-                                </div>`;
-                    }).join('')}
-                </div>
-                <div id="h5dsSwiper" class="h5ds-swiper" style="${$.toStyle(app.style)}">
-                ${app.pages.map((page, index) => {
-                    return `
-                            <div id="${page.id || ''}" data-autoplay="${page.slider.autoplay ? page.slider.time : false}" data-lock="${page.slider.lock}" class="h5ds-swiper-page" style="${$.toStyle(page.style)}">
-                                <div class="h5ds-swiper-layers">
-                                ${
-                        page.layers.map((layer, index) => {
-                            return getLayerDom(layer);
-                        }).join('')}
-                                </div>
-                            </div>`;
-                }).join('')}
-                </div>
+                <div id="h5dsPopups">${popupHtml(app.popups)}</div>
+                <div id="h5dsFixedsUp">${fixedUpHtml(fixedUp)}</div>
+                <div id="h5dsFixedsDown">${fixedDownHtml(fixedDown)}</div>
+                <div id="h5dsSwiper" pages-length="${app.pages.length}" class="h5ds-swiper" style="${$.toStyle(app.style)}">${pageHtml(app.pages)}</div>
             </div>
         </div>
         <div class="other-info">
@@ -398,9 +343,9 @@ function resetAppData(objs, allRes) {
 
     // 滑动
     let $h5dsSwiper = $('#h5dsSwiper');
-    $h5dsSwiper.h5dsSwiper({
+    $h5dsSwiper.h5dsSwiper($.extend(sliderAnimate[app.slider.animate] || {}, {
         len: app.pages.length
-    });
+    }));
     $h5dsSwiper.off('animateStart animateEnd').on('animateStart', function (e, index) {
         // 切换编号
         $('#nowPageNum').html(index + 1);

@@ -5,7 +5,7 @@ import { basicMoreTpl, baiscMoreEvent } from '../templete/basicMoreTpl'; // 拓�
 import { initUeSet, setUeEvent } from '../ue/layerSetUeTpl'; // 交互
 import { boxshadowFilter, borderFilter, getOpacity } from '../unit/cssFilter';
 import { initControl } from '../common/layerFun'; // layer 的公用函数
-import { AppDataChange } from '../common/AppDataFun.js';
+import { AppDataChange, getViewDom } from '../common/AppDataFun.js';
 import { setAnimateList, animateEvent } from '../templete/layerAnimateTpl';
 
 //图层
@@ -15,6 +15,26 @@ class Layer {
         this.$selectAnimateDom = null; // 当前选中的animate
         // 方便修改layer 参数
         this.layer = layer;
+    }
+
+    // 获取当前的layer 类
+    getLayer() {
+        return this.layer;
+    }
+
+    // 获取当前的操作对象
+    getDom() {
+        return AppData.edit.layerDom;
+    }
+
+    // 获取当前的 viewDom
+    getViewDom() {
+        return getViewDom();
+    }
+
+    // 获取 index ...
+    getIndex() {
+        return $('.layerlist').find('.active').index();
     }
 
     //渲染layer，这里只设置 style
@@ -45,7 +65,8 @@ class Layer {
             x: style.left,
             y: style.top,
             height: style.height,
-            width: style.width
+            width: style.width,
+            id: this.layer.id || ''
         });
 
         // 拓展模板 - 滚动条
@@ -55,6 +76,7 @@ class Layer {
         let basicMoreTpls = basicMoreTpl({
             rotate: transform.transformValue('rotate'),
             opacity: opacity,
+            display: (!style.display || style.display === 'block') ? 'block' : 'none',
             radius: estyle['border-radius'],
             boxshadow: boxshadow.size,
             boxshadowColor: boxshadow.color,

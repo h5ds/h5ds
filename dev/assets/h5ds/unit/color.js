@@ -6,6 +6,9 @@ String.prototype.colorHex = function() {
     if(!this) {
         return 'initial';
     }
+    if(this.indexOf('#') !== -1) {
+        return this;
+    }
     var aColor = this.replace(/(rgba\()(\d+,\d+,\d+),(((1|0)?\.)?\d+)\)/g, "$2").split(",");
     var strHex = "#";
     for (var i = 0; i < aColor.length; i++) {
@@ -24,6 +27,9 @@ String.prototype.colorHex = function() {
 //rgba 获取透明度
 String.prototype.colorOpacity = function() {
     if(!this) {
+        return 1;
+    }
+    if(this.indexOf('rgba') === -1) {
         return 1;
     }
     return this.replace(/rgba\(\d+,\d+,\d+,(((0|1)?\.)?\d+)\)/g, '$1');
@@ -59,6 +65,7 @@ String.prototype.colorRgba = function(dot, mark) {
 
 //清理颜色
 g.$doc.on('click.color', '.mt-color-clear', function(e) {
+    e.stopPropagation();
     var $color = $(this).closest('.mt-color').find('input[type=color]');
     var $slider = $(this).closest('.mt-color').find('.mt-slider-bar');
     $color.val('initial');
@@ -69,15 +76,17 @@ g.$doc.on('click.color', '.mt-color-clear', function(e) {
 
 //颜色操作监听
 g.$doc.on('change', '.mt-color input[type="color"]', function(e) {
+    e.stopPropagation();
     var val = $(this).val();
-    var dot = $(this).closest('.mt-color').find('.mt-slider-bar').attr('data-val') || 0;
+    var dot = $(this).closest('.mt-color').find('.mt-slider-bar').attr('data-val') || 1;
     $(this).closest('.mt-color').trigger('change', val.colorRgba(dot))
 });
 
 //滑动条监听
 g.$doc.on('change', '.mt-color .mt-slider-bar', function(e) {
+    e.stopPropagation();
     var $color = $(this).closest('.mt-color').find('input[type="color"]');
-    var dot = $(this).attr('data-val') || 0;
+    var dot = $(this).attr('data-val') || 1;
     var val = $color.val();
     $(this).closest('.mt-color').trigger('change', val.colorRgba(dot))
 });

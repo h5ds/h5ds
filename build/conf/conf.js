@@ -7,10 +7,9 @@ exports.dbConf = {
     password: '123456',
     host: '127.0.0.1',
     port: '3306',
-    database: 'h5ds',
-    multipleStatements: true // 否许一个query中有多个MySQL语句
+    database: 'h5ds'
 };
 
 // 全局变量 , 主域，端口
-exports.HOST = 'http://127.0.0.1';
+exports.HOST = '127.0.0.1';
 exports.PORT = '8090';

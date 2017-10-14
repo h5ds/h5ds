@@ -4,12 +4,16 @@ var bodyParser = require('body-parser'); // 中间键读取post数据解析
 var session = require('express-session');
 var cookieParser = require('cookie-parser');
 var compress = require('compression');
+var ejs = require('ejs');
 
 var { PORT } = require('./conf/conf.js');
 var router = require('./router.js');
 
 // express
 const app = express();
+
+app.engine('ejs', ejs.renderFile);
+app.set('views', __dirname + '/tplEjs');
 
 app.use(compress()); // gzip  + nginx gzip
 //限制3M

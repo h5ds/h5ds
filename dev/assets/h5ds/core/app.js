@@ -285,7 +285,7 @@ class App {
                     if (mark) {
                         let name = $('#editPageInput').val();
                         let id = $('#editPageInputId').val();
-                        if(!/^[_a-zA-Z][_a-zA-Z0-9]+/.test(id)) {
+                        if(id && !/^[_a-zA-Z][_a-zA-Z0-9]+/.test(id)) {
                             $.tip({
                                 msg: 'id必须是字母或者下划线开头，且必须由字母，数字，或者下划线组成！', //
                                 type: 'danger', //success,danger,warning
@@ -329,9 +329,15 @@ class App {
             
             // 如果是浮动层，全屏，就不能触发底层事件了
             if( AppData.edit.pageType === 'fixeds') {
-                $('#pageViewFixed').addClass('page-viewup-full');
+                $('.pageViewFixed').eq(0).addClass('page-viewup-full');
+                $('#pageView').css({
+                    'pointer-events': 'none'
+                });
             }else {
-                $('#pageViewFixed').removeClass('page-viewup-full'); 
+                $('.pageViewFixed').removeClass('page-viewup-full'); 
+                $('#pageView').css({
+                    'pointer-events': 'initial'
+                });
             }
 
             // 切换后，设置默认选中
@@ -412,7 +418,7 @@ class App {
         var p = getDataPage(index);
         p['index'] = index;
 
-        console.log('new page ----------------------', AppData.edit.pageType, p);
+        console.log('new ----------------------', AppData.edit.pageType, p);
 
         if(AppData.edit.pageType === 'pages') {
             new Page({
@@ -575,9 +581,10 @@ class App {
         this.eventFun();
 
         // 默认选中第一页, 这里new Layer 设置了 local
-        $('#fixedsList').find('.page-item').eq(0).trigger('click');
-        // $('#pagesList').find('.page-item').eq(0).trigger('click');
+        $('#leftPagesList').find('[data-name="fixeds"]').trigger('click');
+        $('#fixedsList').find('.page-item').trigger('click');
         $('#leftPagesList').find('[data-name="pages"]').trigger('click');
+        $('#pagesList').find('.page-item').eq(0).trigger('click');
 
         this.addLayerModule(); // 添加layer模块
 
@@ -590,6 +597,8 @@ class App {
         eventAppViewShow(this);
 
         AppData.edit.appClass = this;
+
+        AppData.edit.phoneScale = g.scale;
     }
 }
 export default App;

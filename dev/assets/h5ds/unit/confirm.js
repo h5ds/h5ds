@@ -47,6 +47,13 @@ $.confirms = function(setting) {
         $confirm.on('click', '.mt-modal-close', function (e) {
             self.hide(null);
         });
+
+        // 监听回车
+        $(document).on('keydown.' + id, function(e) {
+            if(e.keyCode == 13) {  
+                self.hide(true);
+            }  
+        }); 
     }
 
     // 显示
@@ -63,6 +70,7 @@ $.confirms = function(setting) {
             $confirm.hide();
             $bg.hide();
             $confirm.off('click').remove();
+            $(document).off('keydown.' + id);
         }, 500);
         if (set.callback) {
             set.callback(mark);

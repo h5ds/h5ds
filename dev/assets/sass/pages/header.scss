@@ -4,7 +4,7 @@ $abg: #444749;
 $headerBg: #323436;
 
 .header{
-	background: $headerBg;
+	background: #252a2e;
 	height: 60px;
 	position: fixed;
 	z-index: 1000;
@@ -38,15 +38,27 @@ $headerBg: #323436;
 			text-align: center;
 			display: inline-block;
 			height: 100%;
+			font-size: 14px;
+			position: relative;
 			a{
-				color: $font;
+				color: #a5b6c8;
 				display: inline-block;
 				height: 100%;
-				padding: 0 20px;
+				padding: 0 15px;
 			}
 			&.active a{
 				color: #fff;
 				background: $abg;
+			}
+			em{
+				display: inline-block;
+				width: 10px;
+				height: 10px;
+				background: red;
+				border-radius: 100px;
+				position: absolute;
+				right: 5px;
+				top: 5px;
 			}
 		}
 	}

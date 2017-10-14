@@ -37,7 +37,7 @@ $.fn.setStyle = function (obj) {
         // 设置 element 样式
         let elementObj = {};
         let $element = $(this).find('.element');
-        for (var key in estyle) {
+        for (let key in estyle) {
             if (estyle[key]) {
                 if (key == 'background-image') {
                     // 如果是裁剪的图片还没有上传到服务器，用#控制分割的

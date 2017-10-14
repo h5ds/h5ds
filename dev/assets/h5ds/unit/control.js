@@ -68,6 +68,7 @@ $.fn.control = function(setting) {
         }
         let style = null;
         g.$doc.on('mousemove.control_move', function(em) {
+            em.stopPropagation();
             style = {
                 left: (box.left + (em.pageX - down.x)) / scale,
                 top: (box.top + (em.pageY - down.y)) / scale
@@ -120,6 +121,7 @@ $.fn.control = function(setting) {
                 'rotate': du + 'deg'
             })
         }).on('mouseup.control_rotate', function(e) {
+            e.stopPropagation();
             g.$doc.off('mousemove.control_rotate mouseup.control_rotate');
             $this.trigger('change', {
                 'rotate': du + 'deg'
@@ -210,6 +212,7 @@ $.fn.control = function(setting) {
     //事件绑定
     g.$doc.off('mousedown.control').on('mousedown.control', '.mt-control', function(e) {
         e.preventDefault();
+        e.stopPropagation();
 
         // 专门给 group 提供的，如果正在编辑器组合，原来的方法都失效
         if(AppData.edit.group) {

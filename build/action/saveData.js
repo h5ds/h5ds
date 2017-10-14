@@ -4,6 +4,7 @@ var path = require('path');
 var { updateSQL } = require('../sql/updateSQL');
 var { createSQL } = require('../sql/createSQL');
 var sd = require('silly-datetime');
+var Sequelize = require('sequelize');
 
 /***
  * @desc 循环创建目录
@@ -36,8 +37,9 @@ function saveToHtmlFile(shtml, ph) {
 // 保存app
 exports.saveData = function(req, res) {
     let uid = req.session.user.id;
-    let appid = req.body.id;
+    let appid = parseInt(req.body.id, 10);
     let ph = `/apps/${uid}/${appid}`;
+
     // 创建目录
     mkdirs(`${process.cwd()}/apps/${uid}/${appid}`, '0777', (d) => {
 
@@ -46,6 +48,14 @@ exports.saveData = function(req, res) {
 
         // 保存sql
         updateSQL('h5ds_apps', {
+            id: { type: Sequelize.INTEGER, primaryKey: true },
+            name: { type: Sequelize.CHAR },
+            url: { type: Sequelize.CHAR },
+            pic: { type: Sequelize.CHAR },
+            des: { type: Sequelize.CHAR },
+            date: { type: Sequelize.CHAR },
+            data: { type: Sequelize.TEXT('long') }
+        }, {
             name: req.body.name,
             url: ph + '/index.html',
             pic: req.body.pic,
@@ -53,7 +63,7 @@ exports.saveData = function(req, res) {
             date: sd.format(new Date(), 'YYYY/MM/DD HH:mm:ss'),
             data: req.body.data
         }, {owner: uid, id: appid}, (ret) => {
-            if (ret.changedRows > 0) {
+            if (ret) {
                 result(req, res, {
                     code: 200,
                     data: ph + '/index.html',
@@ -72,40 +82,4 @@ exports.saveData = function(req, res) {
         });
     });
 
-}
-
-// 新建app
-exports.addData = function(req, res) {
-    let uid = req.session.user.id;
-
-    // 创建应用
-    createSQL({
-        obj: {
-            owner: uid,
-            name: req.body.name,
-            pic: req.body.pic,
-            des: req.body.des,
-            date: sd.format(new Date(), 'YYYY/MM/DD HH:mm:ss'),
-            data: req.body.data
-        },
-        table: 'h5ds_apps',
-        callBack: ret => {
-            if (ret) {
-                result(req, res, {
-                    code: 200,
-                    data: ret.insertId,
-                    msg: "成功",
-                    success: true
-                });
-            } else {
-                // 返回值
-                result(req, res, {
-                    code: 500,
-                    data: ret,
-                    msg: "失败",
-                    success: false
-                })
-            }
-        }
-    })
 }

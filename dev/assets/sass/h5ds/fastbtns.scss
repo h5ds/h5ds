@@ -42,34 +42,6 @@
     .iconfont{
         font-size: 14px;
     }
-    .left-btns{
-        // 设置page 高度
-        .set-page-height{
-            position: absolute;
-            bottom: -30px;
-            text-align: center;
-            height: 30px;
-            width: 100%;
-            background: #f3f3f3;
-            .iconfont{
-                font-size: 16px;
-                position: absolute;
-                top: 50%;
-                transform: translateY(-55%);
-                color: $yellow;
-                background: #fff;
-            }
-            &:before{
-                content: '';
-                display: block;
-                width: 100%;
-                height: 1px;
-                background: $yellow;
-                position: absolute;
-                top: 14px;
-            }
-        }
-    }
     .bottom-btns{
         border-top: 1px solid $blue5;
         margin-top: 4px;

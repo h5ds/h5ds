@@ -1,17 +1,17 @@
 import { AppDataChange } from '../common/AppDataFun.js';
+import { sliderAnimate } from '../conf/sliderAnimate';
 
 export function appSliderAnimateTpl(obj) {
     // console.log(obj)
+    let list = '';
+    for(let key in sliderAnimate) {
+        list += `<a data-val="${key}" class="option">${sliderAnimate[key].name}</a>`;
+    }
     return `
     <div class="tr">翻页动画:</div>
     <div class="tr">
         <div id="appPageSlider" class="mt-selectone" data-val="${obj.playtype}">
-            <a data-val="1" class="option">1</a>
-            <a data-val="2" class="option">2</a>
-            <a data-val="3" class="option">3</a>
-            <a data-val="4" class="option">4</a>
-            <a data-val="5" class="option">5</a>
-            <a data-val="6" class="option">6</a>
+            ${list}
         </div>
     </div>`
 }

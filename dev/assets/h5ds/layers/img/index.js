@@ -42,6 +42,17 @@ export default class Img extends Layer {
 
     cropBack(method, val) {
         console.log(method, val);
+
+        if(!val) {
+            return;
+        }
+
+        // 控制重新设置尺寸的参数
+        let imgDom = false;
+        if(AppData.edit.layerDom.find('img').attr('src').indexOf('imgDom') !== -1) {
+            imgDom = true;
+        }
+
         if (method === 'crop') {
             // 剪切后 重新设置 img 的src
             AppData.edit.layerDom.find('img').attr('src', this.layer.data.src);
@@ -51,19 +62,25 @@ export default class Img extends Layer {
         } else if (method === 'delete') {
             // 删除图片，在 initCrop 里面已经做了处理了
         } else if (method === 'select') {
-            let img = new Image();
-            img.src = val;
+            // 重新设置尺寸, 如果第一次是替代图片，选中图片后，自动设置尺寸，如果是已有的图，不设置尺寸
+            if(imgDom) {
+                let img = new Image();
+                img.src = val;
+                AppData.edit.layerDom.css({
+                    width: img.naturalWidth,
+                    height: img.naturalHeight
+                });
+                $('#basicTpl_set_width').val(img.naturalWidth + 'px');
+                $('#basicTpl_set_height').val(img.naturalHeight + 'px');
+                this.layer.style.width = img.naturalWidth + 'px';
+                this.layer.style.height = img.naturalHeight + 'px';
+            }
+        
+            AppData.edit.layerDom.find('img').attr('src', val);
+
             // 重新设置layer 对象
             this.layer.data.src = val;
-            this.layer.style.width = img.naturalWidth + 'px';
-            this.layer.style.height = img.naturalHeight + 'px';
-            // 重新设置尺寸
-            AppData.edit.layerDom.css({
-                width: img.naturalWidth,
-                height: img.naturalHeight
-            }).find('img').attr('src', val);
-            $('#basicTpl_set_width').val(img.naturalWidth + 'px');
-            $('#basicTpl_set_height').val(img.naturalHeight + 'px');
+
         }
         // 重新渲染页面
         AppDataChange();
@@ -71,9 +88,8 @@ export default class Img extends Layer {
 
     // 事件绑定
     initEvent() {
-        let self = this;
         // 图片剪切, 因为事件绑定，被外部函数所引用，形成闭包，内存无法释放。以后这里需要做优化
-        let $crop = initCrop(this, $('#setStyle').find('.set_img_crop'), {}, this.cropBack.bind(this));
+        this.$crop = initCrop(this, $('#setStyle').find('.set_img_crop'), {}, this.cropBack.bind(this));
 
     }
 

@@ -7,13 +7,13 @@ import { initControl, layerShow, uniqendLayer } from '../common/layerFun'; // la
 import { appSliderTypeTpl, initAppSliderType } from '../templete/appSliderTypeTpl'; //设置翻页模式，锁定，自动
 import { layerListTpl } from '../templete/layerListTpl'; //layer list
 import { removeDataLayer, AppDataChange, setPageClass, saveHistory, getViewDom } from '../common/AppDataFun.js';
+import { initPageLayerFun } from '../common/initPageLayerFun';
 
 /**
  * 所有页面，弹窗，浮动层，都继承这个类，提供一些公用方法
  */
 export default class PageClass {
     constructor(props) {
-        console.log('>>>>>>', props);
         this.layerListTpl = layerListTpl;
         this.pagesList = props.pagesList || 'pagesList'; // pagesList 的 id
         this.className = props.className || 'page'; // 类名字
@@ -55,9 +55,17 @@ export default class PageClass {
 
     // 渲染页面样式
     renderPage() {
+        let style = this[this.className].style;
         getViewDom().setStyle({
-            style: this[this.className].style
+            style: style
         }).show();
+
+        let height = parseInt(style.height, 10);
+        if(height && height !== 486 ) {
+            $('.phonebox').height(height);
+        }else {
+            $('.phonebox').height(486);
+        }
         AppDataChange();
     }
 
@@ -81,6 +89,8 @@ export default class PageClass {
         let self = this;
         let $setPageStyle = $('#setPageStyle');
         let { style, slider } = this[this.className];
+
+        console.log('当前page', this.className, this[this.className]);
 
         // 设置背景参数
         let bgTpls = bgTpl({
@@ -324,6 +334,15 @@ export default class PageClass {
         }
         $pageView.html(arr.join(''));
         arr = null;
+
+        // 初始化JS 方法，地图什么的
+        this.initPageLayerFun();
+    }
+
+    // 有的页面 初始化JS 方法，地图什么的
+    initPageLayerFun() {
+        var layers = this[this.className].layers;
+        initPageLayerFun(layers, getViewDom());
     }
 
     // 选择layer 之后，需要重新渲染 layer 对象 AppData.edit.layerDom 这个对象，在排序，复制之后，得重新设置
@@ -371,6 +390,26 @@ export default class PageClass {
         }
     }
 
+    // svg 预加载
+    lazySvg() {
+        $('#phoneApp').find('.layer-svg').each(function() {
+            let $this = $(this).find('.element');
+            let src = $this.attr('data-svglazy');
+            let color = $this.attr('data-color').split('@') || [];
+            $.get(src).done( svg => {
+                // 预加载成功
+                let $svg = $(svg);
+                color.forEach(function(elem, index) {
+                    if(elem) {
+                        $svg.find('path').eq(index).attr('fill', elem);
+                    }
+                })
+                let str = $svg.find('svg').prop('outerHTML');
+                $this.html(str);
+            });
+        });
+    }
+
     //初始化方法
     _init() {
         console.log(this);
@@ -381,6 +420,8 @@ export default class PageClass {
         this.initEvent();
 
         setPageClass(this);
+
+        this.lazySvg();
 
         return this;
     }

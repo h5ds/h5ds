@@ -1,9 +1,11 @@
+var MAPS = []; // 缓存地图资源
+
 /**
  * @desc 滑动函数
 */
 $.fn.h5dsSwiper = function (setting) {
-    let $this = $(this);
-    let defaults = {
+    var $this = $(this);
+    var defaults = {
         inNext: 'pt-page-moveFromBottom', // 进入动画 , 进入是 from , 出去是 to
         outNext: 'pt-page-moveToTop', // 出去动画
         inPrev: 'pt-page-moveFromTop', // 进入动画
@@ -15,19 +17,33 @@ $.fn.h5dsSwiper = function (setting) {
         len: 0 // page length
     }
 
-    let set = $.extend(defaults, setting);
+    var set = $.extend(defaults, setting);
 
     // 添加，删除 class
-    let pageInOut = function ($in, $out, direc) {
+    var pageInOut = function ($in, $out, direc) {
+
+        // 如果只有一页，不翻页
+        if (set.len <= 1) {
+            return;
+        }
         set.animated = true;
         $this.trigger('animateStart', $in.index());
         $in.addClass(set['in' + direc] + ' h5ds-swiper-current');
         $out.addClass(set['out' + direc] + ' h5ds-swiper-current');
+        $in.find('.h5ds-swiper-layers').fadeIn(0);
+        $out.find('.h5ds-swiper-layers').hide(0);
+
+        // scroll
+        var $noSwiper = $in.find('[data-noSwiper="noSwiper"]');
+        if ($noSwiper[0]) {
+            $noSwiper.addClass('noSwiper');
+        }
+
+        // 初始化地图
+        initMap($in);
 
         setTimeout(function () {
             // 离开后隐藏
-            $in.find('.layer').fadeIn(0);
-            $out.find('.layer').hide(0);
             $in.removeClass(set['in' + direc]);
             $out.removeClass(set['out' + direc]);
             $out.removeClass('h5ds-swiper-current');
@@ -39,13 +55,13 @@ $.fn.h5dsSwiper = function (setting) {
     };
 
     // 自动翻页
-    let autoplayFun = function () {
-        let $current = $this.find('.h5ds-swiper-current');
-        let autoplay = $current.attr('data-autoplay');
+    var autoplayFun = function () {
+        var $current = $this.find('.h5ds-swiper-current');
+        var autoplay = $current.attr('data-autoplay');
         if (autoplay !== 'false') { // 自动翻页
             set.animated = true;
             $this.trigger('animateStart', $current.index());
-            setTimeout(() => {
+            setTimeout(function () {
                 $this.trigger('h5ds_' + set.direction, {
                     $out: $current,
                     outIndex: $current.index()
@@ -56,23 +72,51 @@ $.fn.h5dsSwiper = function (setting) {
     };
 
     // 默认显示第一页
-    let $first = $this.find('.h5ds-swiper-page').eq(0);
+    var $first = $this.find('.h5ds-swiper-page').eq(0);
     $first.addClass('h5ds-swiper-current');
-    $first.find('.layer').fadeIn(0);
+    $first.find('.h5ds-swiper-layers').fadeIn(0);
+    initMap($first);
     // $first.find('.layer').css('display', 'block');
 
     // 自动翻页
     autoplayFun();
 
     // 监听touch 事件
-    $this.swipe({
-        swipe: function (ev, phase, direction, distance, duration, fingerCount) {
-            console.log("你用" + fingerCount + "个手指以" + duration + "秒的速度向" + direction + "滑动了" + distance + "像素 " + "你在" + phase + "中");
-            let $out = $(ev.target).closest('.h5ds-swiper-page');
-            let outIndex = $out.index();
+    var $out,
+        oldY,
+        winHei = $(window).height(),
+        pageHei = 0,
+        speed = 0,
+        tmp = null,
+        isBottom = false,
+        isTop = false;
 
-            let lock = $out.attr('data-lock');
-            let autoplay = $out.attr('data-autoplay');
+    $this.swipe({
+        excludedElements: '.noSwiper',
+        swipe: function (e, direction, distance, duration, fingerCount, fingerData) {
+            console.log("你用" + fingerCount + "个手指以" + duration + "ms的时间，向" + direction + "滑动了" + distance + "像素 ");
+            var $out = $(e.target).closest('.h5ds-swiper-page');
+            var outIndex = $out.index();
+            var $noSwiper = $(e.target).closest('.noSwiper');
+
+            var lock = $out.attr('data-lock');
+            var autoplay = $out.attr('data-autoplay');
+
+            if ($noSwiper[0]) {
+                // 如果有noSwiper
+                var hei = $noSwiper.height();
+                var scrollTop = $noSwiper.parent().scrollTop();
+                var sctop = parseInt(scrollTop + window.innerHeight, 10);
+                if (direction === 'up' && scrollTop === 0) {
+                    $noSwiper.addClass('noSwiper');
+                    return;
+                } else if (direction === 'down' && (hei >= sctop - 10 && hei <= sctop + 10)) {
+                    $noSwiper.addClass('noSwiper');
+                    return;
+                } else {
+                    $noSwiper.removeClass('noSwiper');
+                }
+            }
             // 锁定翻页
             if (set.animated) {
                 return;
@@ -82,15 +126,17 @@ $.fn.h5dsSwiper = function (setting) {
                 return;
             } else {
                 // 执行翻页
-                $this.trigger('h5ds_' + phase, {
+                $this.trigger('h5ds_' + direction, {
                     $out: $out,
                     outIndex: outIndex
                 });
             }
         }
     }).off('h5ds_up h5ds_down h5ds_right h5ds_left')
-        .on('h5ds_up h5ds_right', function (e, { $out, outIndex }) {
-            let inIndex = 0;
+        .on('h5ds_up h5ds_right', function (e, obj) {
+            var $out = obj.$out;
+            var outIndex = obj.outIndex;
+            var inIndex = 0;
             if (outIndex === set.len - 1) {
                 // 不循环展示
                 if (!set.loop) {
@@ -99,10 +145,12 @@ $.fn.h5dsSwiper = function (setting) {
             } else {
                 inIndex = outIndex + 1;
             }
-            let $in = $this.find('.h5ds-swiper-page').eq(inIndex);
+            var $in = $this.find('.h5ds-swiper-page').eq(inIndex);
             pageInOut($in, $out, 'Next');
-        }).on('h5ds_down h5ds_left', function (e, { $out, outIndex }) {
-            let inIndex = 0;
+        }).on('h5ds_down h5ds_left', function (e, obj) {
+            var $out = obj.$out;
+            var outIndex = obj.outIndex;
+            var inIndex = 0;
             if (outIndex === 0) {
                 // 不循环展示
                 if (!set.loop) {
@@ -112,15 +160,15 @@ $.fn.h5dsSwiper = function (setting) {
             } else {
                 inIndex = outIndex - 1;
             }
-            let $in = $this.find('.h5ds-swiper-page').eq(inIndex);
+            var $in = $this.find('.h5ds-swiper-page').eq(inIndex);
             pageInOut($in, $out, 'Prev');
         });
 
     // 页面跳转
     this.toPage = function (index) {
-        let $out = $('.h5ds-swiper-current');
-        let nowIndex = $out.index();
-        let $in = $this.find('.h5ds-swiper-page').eq(index);
+        var $out = $('.h5ds-swiper-current');
+        var nowIndex = $out.index();
+        var $in = $this.find('.h5ds-swiper-page').eq(index);
         if ($in[0]) {
             if (nowIndex === index) {
                 console.warn('已经是当前页面！');
@@ -135,6 +183,9 @@ $.fn.h5dsSwiper = function (setting) {
     // 实例化交互方法
     initH5dsSwiperUeFun(this);
 
+    // svg 预加载
+    svgLazy();
+
     return this;
 };
 
@@ -144,8 +195,8 @@ $.fn.h5dsSwiper = function (setting) {
 function uniqueArr(arr) {
     var obj = {};
     var newArr = [];
-    for (let i = 0; i < arr.length; i++) {
-        let d = arr[i];
+    for (var i = 0; i < arr.length; i++) {
+        var d = arr[i];
         if (!obj[d]) {
             obj[d] = true;
             newArr.push(d);
@@ -212,7 +263,7 @@ function lazyLoad() {
             }
             var img = new Image();
             img.src = elem;
-            if (img.complete) { // 如果图片已经存在于浏览器缓存 或者加载失败
+            if (img.compvare) { // 如果图片已经存在于浏览器缓存 或者加载失败
                 $loading.trigger('load', num / len);
             } else {
                 img.onload = function () {
@@ -225,6 +276,27 @@ function lazyLoad() {
         });
     }
 
+}
+
+/**
+ * @desc svg 预加载
+ */
+function svgLazy() {
+    // svg 预处理
+    $('#h5dsSwiper').find('.layer-svg').each(function () {
+        var $this = $(this).find('.element');
+        var src = $this.attr('data-svglazy');
+        var color = $this.attr('data-color').split('@');
+        $.get(src).done(function (svg) {
+            // 预设SVG颜色
+            var $svg = $(svg);
+            color.forEach(function (elem, index) {
+                $svg.find('path').eq(index).attr('fill', elem);
+            })
+            var str = $svg.find('svg').prop('outerHTML');
+            $this.html(str);
+        });
+    });
 }
 
 /**
@@ -261,8 +333,13 @@ function autoPlayMusic() {
 function resizeWindow() {
     $(window).resize(function () {
         if (!IsPC()) {
-            var scaleNew = h5dsScreen();
-            $('[name="viewport"]').attr('content', 'width=320, initial-scale=' + scaleNew + ', maximum-scale=' + scaleNew + ', user-scalable=no');
+            var scaleNew = 1;
+            try {
+                scaleNew = h5dsScreen();
+            } catch (e) {
+                // ...
+            }
+            $('meta[name="viewport"]').attr('content', 'width=320, initial-scale=' + scaleNew + ', maximum-scale=' + scaleNew + ', user-scalable=no');
             // 计算出当前宽度
             $('.h5ds-swiper-layers').css({
                 left: LAYER_LEFT,
@@ -272,8 +349,100 @@ function resizeWindow() {
     })
 }
 
+/**
+ * @desc 初始化地图, 滑动到某页之后，直接渲染对应的地图
+*/
+function initMap($in) {
+
+    // 先销毁之前的地图，释放内存
+    for(var i = 0; i < MAPS.length; i++) {
+        MAPS[i].destroy();
+        $('.amap-sug-result').remove();
+    }
+
+    $in.find('.layer-map').each(function () {
+        var $dom = $(this);
+        var data = $dom.attr('data-map');
+        try {
+            data = JSON.parse(unescape(data));
+        } catch (e) {
+            data = null;
+            console.warn('data-uefun 格式错误！具体见：', unescape(data), this);
+        }
+        if (!data) {
+            return;
+        }
+
+        var map = new AMap.Map($dom.find('.element')[0], {
+            resizeEnable: true,
+            zoom: data.zoom || 10,
+            center: data.position
+        });
+
+        // 加载自定义 信息框 插件
+        map.plugin(['AMap.AdvancedInfoWindow'], function () {
+            var maker = new AMap.Marker({
+                map: map,
+                position: data.position,
+                icon: "http://webapi.amap.com/images/0.png"
+            });
+
+            // 显示信息
+            var mapInfo = new AMap.AdvancedInfoWindow({
+                content: '<div class="amap-infos" contenteditable="true">' + data.infos || '输入描述内容' + '</div>',
+                offset: new AMap.Pixel(0, -30),
+                asOrigin: false,
+                asDestination: false,
+                transit: false,
+                driving: false,
+                placeSearch: false
+            });
+            
+            if(data.status) {
+                mapInfo.open(map, data.position);
+            }
+
+            // 点击标记事件
+            AMap.event.addListener(maker, 'click', function(e) {
+                mapInfo.open(map, [e.target.F.position.lng, e.target.F.position.lat]);
+            });
+
+        });
+
+        MAPS.push(map);
+
+    });
+}
+
+/**
+ * @desc 监听 长页
+*/
+function langPage() {
+
+    $('[data-noswiper="noSwiper"]').parent().on('scroll', function (e) {
+        var $noSwiper = $(this).find('.noSwiper');
+        var hei = $noSwiper.height();
+        var scrollTop = $(this).scrollTop();
+        var sctop = parseInt(scrollTop + window.innerHeight, 10);
+        console.log(hei, sctop)
+        var lock = $(this).attr('data-lock');
+
+        if(lock === 'true') {
+            return;
+        }
+        if (scrollTop === 0 || (hei >= sctop - 20 && hei <= sctop + 20)) {
+            $noSwiper.removeClass('noSwiper');
+        } else {
+            $noSwiper.addClass('noSwiper');
+        }
+    })
+}
+
 // 初始化
 $(function () {
+
+    // 长页设置
+    langPage();
 
     // 监听屏幕变化
     resizeWindow();
@@ -295,11 +464,11 @@ $(function () {
             });
 
             // 禁用safari浏览器的 默认滚动
-            var stopScrolling = function (touchEvent) {
-                touchEvent.preventDefault();
-            }
-            document.addEventListener('touchstart', stopScrolling, false);
-            document.addEventListener('touchmove', stopScrolling, false);
+            // var stopScrolling = function (touchEvent) {
+            //     touchEvent.preventDefault();
+            // }
+            // document.addEventListener('touchstart', stopScrolling, false);
+            // document.addEventListener('touchmove', stopScrolling, false);
         } else {
             $h5dsSwiper.css({
                 width: 320,
@@ -309,10 +478,15 @@ $(function () {
 
         // 初始化滚动
         var len = $h5dsSwiper.attr('pages-length');
-        $h5dsSwiper.h5dsSwiper({
+        try {
+            sliderAnimate
+        } catch (e) {
+            sliderAnimate = {};
+        }
+        var obj = $.extend(sliderAnimate || {}, {
             len: len
         });
-
+        var swiper = $h5dsSwiper.h5dsSwiper(obj);
     }
 
 });
@@ -335,7 +509,11 @@ function initH5dsSwiperUeFun(swiper) {
                 // 监听点击事件
                 $this.swipe({
                     tap: function (e) {
+                        if ($(e.target).css('opacity') == 0) {
+                            return;
+                        }
                         for (var key in obj) {
+                            console.log(obj, key);
                             switch (key) {
                                 case 'link': toLink(obj[key], $this, swiper); break;
                                 case 'toPage': toPage(obj[key], $this, swiper); break;

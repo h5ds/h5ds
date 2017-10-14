@@ -1,0 +1,212 @@
+<div class="right">
+    <!--功能按钮-->
+    <div class="fastMenu" id="fastMenu">
+        <h5>常用</h5>
+        <ul>
+            <li class="fun" data-fun="text"><a><i class="iconfont icon-wenben"></i></a></li>
+            <li class="fun" data-fun="img"><a><i class="iconfont icon-beijing"></i></a></li>
+            <li onclick="javascript:alert('请联系QQ676015863购买该功能')" class="fun" data-fun="svg"><a><i class="iconfont icon-xingzhuang"></i></a></li>
+            <li onclick="javascript:alert('请联系QQ676015863购买该功能')" class="fun" data-fun="map"><a><i class="iconfont icon-ditu"></i></a></li>
+            <!-- 
+            <li class="fun" data-fun="video"><a><i class="iconfont icon-shipin"></i></a></li>
+            <li class="fun" data-fun="form"><a><i class="iconfont icon-biaodan"></i></a></li>
+            <li class="fun" data-fun="effect"><a><i class="iconfont icon-xiaoguo"></i></a></li>
+            -->
+            <li><a class="more" data-toggle='[{"dom":".fastlist","class":"show"},{"dom":".more","class":"active"}]'><i class="iconfont icon-more"></i></a></li>
+        </ul>
+        <div class="fastlist">
+            <h4>页面模块</h4>
+            <ul class="clearfix">
+                <li class="fun" data-fun="text"><i class="iconfont icon-wenben"></i><span>文本</span></li>
+                <li class="fun" data-fun="img"><i class="iconfont icon-beijing"></i><span>图片</span></li>
+                <li onclick="javascript:alert('请联系QQ676015863购买该功能')" class="fun" data-fun="svg"><i class="iconfont icon-xingzhuang"></i><span>SVG</span></li>
+                <li onclick="javascript:alert('请联系QQ676015863购买该功能')" class="fun" data-fun="map"><i class="iconfont icon-ditu"></i><span>地图</span></li>
+            <!-- <li class="fun" data-fun="effect"><i class="iconfont icon-xiaoguo"></i><span>效果</span></li>
+            <li class="fun" data-fun="slider"><i class="iconfont icon-huandengpian"></i><span>图集</span></li>
+            <li class="fun" data-fun="video"><i class="iconfont icon-shipin"></i><span>视频</span></li>
+            
+            <li class="fun" data-fun="iframe"><i class="iconfont icon-linkurl"></i><span>嵌入</span></li>
+            <li class="fun" data-fun="form"><i class="iconfont icon-biaodan"></i><span>表单</span></li>
+            <li class="fun" data-fun="chart"><i class="iconfont icon-tubiao"></i><span>图表</span></li>
+            <li class="fun" data-fun="turntable"><i class="iconfont icon-dazhuanpan"></i><span>转盘</span></li>
+            <li class="fun" data-fun="vr"><i class="iconfont icon-quanjing"></i><span>全景</span></li>
+            <li class="fun" data-fun="wipe"><i class="iconfont icon-cachu"></i><span>擦一擦</span></li>
+            <li class="fun" data-fun="img3d"><i class="iconfont icon-quanjing360"></i><span>3D展示</span></li>
+            <li class="fun" data-fun="article"><i class="iconfont icon-wenzhang"></i><span>文章</span></li>
+            <li class="fun" data-fun="goods"><i class="iconfont icon-shangpin-copy"></i><span>商品</span></li> -->
+            </ul>
+            <!-- <h4>弹窗模块</h4>
+        <ul class="clearfix">
+            <li class="fun"><i class="iconfont icon-fenxiang1"></i><span>分享</span></li>
+        </ul>
+        <h4>浮动模块</h4>
+        <ul class="clearfix">
+            <li class="fun"><i class="iconfont icon-caidan"></i><span>导航1</span></li>
+            <li class="fun"><i class="iconfont icon-caidan"></i><span>导航2</span></li>
+        </ul> -->
+        </div>
+    </div>
+
+    <!--设置layer-->
+    <div id="setLayerBox" class="setlayer">
+        <div class="setname">当前选中：<span id="setLayerType"> </span></div>
+        <div class="tabsbox">
+            <div class="mt-tab mt-tab-style2">
+                <div class="mt-tab-header">
+                    <ul id="setLayerTabHead">
+                        <li class="mt-tab-head mt-active">样式</li>
+                        <li class="mt-tab-head">动画</li>
+                        <li class="mt-tab-head">交互</li>
+                    </ul>
+                </div>
+                <div class="mt-tab-body">
+                    <!--设置样式-->
+                    <div id="setStyle" class="mt-tab-box mt-active">
+
+                    </div>
+                    <!--设置动画-->
+                    <div id="setAnimate" class="mt-tab-box">
+                        <div class="add-animate-btn">
+                            <a id="animationAdd" class="mt-btn-animate add-animation"><i class="iconfont icon-jia"></i> 添加动画</a>
+                            <a class="mt-btn-animate play-animation play-nowlayer-animation-do"><i class="iconfont icon-bofang"></i> 播放动画</a>
+                        </div>
+                        <div class="animation-list">
+                            <div class="animate-title">
+                                <span class="tname">动画类型/名称</span>
+                                <span class="ttime">时间</span>
+                                <span class="tdelay">延迟</span>
+                                <span class="tcount">次数</span>
+                                <span class="tfun">缓动函数</span>
+                            </div>
+                            <ul id="animationList" class="mt-uniqlist"></ul>
+                        </div>
+                        <div class="mt-tab mt-tab-style1">
+                            <div class="mt-tab-header">
+                                <ul>
+                                    <li class="mt-tab-head mt-active">进入动画</li>
+                                    <li class="mt-tab-head">离开动画</li>
+                                    <li class="mt-tab-head">强调动画</li>
+                                </ul>
+                            </div>
+                            <div class="mt-tab-body" id="animatesList">
+                                <div id="animationIn" class="mt-tab-box mt-active">1</div>
+                                <div id="animationOut" class="mt-tab-box">2</div>
+                                <div id="animationEm" class="mt-tab-box">3</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--设置交互-->
+                    <div id="setUe" class="mt-tab-box">
+                        <div class="setue-list" id="setUeList">
+                            <ul class="set-layer-ue clearfix">
+                                <li class="fun" data-fun="link"><i class="iconfont icon-lianjie"></i><span>超链接</span></li>
+                                <li class="fun" data-fun="toPage"><i class="iconfont icon-tiaozhuan"></i><span>页面跳转</span></li>
+                                <li class="fun" data-fun="tel"><i class="iconfont icon-shoujidadianhua"></i><span>打电话</span></li>
+                                <li class="fun" data-fun="msg"><i class="iconfont icon-duanxin"></i><span>发短信</span></li>
+                                <li class="fun" data-fun="hideShow"><i class="iconfont icon-duanxin"></i><span>隐显切换</span></li>
+                                <li class="fun" data-fun="touch"><i class="iconfont icon-zhiwen06"></i><span>指纹</span></li>
+                                <li class="fun" data-fun="shake"><i class="iconfont icon-yaoyiyao"></i><span>摇一摇</span></li>
+                            </ul>
+                        </div>
+                        <div class="setue-set setue-set-hide" id="setUeSet">
+                            <h3 class="setue-title">交互名称：<span id="setUeSetName"></span></h3>
+                            <a class="clear-setue"><i class="iconfont icon-icodel"></i> 清除事件</a>
+                            <a data-title="关闭面板" class="close-setue"><i class="iconfont icon-a3right"></i></a>
+                            <div class="setue-set-box" id="setUeSetBox">
+                                loading
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- layer 组合 -->
+    <div id="setLayerGroupBox" class="setlayer">
+        <div class="setname">当前选中：<span id="setLayerGroup"> 多个图层</span></div>
+        <div class="tabsbox">
+            <div class="mt-tab mt-tab-style2">
+                <div class="mt-tab-header">
+                    <ul id="setLayerGroupTabHead">
+                        <li class="mt-tab-head mt-active">组合设置</li>
+                    </ul>
+                </div>
+                <div class="mt-tab-body">
+                    <!--设置参数-->
+                    <div id="setGroupSet" class="mt-tab-box mt-active">
+                        <ul>
+                            <li id="groupAlignLeft"><i class="iconfont icon-duiqi"></i> <span>左对齐</span></li>
+                            <li id="groupAlignRight"><i class="iconfont icon-duiqi_youduiqi"></i> <span>右对齐</span></li>
+                            <li id="groupAlignUpDown"><i class="iconfont icon-duiqi_xiangxia"></i> <span>上对齐</span></li>
+                            <li id="groupAlignDown"><i class="iconfont icon-duiqi_xiangshang"></i> <span>下对齐</span></li>
+                            <li id="groupAlignLeftRightCenter"><i class="iconfont icon-duiqi_hengxiangjuzhong"></i> <span>水平居中</span></li>
+                            <li id="groupAlignUpDownCenter"><i class="iconfont icon-duiqi_juzhong"></i> <span>垂直居中</span></li>
+                            <li id="groupAlignUpDownEven"><i class="iconfont icon-meun"></i> <span>垂直均分</span></li>
+                            <li id="groupAlignRightLeftEven"><i class="iconfont icon-caidan1"></i> <span>水平均分</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--设置page-->
+    <div id="setPageBox" class="setlayer">
+        <div class="setname">当前选中：<span id="setPageName"> </span></div>
+        <div class="tabsbox">
+            <div class="mt-tab mt-tab-style2">
+                <div class="mt-tab-header">
+                    <ul>
+                        <li class="mt-tab-head mt-active">样式</li>
+                    </ul>
+                </div>
+                <div class="mt-tab-body">
+                    <!--设置页面样式-->
+                    <div id="setPageStyle" class="mt-tab-box mt-active">
+                        loading
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--设置app-->
+    <div id="setAppBox" class="setlayer">
+        <div class="setname">当前选中：<span class="a-setname"> </span></div>
+        <div class="tabsbox">
+            <div class="mt-tab mt-tab-style2">
+                <div class="mt-tab-header">
+                    <ul>
+                        <li class="mt-tab-head mt-active tab-appbasic">基本设置</li>
+                        <li class="mt-tab-head tab-appmusic">背景音乐</li>
+                        <li class="mt-tab-head tab-apploading">加载动画</li>
+                    </ul>
+                </div>
+                <div class="mt-tab-body">
+                    <div id="setAppBg" class="mt-tab-box mt-active">
+
+                    </div>
+                    <div id="setAppMp3" class="mt-tab-box">
+                        <audio style="display: none;" src="" id="appMp3Audio"></audio>
+                        <h2 class="now-use">
+                            <span class="label">当前使用：</span>
+                            <div class="now-use-mp3 clearfix">
+                                <span class="name" id="nowappName"></span>
+                                <span class="try">试听</span>
+                                <span class="del">删除</span>
+                            </div>
+                        </h2>
+                        <ul id="mp3list"></ul>
+                        <div id="mp3pagelist"></div>
+                    </div>
+                    <div id="setAppLoading" class="mt-tab-box">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

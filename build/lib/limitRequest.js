@@ -8,7 +8,7 @@ exports.limitReq = function (req, res, next) {
     req.session.times = newTime; // 设置当前值
     newTime -= oldTime;
     // 如果3000内频繁去请求接口，就会提示太频繁了，请稍后再试
-    if (newTime < 3000) {
+    if (newTime < 1000) {
         result(req, res, {
             code: 500,
             data: null,

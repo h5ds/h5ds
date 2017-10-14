@@ -31,7 +31,7 @@
 <!--临时加入-->
 <!-- <script src="http://localhost:8000/webpack-dev-server.js"></script> -->
 <!-- endinject -->
-<link href="/assets/css/main.css?5272eceb5e16e6e462f8" rel="stylesheet"></head>
+<link href="/assets/css/main.css?3c45d157bd321f18bdcc" rel="stylesheet"></head>
 
 <body>
     <!-- inject:header -->
@@ -43,9 +43,15 @@
 			<ul>
 				<li data-name="/"><a href="/">首页</a></li>
 				<li data-name="/case"><a href="/case">免费试用</a></li>
-				<li data-name="/license"><a href="/license">源码下载</a></li>
-				<li data-name="/help"><a href="/help">产品介绍</a></li>
+				<li><a href="http://api.h5ds.com/help/InstallTip">使用教程</a></li>
+				<li><a href="http://api.h5ds.com/api">API文档</a></li>
+				<li><a href="http://api.h5ds.com/update">更新记录<em></em></a></li>
+				<li><a href="http://api.h5ds.com/license">使用协议</a></li>
+				<li><a target="_blank" href="https://gitee.com/676015863/H5DS">下载源码</a></li>
 				<li style="display: none" data-name="logout"><a href="/api/logout">退出</a></li>
+				<li>
+					<a style="position: relative;top: 6px;" target="_blank" href="//shang.qq.com/wpa/qunwpa?idkey=d4f3944ba088478a85b36fd05be985dfd6ffd3610bdaa02dfa1b8b282135c9ad"><img border="0" src="//pub.idqqimg.com/wpa/images/group.png" alt="跳舞毯－以舞会友" title="H5DS在线编辑器"></a>
+				</li>
 			</ul>
 		</div>
 	</div>
@@ -56,6 +62,7 @@
 		var name = '/' + location.pathname.split('/')[1];
 		$('.header-nav').find('li[data-name="' + name + '"]').addClass('active');
 	});
+
 </script>
 <!-- endinject -->
 
@@ -67,8 +74,8 @@
                 <h1>汇集最优秀的coding，做最优秀的产品</h1>
                 <h2>HTML5 Design Software</h2>
                 <div class="btns">
-                    <a href="/license" class="btn btn-introduce"><i class="iconfont"></i>源码下载</a>
-                    <a href="/case" class="btn btn-downcode"><i class="iconfont"></i>开始创作</a>
+                    <a target="_blank" href="https://gitee.com/676015863/H5DS" class="btn btn-introduce"><i class="iconfont"></i>源码下载</a>
+                    <a href="/case" class="btn btn-downcode"><i class="iconfont"></i>免费试用</a>
                 </div>
                 <div class="downcount">
                     下载<em>5640</em>次
@@ -156,6 +163,7 @@
 			<h1>友情链接：</h1>
 			<ul>
 				<li><a target="_blank" href="http://h5ds.com">h5ds</a></li>
+				<li><a target="_blank" href="http://www.uishe.cn">UI社精品设计素材</a></li>
 				<li><a target="_blank" href="http://jquery.com">jquery</a></li>
 				<li><a target="_blank" href="http://www.aliued.com">淘宝UED</a></li>
 				<li><a target="_blank" href="http://www.iconfont.cn">iconfont</a></li>
@@ -174,6 +182,6 @@
 </div>
 <!-- endinject -->
 
-<script type="text/javascript" src="/assets/js/main.js?5272eceb5e16e6e462f8"></script></body>
+<script type="text/javascript" src="/assets/js/main.js?3c45d157bd321f18bdcc"></script></body>
 
 </html>

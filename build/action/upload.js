@@ -3,6 +3,7 @@ var formidable = require('formidable');
 var fs = require('fs'); // 用于处理本地文件
 var { createSQL } = require('../sql/createSQL');
 var { result } = require('../lib/result');
+var Sequelize = require('sequelize');
 
 // 文件上传
 exports.upload = function (req, res) {
@@ -32,6 +33,13 @@ exports.upload = function (req, res) {
         createSQL({
             obj: data,
             table: 'h5ds_imgs_user',
+            sequeObj: {
+                name: { type: Sequelize.CHAR },
+                size: { type: Sequelize.CHAR },
+                type: { type: Sequelize.CHAR },
+                owner: { type: Sequelize.CHAR },
+                url: { type: Sequelize.CHAR }
+            },
             callBack: (ret) => {
                 if (ret) {
                     result(req, res, {

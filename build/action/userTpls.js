@@ -2,6 +2,7 @@ var { result } = require('../lib/result');
 var { readSQL } = require('../sql/readSQL');
 var { createSQL } = require('../sql/createSQL');
 var { deleteSQL } = require('../sql/deleteSQL');
+var Sequelize = require('sequelize');
 
 exports.delUserTpls = function (req, res) {
 
@@ -10,15 +11,16 @@ exports.delUserTpls = function (req, res) {
     deleteSQL({
         req: req, 
         id: req.body.id,
-        uid: req.session.user.id,
         table: 'h5ds_tpls_user',
+        sequeObj: {
+            type: Sequelize.INTEGER, primaryKey: true
+        },
         callBack: (ret) => {
             if (ret) {
                 result(req, res, {
                     code: 200,
-                    data: ret[0],
+                    data: ret,
                     msg: "成功",
-                    count: ret[1],
                     success: true
                 });
             } else {
@@ -49,13 +51,19 @@ exports.addUserTpls = function (req, res) {
         req: req,
         obj: obj,
         table: 'h5ds_tpls_user',
+        sequeObj: {
+            name: { type: Sequelize.CHAR },
+            pic: { type: Sequelize.CHAR },
+            data: { type: Sequelize.TEXT('long') },
+            owner: { type: Sequelize.CHAR },
+            des: { type: Sequelize.CHAR }
+        },
         callBack: (ret) => {
             if (ret) {
                 result(req, res, {
                     code: 200,
-                    data: ret[0],
+                    data: ret.data,
                     msg: "成功",
-                    count: ret[1],
                     success: true
                 });
             } else {
@@ -77,23 +85,28 @@ exports.addUserTpls = function (req, res) {
 exports.getUserTpls = function (req, res) {
 
     // 获取系统模板，name = ''
-    let obj =  { 
-        name: req.body.name || '', 
-        type: req.body.type || '',
-        owner: req.session.user.id
-    };
     readSQL({
         req: req,
-        obj: obj,
+        where: { 
+            name: {
+                '$like': `%${req.body.name || ''}%`
+            },
+            owner: req.session.user.id
+        },
         table: 'h5ds_tpls_user',
-        like: true,
+        sequeObj: {
+            id: { type: Sequelize.INTEGER, primaryKey: true },
+            name: { type: Sequelize.CHAR },
+            pic: { type: Sequelize.CHAR },
+            data: { type: Sequelize.TEXT },
+            des: { type: Sequelize.CHAR }
+        },
         callBack: (ret) => {
             if (ret) {
                 result(req, res, {
                     code: 200,
-                    data: ret[0],
-                    msg: "成功",
-                    count: ret[1],
+                    data: ret.rows,
+                    count: ret.count,
                     success: true
                 });
             } else {

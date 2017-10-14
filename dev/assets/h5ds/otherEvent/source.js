@@ -3,13 +3,12 @@
 import g from '../conf/global';
 
 $(function() {
-    var $source = $('#source');
-    $source.on('click', '.close-source', function(e) {
-        $source.hide()
+    g.$doc.on('click', '.close-source', function(e) {
+        $(this).closest('.source').hide()
     });
 
     g.$doc.on('click', '.a-selectimg', function(e) {
-        $source.show()
+        $('#source').show()
     });
 })
 

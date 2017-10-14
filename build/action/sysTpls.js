@@ -1,5 +1,6 @@
 var { result } = require('../lib/result');
 var { readSQL } = require('../sql/readSQL');
+var Sequelize = require('sequelize');
 
 /**
  * @desc 获取系统模板
@@ -8,20 +9,32 @@ exports.getSysTpls = function (req, res) {
 
     // 获取系统图片，name = ''
     let obj = {
-        name: req.body.name || '',
+        name: {
+            '$like': `%${req.body.name || ''}%`
+        },
         type: req.body.type || ''
     };
+    if(!obj.type) {
+        delete obj.type;
+    }
     readSQL({
         req: req,
-        obj: obj,
+        where: obj,
+        sequeObj: {
+            id: { type: Sequelize.INTEGER, primaryKey: true },
+            name: { type: Sequelize.CHAR },
+            pic: { type: Sequelize.CHAR },
+            data: { type: Sequelize.TEXT },
+            type: { type: Sequelize.CHAR },
+            des: { type: Sequelize.CHAR }
+        },
         table: 'h5ds_tpls_sys',
-        like: true,
         callBack: (ret) => {
             if (ret) {
                 result(req, res, {
                     code: 200,
-                    data: ret[0],
-                    count: ret[1],
+                    data: ret.rows,
+                    count: ret.count,
                     msg: "成功",
                     success: true
                 });
@@ -48,8 +61,15 @@ exports.getSysTplsTypes = function (req, res) {
         req: req,
         table: 'h5ds_tpls_type',
         page: false,
+        where: {
+            del: 0
+        },
+        sequeObj: {
+            id: { type: Sequelize.INTEGER, primaryKey: true },
+            name: { type: Sequelize.CHAR }
+        },
         callBack: (ret) => {
-            if (ret.length > 0) {
+            if (ret) {
                 result(req, res, {
                     code: 200,
                     data: ret,

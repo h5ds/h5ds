@@ -14,7 +14,39 @@
 	width: 100%;
 	height: 100%;
 }
-
+.set-page-height{
+	border-left: 1px dashed $yellow;
+	border-right: 1px dashed $yellow;
+	text-align: center;
+    bottom: -40px;
+    position: absolute;
+    width: 100%;
+	background: none;
+    height: 40px;
+	line-height: 40px;
+	z-index: 9999;
+	cursor: move;
+	a{
+		cursor: move;
+	}
+	.iconfont{
+		color: #fff;
+		font-size: 20px;
+		background: $yellow;
+		border-radius: 4px;
+		position: relative;
+		z-index: 100;
+		top: 1px;
+	}
+	&:after{
+		content: '';
+		display: block;
+		border-top: 1px dashed $yellow;
+		position: absolute;
+		top: 50%;
+		width: 100%;
+	}
+}
 .phone{
 	position: absolute;
 	left: 0;

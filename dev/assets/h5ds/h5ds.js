@@ -1,6 +1,9 @@
 import '../sass/ui/ui';
 import '../sass/h5ds/h5ds';
 
+// 模板初始化
+import './initTpl';
+
 //事件 ....
 import './otherEvent/toggleLeftBox.js'; //点击右侧
 import './otherEvent/setApp.js'; //设置app参数
@@ -83,11 +86,25 @@ function iniApp(res) {
     if(!res.fixeds) {
         res.fixeds = [{
             id: '',
-            name: '浮动层',
+            name: '浮动层上',
+            style: {},
+            layers: []
+        }, {
+            id: '',
+            name: '浮动层下',
             style: {},
             layers: []
         }];
+    }else if(res.fixeds.length === 1) {
+        res.fixeds.push({
+            id: '',
+            name: '浮动层下',
+            style: {},
+            layers: []
+        });
     }
+
+    // 弹窗扩展，兼容老版本
     if(!res.popups) {
         res.popups = [];
     }

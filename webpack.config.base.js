@@ -43,13 +43,17 @@ export default {
             include: DEV_PATH,
             use: ['babel-loader']
         },
+        {
+            test: /\.html$/,
+            loader: 'html-loader?minimize=false'
+        },
         {  // 项目scss加载处理
             test: /\.(css|scss)$/,
             include: DEV_PATH,
             use: sassExt.extract(['css-loader', 'sass-loader'])
         },
         { // 图片加载处理
-            test: /\.(png|jpg|jpeg|gif|ico)$/,
+            test: /\.(png|jpg|jpeg|gif|ico|svg)$/,
             include: DEV_PATH,
             use: [{
                 loader: 'url-loader',
@@ -68,12 +72,6 @@ export default {
             template: './dev/html/edit.html', // 当前目录下
             filename: 'tpl/edit.html' // 生成到build目录
         }),
-        // new HtmlWebpackPlugin({
-        //     hash: true,
-        //     chunks: ['ui'],
-        //     template: './dev/html/ui.html', // 当前目录下
-        //     filename: 'tpl/ui.html' // 生成到build目录
-        // }),
         new HtmlWebpackPlugin({
             hash: true,
             chunks: ['main'],
@@ -124,30 +122,6 @@ export default {
         }),
         new HtmlInjectPlugin({ // html 拆分
             bodys: [{
-                flagname: 'center',
-                template: path.resolve(__dirname, './dev/html/h5ds/center.html')
-            }, {
-                flagname: 'header_h5ds',
-                template: path.resolve(__dirname, './dev/html/h5ds/header.html')
-            }, {
-                flagname: 'meta_h5ds',
-                template: path.resolve(__dirname, './dev/html/h5ds/meta.html')
-            }, {
-                flagname: 'layerlist',
-                template: path.resolve(__dirname, './dev/html/h5ds/layerlist.html')
-            },{
-                flagname: 'fastbtns',
-                template: path.resolve(__dirname, './dev/html/h5ds/fastbtns.html')
-            }, {
-                flagname: 'left',
-                template: path.resolve(__dirname, './dev/html/h5ds/left.html')
-            }, {
-                flagname: 'right',
-                template: path.resolve(__dirname, './dev/html/h5ds/right.html')
-            }, {
-                flagname: 'source',
-                template: path.resolve(__dirname, './dev/html/h5ds/source.html')
-            }, {
                 flagname: 'meta',
                 template: path.resolve(__dirname, './dev/html/common/meta.html')
             }, {

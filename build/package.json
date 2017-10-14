@@ -27,6 +27,11 @@
   "dependencies": {
     "captchapng": "^0.0.1",
     "compression": "^1.7.0",
+    "crypto": "^1.0.1",
+    "ejs": "^2.5.7",
+    "md5": "^2.2.1",
+    "mysql2": "^1.4.2",
+    "sequelize": "^4.10.2",
     "silly-datetime": "^0.1.2"
   }
 }

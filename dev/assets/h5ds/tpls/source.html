@@ -1,0 +1,41 @@
+<div class="source" id="source">
+    <div class="source-header">
+        <h1>图片库 <em>（图片来源网络，如有侵权请及时与管理员联系）</em></h1>
+        <a class="close-source"><i class="iconfont icon-close"></i></a>
+    </div>
+    <div class="source-body">
+        <div class="source-menu">
+            <ul id="sysOrMyImgs">
+                <li data-type="my" class="active"><a href="#">我的图库</a></li>
+                <li data-type="sys"><a href="#">系统图库</a></li>
+                <li><a id="uploadImg" class="mt-btn-yellow mt-upload-btn">图片上传</a></li>
+            </ul>
+        </div>
+        <div class="source-content">
+
+            <div data-type="sys" class="sourceitem">
+                <div class="source-type imgsys-type">
+                    <ul id="imgSysTypesList" class="clearfix">
+                        <!-- <li class="more"><a class="source-type-more" href="javascript:;">更多</a></li> -->
+                    </ul>
+                </div>
+                <div class="source-list imgsys-list">
+                    <ul id="imgSysList" class="clearfix">
+                    </ul>
+                </div>
+                <div id="imgPagelist" class="source-pagelist img-pagelist">
+                </div>
+            </div>
+
+            <div data-type="my" class="sourceitem show">
+                <div class="source-list imgsys-list">
+                    <ul data-type="my" id="imgMyList" class="clearfix show">
+                    </ul>
+                </div>
+                <div id="imgUserPagelist" class="source-pagelist img-pagelist">
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

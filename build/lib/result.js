@@ -13,7 +13,7 @@ exports.result = function (req, res, {
         code: code,
         data: data,
         msg: msg,
-        count: count !== null ? count[0]['COUNT(*)'] : null,
+        count: count,
         success: success
     }
     res.writeHead(200, { 'content-type': 'text/json; charset=UTF-8' });

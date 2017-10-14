@@ -128,10 +128,11 @@ function getUserImgsFun(p) {
 
             // 分页
             let $imgPagelist = $('#imgUserPagelist');
-            if (!$imgPagelist.find('.mt-pagelist')[0]) {
+            if ($imgPagelist.data('count') != res.count) {
                 // 初始化分页
                 newPage(res.count, $imgPagelist, getUserImgsFun);
             }
+            $imgPagelist.data('count', res.count);
 
         } else {
             console.error('获取用户图片失败！');

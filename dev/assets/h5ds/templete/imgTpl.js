@@ -144,7 +144,7 @@ export function initCrop(self, $crop, set, callback) {
             $crop.crop(set);
         }else {
             //事件触发, 还原
-            $crop.find('.mt-cropbtn-init').trigger('click');
+            $crop.find('.mt-cropbtn-init').trigger('click'); // true : 不重新设置尺寸
         }
         // 选择后的回调函数
         $crop.trigger('selectImgBack', val);

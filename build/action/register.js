@@ -1,5 +1,8 @@
 var { result } = require('../lib/result');
 var { createSQL } = require('../sql/createSQL');
+var Sequelize = require('sequelize');
+var sd = require('silly-datetime');
+var { aesEncrypt } = require('../lib/md5');
 
 exports.register = function(req, res) {
 
@@ -28,13 +31,26 @@ exports.register = function(req, res) {
     createSQL({
         obj: {
             tel: req.body.tel,
-            email: req.body.email,
-            password: req.body.password
+            password: aesEncrypt(req.body.password),
+            updateTime: sd.format(new Date(), 'YYYY-MM-DD HH:mm:ss')
+        },
+        sequeObj: {
+            id: { type: Sequelize.INTEGER, primaryKey: true },
+            username: { type: Sequelize.STRING },
+            password: { type: Sequelize.STRING },
+            email: { type: Sequelize.STRING },
+            tel: { type: Sequelize.STRING },
+            updateTime: { type: Sequelize.STRING},
+            usertype: { type: Sequelize.INTEGER }
         },
         table: 'h5ds_user',
         callBack: function(ret) {
-            console.log('>>>>>>', ret);
+            console.log(ret);
             if(ret) {
+                // // 自动登录一次
+                // req.session.user = Object.assign({
+                //     id: ret['null']
+                // }, obj);
                 // 返回值
                 result(req, res, {
                     code: 200,
@@ -46,7 +62,7 @@ exports.register = function(req, res) {
                 result(req, res, {
                     code: 500,
                     data: ret,
-                    msg: "邮箱重复",
+                    msg: "用户名重复",
                     success: false
                 });
             }

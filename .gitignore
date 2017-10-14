@@ -1,3 +1,6 @@
 /node_modules
+/UI
+/build/images
 /build/node_modules
-/UI/H5DS.psd
+/build/upload
+/build/mp3

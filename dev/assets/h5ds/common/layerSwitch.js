@@ -1,7 +1,6 @@
 // 设置 layer
 import Img, { ImgLayer, imgDom } from '../layers/img/index'; 
 import Text, { TextLayer, textDom } from '../layers/text/index'; 
-import Video, { VideoLayer, videoDom } from '../layers/video/index'; 
 
 import { pushLayerData, getPageClass } from './AppDataFun';
 
@@ -10,11 +9,11 @@ import { pushLayerData, getPageClass } from './AppDataFun';
  * @param layer new Layer() 的对象
 */
 export function getLayerDom(layer) {
+    // console.log('获取图层', layer);
     var dom = '';
     switch(layer.type) {
         case 'img': dom = imgDom(layer); break;
         case 'text': dom = textDom(layer); break;
-        case 'video': dom = videoDom(layer); break;
         default: break;
     }
     return dom;
@@ -26,7 +25,6 @@ export function addLayer(type) {
     switch (type) {
         case 'img': addLayerBack(new ImgLayer()); break;
         case 'text': addLayerBack(new TextLayer()); break;
-        case 'video': addLayerBack(new VideoLayer()); break;
         default: break;
     }
 }
@@ -44,11 +42,11 @@ export function layerTypeSelect(layer) {
     switch (layer.type) {
         case 'img': new Img(layer).init(); break;
         case 'text': new Text(layer).init(); break;
-        case 'video': new Video(layer).init(); break;
         default: break;
     }
 }
 
+//////////////////////////////////////////////////////////////////////////////
 // 添加 layer 后，需要重新实例化一些 page方法
 function addLayerBack(obj) {
     // 获取当前编辑的页面类
@@ -69,4 +67,7 @@ function addLayerBack(obj) {
     // 选择第一个layer
     // AppData.edit.layerIndex = null;
     Page.selectFirstLayer();
+
+    // svg 预加载
+    Page.lazySvg();
 }

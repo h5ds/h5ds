@@ -120,6 +120,18 @@ input[type="color"]::-webkit-color-swatch-wrapper {
 .hide {
   display: none !important; }
 
+/* 公用按钮 */
+.mt-set-btn {
+  background: #ff5402;
+  display: inline-block;
+  line-height: 40px;
+  width: 300px;
+  text-align: center;
+  margin: 10px 0;
+  color: #fff; }
+  .mt-set-btn:hover {
+    color: #fff; }
+
 /* 帮助信息 */
 .mt-helps {
   position: absolute;
@@ -1018,36 +1030,6 @@ input[type="color"]::-webkit-color-swatch-wrapper {
     .ex-set-text .ex-text-edit #exTextEdit {
       height: 100%;
       outline: none; }
-.ex-set-text {
-  padding: 10px 0;
-  border-top: 1px solid #252a2e; }
-  .ex-set-text .ex-btns {
-    line-height: 30px; }
-    .ex-set-text .ex-btns a {
-      color: #a5b6c8;
-      vertical-align: middle;
-      margin: 0 2px; }
-    .ex-set-text .ex-btns .mt-input {
-      width: 78px; }
-    .ex-set-text .ex-btns .line {
-      display: inline-block;
-      height: 19px;
-      width: 1px;
-      background: #252a2e;
-      margin: 0 1px; }
-    .ex-set-text .ex-btns .mt-select-diy {
-      width: 230px; }
-  .ex-set-text .ex-btn-fontcolor {
-    position: relative;
-    width: 16px;
-    height: 21px; }
-  .ex-set-text .ex-text-edit {
-    background: #252a2e;
-    height: 160px;
-    overflow: auto; }
-    .ex-set-text .ex-text-edit #exTextEdit {
-      height: 100%;
-      outline: none; }
 body {
   user-select: initial; }
 
@@ -1089,7 +1071,7 @@ body {
     display: block; }
 
 .header {
-  background: #323436;
+  background: #252a2e;
   height: 60px;
   position: fixed;
   z-index: 1000;
@@ -1118,15 +1100,26 @@ body {
       line-height: 56px;
       text-align: center;
       display: inline-block;
-      height: 100%; }
+      height: 100%;
+      font-size: 14px;
+      position: relative; }
       .header .header-nav li a {
-        color: #949494;
+        color: #a5b6c8;
         display: inline-block;
         height: 100%;
-        padding: 0 20px; }
+        padding: 0 15px; }
       .header .header-nav li.active a {
         color: #fff;
         background: #444749; }
+      .header .header-nav li em {
+        display: inline-block;
+        width: 10px;
+        height: 10px;
+        background: red;
+        border-radius: 100px;
+        position: absolute;
+        right: 5px;
+        top: 5px; }
 
 .bodyer {
   padding-top: 60px; }

@@ -88,7 +88,13 @@ function addNewPage() {
             name: '点石H5',
             fixeds: [{
                 id: '',
-                name: '浮动层',
+                name: '浮动层上',
+                style: {},
+                layers: []
+            },
+            {
+                id: '',
+                name: '浮动层下',
                 style: {},
                 layers: []
             }],

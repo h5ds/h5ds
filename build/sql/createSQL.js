@@ -1,4 +1,5 @@
-var { pool, pageSql } = require('../lib/mysql');
+var Sequelize = require('sequelize');
+var { sequelize } = require('../lib/mysql');
 
 /**
  * @desc 保存数据到数据库
@@ -9,34 +10,19 @@ var { pool, pageSql } = require('../lib/mysql');
 exports.createSQL = function ({
     obj = obj, 
     table = table, 
-    callBack = callBack
+    callBack = callBack,
+    sequeObj = { id: { type: Sequelize.INTEGER, primaryKey: true } }
 }) {
-    pool.getConnection(function(err, connection) {
-        if (err || !obj) {
-            callBack(null, err);
-            // throw err;
-        }
-        // let params = [obj.name, obj.url, '1000', 'png', obj.uid];
-        let params = [];
-        let keys = [];
-        let marks = [];
-        for(let key in obj) {
-            params.push(obj[key]);
-            marks.push('?');
-            keys.push(key);
-        }
-        // console.log(`INSERT INTO ${table} (${keys.join(',')}) VALUES (${marks.join(',')});`);
-        connection.query(`INSERT INTO ${table} (${keys.join(',')}) VALUES (${marks.join(',')});`, params, function(err, result) {
-            // console.log(err, result)
-            if (err) {
-                callBack(null, err);
-                // throw err;
-            } else {
-                callBack(result);
-            }
 
-            // 接下来connection已经无法使用，它已经被返回到连接池中
-            connection.release();
-        })
+    let Task = sequelize.define(table, sequeObj, {
+        timestamps: false,
+        freezeTableName: true
+    });
+
+    Task.create(obj)
+    .then(result => {
+        callBack(result);
+    }).catch(err => {
+        callBack(null, err);
     });
 }

@@ -43,5 +43,5 @@
     };
     
     var scaleNew = h5dsScreen();
-    document.write('<meta name="viewport" content="width=320, initial-scale=' + scaleNew + ', maximum-scale=' + scaleNew + ', user-scalable=no">');
+    document.write('<meta name="viewport" content="width=320, initial-scale=' + scaleNew + ', maximum-scale=' + scaleNew + ', minimum-scale=' + scaleNew + ', user-scalable=no">');
 })(window);

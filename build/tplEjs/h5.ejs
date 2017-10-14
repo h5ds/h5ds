@@ -1,0 +1,143 @@
+<!doctype html>
+<html>
+<head>
+    <title>点石H5在线编辑器</title>
+    <meta name="description" content="点石H5-免费H5页面制作工具-微信H5页面,微信朋友圈会议邀请函,电子贺卡,动态音乐相册,电子微杂志,节日贺卡等,点石H5提供海量H5微场景模板,轻松制作一键生成H5页面,为您助力移动自营销,酷炫展示H5企业自营销页面-点石H5官网">
+    <meta name="keywords" content="h5ds,h5ds官方下载,秀APP,h5营销,h5页面制作,H5在线制作工具,PPT,手机PPT,微杂志,电子贺卡,音乐相册,微信朋友圈营销,微商营销,手机动图,移动营销数据统计,用户营销数据统计,移动自营销,朋友圈转发H5">
+    <script>
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?476b4d0da31c1280efca527753a93d2d";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    
+    </script>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <!-- Set render engine for 360 browser -->
+    <meta name="renderer" content="webkit">
+    <!-- No Baidu Siteapp-->
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <link href="https://cdn.bootcss.com/amazeui/2.7.2/css/amazeui.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="http://at.alicdn.com/t/font_p27hnfue2k18xgvi.css">
+    <!--js-->
+    <script src="./assets/plugin/jquery-2.1.1.js"></script>
+    <script src="./assets/plugin/template.js"></script>
+    <link href="/assets/css/main.css?b5b971dd3d8e93da77cf" rel="stylesheet">
+    <style>
+    .header .header-box .logo{
+        margin-top: 0;
+    }
+    .banner{
+        width: 1299px;
+        margin: 10px auto;
+        height: 300px;
+        overflow: hidden;
+        background: #ccc;
+    }
+    .banner img{
+        width: 1300px;
+        height: 300px;
+    }
+    .h5list{
+        width: 1300px;
+        margin: 0 auto;
+        min-height: 800px;
+    }
+    .h5list ul{
+        width: 1310px;
+    }
+    .h5list li{
+        display: inline-block;
+        height: 260px;
+        width: 208px;
+        background: #ccc;
+        float: left;
+        margin: 0 10px 10px 0;
+    }
+    .pagelist{
+        width: 1300px;
+        margin: 0 auto;
+        padding: 10px 0 40px 0;
+    }
+    .pagelist li{
+        display: inline-block;
+        background: #ccc;
+        padding: 3px 10px;
+    }
+    </style>
+</head>
+<body>
+    <%- include('header.ejs') %>
+
+    <!-- bodyer -->
+    <div class="bodyer">
+        <div class="banner">
+            <div class="search">
+                <input type="text">
+                <a href="">搜索</a>
+            </div>
+            <div class="tags">
+                <span>婚庆</span>
+                <span>行业</span>
+                <span>其他</span>
+            </div>
+        </div>
+        <div class="h5list">
+            <ul class="clearfix">
+            <% for(var i = 0; i < list.length; i++){ %>
+                <li><%= list[i].title %></li>
+            <% } %>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            </ul>
+        </div>
+
+        <div class="pagelist">
+            <a href="">首页</a>
+            <a href="">上一页</a>
+            <a href="">下一页</a>
+            <a href="">尾页</a>
+            <span class="info">
+                当前：1/20
+            </span>
+            <span class="topage">
+                跳转到：
+                <input type="text">
+                <a href="">Go</a>
+            </span>
+        </div>
+    </div>
+
+    <%- include('footer.ejs') %>
+
+</body>
+<script>
+$(function(){
+    
+});
+</script>
+</html>
