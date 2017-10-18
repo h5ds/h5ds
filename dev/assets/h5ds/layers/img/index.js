@@ -43,10 +43,6 @@ export default class Img extends Layer {
     cropBack(method, val) {
         console.log(method, val);
 
-        if(!val) {
-            return;
-        }
-
         // 控制重新设置尺寸的参数
         let imgDom = false;
         if(AppData.edit.layerDom.find('img').attr('src').indexOf('imgDom') !== -1) {
