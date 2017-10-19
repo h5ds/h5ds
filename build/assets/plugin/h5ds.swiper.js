@@ -31,7 +31,7 @@ $.fn.h5dsSwiper = function (setting) {
         $in.addClass(set['in' + direc] + ' h5ds-swiper-current');
         $out.addClass(set['out' + direc] + ' h5ds-swiper-current');
         $in.find('.h5ds-swiper-layers').fadeIn(0);
-        $out.find('.h5ds-swiper-layers').hide(0);
+        $out.find('.h5ds-swiper-layers').fadeOut(0);
 
         // scroll
         var $noSwiper = $in.find('[data-noSwiper="noSwiper"]');
