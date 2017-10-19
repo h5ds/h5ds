@@ -79,6 +79,7 @@ body * {
     opacity: 1;
 }
 .h5ds-swiper-layers{
+    display: none;
     transform: translate3d(0, 0, 0);
     transform-origin: center;
     position: relative;
