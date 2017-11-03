@@ -19,7 +19,7 @@ $.toStyle = function(obj, animate) {
         for(let i = 0; i < animate.length; i++) {
             arr.push(animate[i].style);
         }
-        style.push(`animation: ${arr.join(',')}`);
+        style.push(`animation: ${arr.join(',')}; -webkit-animation: ${arr.join(',')}`);
         // 默认 动画暂停
         // style.push('animation-play-state: paused');
     }

@@ -10,6 +10,7 @@ import './otherEvent/setApp.js'; //设置app参数
 import './otherEvent/source.js'; //资源库事件 //
 
 // 全局方法
+import '../app/js/h5ds.swiper.js';
 import './unit/utils.js'; // js 原生对象继承的方法集合
 import './unit/bindToInput.js'; // 数据双向绑定
 import './unit/inputType.js'; //自动控制单位

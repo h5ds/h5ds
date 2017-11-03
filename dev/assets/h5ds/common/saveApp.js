@@ -5,6 +5,7 @@ import { loadArr } from '../conf/loading';
 import { sliderAnimate } from '../conf/sliderAnimate';
 import { totalLayerType } from './totalLayerType';
 import { popupHtml, fixedUpHtml, fixedDownHtml, pageHtml } from './saveAppHtml';
+import { autoPlayMusic } from '../../app/js/h5ds.utils.js';
 
 /**
  * @desc 将AppData里面的 img 单独拿出来
@@ -64,9 +65,7 @@ export function appToHtmlFile(app) {
             <meta name="renderer" content="webkit">
             <!-- No Baidu Siteapp-->
             <meta http-equiv="Cache-Control" content="no-siteapp" />
-            <link rel="stylesheet" type="text/css" href="/assets/plugin/animate.css">
-            <link rel="stylesheet" type="text/css" href="/assets/plugin/animations.css">
-            <link rel="stylesheet" type="text/css" href="/assets/plugin/loaders.css">
+            <link rel="stylesheet" type="text/css" href="/assets/css/app.css">
             <link rel="stylesheet" type="text/css" href="/assets/font/iconfont.css">
             <link rel="stylesheet" type="text/css" href="/assets/plugin/h5ds.app.css">
             <!--js-->
@@ -74,10 +73,10 @@ export function appToHtmlFile(app) {
             ${types.map ? `<script type="text/javascript" src="http://webapi.amap.com/maps?v=1.4.0&key=b10045abfc1d4d22446efdc74f85c238"></script>` : ''}
             <script src="/assets/plugin/jquery.touchSwipe.min.js"></script>
             <script>
-            var IMG_SOURCE = '${JSON.stringify(getAppDataImgs(app))}';
+            var IMG_SOURCE = ${ JSON.stringify(getAppDataImgs(app)) || '[]'};
             var sliderAnimate = ${ JSON.stringify(sliderAnimate[app.slider.animate]) || '{}'};
             </script>
-            <script src="/assets/plugin/h5ds.swiper.js"></script>
+            <script src="/assets/js/app.js"></script>
         </head>
         <body ondragstart="return false">
             ${ app.mp3.url ? '<div class="h5ds-video-icon"><i></i><i></i><i></i><i></i></div>' : ''}
