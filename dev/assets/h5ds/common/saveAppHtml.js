@@ -48,7 +48,7 @@ export function pageHtml(pages) {
             noSwiper = 'noSwiper';
         }
         return `
-                <div id="${page.id || ''}" data-autoplay="${page.slider.autoplay ? page.slider.time : false}" data-lock="${page.slider.lock}" class="h5ds-swiper-page">
+                <div data-title="${escape(page.name)}" data-desc="${ page.desc ? escape(page.desc) : ''}" id="${page.id || ''}" data-autoplay="${page.slider.autoplay ? page.slider.time : false}" data-lock="${page.slider.lock}" class="h5ds-swiper-page">
                     <div data-noSwiper="${noSwiper}" class="h5ds-swiper-pageinner ${noSwiper}" style="${$.toStyle(page.style)}">
                         <div class="h5ds-swiper-layers">
                         ${

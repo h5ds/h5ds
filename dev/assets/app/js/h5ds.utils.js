@@ -106,7 +106,13 @@ export function svgLazy() {
             // 预设SVG颜色
             let $svg = $(svg);
             color.forEach(function (elem, index) {
-                $svg.find('path').eq(index).attr('fill', elem);
+                let $path = $svg.find('path').eq(index);
+                if($path.attr('style') !== undefined) {
+                    $path.attr('style', 'fill:' + elem);
+                }else {
+                    $path.attr('fill', elem);
+                }
+                
             })
             let str = $svg.find('svg').prop('outerHTML');
             $this.html(str);

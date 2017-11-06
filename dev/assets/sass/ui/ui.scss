@@ -1,4 +1,4 @@
-// ...
+
 $blue1: #a5b6c8;
 $blue2: #535f6b;
 $blue3: #30373f;
@@ -186,7 +186,7 @@ input[type="color"]::-webkit-color-swatch-wrapper { padding:0; border:none;}
 	vertical-align: middle;
 }
 
-//输入框
+/* 输入框 */
 .mt-input,.mt-textarea{ 
 	width:75px; 
 	height:20px;
@@ -219,7 +219,7 @@ input[type="color"]::-webkit-color-swatch-wrapper { padding:0; border:none;}
 	cursor: pointer;
 }
 
-//搜索
+/* 搜索 */
 .mt-input-search{
 	width:305px;
 	height:35px;
@@ -244,7 +244,7 @@ input[type="color"]::-webkit-color-swatch-wrapper { padding:0; border:none;}
 	}
 }
 
-//滑动杆
+/* 滑动杆 */
 .mt-slider-bar{
 	width:180px;
 	height:3px;
@@ -274,7 +274,7 @@ input[type="color"]::-webkit-color-swatch-wrapper { padding:0; border:none;}
 	}
 }
 
-//开关
+/* 开关 */
 .mt-switch{
 	width:40px;
 	height:20px;
@@ -301,7 +301,7 @@ input[type="color"]::-webkit-color-swatch-wrapper { padding:0; border:none;}
 	}
 }
 
-//黄色按钮
+/* 黄色按钮 */
 .mt-btn-yellow{
 	padding:3px 10px 5px 10px;
 	display:inline-block;
@@ -315,7 +315,7 @@ input[type="color"]::-webkit-color-swatch-wrapper { padding:0; border:none;}
 	}
 }
 
-//图标
+/* 图标 */
 @mixin beforeIcon($code){
 	font-family: "iconfont" !important;
 	content:$code;
@@ -332,7 +332,7 @@ input[type="color"]::-webkit-color-swatch-wrapper { padding:0; border:none;}
 	margin-top: -6px;
 }
 
-//选择
+/* 选择 */
 .mt-select{
 	display:inline-block;
 	position:relative;
@@ -369,7 +369,7 @@ input[type="color"]::-webkit-color-swatch-wrapper { padding:0; border:none;}
 	}
 }
 
-//自定义选择
+/* 自定义选择 */
 .mt-select-diy{
 	display:inline-block;
 	position:relative;
@@ -391,7 +391,7 @@ input[type="color"]::-webkit-color-swatch-wrapper { padding:0; border:none;}
 	}
 }
 
-// 标题
+/*  标题 */
 .mt-title{
 	position: absolute;
 	z-index:2000;
@@ -414,7 +414,7 @@ input[type="color"]::-webkit-color-swatch-wrapper { padding:0; border:none;}
 	transition-duration: 0.3s;
 }
 
-//更多
+/* 更多 */
 .mt-more{
 	display:inline-block;
 	height:14px;
@@ -426,7 +426,7 @@ input[type="color"]::-webkit-color-swatch-wrapper { padding:0; border:none;}
 	font-size:12px;
 }
 
-//Tip
+/* Tip */
 @mixin tip{
 	z-index: 2000;
 	line-height:30px;
@@ -466,7 +466,7 @@ input[type="color"]::-webkit-color-swatch-wrapper { padding:0; border:none;}
 	@include tip;
 }
 
-//分页
+/* 分页 */
 .mt-pagelist{
 	$phei : 26px;
 	position:relative;
@@ -495,10 +495,6 @@ input[type="color"]::-webkit-color-swatch-wrapper { padding:0; border:none;}
 				color:$white;
 			}
 		}
-		// .mt-pagelist-prev,
-		// .mt-pagelist-next{
-		// 	// ...
-		// }
 		.iconfont{
 			font-size:12px;
 			line-height:30px;
@@ -506,7 +502,6 @@ input[type="color"]::-webkit-color-swatch-wrapper { padding:0; border:none;}
 	}
 }
 
-//tab
 .mt-tab{
 	box-sizing: border-box;
 	&:after{
@@ -599,13 +594,13 @@ input[type="color"]::-webkit-color-swatch-wrapper { padding:0; border:none;}
 	}
 }
 
-//可拖动框
+/* 可拖动框 */
 .mt-drag{
 	position:absolute;
 	z-index: 1000;
 }
 
-//拖动排序
+/* 拖动排序 */
 .mt-uniqlist{
 	position:relative;
 	.mt-active{
@@ -710,17 +705,17 @@ input[type="color"]::-webkit-color-swatch-wrapper { padding:0; border:none;}
 	}
 }
 
-//控制杆
+/* 控制杆 */
 .mt-control{
 	@include control(10px,-6px)
 }
 
-//裁剪
+/* 裁剪 */
 .mt-crop-control{
 	@include control(6px,-4px)	
 }
 .mt-crop-controlbox{
-	$borderWidth : 500px; //图片剪切使用
+	$borderWidth : 500px; /* 图片剪切使用 */
 	display:none;
 	width:100px;
 	height:60px;
@@ -789,7 +784,7 @@ input[type="color"]::-webkit-color-swatch-wrapper { padding:0; border:none;}
 	}
 }
 
-//上传按钮
+/* 上传按钮 */
 .mt-upload-btn{
 	position:relative;
 }
@@ -803,7 +798,7 @@ input[type="color"]::-webkit-color-swatch-wrapper { padding:0; border:none;}
 	opacity:0;
 }
 
-// 弹窗 - 弹窗都是2000 + 
+/*  弹窗 - 弹窗都是2000 +  */
 .mt-modal,.mt-confirm{
 	$titleHei: 45px;
 	position: fixed;
@@ -914,7 +909,7 @@ input[type="color"]::-webkit-color-swatch-wrapper { padding:0; border:none;}
 	}
 }
 
-// 复选框
+/*  复选框 */
 .mt-checkbox-group{
 	display: inline-block;
 }

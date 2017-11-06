@@ -225,6 +225,7 @@ input[type="color"]::-webkit-color-swatch-wrapper {
   background: url(/assets/images/loading.gif) no-repeat;
   margin-right: 10px;
   vertical-align: middle; }
+/* 输入框 */
 .mt-input, .mt-textarea {
   width: 75px;
   height: 20px;
@@ -250,6 +251,7 @@ input[type="color"]::-webkit-color-swatch-wrapper {
   height: 100%;
   width: 100%;
   cursor: pointer; }
+/* 搜索 */
 .mt-input-search {
   width: 305px;
   height: 35px;
@@ -270,6 +272,7 @@ input[type="color"]::-webkit-color-swatch-wrapper {
     text-align: center;
     color: #ff5402;
     font-weight: bolder; }
+/* 滑动杆 */
 .mt-slider-bar {
   width: 180px;
   height: 3px;
@@ -294,6 +297,7 @@ input[type="color"]::-webkit-color-swatch-wrapper {
         top: -5px;
         width: 13px;
         height: 13px; }
+/* 开关 */
 .mt-switch {
   width: 40px;
   height: 20px;
@@ -314,6 +318,7 @@ input[type="color"]::-webkit-color-swatch-wrapper {
 .mt-switch[data-val="on"] .mt-switch-btn {
       background: #ff5402;
       left: 21px; }
+/* 黄色按钮 */
 .mt-btn-yellow {
   padding: 3px 10px 5px 10px;
   display: inline-block;
@@ -324,6 +329,8 @@ input[type="color"]::-webkit-color-swatch-wrapper {
 .mt-btn-yellow:hover {
     color: #fff;
     background: #f04e00; }
+/* 图标 */
+/* 选择 */
 .mt-select {
   display: inline-block;
   position: relative;
@@ -366,6 +373,7 @@ input[type="color"]::-webkit-color-swatch-wrapper {
       font-size: 12px; }
 .mt-select select option:hover {
       color: #fff; }
+/* 自定义选择 */
 .mt-select-diy {
   display: inline-block;
   position: relative;
@@ -395,6 +403,7 @@ input[type="color"]::-webkit-color-swatch-wrapper {
     left: 0;
     min-width: 100%;
     display: none; }
+/*  标题 */
 .mt-title {
   position: absolute;
   z-index: 2000;
@@ -414,6 +423,7 @@ input[type="color"]::-webkit-color-swatch-wrapper {
 .mt-title-animated {
   -webkit-transition-duration: 0.3s;
   transition-duration: 0.3s; }
+/* 更多 */
 .mt-more {
   display: inline-block;
   height: 14px;
@@ -423,6 +433,7 @@ input[type="color"]::-webkit-color-swatch-wrapper {
   color: #fff;
   border-radius: 2px;
   font-size: 12px; }
+/* Tip */
 .mt-tip-group {
   width: 100%;
   height: 0;
@@ -478,6 +489,7 @@ input[type="color"]::-webkit-color-swatch-wrapper {
   color: #fff;
   -webkit-animation-duration: 0.5s;
   animation-duration: 0.5s; }
+/* 分页 */
 .mt-pagelist {
   position: relative;
   display: inline-block; }
@@ -571,9 +583,11 @@ input[type="color"]::-webkit-color-swatch-wrapper {
     background: #252a2e;
     height: 4px;
     width: 100%; }
+/* 可拖动框 */
 .mt-drag {
   position: absolute;
   z-index: 1000; }
+/* 拖动排序 */
 .mt-uniqlist {
   position: relative; }
 .mt-uniqlist .mt-active {
@@ -592,6 +606,7 @@ input[type="color"]::-webkit-color-swatch-wrapper {
     opacity: 0.3; }
 .mt-uniqlist .mt-uniq-clone {
     z-index: 1000; }
+/* 控制杆 */
 .mt-control {
   position: absolute;
   z-index: 1000;
@@ -658,6 +673,7 @@ input[type="color"]::-webkit-color-swatch-wrapper {
     left: 50%;
     margin-left: -6px;
     cursor: -webkit-grabbing; }
+/* 裁剪 */
 .mt-crop-control {
   position: absolute;
   z-index: 1000;
@@ -725,6 +741,7 @@ input[type="color"]::-webkit-color-swatch-wrapper {
     margin-left: -4px;
     cursor: -webkit-grabbing; }
 .mt-crop-controlbox {
+  /* 图片剪切使用 */
   display: none;
   width: 100px;
   height: 60px;
@@ -779,6 +796,7 @@ input[type="color"]::-webkit-color-swatch-wrapper {
       color: #a5b6c8; }
 .mt-crop .mt-crop-btns a:hover {
         background: #252a2e; }
+/* 上传按钮 */
 .mt-upload-btn {
   position: relative; }
 .mt-upload-input {
@@ -789,6 +807,7 @@ input[type="color"]::-webkit-color-swatch-wrapper {
   top: 0;
   left: 0;
   opacity: 0; }
+/*  弹窗 - 弹窗都是2000 +  */
 .mt-modal, .mt-confirm {
   position: fixed;
   top: 0;
@@ -878,6 +897,7 @@ input[type="color"]::-webkit-color-swatch-wrapper {
 .mt-contextmenu li:hover {
       background: #ff5402;
       color: #fff; }
+/*  复选框 */
 .mt-checkbox-group {
   display: inline-block; }
 .mt-checkbox-item {

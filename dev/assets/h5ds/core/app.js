@@ -280,7 +280,8 @@ class App {
                 title: '修改页面名字',
                 content: `
                 <input id="editPageInputId" class="edit-page-input" value="${page.id || ''}" type="text" placeholder="页面ID"/>
-                <input id="editPageInput" class="edit-page-input" value="${page.name || ''}" type="text" placeholder="请输入页面名称"/>`,
+                <input id="editPageInput" class="edit-page-input" value="${page.name || ''}" type="text" placeholder="请输入页面名称"/>
+                <textarea id="editPageInputDesc" class="edit-page-input" value="${page.desc || ''}" placeholder="请输入页面描述"></textarea>`,
                 callback: (mark) => {
                     if (mark) {
                         let name = $('#editPageInput').val();
@@ -293,6 +294,7 @@ class App {
                             });
                             return;
                         }
+                        page.desc = $('#editPageInputDesc').val();
                         page.name = name;
                         page.id = id;
                         $item.find('.page-content').html(`

@@ -1,5 +1,6 @@
 import { getSysTpls, getSysTplsTypes, getUserTpls, delUserTpls } from '../server/ajax.js'; // ajax
 import { newPage, PAGE_SIZE } from './imgSource';
+import { sourceHome } from '../conf/global';
 import nullImg from '../../images/null.png';
 
 // 获取系统模板分类
@@ -31,12 +32,15 @@ function getSysTplsFun(p) {
                 name: '空白页面',
                 pic: nullImg
             });
-            let tpl = '';
-            for (let i = 0; i < arr.length; i++) {
+            let tpl = `<li>
+                <div class="name">空白页面</div>
+                <div class="imgbox"><img src="${nullImg}" alt=""></div>
+            </li>`;
+            for (let i = 1; i < arr.length; i++) {
                 let d = arr[i];
                 tpl += `<li>
                     <div class="name">${d.name}</div>
-                    <div class="imgbox"><img src="${d.pic}" alt=""></div>
+                    <div class="imgbox"><img src="${sourceHome + d.pic}" alt=""></div>
                 </li>`;
             }
             // 设置 素材列表
@@ -105,7 +109,20 @@ function eventSysTpls() {
     // 选择系统模板
     $('#sysTplsList, #myTplsList').on('click', 'li', function (e) {
         let val = $(this).data('val');
-        let $item = $('#pagesList').find('.active');
+
+        // 根据不同的类型，选择不同的 id 
+        let $list = null;
+        switch (AppData.edit.pageType) {
+            case 'pages': $list = $('#pagesList'); break;
+            case 'popups': $list = $('#popupsList'); break;
+            case 'fixeds': $list = $('#fixedsList'); break;
+        }
+        if(!$list) {
+            console.error('未知页面类型...');
+            return;
+        }
+
+        let $item = $list.find('.active');
         let index = $item.index();
         AppData.edit.appClass.addPage(index, JSON.parse(val));
     });

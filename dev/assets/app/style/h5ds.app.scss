@@ -62,7 +62,7 @@ body * {
     top: 0;
     left: 0;
     /* opacity: 0; /* 先渲染，兼容苹果的bug */
-    /* display: none; */
+    display: none;
 }
 .h5ds-swiper-pageinner{
     width: 100%;
@@ -122,6 +122,17 @@ body * {
     // .h5ds-swiper-layers{
     //     display: block;
     // }
+}
+
+#h5dsPopups,
+#h5dsFixedsDown,
+#h5dsFixedsUp {
+    .h5ds-swiper-page,
+    .h5ds-swiper-pageinner,
+    .h5ds-swiper-layers{
+        display: block;
+        overflow: initial;
+    }
 }
 
 .h5ds-loading{

@@ -201,7 +201,10 @@ var g = {
     scale: scale, // 默认phone 的缩放
     defaultWidth: 320, // 默认宽度
     defaultHeight: 486 // 默认高度，这个会在长页判断用到
-};
+
+
+    // 资源路径，因为资源是后台上传的
+};var sourceHome = exports.sourceHome =  false ? 'http://localhost:8200' : 'http://mtsee.h5ds.com';
 
 exports.default = g;
 
@@ -5544,7 +5547,12 @@ $.fn.control = function (setting) {
             y: e.pageY
         };
         var $box = $(_this).parent();
-        var scale = AppData.edit.phoneScale || _global2.default.scale;
+        var scale = _global2.default.scale;
+        try {
+            scale = AppData.edit.phoneScale;
+        } catch (e) {
+            // ...
+        }
         var box = {
             left: parseInt($box.css('left'), 10) * scale,
             top: parseInt($box.css('top'), 10) * scale
@@ -5622,7 +5630,12 @@ $.fn.control = function (setting) {
             x: e.pageX,
             y: e.pageY
         };
-        var scale = AppData.edit.phoneScale || _global2.default.scale;
+        var scale = _global2.default.scale;
+        try {
+            scale = AppData.edit.phoneScale;
+        } catch (e) {
+            // ...
+        }
         var $box = $(_this).parent();
         var box = {
             wid: parseInt($box.width(), 10),
@@ -5699,7 +5712,15 @@ $.fn.control = function (setting) {
         e.stopPropagation();
 
         // 专门给 group 提供的，如果正在编辑器组合，原来的方法都失效
-        if (AppData.edit.group) {
+        var groupMark = false;
+        try {
+            if (AppData.edit.group) {
+                groupMark = true;
+            }
+        } catch (e) {
+            // ...
+        }
+        if (groupMark) {
             return;
         }
 

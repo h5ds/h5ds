@@ -1,4 +1,5 @@
 import { getSysImgs, getSysImgTypes, getUserImgs, delImg } from '../server/ajax.js'; // ajax
+import { sourceHome } from '../conf/global';
 
 export const PAGE_SIZE = 20;
 
@@ -23,7 +24,7 @@ function getSysImgsFun(p) {
             let tpl = '';
             for (let i = 0; i < res.data.length; i++) {
                 let d = res.data[i];
-                tpl += `<li><div class="imgbox"><img src="${d.url}" alt=""></div></li>`
+                tpl += `<li><div class="imgbox"><img src="${sourceHome + d.url}" alt=""></div></li>`
             }
             // 设置 素材列表
             $('#imgSysList').html(tpl);

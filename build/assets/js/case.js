@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "/";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 560);
+/******/ 	return __webpack_require__(__webpack_require__.s = 563);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -96,7 +96,10 @@ var g = {
     scale: scale, // 默认phone 的缩放
     defaultWidth: 320, // 默认宽度
     defaultHeight: 486 // 默认高度，这个会在长页判断用到
-};
+
+
+    // 资源路径，因为资源是后台上传的
+};var sourceHome = exports.sourceHome =  false ? 'http://localhost:8200' : 'http://mtsee.h5ds.com';
 
 exports.default = g;
 
@@ -1976,7 +1979,12 @@ function svgLazy() {
             // 预设SVG颜色
             var $svg = $(svg);
             color.forEach(function (elem, index) {
-                $svg.find('path').eq(index).attr('fill', elem);
+                var $path = $svg.find('path').eq(index);
+                if ($path.attr('style') !== undefined) {
+                    $path.attr('style', 'fill:' + elem);
+                } else {
+                    $path.attr('fill', elem);
+                }
             });
             var str = $svg.find('svg').prop('outerHTML');
             $this.html(str);
@@ -5171,7 +5179,11 @@ var Img = function (_Layer) {
     (0, _createClass3.default)(Img, [{
         key: 'cropBack',
         value: function cropBack(method, val) {
-            console.log(method, val);
+            console.log(method, val, this.layer.data.src);
+
+            // if(!val) {
+            //     return;
+            // }
 
             // 控制重新设置尺寸的参数
             var imgDom = false;
@@ -5773,7 +5785,9 @@ var _AppDataFun = __webpack_require__(10);
  */
 function hideShowTpl(self) {
     if (!self.layer.ue.hideShow.data) {
-        self.layer.ue.hideShow.data = {};
+        self.layer.ue.hideShow.data = {
+            type: 'show'
+        };
     }
     var _self$layer$ue$hideSh = self.layer.ue.hideShow,
         data = _self$layer$ue$hideSh.data,
@@ -6655,7 +6669,7 @@ function appToHtmlFile(app) {
     var fixedUp = app.fixeds[0];
     var fixedDown = app.fixeds[1];
 
-    return '\n        <!doctype html>\n        <html>\n        <head>\n            <title>' + app.name + '</title>\n            <meta name="description" content="' + app.info + '">\n            <meta name="keywords" content="' + app.info + '">\n            <meta http-equiv="X-UA-Compatible" content="IE=edge">\n            <meta name="format-detection" content="telephone=no" />\n            <meta name="format-detection" content="email=no" />\n            <meta name="apple-mobile-web-app-capable" content="yes" />\n            <meta name="apple-mobile-web-app-status-bar-style" content="black" />\n            <meta http-equiv="Cache-Control" content="no-cache" />\n            <meta name="x5-fullscreen" content="true">\n            <meta name="x5-orientation" content="portrait">\n            <meta name="x5-page-mode" content="app">\n            <meta charset="utf-8">\n            <script src="/assets/plugin/h5ds.screen.js"></script>\n            <meta name="apple-mobile-web-app-capable" content="yes" />\n            <!-- Set render engine for 360 browser -->\n            <meta name="renderer" content="webkit">\n            <!-- No Baidu Siteapp-->\n            <meta http-equiv="Cache-Control" content="no-siteapp" />\n            <link rel="stylesheet" type="text/css" href="/assets/css/app.css">\n            <link rel="stylesheet" type="text/css" href="/assets/font/iconfont.css">\n            <link rel="stylesheet" type="text/css" href="/assets/plugin/h5ds.app.css">\n            <!--js-->\n            <script src="/assets/plugin/jquery-2.1.1.js"></script>\n            ' + (types.map ? '<script type="text/javascript" src="http://webapi.amap.com/maps?v=1.4.0&key=b10045abfc1d4d22446efdc74f85c238"></script>' : '') + '\n            <script src="/assets/plugin/jquery.touchSwipe.min.js"></script>\n            <script>\n            var IMG_SOURCE = ' + ((0, _stringify2.default)(getAppDataImgs(app)) || '[]') + ';\n            var sliderAnimate = ' + ((0, _stringify2.default)(_sliderAnimate.sliderAnimate[app.slider.animate]) || '{}') + ';\n            </script>\n            <script src="/assets/js/app.js"></script>\n        </head>\n        <body ondragstart="return false">\n            ' + (app.mp3.url ? '<div class="h5ds-video-icon"><i></i><i></i><i></i><i></i></div>' : '') + '\n            ' + (app.mp3.url ? '<audio style="display:none; height:0;" autoplay="autoplay" id="h5dsBgMusic" preload="auto" src="' + app.mp3.url + '" loop="loop"></audio>' : '') + '\n            <div id="h5dsPopups">' + (0, _saveAppHtml.popupHtml)(app.popups) + '</div>\n            <div id="h5dsFixedsUp">' + (0, _saveAppHtml.fixedUpHtml)(fixedUp) + '</div>\n            <div id="h5dsFixedsDown">' + (0, _saveAppHtml.fixedDownHtml)(fixedDown) + '</div>\n            <div class="h5ds-loading" id="h5dsLoading">\n                <div class="h5ds-loadinner">\n                    ' + _loading.loadArr[app.loading] + '\n                    <div class="h5ds-progress" id="h5dsProgress">0</div>\n                </div>\n            </div>\n            <div id="h5dsSwiper" pages-length="' + app.pages.length + '" class="h5ds-swiper" style="' + $.toStyle(app.style) + '">' + (0, _saveAppHtml.pageHtml)(app.pages) + '</div>\n        </body>\n        </html>';
+    return '\n        <!doctype html>\n        <html>\n        <head>\n            <title>' + app.name + '</title>\n            <meta name="description" content="' + app.info + '">\n            <meta name="keywords" content="' + app.info + '">\n            <meta http-equiv="X-UA-Compatible" content="IE=edge">\n            <meta name="format-detection" content="telephone=no" />\n            <meta name="format-detection" content="email=no" />\n            <meta name="apple-mobile-web-app-capable" content="yes" />\n            <meta name="apple-mobile-web-app-status-bar-style" content="black" />\n            <meta http-equiv="Cache-Control" content="no-cache" />\n            <meta name="x5-fullscreen" content="true">\n            <meta name="x5-orientation" content="portrait">\n            <meta name="x5-page-mode" content="app">\n            <meta charset="utf-8">\n            <script src="/assets/plugin/h5ds.screen.js"></script>\n            <meta name="apple-mobile-web-app-capable" content="yes" />\n            <!-- Set render engine for 360 browser -->\n            <meta name="renderer" content="webkit">\n            <!-- No Baidu Siteapp-->\n            <meta http-equiv="Cache-Control" content="no-siteapp" />\n            <link rel="stylesheet" type="text/css" href="/assets/css/app.css">\n            <link rel="stylesheet" type="text/css" href="/assets/font/iconfont.css">\n            <link rel="stylesheet" type="text/css" href="/assets/plugin/h5ds.app.css">\n            <!--js-->\n            <script src="/assets/plugin/jquery-2.1.1.js"></script>\n            <script src="/assets/plugin/jquery.qrcode.min.js"></script>\n            ' + (types.map ? '<script type="text/javascript" src="http://webapi.amap.com/maps?v=1.4.0&key=b10045abfc1d4d22446efdc74f85c238"></script>' : '') + '\n            <script src="/assets/plugin/jquery.touchSwipe.min.js"></script>\n            <script>\n            var IMG_SOURCE = ' + ((0, _stringify2.default)(getAppDataImgs(app)) || '[]') + ';\n            var sliderAnimate = ' + ((0, _stringify2.default)(_sliderAnimate.sliderAnimate[app.slider.animate]) || '{}') + ';\n            </script>\n            <script src="/assets/js/app.js"></script>\n        </head>\n        <body ondragstart="return false">\n            ' + (app.mp3.url ? '<div class="h5ds-video-icon"><i></i><i></i><i></i><i></i></div>' : '') + '\n            ' + (app.mp3.url ? '<audio style="display:none; height:0;" autoplay="autoplay" id="h5dsBgMusic" preload="auto" src="' + app.mp3.url + '" loop="loop"></audio>' : '') + '\n            <div id="h5dsPopups">' + (0, _saveAppHtml.popupHtml)(app.popups) + '</div>\n            <div id="h5dsFixedsUp">' + (0, _saveAppHtml.fixedUpHtml)(fixedUp) + '</div>\n            <div id="h5dsFixedsDown">' + (0, _saveAppHtml.fixedDownHtml)(fixedDown) + '</div>\n            <div class="h5ds-loading" id="h5dsLoading">\n                <div class="h5ds-loadinner">\n                    ' + _loading.loadArr[app.loading] + '\n                    <div class="h5ds-progress" id="h5dsProgress">0</div>\n                </div>\n            </div>\n            <div id="h5dsSwiper" pages-length="' + app.pages.length + '" class="h5ds-swiper" style="' + $.toStyle(app.style) + '">' + (0, _saveAppHtml.pageHtml)(app.pages) + '</div>\n        </body>\n        </html>';
 }
 
 /**
@@ -6668,6 +6682,59 @@ function appHTML(app) {
 }
 
 // 生成二维码
+/**
+{
+    // render method: 'canvas', 'image' or 'div'
+    render: 'canvas',
+
+    // version range somewhere in 1 .. 40
+    minVersion: 1,
+    maxVersion: 40,
+
+    // error correction level: 'L', 'M', 'Q' or 'H'
+    ecLevel: 'L',
+
+    // offset in pixel if drawn onto existing canvas
+    left: 0,
+    top: 0,
+
+    // size in pixel
+    size: 200,
+
+    // code color or image element
+    fill: '#000',
+
+    // background color or image element, null for transparent background
+    background: null,
+
+    // content
+    text: 'no text',
+
+    // corner radius relative to module width: 0.0 .. 0.5
+    radius: 0,
+
+    // quiet zone in modules
+    quiet: 0,
+
+    // modes
+    // 0: normal
+    // 1: label strip
+    // 2: label box
+    // 3: image strip
+    // 4: image box
+    mode: 0,
+
+    mSize: 0.1,
+    mPosX: 0.5,
+    mPosY: 0.5,
+
+    label: 'no label',
+    fontname: 'sans',
+    fontcolor: '#000',
+
+    image: null
+}
+*/
 function newQrcode() {
     // 生成二维码
     var owner = $.getUrlData('owner');
@@ -6675,13 +6742,11 @@ function newQrcode() {
     var path = location.origin + '/apps/' + owner + '/' + id + '/index.html';
     $('.qrcode-url-box').html(path);
     var $qrcode = $('#qrcode').empty();
-    new QRCode($qrcode[0], {
+    $qrcode.qrcode({
         text: path,
-        width: 140,
-        height: 140,
-        colorDark: "#000000",
-        colorLight: "#ffffff",
-        correctLevel: QRCode.CorrectLevel.H
+        size: 140,
+        ecLevel: 'L',
+        background: '#fff'
     });
 }
 
@@ -6741,6 +6806,7 @@ function eventAppViewShow(self) {
         }
         (0, _ajax.saveData)({
             id: appid,
+            uid: $.getUrlData('owner'),
             name: AppData.data.name,
             pic: AppData.data.img,
             des: AppData.data.info,
@@ -7015,7 +7081,7 @@ function pageHtml(pages) {
         if (page.style.height && parseInt(page.style.height, 10) > 486) {
             noSwiper = 'noSwiper';
         }
-        return '\n                <div id="' + (page.id || '') + '" data-autoplay="' + (page.slider.autoplay ? page.slider.time : false) + '" data-lock="' + page.slider.lock + '" class="h5ds-swiper-page">\n                    <div data-noSwiper="' + noSwiper + '" class="h5ds-swiper-pageinner ' + noSwiper + '" style="' + $.toStyle(page.style) + '">\n                        <div class="h5ds-swiper-layers">\n                        ' + page.layers.map(function (layer, index) {
+        return '\n                <div data-title="' + escape(page.name) + '" data-desc="' + (page.desc ? escape(page.desc) : '') + '" id="' + (page.id || '') + '" data-autoplay="' + (page.slider.autoplay ? page.slider.time : false) + '" data-lock="' + page.slider.lock + '" class="h5ds-swiper-page">\n                    <div data-noSwiper="' + noSwiper + '" class="h5ds-swiper-pageinner ' + noSwiper + '" style="' + $.toStyle(page.style) + '">\n                        <div class="h5ds-swiper-layers">\n                        ' + page.layers.map(function (layer, index) {
             return (0, _layerSwitch.getLayerDom)(layer);
         }).join('') + '\n                        </div>\n                    </div>\n                </div>';
     }).join('');
@@ -7287,14 +7353,17 @@ function pageHtml(pages) {
 /* 557 */,
 /* 558 */,
 /* 559 */,
-/* 560 */
+/* 560 */,
+/* 561 */,
+/* 562 */,
+/* 563 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(561);
+module.exports = __webpack_require__(564);
 
 
 /***/ }),
-/* 561 */
+/* 564 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";

@@ -45,7 +45,7 @@ exports.register = function(req, res) {
         },
         table: 'h5ds_user',
         callBack: function(ret) {
-            console.log(ret);
+            // console.log(ret);
             if(ret) {
                 // // 自动登录一次
                 // req.session.user = Object.assign({

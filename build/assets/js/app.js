@@ -2021,7 +2021,12 @@ function svgLazy() {
             // 预设SVG颜色
             var $svg = $(svg);
             color.forEach(function (elem, index) {
-                $svg.find('path').eq(index).attr('fill', elem);
+                var $path = $svg.find('path').eq(index);
+                if ($path.attr('style') !== undefined) {
+                    $path.attr('style', 'fill:' + elem);
+                } else {
+                    $path.attr('fill', elem);
+                }
             });
             var str = $svg.find('svg').prop('outerHTML');
             $this.html(str);
@@ -9829,15 +9834,25 @@ __webpack_require__(558);
 
 __webpack_require__(559);
 
+__webpack_require__(560);
+
 __webpack_require__(243);
 
 var _h5dsUtils = __webpack_require__(124);
 
+var _h5dsInitpc = __webpack_require__(561);
+
 // 初始化
-
-
-// 加载滑动插件
 $(function () {
+
+    // 如果是pc 页面。修改页面结构
+    try {
+        AppData ? true : false;
+    } catch (e) {
+        if ((0, _h5dsUtils.isPC)()) {
+            (0, _h5dsInitpc.initPc)();
+        }
+    }
 
     // 地图
     if ($('.layer-map').length === 0) {}
@@ -9888,8 +9903,14 @@ $(function () {
             len: len
         });
         var swiper = $h5dsSwiper.h5dsSwiper(obj);
+
+        if ((0, _h5dsUtils.isPC)()) {
+            (0, _h5dsInitpc.initPcEvent)(swiper);
+        }
     }
 });
+
+// 加载滑动插件
 
 /***/ }),
 /* 556 */
@@ -9914,6 +9935,216 @@ $(function () {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 560 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 561 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.initPc = initPc;
+exports.initPcEvent = initPcEvent;
+
+var _h5dsWave = __webpack_require__(562);
+
+var obj = {
+    color: 'rgba(0,0,0,0)'
+};
+/**
+ * @desc 初始化pc 页面
+*/
+function initPc() {
+    var allHtml = $('body').html();
+    $('body').html('\n        <div class="pc-body">\n            <div class="pc-phone"></div>\n            <div class="pc-infos">\n                <h1 class="pc-title">\u9875\u9762\u6807\u9898\u540D\u79F0</h1>\n                <h2 class="pc-desc">\u9875\u9762\u5BF9\u5E94\u7684\u63CF\u8FF0\u4FE1\u606F\u5728\u8FD9\u91CC\u5C55\u793A...</h2>\n                <div class="pc-btns">\n                    <a class="pc-prev">\u4E0A\u4E00\u9875</a>\n                    <a class="pc-next">\u4E0B\u4E00\u9875</a>\n                </div>\n                <div class="pc-pages">\n                    <ul class="pc-dots">\n                        <li class="pc-dots-active"></li>\n                        <li></li>\n                        <li></li>\n                    </ul>\n                </div>\n                <div class="pc-qrcode"></div>\n            </div>\n        </div>\n        <div class="pc-wave">\n            <canvas id="wave"></canvas>\n        </div>\n        <div class="pc-powerby">\n            power by <a target="_blank" href="http://www.h5ds.com">h5ds.com</a>\n        </div>\n    ');
+    $('.pc-phone').html(allHtml);
+    (0, _h5dsWave.drawWave)(obj);
+    iniQrcode();
+}
+
+/**
+ * @desc 添加点
+*/
+function addDots(len) {
+    var str = '';
+    for (var i = 0; i < len; i++) {
+        str += '<li></li>';
+    }
+    $('.pc-dots').html(str);
+    setDots(0);
+}
+
+/**
+ * @desc 设置点颜色
+*/
+function setDots(index) {
+    $('.pc-dots').find('li').eq(index).addClass('pc-dots-active').siblings('.pc-dots-active').removeClass('pc-dots-active');
+
+    // 显示文字
+    var $current = $('#h5dsSwiper').find('.h5ds-swiper-page').eq(index);
+    var title = unescape($current.attr('data-title'));
+    var desc = unescape($current.attr('data-desc'));
+    $('.pc-title').html(title);
+    $('.pc-desc').html(desc);
+
+    // 设置波纹背景
+    var color = $current.find('.h5ds-swiper-pageinner').css('background-color');
+    obj.color = color;
+    if (obj.color === 'rgba(0, 0, 0, 0)') {
+        obj.color = $('#h5dsSwiper').css('background-color');
+    }
+    $('.pc-qrcode').css('border-color', obj.color);
+}
+
+/**
+ * @desc 初始化二维码
+*/
+function iniQrcode() {
+    $('.pc-qrcode').qrcode({
+        text: location.href,
+        size: 120,
+        ecLevel: 'L',
+        background: '#fff'
+    });
+}
+
+// PC事件
+function initPcEvent(swiper) {
+    var len = $('#h5dsSwiper').find('.h5ds-swiper-page').length;
+    var index = 0;
+    // 事件监听
+    $('#h5dsSwiper').on('h5ds_up h5ds_right', function (e, data) {
+        index = data.outIndex + 1;
+        if (index > len - 1) {
+            index = 0;
+        }
+        setDots(index);
+    }).on('h5ds_down h5ds_left', function (e, data) {
+        index = data.outIndex - 1;
+        if (index < 0) {
+            index = len - 1;
+        }
+        setDots(index);
+    });
+
+    // 添加点
+    addDots(len);
+
+    // 下一页
+    $(document).on('click', '.pc-next', function () {
+        index++;
+        if (index > len - 1) {
+            index = 0;
+        }
+        swiper.toPage(index);
+        setDots(index);
+    }).on('click', '.pc-prev', function () {
+        index--;
+        if (index < 0) {
+            index = len - 1;
+        }
+        swiper.toPage(index);
+        setDots(index);
+    }).on('click', '.pc-dots li', function (e) {
+        index = $(this).index();
+        swiper.toPage(index);
+        setDots(index);
+    });
+}
+
+/***/ }),
+/* 562 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.drawWave = drawWave;
+/**
+ * @desc 绘制水波纹
+ */
+function drawWave(colorObj) {
+    var canvas = document.getElementById('wave');
+    var ctx = canvas.getContext('2d');
+    //range控件信息
+    var nowRange = 30; // 整体高度 0~100%
+    //画布属性
+    var mW = canvas.width = window.innerWidth;
+    var mH = canvas.height = window.innerHeight;
+
+    //画sin 曲线函数
+    var drawSin = function drawSin(obj, color) {
+        var points = obj.points || []; //用于存放绘制Sin曲线的点
+        obj.xOffset += obj.speed;
+        ctx.beginPath();
+
+        //在整个轴长上取点
+        var dY = mH * (1 - nowRange / 100);
+        for (var i = 0; i < mW; i += 50) {
+            //此处坐标(x,y)的取点，依靠公式 “振幅高*sin(x*振幅宽 + 振幅偏移量)”
+            var y = -Math.sin(i * obj.waveWidth + obj.xOffset);
+            points.push([i, dY + y * obj.waveHeight]);
+            ctx.lineTo(i, dY + y * obj.waveHeight);
+        }
+        // 末尾加个
+        ctx.lineTo(i, dY + -Math.sin(i * obj.waveWidth + obj.xOffset) * obj.waveHeight);
+        //封闭路径
+        ctx.lineTo(mW, mH);
+        ctx.lineTo(0, mH);
+        ctx.lineTo(points[0][0], points[0][1]);
+        ctx.fillStyle = color;
+        ctx.fill();
+    };
+
+    // 没有 透明度的
+    // if (colorObj.color.indexOf('rgba') === -1) {
+    //     // ...
+    //     colorObj.color = colorObj.color.replace('rgb(', 'rgba(');
+    // } else {
+    //     colorObj.color = colorObj.color.replace(/(rgba\(\d+,\d+,\d+),(((0|1)?\.)?\d+)\)/, '$1)');
+    // }
+    var lines = [{
+        waveWidth: 0.006, //波浪宽度,数越小越宽 
+        waveHeight: 40, //波浪高度,数越大越高
+        speed: 0.02, //波浪速度，数越大速度越快
+        xOffset: 100, //波浪x偏移量
+        points: null
+    }, {
+        waveWidth: 0.006, //波浪宽度,数越小越宽 
+        waveHeight: 26, //波浪高度,数越大越高
+        speed: 0.04, //波浪速度，数越大速度越快
+        xOffset: 0, //波浪x偏移量
+        points: null
+    }];
+    var render = function render() {
+        ctx.clearRect(0, 0, mW, mH);
+        for (var i = 0; i < lines.length; i++) {
+            var str = i === 0 ? ', 0.6)' : ', 0.3)';
+            colorObj.color = colorObj.color.replace('rgb(', 'rgba(');
+            drawSin(lines[i], colorObj.color.replace(')', str));
+        }
+        requestAnimationFrame(render);
+    };
+
+    window.addEventListener("resize", function () {
+        mW = canvas.width = window.innerWidth;
+        mH = canvas.height = window.innerHeight;
+    });
+
+    render();
+}
 
 /***/ })
 /******/ ]);

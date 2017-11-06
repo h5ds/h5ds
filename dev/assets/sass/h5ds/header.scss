@@ -1,6 +1,6 @@
 @import './var.scss';
 
-//顶部
+/* 顶部 */
 .header{
 	background: $blue4;
 	color: $blue1;
@@ -13,7 +13,7 @@
 	z-index: 1000;
 	.logo{
 		display: inline-block;
-		// width:140px;
+		/*  width:140px; */
 		height:100%;
 		line-height:60px;
 		text-align:center;

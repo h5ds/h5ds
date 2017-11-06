@@ -225,6 +225,7 @@ input[type="color"]::-webkit-color-swatch-wrapper {
   background: url(/assets/images/loading.gif) no-repeat;
   margin-right: 10px;
   vertical-align: middle; }
+/* 输入框 */
 .mt-input, .mt-textarea {
   width: 75px;
   height: 20px;
@@ -250,6 +251,7 @@ input[type="color"]::-webkit-color-swatch-wrapper {
   height: 100%;
   width: 100%;
   cursor: pointer; }
+/* 搜索 */
 .mt-input-search {
   width: 305px;
   height: 35px;
@@ -270,6 +272,7 @@ input[type="color"]::-webkit-color-swatch-wrapper {
     text-align: center;
     color: #ff5402;
     font-weight: bolder; }
+/* 滑动杆 */
 .mt-slider-bar {
   width: 180px;
   height: 3px;
@@ -294,6 +297,7 @@ input[type="color"]::-webkit-color-swatch-wrapper {
         top: -5px;
         width: 13px;
         height: 13px; }
+/* 开关 */
 .mt-switch {
   width: 40px;
   height: 20px;
@@ -314,6 +318,7 @@ input[type="color"]::-webkit-color-swatch-wrapper {
 .mt-switch[data-val="on"] .mt-switch-btn {
       background: #ff5402;
       left: 21px; }
+/* 黄色按钮 */
 .mt-btn-yellow {
   padding: 3px 10px 5px 10px;
   display: inline-block;
@@ -324,6 +329,8 @@ input[type="color"]::-webkit-color-swatch-wrapper {
 .mt-btn-yellow:hover {
     color: #fff;
     background: #f04e00; }
+/* 图标 */
+/* 选择 */
 .mt-select {
   display: inline-block;
   position: relative;
@@ -366,6 +373,7 @@ input[type="color"]::-webkit-color-swatch-wrapper {
       font-size: 12px; }
 .mt-select select option:hover {
       color: #fff; }
+/* 自定义选择 */
 .mt-select-diy {
   display: inline-block;
   position: relative;
@@ -395,6 +403,7 @@ input[type="color"]::-webkit-color-swatch-wrapper {
     left: 0;
     min-width: 100%;
     display: none; }
+/*  标题 */
 .mt-title {
   position: absolute;
   z-index: 2000;
@@ -414,6 +423,7 @@ input[type="color"]::-webkit-color-swatch-wrapper {
 .mt-title-animated {
   -webkit-transition-duration: 0.3s;
   transition-duration: 0.3s; }
+/* 更多 */
 .mt-more {
   display: inline-block;
   height: 14px;
@@ -423,6 +433,7 @@ input[type="color"]::-webkit-color-swatch-wrapper {
   color: #fff;
   border-radius: 2px;
   font-size: 12px; }
+/* Tip */
 .mt-tip-group {
   width: 100%;
   height: 0;
@@ -478,6 +489,7 @@ input[type="color"]::-webkit-color-swatch-wrapper {
   color: #fff;
   -webkit-animation-duration: 0.5s;
   animation-duration: 0.5s; }
+/* 分页 */
 .mt-pagelist {
   position: relative;
   display: inline-block; }
@@ -571,9 +583,11 @@ input[type="color"]::-webkit-color-swatch-wrapper {
     background: #252a2e;
     height: 4px;
     width: 100%; }
+/* 可拖动框 */
 .mt-drag {
   position: absolute;
   z-index: 1000; }
+/* 拖动排序 */
 .mt-uniqlist {
   position: relative; }
 .mt-uniqlist .mt-active {
@@ -592,6 +606,7 @@ input[type="color"]::-webkit-color-swatch-wrapper {
     opacity: 0.3; }
 .mt-uniqlist .mt-uniq-clone {
     z-index: 1000; }
+/* 控制杆 */
 .mt-control {
   position: absolute;
   z-index: 1000;
@@ -658,6 +673,7 @@ input[type="color"]::-webkit-color-swatch-wrapper {
     left: 50%;
     margin-left: -6px;
     cursor: -webkit-grabbing; }
+/* 裁剪 */
 .mt-crop-control {
   position: absolute;
   z-index: 1000;
@@ -725,6 +741,7 @@ input[type="color"]::-webkit-color-swatch-wrapper {
     margin-left: -4px;
     cursor: -webkit-grabbing; }
 .mt-crop-controlbox {
+  /* 图片剪切使用 */
   display: none;
   width: 100px;
   height: 60px;
@@ -779,6 +796,7 @@ input[type="color"]::-webkit-color-swatch-wrapper {
       color: #a5b6c8; }
 .mt-crop .mt-crop-btns a:hover {
         background: #252a2e; }
+/* 上传按钮 */
 .mt-upload-btn {
   position: relative; }
 .mt-upload-input {
@@ -789,6 +807,7 @@ input[type="color"]::-webkit-color-swatch-wrapper {
   top: 0;
   left: 0;
   opacity: 0; }
+/*  弹窗 - 弹窗都是2000 +  */
 .mt-modal, .mt-confirm {
   position: fixed;
   top: 0;
@@ -878,6 +897,7 @@ input[type="color"]::-webkit-color-swatch-wrapper {
 .mt-contextmenu li:hover {
       background: #ff5402;
       color: #fff; }
+/*  复选框 */
 .mt-checkbox-group {
   display: inline-block; }
 .mt-checkbox-item {
@@ -891,6 +911,7 @@ input[type="color"]::-webkit-color-swatch-wrapper {
   background: #ff5402;
   color: #fff; }
 @charset "UTF-8";
+/*  a- 代表功能性的   s- 代表样式性的  g- 代表全局公用 */
 body {
   position: fixed;
   width: 100%;
@@ -898,6 +919,9 @@ body {
   overflow: hidden;
   -webkit-box-sizing: border-box;
           box-sizing: border-box; }
+/* 头部 */
+/*  a- 代表功能性的   s- 代表样式性的  g- 代表全局公用 */
+/* 顶部 */
 .header {
   background: #252a2e;
   color: #a5b6c8;
@@ -910,6 +934,7 @@ body {
   z-index: 1000; }
 .header .logo {
     display: inline-block;
+    /*  width:140px; */
     height: 100%;
     line-height: 60px;
     text-align: center;
@@ -980,6 +1005,8 @@ body {
         right: 10px;
         top: 50%;
         margin-top: -12px; }
+/* 左侧 */
+/*  a- 代表功能性的   s- 代表样式性的  g- 代表全局公用 */
 .left {
   position: absolute;
   width: 140px;
@@ -1015,6 +1042,8 @@ body {
     overflow: hidden;
     overflow-y: scroll;
     padding-bottom: 20px; }
+/* 右侧 */
+/*  a- 代表功能性的   s- 代表样式性的  g- 代表全局公用 */
 .right {
   position: absolute;
   top: 60px;
@@ -1023,6 +1052,7 @@ body {
   bottom: 0;
   background: #30373f;
   z-index: 1000; }
+/*  组合框 */
 #setLayerGroupBox #setGroupSet li {
   vertical-align: top;
   display: inline-block;
@@ -1045,6 +1075,7 @@ body {
 #setLayerGroupBox #setGroupSet li span {
     padding-top: 5px;
     display: block; }
+/*  动画 */
 #setAnimate {
   padding: 0;
   background: #1c2023;
@@ -1053,7 +1084,8 @@ body {
   top: 0;
   bottom: 0;
   overflow: hidden;
-  overflow-y: scroll; }
+  overflow-y: scroll;
+  /*  动画按钮 */ }
 #setAnimate .add-animate-btn {
     height: 65px; }
 #setAnimate .mt-btn-animate {
@@ -1087,7 +1119,8 @@ body {
 #setAnimate .animation-list {
     font-size: 12px;
     color: #a5b6c8;
-    padding: 0 10px; }
+    padding: 0 10px;
+    /*  325 */ }
 #setAnimate .animation-list span {
       display: inline-block; }
 #setAnimate .animation-list * {
@@ -1153,6 +1186,7 @@ body {
 #setAnimate .animates li:hover {
       background: #ff5402;
       color: #fff; }
+/*  mp3 */
 @-webkit-keyframes mp3play {
   from {
     height: 2px; }
@@ -1273,6 +1307,7 @@ body {
     vertical-align: middle;
     cursor: pointer;
     display: inline-block; }
+/*  loading */
 #setAppLoading .loaders:after {
   content: "";
   display: block;
@@ -1294,12 +1329,16 @@ body {
   cursor: pointer; }
 #setAppLoading .active {
   background: #ff5402; }
+/* 中间 */
+/*  a- 代表功能性的   s- 代表样式性的  g- 代表全局公用 */
 .center {
   position: absolute;
   left: 140px;
   top: 60px;
   bottom: 0;
   right: 400px; }
+/* 模版 */
+/*  a- 代表功能性的   s- 代表样式性的  g- 代表全局公用 */
 .temps {
   position: absolute;
   width: 330px;
@@ -1309,7 +1348,8 @@ body {
   bottom: 0;
   z-index: 100;
   -webkit-transition: 0.5s;
-  transition: 0.5s; }
+  transition: 0.5s;
+  /* 折叠按钮 */ }
 .temps[data-status="hide"] {
     -webkit-transform: translateX(-330px);
             transform: translateX(-330px); }
@@ -1329,6 +1369,8 @@ body {
     background: #ff5402; }
 .temps .flod-btn:hover {
       background: #f04e00; }
+/* 发布 */
+/*  a- 代表功能性的   s- 代表样式性的  g- 代表全局公用 */
 .publish {
   display: inline-block;
   vertical-align: middle;
@@ -1340,6 +1382,8 @@ body {
     padding-left: 40px;
     color: #a5b6c8;
     font-size: 14px; }
+/* 手机 */
+/*  a- 代表功能性的   s- 代表样式性的  g- 代表全局公用 */
 .layer-group-select {
   position: absolute;
   z-index: 3000;
@@ -1514,6 +1558,8 @@ body {
       background: #ff5402;
       color: #fff;
       margin-left: 30px; }
+/* pages 样式 */
+/*  a- 代表功能性的   s- 代表样式性的  g- 代表全局公用 */
 .a-pages li {
   width: 80px;
   height: 42px;
@@ -1579,6 +1625,8 @@ body {
       background: #252a2e; }
 .a-pages .page-info a.important {
       background: #ff5402; }
+/* 模版中心 */
+/*  a- 代表功能性的   s- 代表样式性的  g- 代表全局公用 */
 .a-tpls {
   height: 100%; }
 .a-tpls .mt-tab-header li {
@@ -1651,6 +1699,8 @@ body {
 .a-tpls .tpl-pagelist {
     position: absolute;
     bottom: 1px; }
+/* 快捷区域 */
+/*  a- 代表功能性的   s- 代表样式性的  g- 代表全局公用 */
 .fastMenu {
   float: left;
   width: 50px;
@@ -1701,12 +1751,21 @@ body {
 .fastMenu .fastlist li:hover {
         color: #fff;
         background: #ff5402; }
+/* 参数设置区域 */
+/*  a- 代表功能性的   s- 代表样式性的  g- 代表全局公用 */
 .setlayer {
   position: absolute;
   top: 0;
   left: 50px;
   right: 0;
-  bottom: 0; }
+  bottom: 0;
+  /*  页面名字 */
+  /* 设置APP基本信息 */
+  /* 设置背景 */
+  /* 设置翻页动画 */
+  /* 设置基本 */
+  /* 设置更多 */
+  /*  交互设置 */ }
 .setlayer .setname {
     padding: 5px;
     font-size: 12px;
@@ -1909,6 +1968,8 @@ body {
 .setlayer .setue-set-show {
     -webkit-transform: translateX(0);
             transform: translateX(0); }
+/* 手机编辑器 */
+/*  a- 代表功能性的   s- 代表样式性的  g- 代表全局公用 */
 .phonebox {
   width: 320px;
   height: 486px;
@@ -1923,7 +1984,8 @@ body {
   -webkit-transform-origin: top;
           transform-origin: top;
   z-index: 100;
-  margin-bottom: 400px; }
+  margin-bottom: 400px;
+  /*  网格 */ }
 .phonebox .element-show .element {
     opacity: 1 !important; }
 .phonebox .grid-box {
@@ -2010,6 +2072,8 @@ body {
     position: relative;
     top: 0;
     left: 0; }
+/*  快捷按钮 */
+/*  a- 代表功能性的   s- 代表样式性的  g- 代表全局公用 */
 .fastbtns {
   position: absolute;
   right: 410px;
@@ -2047,6 +2111,8 @@ body {
     margin-top: 4px; }
 .fastbtns .bottom-btns .add {
       color: #ff5402; }
+/* layer list */
+/*  a- 代表功能性的   s- 代表样式性的  g- 代表全局公用 */
 .edit-page-input {
   outline: none;
   height: 40px;
@@ -2127,6 +2193,8 @@ body {
         color: #fff; }
 .layerlist ul .showlayer_hide .iconfont {
       color: #0e1113; }
+/* source */
+/*  a- 代表功能性的   s- 代表样式性的  g- 代表全局公用 */
 .source-img {
   position: relative; }
 .source {
@@ -2245,29 +2313,29 @@ body {
         vertical-align: middle; }
 .img-pagelist {
   margin: 10px; }
+@charset "UTF-8";
+/*  a- 代表功能性的   s- 代表样式性的  g- 代表全局公用 */
 .uebox-links textarea {
   background: #252a2e;
   height: 100px;
   width: 100%;
   overflow: auto;
   color: #a5b6c8; }
-
 .uebox-tips {
   margin: 10px;
   color: #a5b6c8; }
-
 .uebox-tips h5 {
     font-size: 14px;
     border-left: 4px solid #ff5402;
     text-indent: 10px; }
-
 .uebox-tips .uebox-content {
     margin: 10px 0;
     font-size: 14px; }
+@charset "UTF-8";
+/*  a- 代表功能性的   s- 代表样式性的  g- 代表全局公用 */
 .uebox-topages h4 {
   color: #a5b6c8;
   font-size: 14px; }
-
 .uebox-topages li {
   cursor: pointer;
   display: inline-block;
@@ -2278,19 +2346,18 @@ body {
   text-align: center;
   color: #a5b6c8;
   background: #0e1113; }
-
 .uebox-topages li span {
     display: block; }
-
 .uebox-topages li .name {
     font-size: 12px;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap; }
-
 .uebox-topages li.active {
     background: #ff5402;
     color: #fff; }
+@charset "UTF-8";
+/*  a- 代表功能性的   s- 代表样式性的  g- 代表全局公用 */
 .uebox-tel input {
   background: #252a2e;
   height: 40px;
@@ -2300,6 +2367,8 @@ body {
   text-indent: 10px; }
 .test {
   height: 0; }
+@charset "UTF-8";
+/*  a- 代表功能性的   s- 代表样式性的  g- 代表全局公用 */
 .uebox-hideshow textarea {
   margin-top: 10px;
   background: #252a2e;
@@ -2308,6 +2377,7 @@ body {
   overflow: auto;
   color: #a5b6c8; }
 @charset "UTF-8";
+/*  a- 代表功能性的   s- 代表样式性的  g- 代表全局公用 */
 .ex-set-text {
   padding: 10px 0;
   border-top: 1px solid #252a2e;

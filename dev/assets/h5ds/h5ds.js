@@ -147,12 +147,17 @@ function getData() {
         });
     } else {
         //获取APP对象
-        getAppData({ appid: $.getUrlData('id') }).done((res) => {
+        getAppData({ appid: $.getUrlData('id'), owner: $.getUrlData('owner') }).done((res) => {
             // console.log("main.js 43 =>",res);
             // 初始化编辑器方法，入口
-            if(res.success) {
+            if(res.success && res.data) {
                 setStorage('UID_ID', `${uid}_${id}`);
                 iniApp(JSON.parse(res.data.data));
+            }else {
+                $.tip({
+                    msg: '非法获取数据！',
+                    type: 'danger'
+                });
             }
         });
     }

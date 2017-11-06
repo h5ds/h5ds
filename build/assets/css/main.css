@@ -225,6 +225,7 @@ input[type="color"]::-webkit-color-swatch-wrapper {
   background: url(/assets/images/loading.gif) no-repeat;
   margin-right: 10px;
   vertical-align: middle; }
+/* 输入框 */
 .mt-input, .mt-textarea {
   width: 75px;
   height: 20px;
@@ -250,6 +251,7 @@ input[type="color"]::-webkit-color-swatch-wrapper {
   height: 100%;
   width: 100%;
   cursor: pointer; }
+/* 搜索 */
 .mt-input-search {
   width: 305px;
   height: 35px;
@@ -270,6 +272,7 @@ input[type="color"]::-webkit-color-swatch-wrapper {
     text-align: center;
     color: #ff5402;
     font-weight: bolder; }
+/* 滑动杆 */
 .mt-slider-bar {
   width: 180px;
   height: 3px;
@@ -294,6 +297,7 @@ input[type="color"]::-webkit-color-swatch-wrapper {
         top: -5px;
         width: 13px;
         height: 13px; }
+/* 开关 */
 .mt-switch {
   width: 40px;
   height: 20px;
@@ -314,6 +318,7 @@ input[type="color"]::-webkit-color-swatch-wrapper {
 .mt-switch[data-val="on"] .mt-switch-btn {
       background: #ff5402;
       left: 21px; }
+/* 黄色按钮 */
 .mt-btn-yellow {
   padding: 3px 10px 5px 10px;
   display: inline-block;
@@ -324,6 +329,8 @@ input[type="color"]::-webkit-color-swatch-wrapper {
 .mt-btn-yellow:hover {
     color: #fff;
     background: #f04e00; }
+/* 图标 */
+/* 选择 */
 .mt-select {
   display: inline-block;
   position: relative;
@@ -366,6 +373,7 @@ input[type="color"]::-webkit-color-swatch-wrapper {
       font-size: 12px; }
 .mt-select select option:hover {
       color: #fff; }
+/* 自定义选择 */
 .mt-select-diy {
   display: inline-block;
   position: relative;
@@ -395,6 +403,7 @@ input[type="color"]::-webkit-color-swatch-wrapper {
     left: 0;
     min-width: 100%;
     display: none; }
+/*  标题 */
 .mt-title {
   position: absolute;
   z-index: 2000;
@@ -414,6 +423,7 @@ input[type="color"]::-webkit-color-swatch-wrapper {
 .mt-title-animated {
   -webkit-transition-duration: 0.3s;
   transition-duration: 0.3s; }
+/* 更多 */
 .mt-more {
   display: inline-block;
   height: 14px;
@@ -423,6 +433,7 @@ input[type="color"]::-webkit-color-swatch-wrapper {
   color: #fff;
   border-radius: 2px;
   font-size: 12px; }
+/* Tip */
 .mt-tip-group {
   width: 100%;
   height: 0;
@@ -478,6 +489,7 @@ input[type="color"]::-webkit-color-swatch-wrapper {
   color: #fff;
   -webkit-animation-duration: 0.5s;
   animation-duration: 0.5s; }
+/* 分页 */
 .mt-pagelist {
   position: relative;
   display: inline-block; }
@@ -571,9 +583,11 @@ input[type="color"]::-webkit-color-swatch-wrapper {
     background: #252a2e;
     height: 4px;
     width: 100%; }
+/* 可拖动框 */
 .mt-drag {
   position: absolute;
   z-index: 1000; }
+/* 拖动排序 */
 .mt-uniqlist {
   position: relative; }
 .mt-uniqlist .mt-active {
@@ -592,6 +606,7 @@ input[type="color"]::-webkit-color-swatch-wrapper {
     opacity: 0.3; }
 .mt-uniqlist .mt-uniq-clone {
     z-index: 1000; }
+/* 控制杆 */
 .mt-control {
   position: absolute;
   z-index: 1000;
@@ -658,6 +673,7 @@ input[type="color"]::-webkit-color-swatch-wrapper {
     left: 50%;
     margin-left: -6px;
     cursor: -webkit-grabbing; }
+/* 裁剪 */
 .mt-crop-control {
   position: absolute;
   z-index: 1000;
@@ -725,6 +741,7 @@ input[type="color"]::-webkit-color-swatch-wrapper {
     margin-left: -4px;
     cursor: -webkit-grabbing; }
 .mt-crop-controlbox {
+  /* 图片剪切使用 */
   display: none;
   width: 100px;
   height: 60px;
@@ -779,6 +796,7 @@ input[type="color"]::-webkit-color-swatch-wrapper {
       color: #a5b6c8; }
 .mt-crop .mt-crop-btns a:hover {
         background: #252a2e; }
+/* 上传按钮 */
 .mt-upload-btn {
   position: relative; }
 .mt-upload-input {
@@ -789,6 +807,7 @@ input[type="color"]::-webkit-color-swatch-wrapper {
   top: 0;
   left: 0;
   opacity: 0; }
+/*  弹窗 - 弹窗都是2000 +  */
 .mt-modal, .mt-confirm {
   position: fixed;
   top: 0;
@@ -878,6 +897,7 @@ input[type="color"]::-webkit-color-swatch-wrapper {
 .mt-contextmenu li:hover {
       background: #ff5402;
       color: #fff; }
+/*  复选框 */
 .mt-checkbox-group {
   display: inline-block; }
 .mt-checkbox-item {
@@ -890,33 +910,29 @@ input[type="color"]::-webkit-color-swatch-wrapper {
 .mt-checkbox-active {
   background: #ff5402;
   color: #fff; }
+@charset "UTF-8";
 body {
   -webkit-user-select: initial;
      -moz-user-select: initial;
       -ms-user-select: initial;
           user-select: initial; }
-
+/*   */
 .footer {
   background: #333333;
   color: #fff; }
-
 .footer .footer-inner {
     position: relative;
     width: 1300px;
     margin: 0 auto;
     height: 220px; }
-
 .footer .footer-inner .links {
       padding-right: 200px; }
-
 .footer .footer-inner .links h1 {
         font-size: 16px;
         padding: 10px 0; }
-
 .footer .footer-inner .links li {
         display: inline-block;
         margin-right: 20px; }
-
 .footer .footer-inner .links .copyright {
         font-size: 12px;
         color: #666;
@@ -926,20 +942,17 @@ body {
         right: 0;
         border-top: 1px solid #222;
         padding-top: 20px; }
-
 .footer .footer-inner .qrcode {
       position: absolute;
       top: 0;
       right: 0;
       width: 100px;
       padding-top: 20px; }
-
 .footer .powerby {
     font-size: 12px;
     color: #fff;
     margin-top: 20px;
     display: block; }
-
 .header {
   background: #252a2e;
   height: 60px;
@@ -948,30 +961,24 @@ body {
   top: 0;
   width: 100%;
   border-bottom: 4px solid #ff5402; }
-
 .header .header-box {
     width: 1300px;
     height: 100%;
     margin: 0 auto;
     position: relative; }
-
 .header .header-box .logo {
       margin-top: 10px; }
-
 .header .header-box:before {
       content: '';
       display: inline-block;
       height: 100%;
       width: 0;
       vertical-align: middle; }
-
 .header .header-nav {
     float: right;
     height: 100%; }
-
 .header .header-nav ul {
       height: 100%; }
-
 .header .header-nav li {
       line-height: 56px;
       text-align: center;
@@ -979,17 +986,14 @@ body {
       height: 100%;
       font-size: 14px;
       position: relative; }
-
 .header .header-nav li a {
         color: #a5b6c8;
         display: inline-block;
         height: 100%;
         padding: 0 15px; }
-
 .header .header-nav li.active a {
         color: #fff;
         background: #444749; }
-
 .header .header-nav li em {
         display: inline-block;
         width: 10px;
@@ -999,38 +1003,32 @@ body {
         position: absolute;
         right: 5px;
         top: 5px; }
-
+/*  首页  */
 .bodyer {
   padding-top: 60px; }
-
 .page404 {
   text-align: center;
   padding: 60px 0; }
-
+/*  主题图 */
 .main-pic {
   height: 525px;
   background: #222; }
-
 .main-pic .main-inner {
     height: 100%;
     width: 1300px;
     margin: 0 auto;
     background: url("/assets/images/pic.jpg") no-repeat center;
     text-align: center; }
-
 .main-pic .main-inner h1 {
       font-size: 43px;
       color: #fff;
       padding-top: 80px; }
-
 .main-pic .main-inner h2 {
       letter-spacing: 20px;
       color: #fff;
       padding-top: 40px; }
-
 .main-pic .main-inner .btns {
       padding-top: 40px; }
-
 .main-pic .main-inner .btns .btn {
         width: 210px;
         height: 60px;
@@ -1039,108 +1037,85 @@ body {
         font-size: 20px;
         display: inline-block;
         margin: 0 20px; }
-
 .main-pic .main-inner .btns .btn-introduce {
         border: 4px solid #ff7800;
         color: #ff7800;
         background: rgba(255, 120, 0, 0.2);
         line-height: 52px;
         height: 52px; }
-
 .main-pic .main-inner .btns .btn-downcode {
         background: #ff7800;
         color: #fff; }
-
 .main-pic .main-inner .downcount {
       padding-top: 20px;
       color: #fff; }
-
 .main-pic .main-inner .downcount em {
         color: #ff7800;
         font-size: 32px;
         padding: 0 10px; }
-
 .main-pic .main-inner .joinus {
       padding-top: 20px; }
-
 .main-pic .main-inner .joinus span {
         background: rgba(0, 0, 0, 0.2);
         padding: 2px 10px;
         border-radius: 2px;
         color: #fff;
         display: inline-block; }
-
 .main-module {
   width: 1300px;
   margin: 0 auto;
   text-align: center; }
-
 .main-module h1.title {
     padding-top: 80px;
     font-size: 30px; }
-
 .main-module h2.des {
     padding-top: 10px;
     color: #666;
     font-size: 14px; }
-
 .main-introduce .modules {
   padding-top: 40px;
   text-align: center; }
-
 .main-introduce .modules .iconfont {
     font-size: 70px;
     color: #ff7800;
     padding: 10px 0; }
-
 .main-introduce .modules li {
     display: inline-block;
     width: 18%;
     padding: 0 10px; }
-
 .main-introduce .modules li h3 {
       font-size: 20px;
       padding: 10px 0; }
-
 .main-introduce .modules li p {
       color: #666;
       font-size: 14px; }
-
 .main-utils ul {
   padding: 30px 0; }
-
 .main-utils li {
   display: inline-block; }
-
 .main-github {
   background: url("/assets/images/bg.jpg") center;
   text-align: center;
   color: #fff;
   height: 280px; }
-
 .main-github .github-box {
     padding-top: 60px; }
-
 .main-github .github-box h1 {
       padding-bottom: 40px; }
-
+/*  插件 */
 .plus {
   background: #222; }
-
 .plus .slider {
     width: 1300px;
     height: 380px;
     background: #fff;
     margin: 10px auto; }
-
 .plus .list {
     width: 1300px;
     overflow: hidden;
     margin: 0 auto; }
-
 .plus .list .ul-list {
       width: 1320px; }
-
 .plus .list .item {
       float: left;
       display: inline-block;
@@ -1148,56 +1123,47 @@ body {
       height: 320px;
       margin: 0 18px 18px 0;
       background: #000; }
-
+/*  注册  */
+/*  登录 */
 .form-box {
   width: 300px;
   margin: 0 auto;
   padding: 60px 0;
   padding-bottom: 120px; }
-
 .form-box .item {
     margin-top: 20px; }
-
 .form-box .item input {
       height: 40px;
       width: 100%;
       border: 1px solid #ccc;
       text-indent: 10px; }
-
 .mt-btn {
   display: inline-block;
   background: #ff5402;
   color: #fff;
   padding: 10px 20px; }
-
 .mt-btn:hover {
     color: #fff; }
-
 .mt-btn-block {
   display: block;
   text-align: center; }
-
 .img-code {
   vertical-align: middle;
   height: 41px; }
-
 #imgcode {
   width: 180px;
   top: 1px;
   right: -5px;
   position: relative; }
-
+/*  案例 */
 .user-apps {
   width: 1300px;
   margin: 20px auto; }
-
 .user-apps .pagelist {
     margin: 30px 0; }
-
 .user-apps #applist {
     margin-right: -20px;
     margin-bottom: -20px; }
-
 .user-apps .active::before {
     content: 'New';
     display: inline-block;
@@ -1208,7 +1174,6 @@ body {
     font-size: 12px;
     padding: 5px 10px;
     background: red; }
-
 .user-apps .item {
     vertical-align: top;
     position: relative;
@@ -1218,14 +1183,11 @@ body {
     margin: 0 20px 20px 0;
     -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); }
-
 .user-apps .item img {
       width: 100%;
       height: 180px; }
-
 .user-apps #addNew {
     cursor: pointer; }
-
 .user-apps #addNew .iconfont {
       position: absolute;
       top: 50%;
@@ -1236,10 +1198,8 @@ body {
       color: rgba(0, 0, 0, 0.2);
       -webkit-transition: 0.3s;
       transition: 0.3s; }
-
 .user-apps #addNew:hover .iconfont {
       color: #FF650B; }
-
 .user-apps .date {
     padding: 2px 10px;
     font-size: 12px;
@@ -1249,14 +1209,12 @@ body {
     top: 10px;
     left: 5px;
     border-radius: 100px; }
-
 .user-apps .info {
     position: absolute;
     width: 100%;
     bottom: 0;
     height: 100px;
     background: #fff; }
-
 .user-apps .info .name {
       font-size: 16px;
       margin: 5px;
@@ -1264,7 +1222,6 @@ body {
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis; }
-
 .user-apps .info .desc {
       margin: 10px 5px;
       font-size: 12px;
@@ -1272,7 +1229,6 @@ body {
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis; }
-
 .user-apps .info a {
       display: inline-block;
       margin: 2px 5px;
@@ -1280,40 +1236,37 @@ body {
       padding: 3px 20px;
       background: #FF650B;
       color: #fff; }
-
 .user-apps .info .to-del {
       background: #ccc; }
-
+/*  帮助 */
+/*  帮助信息 */
 .helps {
   width: 1300px;
   margin: 0 auto;
   padding: 40px 0;
   text-align: center; }
-
 .helps h1 {
     font-size: 16px;
     text-indent: 10px;
     border-left: 10px solid #ff7800;
     margin-bottom: 20px; }
-
 .helps img {
     width: 1000px; }
-
 .license {
   width: 1300px;
   margin: 0 auto;
   padding: 40px 0; }
-
 .license .license-read {
     text-align: center;
     padding: 40px 0 100px 0; }
-
 .license .read-no, .license .read-ok {
     display: inline-block;
     padding: 10px 35px;
     margin: 0 10px;
     background: #ff7800;
     color: #fff; }
-
 .license .read-no {
     background: #666; }
+/*  404 */
+.test {
+  height: 0; }

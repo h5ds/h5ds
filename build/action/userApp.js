@@ -56,10 +56,18 @@ exports.getUserApps = function (req, res) {
 */
 exports.getUserApp = function (req, res) {
     
+    let owner = req.session.user.id;
+
+    // 管理员可对APP进行编辑
+    // console.log(req.session.user);
+    if(req.session.user.usertype === 1) {
+        owner = req.body.owner;
+    }
+
     readSQL({
         req: req,
         where: {
-            owner: req.session.user.id,
+            owner: owner,
             id: req.body.appid
         },
         table: 'h5ds_apps',

@@ -2,13 +2,24 @@ import '../style/animate.scss';
 import '../style/animations.scss';
 import '../style/loaders.scss';
 import '../style/h5ds.app.scss';
+import '../style/pc.scss';
 
 // 加载滑动插件
 import './h5ds.swiper.js';
 import { langPage, resizeWindow, lazyLoad, isPC } from './h5ds.utils.js';
+import { initPc, initPcEvent } from './h5ds.initpc.js';
 
 // 初始化
 $(function () {
+
+    // 如果是pc 页面。修改页面结构
+    try {
+        AppData ? true : false;
+    } catch (e) {
+        if (isPC()) {
+            initPc();
+        }
+    }
 
     // 地图
     if ($('.layer-map').length === 0) {
@@ -59,6 +70,11 @@ $(function () {
             len: len
         });
         let swiper = $h5dsSwiper.h5dsSwiper(obj);
+
+        if (isPC()) {
+            initPcEvent(swiper);
+        }
+
     }
 
 });

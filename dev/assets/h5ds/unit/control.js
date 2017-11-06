@@ -61,7 +61,12 @@ $.fn.control = function(setting) {
             y: e.pageY
         }
         let $box = $(_this).parent();
-        let scale = AppData.edit.phoneScale || g.scale;
+        let scale = g.scale;
+        try {
+            scale = AppData.edit.phoneScale;
+        }catch(e) {
+            // ...
+        }
         let box = {
             left: parseInt($box.css('left'), 10) * scale,
             top: parseInt($box.css('top'), 10) * scale
@@ -136,7 +141,12 @@ $.fn.control = function(setting) {
             x: e.pageX,
             y: e.pageY
         }
-        let scale = AppData.edit.phoneScale || g.scale;
+        let scale = g.scale;
+        try {
+            scale = AppData.edit.phoneScale;
+        }catch(e) {
+            // ...
+        }
         let $box = $(_this).parent();
         let box = {
             wid: parseInt($box.width(), 10),
@@ -215,7 +225,15 @@ $.fn.control = function(setting) {
         e.stopPropagation();
 
         // 专门给 group 提供的，如果正在编辑器组合，原来的方法都失效
-        if(AppData.edit.group) {
+        let groupMark = false;
+        try{
+            if(AppData.edit.group) {
+                groupMark = true;
+            }
+        }catch(e) {
+            // ...
+        }
+        if(groupMark) {
             return;
         }
 
