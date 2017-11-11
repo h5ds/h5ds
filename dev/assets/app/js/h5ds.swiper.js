@@ -1,5 +1,5 @@
 import { initH5dsSwiperUeFun } from './initH5dsSwiperUeFun';
-import { initMap, svgLazy } from './h5ds.utils.js';
+import { initMap } from './h5ds.utils.js';
 
 /**
  * @desc 滑动函数
@@ -183,9 +183,6 @@ $.fn.h5dsSwiper = function (setting) {
 
     // 实例化交互方法
     initH5dsSwiperUeFun(this);
-
-    // svg 预加载
-    svgLazy();
 
     return this;
 };

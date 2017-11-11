@@ -6,7 +6,7 @@ import '../style/pc.scss';
 
 // 加载滑动插件
 import './h5ds.swiper.js';
-import { langPage, resizeWindow, lazyLoad, isPC } from './h5ds.utils.js';
+import { langPage, resizeWindow, lazyLoad, isPC, svgLazy } from './h5ds.utils.js';
 import { initPc, initPcEvent } from './h5ds.initpc.js';
 
 // 初始化
@@ -18,6 +18,8 @@ $(function () {
     } catch (e) {
         if (isPC()) {
             initPc();
+            // svg 预加载
+            svgLazy();
         }
     }
 

@@ -98,7 +98,7 @@ export function lazyLoad() {
  */
 export function svgLazy() {
     // svg 预处理
-    $('#h5dsSwiper').find('.layer-svg').each(function () {
+    $('.layer-svg').each(function () {
         let $this = $(this).find('.element');
         let src = $this.attr('data-svglazy');
         let color = $this.attr('data-color').split('@');
