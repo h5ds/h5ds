@@ -1,5 +1,7 @@
 var Sequelize = require('sequelize');
-var { sequelize } = require('../lib/mysql');
+var {
+  sequelize
+} = require('../lib/mysql');
 
 /**
  * @desc 查询数据
@@ -8,17 +10,17 @@ var { sequelize } = require('../lib/mysql');
  * @param table 表名
  * @param where 是否有条件 true/false
  * @param callBack 回调函数
-*/
+ */
 exports.updateSQL = function (table, sequeObj, obj, where, callBack) {
 
-    sequelize.define(table, sequeObj, {
-        timestamps: false,
-        freezeTableName: true
-    }).update(obj, {
-        where: where
-    }).then(result => {
-        callBack(result);
-    }).catch(err => {
-        callBack(null, err);
-    });
+  sequelize.define(table, sequeObj, {
+    timestamps: false,
+    freezeTableName: true
+  }).update(obj, {
+    where: where
+  }).then(result => {
+    callBack(result);
+  }).catch(err => {
+    callBack(null, err);
+  });
 }
