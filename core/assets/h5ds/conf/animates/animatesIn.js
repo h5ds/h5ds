@@ -1,0 +1,260 @@
+/**
+ * 进入动画
+ */
+export const animatesIn = [{
+  name: '弹入',
+  type: 'in',
+  animate: 'bounceIn',
+  time: '1s',
+  delay: '0s',
+  count: 1,
+  fun: 'ease'
+}, {
+  name: '上弹入',
+  type: 'in',
+  animate: 'bounceInDown',
+  time: '1s',
+  delay: '0s',
+  count: 1,
+  fun: 'ease'
+}, {
+  name: '左弹入',
+  type: 'in',
+  animate: 'bounceInLeft',
+  time: '1s',
+  delay: '0s',
+  count: 1,
+  fun: 'ease'
+}, {
+  name: '右弹入',
+  type: 'in',
+  animate: 'bounceInRight',
+  time: '1s',
+  delay: '0s',
+  count: 1,
+  fun: 'ease'
+}, {
+  name: '下弹入',
+  type: 'in',
+  animate: 'bounceInUp',
+  time: '1s',
+  delay: '0s',
+  count: 1,
+  fun: 'ease'
+}, {
+  name: '渐显',
+  type: 'in',
+  animate: 'fadeIn',
+  time: '1s',
+  delay: '0s',
+  count: 1,
+  fun: 'ease'
+}, {
+  name: '上渐显',
+  type: 'in',
+  animate: 'fadeInDown',
+  time: '1s',
+  delay: '0s',
+  count: 1,
+  fun: 'ease'
+}, {
+  name: '上远渐显',
+  type: 'in',
+  animate: 'fadeInDownBig',
+  time: '1s',
+  delay: '0s',
+  count: 1,
+  fun: 'ease'
+}, {
+  name: '左渐显',
+  type: 'in',
+  animate: 'fadeInLeft',
+  time: '1s',
+  delay: '0s',
+  count: 1,
+  fun: 'ease'
+}, {
+  name: '左远渐显',
+  type: 'in',
+  animate: 'fadeInLeftBig',
+  time: '1s',
+  delay: '0s',
+  count: 1,
+  fun: 'ease'
+}, {
+  name: '右渐入',
+  type: 'in',
+  animate: 'fadeInRight',
+  time: '1s',
+  delay: '0s',
+  count: 1,
+  fun: 'ease'
+}, {
+  name: '右远渐入',
+  type: 'in',
+  animate: 'fadeInRightBig',
+  time: '1s',
+  delay: '0s',
+  count: 1,
+  fun: 'ease'
+}, {
+  name: '下渐入',
+  type: 'in',
+  animate: 'fadeInUp',
+  time: '1s',
+  delay: '0s',
+  count: 1,
+  fun: 'ease'
+}, {
+  name: '下远渐入',
+  type: 'in',
+  animate: 'fadeInUpBig',
+  time: '1s',
+  delay: '0s',
+  count: 1,
+  fun: 'ease'
+}, {
+  name: 'X翻牌',
+  type: 'in',
+  animate: 'flipInX',
+  time: '1s',
+  delay: '0s',
+  count: 1,
+  fun: 'ease'
+}, {
+  name: 'Y翻牌',
+  type: 'in',
+  animate: 'flipInY',
+  time: '1s',
+  delay: '0s',
+  count: 1,
+  fun: 'ease'
+}, {
+  name: '光速入',
+  type: 'in',
+  animate: 'lightSpeedIn',
+  time: '1s',
+  delay: '0s',
+  count: 1,
+  fun: 'ease'
+}, {
+  name: '滚入',
+  type: 'in',
+  animate: 'rotateIn',
+  time: '1s',
+  delay: '0s',
+  count: 1,
+  fun: 'ease'
+}, {
+  name: '左上滚入',
+  type: 'in',
+  animate: 'rotateInDownLeft',
+  time: '1s',
+  delay: '0s',
+  count: 1,
+  fun: 'ease'
+}, {
+  name: '右上滚入',
+  type: 'in',
+  animate: 'rotateInDownRight',
+  time: '1s',
+  delay: '0s',
+  count: 1,
+  fun: 'ease'
+}, {
+  name: '左下滚入',
+  type: 'in',
+  animate: 'rotateInUpLeft',
+  time: '1s',
+  delay: '0s',
+  count: 1,
+  fun: 'ease'
+}, {
+  name: '右下滚入',
+  type: 'in',
+  animate: 'rotateInUpRight',
+  time: '1s',
+  delay: '0s',
+  count: 1,
+  fun: 'ease'
+}, {
+  name: '下滑入',
+  type: 'in',
+  animate: 'slideInUp',
+  time: '1s',
+  delay: '0s',
+  count: 1,
+  fun: 'ease'
+}, {
+  name: '上滑入',
+  type: 'in',
+  animate: 'slideInDown',
+  time: '1s',
+  delay: '0s',
+  count: 1,
+  fun: 'ease'
+}, {
+  name: '左滑入',
+  type: 'in',
+  animate: 'slideInLeft',
+  time: '1s',
+  delay: '0s',
+  count: 1,
+  fun: 'ease'
+}, {
+  name: '右滑入',
+  type: 'in',
+  animate: 'slideInRight',
+  time: '1s',
+  delay: '0s',
+  count: 1,
+  fun: 'ease'
+}, {
+  name: '放大',
+  type: 'in',
+  animate: 'zoomIn',
+  time: '1s',
+  delay: '0s',
+  count: 1,
+  fun: 'ease'
+}, {
+  name: '从上放大',
+  type: 'in',
+  animate: 'zoomInDown',
+  time: '1s',
+  delay: '0s',
+  count: 1,
+  fun: 'ease'
+}, {
+  name: '从左放大',
+  type: 'in',
+  animate: 'zoomInLeft',
+  time: '1s',
+  delay: '0s',
+  count: 1,
+  fun: 'ease'
+}, {
+  name: '从右放大',
+  type: 'in',
+  animate: 'zoomInRight',
+  time: '1s',
+  delay: '0s',
+  count: 1,
+  fun: 'ease'
+}, {
+  name: '从下放大',
+  type: 'in',
+  animate: 'zoomInUp',
+  time: '1s',
+  delay: '0s',
+  count: 1,
+  fun: 'ease'
+}, {
+  name: '左滚入',
+  type: 'in',
+  animate: 'rollIn',
+  time: '1s',
+  delay: '0s',
+  count: 1,
+  fun: 'ease'
+}];
