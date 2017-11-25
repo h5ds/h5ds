@@ -33,10 +33,10 @@ exports.getH5 = function (req, res, cback) {
         type: Sequelize.INTEGER,
         primaryKey: true
       },
-      title: {
+      name: {
         type: Sequelize.STRING
       },
-      desc: {
+      des: {
         type: Sequelize.STRING
       },
       url: {
@@ -45,7 +45,7 @@ exports.getH5 = function (req, res, cback) {
       pic: {
         type: Sequelize.STRING
       },
-      date: {
+      data: {
         type: Sequelize.STRING
       },
       type: {

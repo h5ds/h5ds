@@ -9,26 +9,30 @@
   "author": "mantou",
   "license": "MIT",
   "devDependencies": {
-    "babel-cli": "^6.24.0",
     "babel-polyfill": "^6.26.0",
-    "babel-preset-es2015": "^6.24.0",
-    "babel-watch": "^2.0.7",
+    "babel-preset-env": "^1.6.1",
     "body-parser": "^1.17.1",
     "cookie-parser": "^1.4.3",
     "cookie-session": "^2.0.0-beta.1",
     "express": "^4.15.2",
     "express-session": "^1.15.5",
     "formidable": "^1.1.1",
-    "mysql": "^2.13.0"
+    "gulp-develop-server": "^0.5.2",
+    "gulp4": "^4.0.2",
+    "mysql": "^2.13.0",
+    "node-notifier": "^5.1.2"
   },
   "scripts": {
-    "start": "babel-watch server"
+    "dev": "gulp4",
+    "start": "npm run dev"
   },
   "dependencies": {
+    "art-template": "^4.12.2",
     "captchapng": "^0.0.1",
     "compression": "^1.7.0",
     "crypto": "^1.0.1",
     "ejs": "^2.5.7",
+    "express-art-template": "^1.0.0",
     "md5": "^2.2.1",
     "mysql2": "^1.4.2",
     "sequelize": "^4.10.2",
