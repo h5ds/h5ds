@@ -1,8 +1,1 @@
-/node_modules
-/UI
-/build/images
-/build/node_modules
-/build/upload
-/build/mp3
-/npm-debug.log
-/build/npm-debug.log
+node_modules/

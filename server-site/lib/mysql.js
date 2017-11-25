@@ -8,7 +8,7 @@ var Sequelize = require('sequelize');
 exports.sequelize = new Sequelize(dbConf.database, dbConf.user, dbConf.password, {
   host: dbConf.host, // 数据库地址
   dialect: 'mysql', // 指定连接的数据库类型
-  port: 3306,
+  port: dbConf.port,
   logging: function (sql) {
     console.log(sql);
   },

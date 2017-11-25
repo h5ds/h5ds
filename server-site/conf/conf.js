@@ -5,8 +5,8 @@ exports.conf = {};
 exports.dbConf = {
     user: 'root',
     password: 'humin',
-    host: '127.0.0.1',
-    port: '3306',
+    host: '192.168.1.200',
+    port: '3308',
     database: 'h5ds_db'
 };
 

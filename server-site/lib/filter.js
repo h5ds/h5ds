@@ -8,9 +8,4 @@ exports.authorize = function (req, res, next) {
     usertype: 0
   };
   next();
-  // if (!req.session.user) {
-  //     res.redirect('/login');
-  // } else {
-  //     next();
-  // }
 }
