@@ -6,7 +6,9 @@ import { AppDataChange } from '../../common/AppDataFun.js';
  */
 export function hideShowTpl(self) {
     if(!self.layer.ue.hideShow.data) {
-        self.layer.ue.hideShow.data = {};
+        self.layer.ue.hideShow.data = {
+            type: 'show'
+        };
     }
     let { data, name, fun } = self.layer.ue.hideShow;
     return `

@@ -5,7 +5,7 @@ var { authorize } = require('./lib/filter');
 var { limitReq } = require('./lib/limitRequest');
 var { getSysMp3 } = require('./action/sysMp3.js'); // mp3
 var { getSysImgs, getSysImgTypes } = require('./action/sysImgs.js'); // 系统图片
-var { getSysSvgs } = require('./action/sysSvgs.js'); // 系统svg
+var { getSysSvgs, getSysSvgTypes } = require('./action/sysSvgs.js'); // 系统svg
 var { getSysTpls, getSysTplsTypes } = require('./action/sysTpls.js'); // 系统模板
 var { getUserImgs, delUserImgs } = require('./action/userImgs.js'); // 用户图片
 var { getUserTpls, delUserTpls, addUserTpls } = require('./action/userTpls.js'); // 用户模板
@@ -38,6 +38,7 @@ function router(app, express) {
 
     // app.post('/api/getData', getData); // 获取app数据 @param: appid
     app.post('/api/getSysSvgs', authorize, getSysSvgs); // 获取系统svg素材 @param: type, key
+    app.post('/api/getSysSvgTypes', authorize, getSysSvgTypes); // 获取系统svg素材 @param: type, key
 
     app.post('/api/getSysImgs', authorize, getSysImgs); // 获取系统图片素材 @param: type, key
     app.post('/api/getSysImgTypes', authorize, getSysImgTypes); // 获取系统图片素材分类
@@ -83,7 +84,7 @@ function router(app, express) {
     app.get('/case', authorize, function (req, res) { res.sendfile('./tpl/case.html'); }); // 案例
     app.get('/edit', authorize, function (req, res) { res.sendfile('./tpl/edit.html'); }); // 编辑器
 
-    app.get('*', function (req, res) { res.sendfile('./tpl/404.html'); }); // 404
+    app.get('*', function (req, res) { res.sendfile('./tpl/noFind.html'); }); // 404
 
     return app;
 }

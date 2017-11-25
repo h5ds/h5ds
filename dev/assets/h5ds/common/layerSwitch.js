@@ -1,6 +1,6 @@
 // 设置 layer
-import Img, { ImgLayer, imgDom } from '../layers/img/index'; 
-import Text, { TextLayer, textDom } from '../layers/text/index'; 
+import Img, { ImgLayer, imgDom } from '../layers/img/index';
+import Text, { TextLayer, textDom } from '../layers/text/index';
 
 import { pushLayerData, getPageClass } from './AppDataFun';
 
@@ -11,7 +11,7 @@ import { pushLayerData, getPageClass } from './AppDataFun';
 export function getLayerDom(layer) {
     // console.log('获取图层', layer);
     var dom = '';
-    switch(layer.type) {
+    switch (layer.type) {
         case 'img': dom = imgDom(layer); break;
         case 'text': dom = textDom(layer); break;
         default: break;
@@ -36,22 +36,29 @@ export function addLayer(type) {
  */
 export function layerTypeSelect(layer) {
     console.log('选择图层->', layer);
-    if(!layer) {
+    if (!layer) {
         return;
     }
     switch (layer.type) {
         case 'img': new Img(layer).init(); break;
         case 'text': new Text(layer).init(); break;
-        default: break;
+        default: noLayerTip(); break;
     }
 }
 
 //////////////////////////////////////////////////////////////////////////////
+function noLayerTip() {
+    $.tip({
+        type: 'danger',
+        msg: '你不支持该图层！'
+    });
+}
+
 // 添加 layer 后，需要重新实例化一些 page方法
 function addLayerBack(obj) {
     // 获取当前编辑的页面类
     let Page = getPageClass();
-    if(!Page) {
+    if (!Page) {
         $.tip({
             msg: '请先新建页面', //
             type: 'danger', //success,danger,warning

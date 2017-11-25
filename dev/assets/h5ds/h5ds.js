@@ -10,6 +10,7 @@ import './otherEvent/setApp.js'; //设置app参数
 import './otherEvent/source.js'; //资源库事件 //
 
 // 全局方法
+import '../app/js/h5ds.swiper.js';
 import './unit/utils.js'; // js 原生对象继承的方法集合
 import './unit/bindToInput.js'; // 数据双向绑定
 import './unit/inputType.js'; //自动控制单位
@@ -146,12 +147,17 @@ function getData() {
         });
     } else {
         //获取APP对象
-        getAppData({ appid: $.getUrlData('id') }).done((res) => {
+        getAppData({ appid: $.getUrlData('id'), owner: $.getUrlData('owner') }).done((res) => {
             // console.log("main.js 43 =>",res);
             // 初始化编辑器方法，入口
-            if(res.success) {
+            if(res.success && res.data) {
                 setStorage('UID_ID', `${uid}_${id}`);
                 iniApp(JSON.parse(res.data.data));
+            }else {
+                $.tip({
+                    msg: '非法获取数据！',
+                    type: 'danger'
+                });
             }
         });
     }

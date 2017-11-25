@@ -61,9 +61,9 @@ export default class PageClass {
         }).show();
 
         let height = parseInt(style.height, 10);
-        if(height && height !== 486 ) {
+        if (height && height !== 486) {
             $('.phonebox').height(height);
-        }else {
+        } else {
             $('.phonebox').height(486);
         }
         AppDataChange();
@@ -110,14 +110,14 @@ export default class PageClass {
 
         let appSliderTypeTpls = ''; // _page 作为不同的ID使用
 
-        if(this.className === 'page') {
+        if (this.className === 'page') {
             appSliderTypeTpls = `<div class="set-slider">${appSliderTypeTpl({
                 lock: slider['lock'],
                 autoplay: slider['autoplay'],
                 time: slider['time']
             }, '_page')}</div>`;
         }
-    
+
         // 如果page没有背景，初始化一个空的模版
         let allTpls = '';
         if (!style) {
@@ -139,7 +139,7 @@ export default class PageClass {
 
         // 初始化图片剪切功能
         this.initCropFun();
-        
+
         // 设置样式
         this.renderPage();
 
@@ -147,7 +147,7 @@ export default class PageClass {
 
     // 重置z-index
     resetZIndex() {
-        getViewDom().find('.layer').each( function(ind, elem) {
+        getViewDom().find('.layer').each(function (ind, elem) {
             $(this).css('z-index', 9999 - ind);
         });
     }
@@ -219,8 +219,8 @@ export default class PageClass {
 
         // 粘贴
         $(document).off('pastelayer').on('pastelayer', function (e) {
-            
-            if(!AppData.edit.copyLayer) {
+
+            if (!AppData.edit.copyLayer) {
                 $.tip({
                     msg: '请先复制图层！',
                     type: 'error',
@@ -235,7 +235,7 @@ export default class PageClass {
             // e.stopPropagation();
             let $li = $('#layerlist').find('.active');
             let index = 0;
-            if($li[0]) {
+            if ($li[0]) {
                 index = $li.index();
             }
 
@@ -294,10 +294,10 @@ export default class PageClass {
             $(':focus').blur();
 
             // 如果在组合模式下，不选择单个layer
-            if(AppData.edit.group) {
+            if (AppData.edit.group) {
                 return;
             }
-            
+
             var index = $(this).index();
             $('#layerlist').find('li').removeClass('active').eq(index).addClass('active');
             //new layer
@@ -315,7 +315,7 @@ export default class PageClass {
         });
 
         // 锁定翻页
-        if(self.className === 'page') {
+        if (self.className === 'page') {
             initAppSliderType(self, '_page');
         }
 
@@ -354,7 +354,7 @@ export default class PageClass {
         let pageIndex = 0;
         try {
             pageIndex = $('#' + this.pagesList).find('.active').index();
-        } catch(e) {
+        } catch (e) {
             pageIndex = undefined;
         }
         // active 是哪个，就实例化哪个
@@ -373,11 +373,11 @@ export default class PageClass {
                     className: 'layer'
                 });
             }
-        }else {
+        } else {
             // 给layer 容器设置值, 设置 AppData.edit.layerDom, layerIndex
             AppData.edit.layerIndex = index;
-            getViewDom().find('.layer').each( function() {
-                if($(this).css('z-index') == 9999 - index) {
+            getViewDom().find('.layer').each(function () {
+                if ($(this).css('z-index') == 9999 - index) {
                     AppData.edit.layerDom = $(this);
                 }
             });
@@ -392,16 +392,21 @@ export default class PageClass {
 
     // svg 预加载
     lazySvg() {
-        $('#phoneApp').find('.layer-svg').each(function() {
+        $('#phoneApp').find('.layer-svg').each(function () {
             let $this = $(this).find('.element');
             let src = $this.attr('data-svglazy');
             let color = $this.attr('data-color').split('@') || [];
-            $.get(src).done( svg => {
+            $.get(src).done(svg => {
                 // 预加载成功
                 let $svg = $(svg);
-                color.forEach(function(elem, index) {
-                    if(elem) {
-                        $svg.find('path').eq(index).attr('fill', elem);
+                color.forEach(function (elem, index) {
+                    if (elem) {
+                        let $path = $svg.find('path');
+                        if ($path.attr('style') !== undefined) {
+                            $path.eq(index).attr('style', 'fill:' + elem);
+                        } else {
+                            $path.eq(index).attr('fill', elem);
+                        }
                     }
                 })
                 let str = $svg.find('svg').prop('outerHTML');

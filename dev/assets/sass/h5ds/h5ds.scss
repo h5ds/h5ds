@@ -1,6 +1,5 @@
 @import './var.scss';
 
-//....
 body {
     position: fixed;
     width: 100%;
@@ -8,33 +7,33 @@ body {
     overflow: hidden;
     box-sizing: border-box;
 }
-//头部
+/* 头部 */
 @import './header.scss';
-//左侧
+/* 左侧 */
 @import './left.scss';
-//右侧
+/* 右侧 */
 @import './right.scss';
-//中间
+/* 中间 */
 @import './center.scss';
-//模版
+/* 模版 */
 @import './temps.scss';
-//发布
+/* 发布 */
 @import './publish.scss';
-//手机
+/* 手机 */
 @import './phone.scss';
-//pages 样式
+/* pages 样式 */
 @import './pages.scss';
-//模版中心
+/* 模版中心 */
 @import './tpls.scss';
-//快捷区域
+/* 快捷区域 */
 @import './fastMenu.scss';
-//参数设置区域
+/* 参数设置区域 */
 @import './setlayer.scss';
-//手机编辑器
+/* 手机编辑器 */
 @import './phonebox.scss';
-// 快捷按钮
+/*  快捷按钮 */
 @import './fastbtns.scss';
-//layer list
+/* layer list */
 @import './layerlist.scss';
-//source
+/* source */
 @import './source.scss';

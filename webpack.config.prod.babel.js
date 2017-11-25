@@ -9,13 +9,13 @@ export default webpackMerge(baseConfig, {
         new webpack.DefinePlugin({ // 配置全局变量
             'process.env.NODE_ENV': JSON.stringify('production'),
             __DEV__: false
-        }),
-        new webpack.optimize.UglifyJsPlugin({
-            compress: {
-                warnings: false,
-                drop_debugger: true,
-                drop_console: true
-            }
         })
+        // new webpack.optimize.UglifyJsPlugin({
+        //     compress: {
+        //         warnings: false,
+        //         drop_debugger: true,
+        //         drop_console: true
+        //     }
+        // })
     ]
 });

@@ -17,4 +17,7 @@ let g = {
     defaultHeight: 486 // 默认高度，这个会在长页判断用到
 }
 
+// 资源路径，因为资源是后台上传的
+export const sourceHome = __DEV__ ? 'http://localhost:8200' : 'http://mtsee.h5ds.com';
+
 export default g;

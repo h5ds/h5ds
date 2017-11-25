@@ -12,22 +12,23 @@ exports.getSysSvgs = function(req, res) {
         name: {
             '$like': `%${req.body.name || ''}%`
         },
-        type: req.body.type || ''
+        type: req.body.type || '',
+        del: 0
     };
-    if(!obj.type) {
+    if (obj.type === '') {
         delete obj.type;
     }
     readSQL({
         req: req,
-        obj: obj,
+        where: obj,
         table: 'h5ds_svg_sys',
-        where: {
-            del: 0
-        },
         sequeObj: {
             id: { type: Sequelize.INTEGER, primaryKey: true },
             name: { type: Sequelize.CHAR },
-            url: { type: Sequelize.CHAR }
+            url: { type: Sequelize.CHAR },
+            date: { type: Sequelize.CHAR },
+            size: { type: Sequelize.CHAR },
+            type: { type: Sequelize.CHAR }
         },
         callBack: (ret) => {
             if (ret) {
@@ -35,7 +36,7 @@ exports.getSysSvgs = function(req, res) {
                     code: 200,
                     data: ret.rows,
                     count: ret.count,
-                    msg: "成功",
+                    msg: '成功',
                     success: true
                 });
             } else {
@@ -43,10 +44,46 @@ exports.getSysSvgs = function(req, res) {
                 result(req, res, {
                     code: 500,
                     data: ret,
-                    msg: "失败",
+                    msg: '失败',
                     success: false
-                })
+                });
             }
         }
     });
-}
+};
+/**
+ * @desc 获取系统图片类型
+ */
+exports.getSysSvgTypes = function (req, res) {
+
+    // 获取系统图片，name = ''
+    readSQL({
+        req: req,
+        table: 'h5ds_svg_type',
+        where: {
+            del: 0
+        },
+        sequeObj: {
+            id: { type: Sequelize.INTEGER, primaryKey: true },
+            name: { type: Sequelize.CHAR }
+        },
+        callBack: (ret) => {
+            if (ret) {
+                result(req, res, {
+                    code: 200,
+                    data: ret,
+                    msg: '成功',
+                    success: true
+                });
+            } else {
+                // 返回值
+                result(req, res, {
+                    code: 500,
+                    data: ret,
+                    msg: '失败',
+                    success: false
+                });
+            }
+        }
+    });
+};

@@ -71,7 +71,7 @@ $.fn.pagelist = function (setting) {
     var _this = this;
     var set = $.extend(defaults, setting);
     var maxpage = Math.ceil(set.count / set.pagesize);
-    
+
     // 避免重复渲染
     if($(this).find('.mt-pagelist')[0]) {
         $(this).html(setHtml(set.page, set.showpage, maxpage));

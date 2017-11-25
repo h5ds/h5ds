@@ -38,6 +38,12 @@ function saveToHtmlFile(shtml, ph) {
 exports.saveData = function(req, res) {
     let uid = req.session.user.id;
     let appid = parseInt(req.body.id, 10);
+
+    // 如果是管理员
+    if(req.session.user.usertype === 1) {
+        uid = req.body.uid;
+    }
+
     let ph = `/apps/${uid}/${appid}`;
 
     // 创建目录

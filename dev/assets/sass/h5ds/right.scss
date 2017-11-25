@@ -9,7 +9,7 @@
     z-index: 1000;
 }
 
-// 组合框
+/*  组合框 */
 #setLayerGroupBox {
     #setGroupSet{
         li{
@@ -40,7 +40,7 @@
     }
 }
 
-// 动画
+/*  动画 */
 #setAnimate {
     padding: 0;
     background: #1c2023;
@@ -50,7 +50,7 @@
     bottom: 0;
     overflow: hidden;
     overflow-y: scroll;
-    // 动画按钮
+    /*  动画按钮 */
     .add-animate-btn {
         height: 65px;
     }
@@ -101,7 +101,7 @@
         * {
             vertical-align: middle;
         }
-        // 325
+        /*  325 */
         .tname{ width: 100px;}
         .ttime{ width: 40px;}
         .tcount{ width: 40px;}
@@ -172,7 +172,7 @@
     }
 }
 
-// mp3
+/*  mp3 */
 #setAppMp3{
     @mixin btn {
         float: right;
@@ -287,7 +287,7 @@
     }
 }
 
-// loading
+/*  loading */
 #setAppLoading {
     .loaders {
         &:after{ content: ""; display: block; height: 0; clear: both; visibility: hidden; }

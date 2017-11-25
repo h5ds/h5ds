@@ -3,7 +3,7 @@ var { readSQL } = require('../sql/readSQL');
 var Sequelize = require('sequelize');
 
 /**
- * @desc 获取H5
+ * @desc H5
 */
 exports.getH5 = function(req, res, cback) {
 
@@ -12,23 +12,25 @@ exports.getH5 = function(req, res, cback) {
         title: {
             '$like': `%${req.query.key || ''}%`
         },
-        type: {
-            '$like': `%${req.query.type || ''}%`
-        },
+        type: req.query.type || '',
         del: 0
+    }
+    if(!req.query.type) {
+        delete obj.type;
     }
     req.query.pageNum = req.query.pageNum || 0;
     req.query.pageSize = req.query.pageSize || 20;
     readSQL({
         req: req,
         where: obj,
-        table: 'h5ds_h5',
+        table: 'h5ds_apps_sys',
         sequeObj: {
             id: { type: Sequelize.INTEGER, primaryKey: true },
             title: { type: Sequelize.STRING },
             desc: { type: Sequelize.STRING },
             url: { type: Sequelize.STRING },
             pic: { type: Sequelize.STRING },
+            date: { type: Sequelize.STRING },
             type: { type: Sequelize.STRING }
         },
         callBack: (ret) => {

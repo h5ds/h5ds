@@ -10,7 +10,6 @@ export function Mp3List(p) {
             for (let i = 0; i < res.data.length; i++) {
                 str += `<li class="item" data-url="${res.data[i].url}">
                             <span class="name"><span class="mp3-play-icon"><i></i><i></i><i></i><i></i></span> ${res.data[i].name}</span>
-                            <span class="size">${res.data[i].size}</span>
                             <span class="try">试听</span>
                             <span class="use">使用</span>
                         </li>`;
