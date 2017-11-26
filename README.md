@@ -26,10 +26,15 @@
 
 运行环境 node v6.x mysql v5.6
 
-1. 新建数据库h5ds，导入数据 h5ds.sql，进入目录 /h5ds/server-site/conf 修改数据库配置
-2. 进入目录/server-site 安装开发库所需依赖 npm i
-3. 进入目录/server-site 启动开发环境 npm start
+1. 新建数据库h5ds，导入数据 h5ds.sql，进入目录 `server-site/src/config.js` 修改数据库配置
+2. 进行目录 `core` 执行 `npm i`, `npm run dev` 来启动 h5ds JS 开发打包
+3. 进入目录 `server-site` 执行 `npm i`, `npm run dev` 启动服务端站点
 4. 浏览器输入：http://localhost:8090 即可访问
+
+实现原理：
+
+1. 在 `core` 目录中，执行 `npm run dev` 将会利用 `webpack` 把相关资源打包到 `core/dist` 目录下，并监控源代码变更，自动重新打包。
+2. 在 `server-site` 中执行 `npm run dev` 会将所有服务端代码拷贝到 `server-site/dist` 目录下，并利用 `gulp` 在 `server-site/dist` 下启动服务，同时会把 `core/dist` 下的资源拷贝到 `server-site/dist/assets` 下，作为一个项目进行运行。
 
 ### **更新说明**
 
