@@ -39,7 +39,6 @@ const staticResources = [
     'images' // 存放爬取的图片
 ];
 staticResources.forEach(name => {
-    console.log(name, util.root(name));
     app.use(`/${name}`, express.static(util.root(name)));
 });
 

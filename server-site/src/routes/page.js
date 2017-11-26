@@ -8,7 +8,6 @@ router.get('/h5', pageBiz.renderH5); // ui
 router.get('/ui', pageBiz.renderUI); // ui
 router.get('/login', pageBiz.renderLogin); // 登录
 router.get('/register', pageBiz.renderRegister); // 注册
-router.get('/help', pageBiz.renderHelp); // 帮助
 router.get('/plus', pageBiz.renderPlugin); // 插件
 router.get('/license', pageBiz.renderLicense); // 插件
 

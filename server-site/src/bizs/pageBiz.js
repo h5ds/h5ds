@@ -6,9 +6,8 @@ function renderIndex(req, res, next) {
 
 function renderH5(req, res, next) {
     getH5(req, res, function (data) {
-        console.log(data);
-        data = JSON.parse(data);
-        res.render('h5.ejs', {
+        data = JSON.parse(data) || {};
+        res.render('h5', {
             list: data.rows,
             count: data.count
         });
@@ -27,9 +26,6 @@ function renderRegister(req, res) {
     res.render('register');
 }
 
-function renderHelp(req, res) {
-    res.render('help');
-}
 function renderPlugin(req, res) {
     res.render('plus');
 }
@@ -47,7 +43,7 @@ function renderH5Editor(req, res) {
 }
 
 function renderNotFound(req, res) {
-    res.render('noFind');
+    res.render('404');
 }
 
 module.exports = {
@@ -56,7 +52,6 @@ module.exports = {
     renderUI,
     renderLogin,
     renderRegister,
-    renderHelp,
     renderPlugin,
     renderLicense,
     renderCase,
