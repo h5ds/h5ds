@@ -1,4 +1,3 @@
-const mysql = require('mysql');
 const { dbConf } = require('../config');
 const Sequelize = require('sequelize');
 

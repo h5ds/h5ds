@@ -1,4 +1,4 @@
-### **简介** 
+# **简介** 
 
 - H5DS (HTML5 Design software) 这是一款基于WEB的 H5制作工具。让不会写代码的人也能轻松快速上手制作H5页面。
 - H5DS 官方 Git (https://gitee.com/676015863/H5DS) ，简体中文 UTF8 版本，其他版本请自行转码
@@ -6,23 +6,23 @@
 
 ![img](build/assets/images/demo.png)
 
-### **声明**
+# **声明**
 
 您可以下载本站代码，但未经许可 **禁止** 在本产品的整体或任何部分基础上以发展任何派生版本、修改版本或第三方版本用于 **重新分发** ,您可以下载源码进行学习或者用于企业推广运营使用而无需支付任何费用，在未获得成都飞酷网络的书面授权之前，不能将该工具内嵌到其他项目中，也不能将该工具提供给自身的客户或者第三方客户使用，您若有违反规定，成都飞酷网络科技有限公司有权随时中止或终止您对成都飞酷网络产品的使用资格并保留追究相关法律责任的权利
 
-### **相关网站**
+# **相关网站**
  
 - h5ds 官方站：http://www.h5ds.com
 
-### **技术交流群**
+# **技术交流群**
 
 [QQ群 549856478](https://jq.qq.com/?_wv=1027&k=5I0kPBX)
 
-### **友情提示**
+# **友情提示**
 
 若有BUG，请及时issues我们，会第一时间做修改！
 
-### **安装使用说明**
+# **安装使用说明**
 
 运行环境 node v6.x mysql v5.6
 
@@ -36,7 +36,24 @@
 1. 在 `core` 目录中，执行 `npm run dev` 将会利用 `webpack` 把相关资源打包到 `core/dist` 目录下，并监控源代码变更，自动重新打包。
 2. 在 `server-site` 中执行 `npm run dev` 会将所有服务端代码拷贝到 `server-site/dist` 目录下，并利用 `gulp` 在 `server-site/dist` 下启动服务，同时会把 `core/dist` 下的资源拷贝到 `server-site/dist/assets` 下，作为一个项目进行运行。
 
-### **更新说明**
+
+# 使用Docker镜像
+
+```bash
+# 通过环境变量设置DB信息和监听端口
+DB_HOST # 数据库地址
+DB_PORT # 数据库端口
+DB_NAME # 数据库名称
+DB_USER # 数据库账户名
+DB_PASSWORD # 数据库密码
+PORT # 程序监听端口
+
+# 根据镜像启动容器
+docker run --name h5ds  -p 8090:8090 -e DB_HOST=localhost -e DB_PORT=3306 -e DB_NAME=h5ds -e DB_USER=root -e DB_PASSWORD=123456 -e PORT=8090 hstarorg/h5ds:0.0.1
+```
+
+
+# **更新说明**
 
 #### 2017-11-06
 

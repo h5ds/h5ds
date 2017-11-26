@@ -5,7 +5,6 @@ var bodyParser = require('body-parser'); // 中间键读取post数据解析
 var session = require('express-session');
 var cookieParser = require('cookie-parser');
 var compress = require('compression');
-var ejs = require('ejs');
 const expressArtTemplate = require('express-art-template');
 
 const { util } = require('./common');
