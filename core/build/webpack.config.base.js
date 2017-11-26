@@ -8,11 +8,11 @@ import ExtractTextPlugin from 'extract-text-webpack-plugin'; // css样式从js�
 import HtmlInjectPlugin from 'html-inject-webpack-plugin/src/index'; // include html
 import CopyWebpackPlugin from 'copy-webpack-plugin';
 // import CleanWebpackPlugin from 'clean-webpack-plugin';
+const util = require('./util');
 
-const ROOT_PATH = path.resolve(__dirname, '..');
-const DEV_PATH = path.join(__dirname, '..', 'assets');
+const ROOT_PATH = util.root();
+const DEV_PATH = util.root('assets');
 const sassExt = new ExtractTextPlugin('assets/css/[name].css');
-// const appExt = new ExtractTextPlugin('assets/css/[name].css');
 
 export default {
     entry: {
@@ -31,7 +31,7 @@ export default {
     },
     output: {
         publicPath: '/',
-        path: path.resolve(__dirname, 'build'),
+        path: util.root('dist'),
         filename: 'assets/js/[name].js'
     },
     resolve: {
@@ -63,66 +63,6 @@ export default {
     },
     plugins: [
         sassExt, // 提取出来的样式放在css-文件中
-        new HtmlWebpackPlugin({
-            hash: true,
-            chunks: ['app', 'h5ds'],
-            template: './html/edit.html', // 当前目录下
-            filename: 'tpl/edit.html' // 生成到build目录
-        }),
-        new HtmlWebpackPlugin({
-            hash: true,
-            chunks: ['main'],
-            template: './html/index.html', // 当前目录下
-            filename: 'tpl/index.html' // 生成到build目录
-        }),
-        new HtmlWebpackPlugin({
-            hash: true,
-            chunks: ['case'],
-            template: './html/case.html', // 当前目录下
-            filename: 'tpl/case.html' // 生成到build目录
-        }),
-        new HtmlWebpackPlugin({
-            hash: true,
-            chunks: ['main'],
-            template: './html/login.html', // 当前目录下
-            filename: 'tpl/login.html' // 生成到build目录
-        }),
-        new HtmlWebpackPlugin({
-            hash: true,
-            chunks: ['main'],
-            template: './html/plus.html', // 当前目录下
-            filename: 'tpl/plus.html' // 生成到build目录
-        }),
-        new HtmlWebpackPlugin({
-            hash: true,
-            chunks: ['main'],
-            template: './html/register.html', // 当前目录下
-            filename: 'tpl/register.html' // 生成到build目录
-        }),
-        new HtmlWebpackPlugin({
-            hash: true,
-            chunks: ['ui'],
-            template: './html/ui.html', // 当前目录下
-            filename: 'tpl/ui.html' // 生成到build目录
-        }),
-        new HtmlWebpackPlugin({
-            hash: true,
-            chunks: ['main'],
-            template: './html/noFind.html', // 当前目录下
-            filename: 'tpl/noFind.html' // 生成到build目录
-        }),
-        new HtmlInjectPlugin({ // html 拆分
-            bodys: [{
-                flagname: 'meta',
-                template: path.resolve(__dirname, './html/common/meta.html')
-            }, {
-                flagname: 'footer',
-                template: path.resolve(__dirname, './html/common/footer.html')
-            }, {
-                flagname: 'header',
-                template: path.resolve(__dirname, './html/common/header.html')
-            }]
-        }),
         new CopyWebpackPlugin([{
             from: path.resolve(__dirname, '../assets/plugin'),
             to: path.resolve(__dirname, '../../server-site/dist/assets/plugin'),
