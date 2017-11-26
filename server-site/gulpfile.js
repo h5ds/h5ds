@@ -9,6 +9,13 @@ gulp.task('copy', () => {
         .pipe(gulp.dest('dist'));
 });
 
+gulp.task('copy:h5ds', () => {
+    return gulp.src([
+        '../core/dist/**/*'
+    ])
+        .pipe(gulp.dest('dist/assets'));
+});
+
 gulp.task('serve', done => {
     devServer.listen({ path: './dist/index.js' }, err => err && console.error(err));
     done();
@@ -30,7 +37,10 @@ gulp.task('watch', done => {
     gulp.watch([
         'src/**/*',
     ], gulp.series('copy', 'restart'));
+    gulp.watch([
+        '../core/dist/**/*'
+    ], gulp.series('copy:h5ds'));
     done();
 });
 
-gulp.task('default', gulp.series('copy', 'serve', 'watch'));
+gulp.task('default', gulp.series('copy', 'copy:h5ds', 'serve', 'watch'));

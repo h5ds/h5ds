@@ -44,7 +44,7 @@
         "webpack-merge": "^4.1.0"
     },
     "scripts": {
-        "dev": "webpack --config build/webpack.config.dev.babel.js --colors --progress",
+        "dev": "webpack --config build/webpack.config.dev.babel.js --colors --progress --watch",
         "start": "npm run dev",
         "build": "webpack --config build/webpack.config.prod.babel.js --colors --progress",
         "ftp": "gulp default"
