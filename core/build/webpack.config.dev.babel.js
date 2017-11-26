@@ -16,25 +16,5 @@ export default webpackMerge(baseConfig, {
             __DEV__: true
         })
         // new webpack.HotModuleReplacementPlugin()//热加载插件
-    ],
-    devServer: { // 服务器
-        host: HOST,
-        port: PORT,
-        inline: true,
-        // hot: true,
-        historyApiFallback: true, // using html5 router.
-        contentBase: path.join(__dirname, 'build'),
-        watchOptions: {
-            aggregateTimeout: 300
-        },
-        proxy: {
-            '/': {
-                target: 'http://localhost:8090',
-                changeOrigin: true
-                // pathRewrite: {
-                //     '^/api': ''
-                // }
-            }
-        }
-    }
+    ]
 });

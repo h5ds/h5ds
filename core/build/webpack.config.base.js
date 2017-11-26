@@ -11,28 +11,29 @@ import CopyWebpackPlugin from 'copy-webpack-plugin';
 const util = require('./util');
 
 const ROOT_PATH = util.root();
-const DEV_PATH = util.root('assets');
-const sassExt = new ExtractTextPlugin('assets/css/[name].css');
+const DEV_PATH = util.root('src');
+const sassExt = new ExtractTextPlugin('css/[name].css');
 
 export default {
     entry: {
-        h5ds: ['./assets/h5ds/h5ds.js'],
-        ui: ['babel-polyfill', './assets/js/ui.js'],
-        app: ['babel-polyfill', './assets/app/js/h5ds.init.js'],
-        case: ['./assets/js/case.js'],
+        h5ds: ['./src/h5ds/h5ds.js'],
+        ui: ['babel-polyfill', './src/js/ui.js'],
+        app: ['babel-polyfill', './src/app/js/h5ds.init.js'],
+        case: ['./src/js/case.js'],
         main: [
-            './assets/js/index.js',
-            './assets/js/help.js',
-            './assets/js/login.js',
-            './assets/js/plus.js',
-            './assets/js/register.js',
-            './assets/js/noFind.js'
+            './src/js/index.js',
+            './src/js/help.js',
+            './src/js/login.js',
+            './src/js/plus.js',
+            './src/js/register.js',
+            './src/js/noFind.js'
         ]
     },
+    stats: 'minimal',
     output: {
         publicPath: '/',
         path: util.root('dist'),
-        filename: 'assets/js/[name].js'
+        filename: 'js/[name].js'
     },
     resolve: {
         extensions: ['.js', '.scss', '.css']
@@ -56,7 +57,7 @@ export default {
                 loader: 'url-loader',
                 options: {
                     limit: 1,
-                    name: 'assets/images/[name].[ext]'
+                    name: 'images/[name].[ext]'
                 }
             }]
         }]
@@ -64,16 +65,16 @@ export default {
     plugins: [
         sassExt, // 提取出来的样式放在css-文件中
         new CopyWebpackPlugin([{
-            from: path.resolve(__dirname, '../assets/plugin'),
-            to: path.resolve(__dirname, '../../server-site/dist/assets/plugin'),
+            from: util.root('src/plugin'),
+            to: util.root('dist/plugin'),
             toType: 'dir'
         }, {
-            from: path.resolve(__dirname, '../assets/font'),
-            to: path.resolve(__dirname, '../../server-site/dist/assets/font'),
+            from: util.root('src/font'),
+            to: util.root('dist/font'),
             toType: 'dir'
         }, {
-            from: path.resolve(__dirname, '../assets/images'),
-            to: path.resolve(__dirname, '../../server-site/dist/assets/images'),
+            from: util.root('src/images'),
+            to: util.root('dist/images'),
             toType: 'dir'
         }])
     ]
