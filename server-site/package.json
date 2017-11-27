@@ -1,0 +1,36 @@
+{
+    "name": "h5ds-server-site",
+    "version": "0.0.1",
+    "description": "Mantou",
+    "keywords": [
+        "spider"
+    ],
+    "homepage": "",
+    "author": "mantou",
+    "license": "MIT",
+    "devDependencies": {
+        "gulp-develop-server": "^0.5.2",
+        "gulp4": "^4.0.2",
+        "node-notifier": "^5.1.2"
+    },
+    "scripts": {
+        "dev": "gulp4",
+        "start": "npm run dev"
+    },
+    "dependencies": {
+        "body-parser": "^1.17.1",
+        "cookie-parser": "^1.4.3",
+        "cookie-session": "^2.0.0-beta.1",
+        "express": "^4.15.2",
+        "express-session": "^1.15.5",
+        "formidable": "^1.1.1",
+        "art-template": "^4.12.2",
+        "captchapng": "^0.0.1",
+        "compression": "^1.7.0",
+        "express-art-template": "^1.0.0",
+        "md5": "^2.2.1",
+        "mysql2": "^1.4.2",
+        "sequelize": "^4.10.2",
+        "silly-datetime": "^0.1.2"
+    }
+}

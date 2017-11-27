@@ -1,0 +1,268 @@
+/**
+ * 离开动画
+ */
+export const animatesOut = [{
+  name: '弹走',
+  type: 'out',
+  animate: 'bounceOut',
+  time: '1s',
+  delay: '0s',
+  count: 1,
+  fun: 'ease'
+}, {
+  name: '下弹走',
+  type: 'out',
+  animate: 'bounceOutDown',
+  time: '1s',
+  delay: '0s',
+  count: 1,
+  fun: 'ease'
+}, {
+  name: '左弹走',
+  type: 'out',
+  animate: 'bounceOutLeft',
+  time: '1s',
+  delay: '0s',
+  count: 1,
+  fun: 'ease'
+}, {
+  name: '右弹走',
+  type: 'out',
+  animate: 'bounceOutRight',
+  time: '1s',
+  delay: '0s',
+  count: 1,
+  fun: 'ease'
+}, {
+  name: '上弹走',
+  type: 'out',
+  animate: 'bounceOutUp',
+  time: '1s',
+  delay: '0s',
+  count: 1,
+  fun: 'ease'
+}, {
+  name: '渐隐',
+  type: 'out',
+  animate: 'fadeOut',
+  time: '1s',
+  delay: '0s',
+  count: 1,
+  fun: 'ease'
+}, {
+  name: '下渐隐',
+  type: 'out',
+  animate: 'fadeOutDown',
+  time: '1s',
+  delay: '0s',
+  count: 1,
+  fun: 'ease'
+}, {
+  name: '下渐隐快',
+  type: 'out',
+  animate: 'fadeOutDownBig',
+  time: '1s',
+  delay: '0s',
+  count: 1,
+  fun: 'ease'
+}, {
+  name: '左渐隐',
+  type: 'out',
+  animate: 'fadeOutLeft',
+  time: '1s',
+  delay: '0s',
+  count: 1,
+  fun: 'ease'
+}, {
+  name: '左渐隐快',
+  type: 'out',
+  animate: 'fadeOutLeftBig',
+  time: '1s',
+  delay: '0s',
+  count: 1,
+  fun: 'ease'
+}, {
+  name: '右渐隐',
+  type: 'out',
+  animate: 'fadeOutRight',
+  time: '1s',
+  delay: '0s',
+  count: 1,
+  fun: 'ease'
+}, {
+  name: '右渐隐快',
+  type: 'out',
+  animate: 'fadeOutRightBig',
+  time: '1s',
+  delay: '0s',
+  count: 1,
+  fun: 'ease'
+}, {
+  name: '上渐隐',
+  type: 'out',
+  animate: 'fadeOutUp',
+  time: '1s',
+  delay: '0s',
+  count: 1,
+  fun: 'ease'
+}, {
+  name: '上渐隐快',
+  type: 'out',
+  animate: 'fadeOutUpBig',
+  time: '1s',
+  delay: '0s',
+  count: 1,
+  fun: 'ease'
+}, {
+  name: 'X翻牌隐',
+  type: 'out',
+  animate: 'flipOutX',
+  time: '1s',
+  delay: '0s',
+  count: 1,
+  fun: 'ease'
+}, {
+  name: 'Y翻牌隐',
+  type: 'out',
+  animate: 'flipOutY',
+  time: '1s',
+  delay: '0s',
+  count: 1,
+  fun: 'ease'
+}, {
+  name: '光速离开',
+  type: 'out',
+  animate: 'lightSpeedOut',
+  time: '1s',
+  delay: '0s',
+  count: 1,
+  fun: 'ease'
+}, {
+  name: '滚隐',
+  type: 'out',
+  animate: 'rotateOut',
+  time: '1s',
+  delay: '0s',
+  count: 1,
+  fun: 'ease'
+}, {
+  name: '左下滚出',
+  type: 'out',
+  animate: 'rotateOutDownLeft',
+  time: '1s',
+  delay: '0s',
+  count: 1,
+  fun: 'ease'
+}, {
+  name: '右下滚出',
+  type: 'out',
+  animate: 'rotateOutDownRight',
+  time: '1s',
+  delay: '0s',
+  count: 1,
+  fun: 'ease'
+}, {
+  name: '左上滚出',
+  type: 'out',
+  animate: 'rotateOutUpLeft',
+  time: '1s',
+  delay: '0s',
+  count: 1,
+  fun: 'ease'
+}, {
+  name: '右上滚出',
+  type: 'out',
+  animate: 'rotateOutUpRight',
+  time: '1s',
+  delay: '0s',
+  count: 1,
+  fun: 'ease'
+}, {
+  name: '上滑出',
+  type: 'out',
+  animate: 'slideOutUp',
+  time: '1s',
+  delay: '0s',
+  count: 1,
+  fun: 'ease'
+}, {
+  name: '下滑出',
+  type: 'out',
+  animate: 'slideOutDown',
+  time: '1s',
+  delay: '0s',
+  count: 1,
+  fun: 'ease'
+}, {
+  name: '左滑出',
+  type: 'out',
+  animate: 'slideOutLeft',
+  time: '1s',
+  delay: '0s',
+  count: 1,
+  fun: 'ease'
+}, {
+  name: '右滑出',
+  type: 'out',
+  animate: 'slideOutRight',
+  time: '1s',
+  delay: '0s',
+  count: 1,
+  fun: 'ease'
+}, {
+  name: '缩小',
+  type: 'out',
+  animate: 'zoomOut',
+  time: '1s',
+  delay: '0s',
+  count: 1,
+  fun: 'ease'
+}, {
+  name: '下缩小',
+  type: 'out',
+  animate: 'zoomOutDown',
+  time: '1s',
+  delay: '0s',
+  count: 1,
+  fun: 'ease'
+}, {
+  name: '左缩小',
+  type: 'out',
+  animate: 'zoomOutLeft',
+  time: '1s',
+  delay: '0s',
+  count: 1,
+  fun: 'ease'
+}, {
+  name: '右缩小',
+  type: 'out',
+  animate: 'zoomOutRight',
+  time: '1s',
+  delay: '0s',
+  count: 1,
+  fun: 'ease'
+}, {
+  name: '上缩小',
+  type: 'out',
+  animate: 'zoomOutUp',
+  time: '1s',
+  delay: '0s',
+  count: 1,
+  fun: 'ease'
+}, {
+  name: '掉链子',
+  type: 'out',
+  animate: 'hinge',
+  time: '1s',
+  delay: '0s',
+  count: 1,
+  fun: 'ease'
+}, {
+  name: '右滚走',
+  type: 'out',
+  animate: 'rollOut',
+  time: '1s',
+  delay: '0s',
+  count: 1,
+  fun: 'ease'
+}];

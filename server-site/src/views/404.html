@@ -1,0 +1,28 @@
+<!-- parent  -->
+[[extend './shared/_layout.html']] [[block 'title']]Page Not Found[[/block]]
+
+<!-- header -->
+[[block 'header']]
+<link href="/assets/css/case.css" rel="stylesheet">
+<style>
+    .bodyer {
+        height: calc(100vh - 280px);
+        min-height: 300px;
+    }
+
+    .page404 {
+        height: calc(100% - 120px);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+</style> [[/block]]
+
+<!-- main -->
+[[block 'body']]
+<div class="bodyer">
+    <div class="page404">
+        <img src="/assets/images/404.jpg" alt="">
+    </div>
+</div>
+[[/block]]
