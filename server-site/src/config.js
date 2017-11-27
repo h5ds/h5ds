@@ -13,5 +13,6 @@ module.exports = {
     },
     routeFolder: path.join(__dirname, 'routes'),
     host: '127.0.0.1',
-    port: 8090
+    port: 8090,
+    debug: true
 };
