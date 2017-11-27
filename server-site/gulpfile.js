@@ -1,6 +1,8 @@
 const gulp = require('gulp4');
 const devServer = require('gulp-develop-server');
 const notifier = require('node-notifier');
+const lightReload = require('light-reload');
+lightReload.init();
 
 gulp.task('copy', () => {
     return gulp.src([
@@ -39,7 +41,10 @@ gulp.task('watch', done => {
     ], gulp.series('copy', 'restart'));
     gulp.watch([
         '../core/dist/**/*'
-    ], gulp.series('copy:h5ds'));
+    ], gulp.series('copy:h5ds', done => {
+        lightReload.reload();
+        done();
+    }));
     done();
 });
 

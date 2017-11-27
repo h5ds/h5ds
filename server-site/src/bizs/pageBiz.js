@@ -1,4 +1,5 @@
 const { getH5 } = require('../action/getH5');
+const config = require('../config');
 
 function renderIndex(req, res, next) {
     res.render('index');
@@ -39,7 +40,7 @@ function renderCase(req, res) {
 }
 
 function renderH5Editor(req, res) {
-    res.render('edit');
+    res.render('edit', { autoReload: config.debug });
 }
 
 function renderNotFound(req, res) {
