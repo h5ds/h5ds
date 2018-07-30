@@ -73,6 +73,14 @@ export default class HomePage extends Component {
 
     render() {
         // ...
-        return <H5DS savePage={this.savePage} saveApp={this.saveApp} publishApp={this.publishApp} plugins={plus} />;
+        return (
+            <H5DS
+                uploadSet={{}}
+                savePage={this.savePage}
+                saveApp={this.saveApp}
+                publishApp={this.publishApp}
+                plugins={plus}
+            />
+        );
     }
 }
