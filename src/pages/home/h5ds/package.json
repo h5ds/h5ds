@@ -1,0 +1,17 @@
+{
+  "name": "h5ds",
+  "author": "Mantou",
+  "version": "4.0.0",
+  "description": "webpack for react",
+  "main": "js/h5ds.4.0.0.js",
+  "license": "other",
+  "keywords": [
+    "h5ds",
+    "react",
+    "mobx"
+  ],
+  "homepage": "https://gitee.com/676015863/H5DS",
+  "directories": {
+    "example": "example"
+  }
+}

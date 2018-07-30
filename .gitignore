@@ -1,5 +1,4 @@
-node_modules/
-core/npm-debug.log
-build/node_modules/
-server-site/node_modules/
-dist/
+/node_modules
+/doc
+/dev/pages/test
+/dist
