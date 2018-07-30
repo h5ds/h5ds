@@ -8695,7 +8695,7 @@ var Center = (_dec = (0, _mobxReact.inject)(['app']), _dec(_class = (0, _mobxRea
                     { className: 'logo' },
                     _react2.default.createElement(
                         'a',
-                        { target: '_blank', href: '/' },
+                        { target: '_blank', href: 'http://www.h5ds.com' },
                         'H5',
                         _react2.default.createElement(
                             'span',
@@ -9632,6 +9632,22 @@ var Publish = (_dec = (0, _mobxReact.inject)('app', 'layerfun'), _dec(_class = (
                         _react2.default.createElement('div', { className: data.loading }),
                         _react2.default.createElement('div', { className: 'h5ds-progress', id: 'h5dsProgress' })
                     )
+                ),
+                _react2.default.createElement(
+                    'div',
+                    {
+                        style: {
+                            position: 'absolute',
+                            bottom: 5,
+                            width: '100%',
+                            color: 'rgba(0,0,0,.3)',
+                            fontSize: 12,
+                            textAlign: 'center',
+                            zIndex: 99999999,
+                            pointerEvents: 'none'
+                        }
+                    },
+                    '\u6280\u672F\u652F\u6301\uFF1Awww.h5ds.com'
                 )
             )) + '\n</html>';
             return str; // 获取shtml 数据后，清除dom
@@ -9922,7 +9938,10 @@ var Publish = (_dec = (0, _mobxReact.inject)('app', 'layerfun'), _dec(_class = (
                 });
 
                 $(document).trigger('h5ds.swiperAfter', { $in: $('#h5dsFixedsUp').find('.h5ds-swiper-page'), $out: null });
-                $(document).trigger('h5ds.swiperAfter', { $in: $('#h5dsFixedsDown').find('.h5ds-swiper-page'), $out: null });
+                $(document).trigger('h5ds.swiperAfter', {
+                    $in: $('#h5dsFixedsDown').find('.h5ds-swiper-page'),
+                    $out: null
+                });
             };
 
             // 显示loading
@@ -10113,6 +10132,22 @@ var Publish = (_dec = (0, _mobxReact.inject)('app', 'layerfun'), _dec(_class = (
                                                 _react2.default.createElement('div', { className: data.loading }),
                                                 _react2.default.createElement('div', { className: 'h5ds-progress', id: 'h5dsProgress' })
                                             )
+                                        ),
+                                        _react2.default.createElement(
+                                            'div',
+                                            {
+                                                style: {
+                                                    position: 'absolute',
+                                                    bottom: 5,
+                                                    width: '100%',
+                                                    color: 'rgba(0,0,0,.3)',
+                                                    fontSize: 12,
+                                                    textAlign: 'center',
+                                                    zIndex: 99999999,
+                                                    pointerEvents: 'none'
+                                                }
+                                            },
+                                            '\u6280\u672F\u652F\u6301\uFF1Awww.h5ds.com'
                                         )
                                     )
                                 ),
