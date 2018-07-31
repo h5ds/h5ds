@@ -1,10 +1,12 @@
 import './style.less';
 import './h5ds/css/h5ds.4.0.0.css';
+import './layers/plus';
+
+import * as layers from './layers';
 
 import React, { Component } from 'react'; // ...
 
 import H5DS from './h5ds'; // ..
-import { plus } from './plus';
 
 /**
  * @desc H5DS 接口参数
@@ -44,43 +46,43 @@ import { plus } from './plus';
  * @param fail function 失败时
  */
 export default class HomePage extends Component {
-    // 保存当前页面
-    savePage = (appid, cdata) => {
-        console.log('保存当前页面', appid, cdata);
-        return new Promise((resolve, reject) => {
-            // ...
-            resolve();
-        });
-    };
+  // 保存当前页面
+  savePage = (appid, cdata) => {
+    console.log('保存当前页面', appid, cdata);
+    return new Promise((resolve, reject) => {
+      // ...
+      resolve();
+    });
+  };
 
-    // 保存 app
-    saveApp = (appid, cdata) => {
-        console.log('保存APP', appid, cdata);
-        return new Promise((resolve, reject) => {
-            // ...
-            resolve();
-        });
-    };
+  // 保存 app
+  saveApp = (appid, cdata) => {
+    console.log('保存APP', appid, cdata);
+    return new Promise((resolve, reject) => {
+      // ...
+      resolve();
+    });
+  };
 
-    // 发布
-    publishApp = (appid, cdata, shtml) => {
-        console.log('发布应用', appid, cdata, shtml);
-        return new Promise((resolve, reject) => {
-            // ...
-            resolve();
-        });
-    };
+  // 发布
+  publishApp = (appid, cdata, shtml) => {
+    console.log('发布应用', appid, cdata, shtml);
+    return new Promise((resolve, reject) => {
+      // ...
+      resolve();
+    });
+  };
 
-    render() {
-        // ...
-        return (
-            <H5DS
-                uploadSet={{}}
-                savePage={this.savePage}
-                saveApp={this.saveApp}
-                publishApp={this.publishApp}
-                plugins={plus}
-            />
-        );
-    }
+  render() {
+    // ...
+    return (
+      <H5DS
+        uploadSet={{}}
+        savePage={this.savePage}
+        saveApp={this.saveApp}
+        publishApp={this.publishApp}
+        plugins={[{ ...layers.testLayer }]}
+      />
+    );
+  }
 }

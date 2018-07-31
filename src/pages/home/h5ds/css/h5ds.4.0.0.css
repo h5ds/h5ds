@@ -10102,3 +10102,290 @@ body * {
   display: inline-block;
   margin-right: 10px;
 }
+/*  a- 代表功能性的   s- 代表样式性的  g- 代表全局公用 */
+.h5ds-timeline-btn {
+  position: absolute;
+  height: 15px;
+  text-align: center;
+  top: -17px;
+  left: 0;
+  color: #a5b6c8;
+  width: 100%;
+  z-index: 9999;
+  background: #30373f;
+  cursor: move;
+}
+.h5ds-timeline-box {
+  height: 14px;
+  position: absolute;
+  z-index: 999;
+  overflow: hidden;
+  left: 140px;
+  right: 350px;
+  bottom: 0;
+  background: #252a2e;
+}
+.h5ds-timeline {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  -webkit-box-sizing: content-box;
+          box-sizing: content-box;
+  border-top: 13px solid #30373f;
+  border-left: 5px solid #30373f;
+  border-right: 5px solid #30373f;
+}
+.h5ds-timeline span {
+  display: inline-block;
+}
+.h5ds-timeline * {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+.h5ds-timeline .item1 {
+  width: 140px;
+  border-right: 1px solid #30373f;
+}
+.h5ds-timeline .item2 {
+  width: 60px;
+}
+.h5ds-timeline .timeline-left {
+  width: 200px;
+  background: #1d2225;
+  height: 100%;
+  font-size: 12px;
+}
+.h5ds-timeline .timeline-right {
+  height: 100%;
+  top: 0;
+  position: absolute;
+  left: 200px;
+  right: 0;
+}
+.h5ds-timeline .timeline-header {
+  height: 30px;
+  position: relative;
+}
+.h5ds-timeline .timeline-header .item1, .h5ds-timeline .timeline-header .item2 {
+  float: left;
+  height: 30px;
+  line-height: 30px;
+}
+.h5ds-timeline .timeline-header .timeline-left {
+  position: relative;
+  z-index: 200;
+}
+.h5ds-timeline .timeline-header .timeline-left .item1, .h5ds-timeline .timeline-header .timeline-left .item2 {
+  vertical-align: top;
+  border-bottom: 1px solid #30373f;
+  text-align: center;
+}
+.h5ds-timeline .timeline-header .timeline-left a {
+  color: #535f6b;
+  margin: 0 2px;
+}
+.h5ds-timeline .timeline-header .timeline-left .play {
+  height: 100%;
+  display: inline-block;
+  margin-left: 20px;
+}
+.h5ds-timeline .timeline-header .timeline-left .play a {
+  color: #ff5402;
+}
+.h5ds-timeline .timeline-header .timeline-right {
+  border-bottom: 1px solid #30373f;
+}
+.h5ds-timeline .timeline-header .timeline-bar {
+  position: absolute;
+  height: 100%;
+  width: 10px;
+  margin-left: 0px;
+  height: 30px;
+  background: rgba(172, 4, 4, 0.3);
+  border: 2px solid #ac0404;
+  cursor: move;
+  z-index: 100;
+}
+.h5ds-timeline .timeline-header .timeline-bar::before {
+  pointer-events: none;
+  left: 2px;
+  content: '';
+  display: block;
+  width: 2px;
+  position: absolute;
+  height: 1000px;
+  top: 26px;
+  background: #ac0404;
+}
+.h5ds-timeline .timeline-scale {
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+  left: 10px;
+}
+.h5ds-timeline .timeline-scale li {
+  display: inline-block;
+  width: 50px;
+  font-size: 12px;
+  height: 100%;
+  position: relative;
+  color: #535f6b;
+  text-indent: -6px;
+}
+.h5ds-timeline .timeline-scale li::before {
+  position: absolute;
+  bottom: 0;
+  content: '';
+  display: inline-block;
+  height: 12px;
+  background: #535f6b;
+  width: 1px;
+}
+.h5ds-timeline .timeline-body {
+  position: absolute;
+  width: 100%;
+  bottom: 20px;
+  top: 30px;
+  left: 0;
+  overflow: hidden;
+  overflow-y: scroll;
+}
+.h5ds-timeline .timeline-body .timeline-left {
+  width: 200px;
+  position: absolute;
+  z-index: 200;
+  top: 0;
+  left: 0;
+}
+.h5ds-timeline .timeline-body .timeline-left .timeline-active {
+  background: #0e1113;
+}
+.h5ds-timeline .timeline-body .timeline-left .item1 {
+  text-indent: 10px;
+  height: 22px;
+}
+.h5ds-timeline .timeline-body .timeline-left .item2 {
+  text-align: center;
+}
+.h5ds-timeline .timeline-body .timeline-left .item2 a {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 100px;
+  background: #535f6b;
+  margin: 0 8px;
+}
+.h5ds-timeline .timeline-body .timeline-left .item2 .active {
+  background: #ff5402;
+}
+.h5ds-timeline .timeline-body .timeline-left li {
+  height: 22px;
+  background: #1d2225;
+  color: #535f6b;
+  border-bottom: 1px solid #30373f;
+  cursor: pointer;
+}
+.h5ds-timeline .timeline-body .timeline-right {
+  position: absolute;
+  left: 200px;
+  top: 0;
+  right: 0;
+}
+.h5ds-timeline .timeline-body .timeline-right .timeline-layers-right {
+  position: relative;
+}
+.h5ds-timeline .timeline-body .timeline-right .timeline-active {
+  background: rgba(0, 0, 0, 0.3);
+}
+.h5ds-timeline .timeline-body .timeline-right li {
+  border-bottom: 1px solid #30373f;
+  height: 22px;
+}
+.h5ds-timeline .timeline-body .timeline-right i {
+  display: inline-block;
+  width: 10px;
+  height: 20px;
+  border-right: 1px solid #30373f;
+  cursor: pointer;
+}
+.h5ds-timeline .timeline-body .timeline-right i.selected {
+  background: #ff5402;
+}
+.h5ds-timeline .timeline-body .timeline-right i:hover:not(.selected) {
+  background: #0e1113;
+}
+.h5ds-timeline .timeline-layers li {
+  height: 22px;
+  position: relative;
+}
+.h5ds-timeline .timeline-layers .item1 {
+  color: #535f6b;
+  padding-left: 5px;
+  font-size: 12px;
+  text-align: left;
+  height: 22px;
+  overflow: hidden;
+}
+.h5ds-timeline .timeline-layers .timeline-right {
+  height: 22px;
+}
+.h5ds-timeline .timeline-layers .view, .h5ds-timeline .timeline-layers .lock {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 100px;
+  background: #535f6b;
+  position: relative;
+  top: -2px;
+  margin: 0 6px;
+}
+.h5ds-timeline .timeline-footer {
+  height: 20px;
+  line-height: 20px;
+  color: #a5b6c8;
+  font-size: 12px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  z-index: 2000;
+}
+.h5ds-timeline .timeline-footer .timeline-left {
+  background: #30373f;
+}
+.h5ds-timeline .timeline-footer .timeline-right {
+  background: #30373f;
+}
+.h5ds-timeline .timeline-slider {
+  height: 16px;
+  margin: 1px;
+  background: #0e1113;
+  position: relative;
+  overflow: auto;
+  overflow-y: hidden;
+  /* Let's get this party started */
+}
+.h5ds-timeline .timeline-slider .timeline-slider-leng {
+  height: 1px;
+  top: -1px;
+}
+.h5ds-timeline .timeline-slider::-webkit-scrollbar {
+  width: 5px;
+  height: 14px;
+}
+.h5ds-timeline .timeline-slider::-webkit-scrollbar-track {
+  background: #1d2225;
+}
+.h5ds-timeline .timeline-slider::-webkit-scrollbar-thumb {
+  background: #535f6b;
+  border-radius: 0;
+}
+.h5ds-timeline .timeline-slider::-webkit-scrollbar-thumb:window-inactive {
+  background: #535f6b;
+}
+.h5ds-timeline .timeline-slider::-webkit-scrollbar-button:vertical:decrement, .h5ds-timeline .timeline-slider::-webkit-scrollbar-button:vertical:increment {
+  height: 5px;
+  width: 5px;
+  background: #1d2225;
+}

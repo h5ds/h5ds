@@ -70,7 +70,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ 	__webpack_require__.p = "/";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 190);
+/******/ 	return __webpack_require__(__webpack_require__.s = 192);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -94,6 +94,11 @@ var version = exports.version = '4.0.0'; // 版本号
 
 var appHeight = exports.appHeight = 486;
 var appWidth = exports.appWidth = 320;
+
+// 生成后的APP地址
+// export const appUrl = 'http://app.h5ds.com'; //
+// export const appUrl = window.location.origin; //
+
 ;
 
 var _temp = function () {
@@ -156,15 +161,15 @@ var _temp = function () {
 
 /***/ }),
 
-/***/ 190:
+/***/ 192:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(191);
+module.exports = __webpack_require__(193);
 
 
 /***/ }),
 
-/***/ 191:
+/***/ 193:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -178,7 +183,7 @@ var _set = __webpack_require__(12);
 
 var _h5dsUtils = __webpack_require__(50);
 
-var _inpc = __webpack_require__(192);
+var _inpc = __webpack_require__(194);
 
 var _h5dsSwiper = __webpack_require__(16);
 
@@ -278,7 +283,7 @@ var _temp = function () {
 
 /***/ }),
 
-/***/ 192:
+/***/ 194:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -290,7 +295,7 @@ Object.defineProperty(exports, "__esModule", {
 exports.initPcHtml = initPcHtml;
 exports.initPcEvent = initPcEvent;
 
-var _wave = __webpack_require__(193);
+var _wave = __webpack_require__(195);
 
 var obj = {
     color1: 'rgba(0,120,255,.3)',
@@ -419,7 +424,7 @@ var _temp = function () {
 
 /***/ }),
 
-/***/ 193:
+/***/ 195:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";

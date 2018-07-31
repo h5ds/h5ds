@@ -31,6 +31,8 @@
 3. 浏览器输入：http://localhost:8080 即可访问
 4. 在全局设置里面查看帮助说明，制作页面，点击发布 -> F12打开调试面板，可以查看生成后的HTML代码。复制粘贴出来保存成HTML文件即可打开访问！
 
+> 你也可以把生成后的HTML代码拷贝到dist/app/index.html 里面，http://localhost:8080/app/ 访问生成后的页面，如果有插件交互效果效果，可以执行npm run app 打包plus.js 文件
+
 # **更新说明**
 
 请查看 CHANGELOG.md 文件

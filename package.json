@@ -51,10 +51,12 @@
   "scripts": {
     "start": "webpack-dev-server --config webpack/webpack.config.dev.babel.js --open",
     "build": "webpack --config webpack/webpack.config.prod.babel.js --colors --display-error-details --progress",
+    "app": "webpack --config webpack/webpack.config.app.babel.js --colors --display-error-details --progress",
     "ftp": "gulp default"
   },
   "dependencies": {
     "antd": "^3.0.3",
+    "lodash": "^4.17.10",
     "mobx": "^5.0.3",
     "mobx-react": "^5.2.3",
     "moment": "^2.20.1",

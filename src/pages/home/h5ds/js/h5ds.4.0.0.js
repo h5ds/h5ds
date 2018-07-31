@@ -426,6 +426,11 @@ var version = exports.version = '4.0.0'; // 版本号
 
 var appHeight = exports.appHeight = 486;
 var appWidth = exports.appWidth = 320;
+
+// 生成后的APP地址
+// export const appUrl = 'http://app.h5ds.com'; //
+// export const appUrl = window.location.origin; //
+
 ;
 
 var _temp = function () {
@@ -6626,8 +6631,6 @@ var _dec, _class, _class2, _temp; // 额外添加的svg
 
 // components
 
-// import TimeLine from './components/timeLine/TimeLine';
-
 // 额外添加的svg
 
 
@@ -6695,9 +6698,13 @@ var _Layer = __webpack_require__(186);
 
 var _Layer2 = _interopRequireDefault(_Layer);
 
-var _data = __webpack_require__(188);
+var _TimeLine = __webpack_require__(188);
 
-var _shortcuts = __webpack_require__(189);
+var _TimeLine2 = _interopRequireDefault(_TimeLine);
+
+var _data = __webpack_require__(190);
+
+var _shortcuts = __webpack_require__(191);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -6775,7 +6782,10 @@ var App = (_dec = (0, _mobxReact.inject)('app', 'layerfun'), _dec(_class = (0, _
                 layers.map(function (layer, index) {
                     var dom = null;
                     if (layersSet[layer.type]) {
-                        dom = layersSet[layer.type].layerdom(layer, index, _this2.props.layerfun, { isMinPage: isMinPage, isPhoneView: isPhoneView });
+                        dom = layersSet[layer.type].layerdom(layer, index, _this2.props.layerfun, {
+                            isMinPage: isMinPage,
+                            isPhoneView: isPhoneView
+                        });
                     } else {
                         dom = _react2.default.createElement(
                             'div',
@@ -6796,7 +6806,13 @@ var App = (_dec = (0, _mobxReact.inject)('app', 'layerfun'), _dec(_class = (0, _
                     }
                     return _react2.default.createElement(
                         _Layer2.default,
-                        { isPhoneView: isPhoneView, isMinPage: isMinPage, layer: layer, zIndex: zIndex - index, key: layer.keyid },
+                        {
+                            isPhoneView: isPhoneView,
+                            isMinPage: isMinPage,
+                            layer: layer,
+                            zIndex: zIndex - index,
+                            key: layer.keyid
+                        },
                         dom
                     );
                 })
@@ -6856,6 +6872,7 @@ var App = (_dec = (0, _mobxReact.inject)('app', 'layerfun'), _dec(_class = (0, _
                 _this3.props.layerfun.publishApp = _this3.props.publishApp || null;
                 _this3.props.layerfun.uploadBase64 = _this3.props.uploadBase64 || null;
                 _this3.props.layerfun.uploadSet = _this3.props.uploadSet || null;
+                _this3.props.layerfun.conf = _this3.props.conf || {};
                 _this3.props.layerfun.layersSet = layersSet;
             });
 
@@ -6937,17 +6954,28 @@ var App = (_dec = (0, _mobxReact.inject)('app', 'layerfun'), _dec(_class = (0, _
             var _this4 = this;
 
             if (this.props.data) {
-                this.loadingPercent = setInterval(function () {
-                    var percent = _this4.state.percent;
+                var runLoad = function runLoad() {
+                    _this4.loadingPercent = setTimeout(function () {
+                        var _state = _this4.state,
+                            percent = _state.percent,
+                            success = _state.success;
 
-                    percent += parseInt(Math.random() * 10, 10);
-                    if (percent > 99) {
-                        percent = 99;
-                        clearInterval(_this4.loadingPercent);
-                    }
-                    // console.log(percent);
-                    _this4.setState({ percent: percent });
-                }, parseInt(Math.random() * 1000, 10));
+                        percent += parseInt(Math.random() * 10, 10);
+
+                        // 如果成功了
+                        if (success && _this4.props.app.data) {
+                            percent = 100;
+                        }
+                        _this4.setState({ percent: percent }, function () {
+                            if (percent < 100) {
+                                runLoad();
+                            } else {
+                                clearTimeout(_this4.loadingPercent);
+                            }
+                        });
+                    }, parseInt(Math.random() * 1000, 10));
+                };
+                runLoad();
             } else {
                 // message.error('请载入初始数据 data', 99999);
             }
@@ -6957,16 +6985,16 @@ var App = (_dec = (0, _mobxReact.inject)('app', 'layerfun'), _dec(_class = (0, _
         value: function componentWillUnmount() {
             $(document).off('h5ds.showLoading');
             $(document).off('h5ds.hideLoading');
-            this.loadingPercent && clearInterval(this.loadingPercent);
+            this.loadingPercent && clearTimeout(this.loadingPercent);
             this.loadingSuccess && clearTimeout(this.loadingSuccess);
         }
     }, {
         key: 'render',
         value: function render() {
-            var _state = this.state,
-                modals = _state.modals,
-                success = _state.success,
-                percent = _state.percent;
+            var _state2 = this.state,
+                modals = _state2.modals,
+                success = _state2.success,
+                percent = _state2.percent;
 
             console.log('App.jsx 执行 render');
             return _react2.default.createElement(
@@ -6984,6 +7012,7 @@ var App = (_dec = (0, _mobxReact.inject)('app', 'layerfun'), _dec(_class = (0, _
                         _react2.default.createElement(_Setting2.default, null),
                         _react2.default.createElement(_FastBtn2.default, null),
                         _react2.default.createElement(_LayerList2.default, null),
+                        _react2.default.createElement(_TimeLine2.default, null),
                         modals.map(function (Elem, index) {
                             return _react2.default.createElement(Elem, { key: index });
                         })
@@ -9708,16 +9737,19 @@ var Publish = (_dec = (0, _mobxReact.inject)('app', 'layerfun'), _dec(_class = (
         value: function __modalShow__REACT_HOT_LOADER__() {
             var _this15 = this;
 
-            var _props$app$edata = this.props.app.edata,
-                owner = _props$app$edata.owner,
-                appid = _props$app$edata.appid;
+            var appid = this.props.app.edata.appid;
+            // console.log(appid);
 
-            console.log(owner, appid);
+            var _props$layerfun$conf$ = this.props.layerfun.conf.appUrl,
+                appUrl = _props$layerfun$conf$ === undefined ? '/' : _props$layerfun$conf$;
+
             this.setState({
                 visible: true
             }, function () {
-                (0, _utils.newQrcode)({ owner: owner, appid: appid });
-                _this15.initSwiper();
+                setTimeout(function () {
+                    (0, _utils.newQrcode)({ appid: appid, appUrl: appUrl });
+                    _this15.initSwiper();
+                }, 100);
             });
         }
     }, {
@@ -10343,11 +10375,11 @@ function extendObj(obj, obj2) {
 // indexedDB
 
 function newQrcode(set) {
-    var owner = set.owner,
-        appid = set.appid; // ...
+    var appid = set.appid,
+        appUrl = set.appUrl; // ...
     // 生成二维码
 
-    var path = location.origin + '/apps/' + appid + '/index.html';
+    var path = appUrl + '/apps/' + appid;
     $('.qrcode-url-box').html('<a href="' + path + '" target="_blank">' + path + '</a>');
     var $qrcode = $('#qrcode').empty();
     $qrcode.qrcode({
@@ -13248,7 +13280,8 @@ var Center = (_dec = (0, _mobxReact.inject)('app', 'layerfun'), _dec(_class = (0
                 return;
             }
 
-            var editorSet = this.props.layerfun.layersSet[getLayer().type].editorSet || {};
+            var editor = this.props.layerfun.layersSet[getLayer().type] || {};
+            var editorSet = editor.editorSet || {};
 
             // 初始化当前的控制器
             $nowlayer.control({
@@ -14754,8 +14787,8 @@ var LayerSet = (_dec = (0, _mobxReact.inject)('app', 'layerfun'), _dec(_class = 
             if (!layer) {
                 return null;
             }
-
-            var editorSet = this.props.layerfun.layersSet[layer.type].editorSet || {};
+            var editor = this.props.layerfun.layersSet[layer.type] || {};
+            var editorSet = editor.editorSet || {};
             // console.log('选择layer => setType', setType);
             console.log('layerKeys', layerKeys);
             return _react2.default.createElement(
@@ -17370,7 +17403,8 @@ var StyleBasicSet = (_dec = (0, _mobxReact.inject)('app', 'layerfun'), _dec(_cla
                     style = _layer.style,
                     type = _layer.type;
 
-                if (layersSet[type].editorSet && layersSet[type].editorSet.y === false) {
+                var editor = layersSet[type] || {};
+                if (editor.editorSet && editor.editorSet.y === false) {
                     return;
                 }
                 _this2.onChange((style.top || 0) + num, 'top');
@@ -17381,7 +17415,8 @@ var StyleBasicSet = (_dec = (0, _mobxReact.inject)('app', 'layerfun'), _dec(_cla
                     style = _layer2.style,
                     type = _layer2.type;
 
-                if (layersSet[type].editorSet && layersSet[type].editorSet.x === false) {
+                var editor = layersSet[type] || {};
+                if (editor.editorSet && editor.editorSet.x === false) {
                     return;
                 }
                 _this2.onChange((style.left || 0) + num, 'left');
@@ -17419,7 +17454,8 @@ var StyleBasicSet = (_dec = (0, _mobxReact.inject)('app', 'layerfun'), _dec(_cla
             // 不能删除
 
             var state = (0, _extends3.default)({}, this.props.app.edata);
-            var editorSet = this.props.layerfun.layersSet[layer.type].editorSet || {};
+            var editor = this.props.layerfun.layersSet[layer.type] || {};
+            var editorSet = editor.editorSet || {};
 
             // console.log('editorSet', editorSet);
             return _react2.default.createElement(
@@ -17968,8 +18004,8 @@ var StyleMoreSet = (_dec = (0, _mobxReact.inject)('app', 'layerfun'), _dec(_clas
 
             // 不能删除
             var state = (0, _extends3.default)({}, edata);
-
-            var editorSet = this.props.layerfun.layersSet[layer.type].editorSet || {};
+            var editor = this.props.layerfun.layersSet[layer.type] || {};
+            var editorSet = editor.editorSet || {};
 
             console.log('StyleMoreSet render');
 
@@ -20593,6 +20629,562 @@ module.exports = exports['default'];
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
+exports.default = undefined;
+
+var _getPrototypeOf = __webpack_require__(3);
+
+var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
+
+var _classCallCheck2 = __webpack_require__(1);
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = __webpack_require__(2);
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _possibleConstructorReturn2 = __webpack_require__(4);
+
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+var _inherits2 = __webpack_require__(5);
+
+var _inherits3 = _interopRequireDefault(_inherits2);
+
+var _dec, _class;
+
+__webpack_require__(189);
+
+var _mobxReact = __webpack_require__(6);
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _mobx = __webpack_require__(7);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+/**
+ * @desc 帧动画编辑工具是专门针对帧动画layer的。这里的列表只显示帧动画的列表。并不是所有的layer
+ */
+var TimeLine = (_dec = (0, _mobxReact.inject)('app', 'layerfun'), _dec(_class = (0, _mobxReact.observer)(_class = function (_Component) {
+    (0, _inherits3.default)(TimeLine, _Component);
+
+    function TimeLine() {
+        var _ref;
+
+        var _temp, _this, _ret;
+
+        (0, _classCallCheck3.default)(this, TimeLine);
+
+        for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+            args[_key] = arguments[_key];
+        }
+
+        return _ret = (_temp = (_this = (0, _possibleConstructorReturn3.default)(this, (_ref = TimeLine.__proto__ || (0, _getPrototypeOf2.default)(TimeLine)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
+            play: true
+        }, _this.getFpsLayers = function () {
+            var _this2;
+
+            return (_this2 = _this).__getFpsLayers__REACT_HOT_LOADER__.apply(_this2, arguments);
+        }, _this.pauseFps = function () {
+            var _this3;
+
+            return (_this3 = _this).__pauseFps__REACT_HOT_LOADER__.apply(_this3, arguments);
+        }, _this.playFps = function () {
+            var _this4;
+
+            return (_this4 = _this).__playFps__REACT_HOT_LOADER__.apply(_this4, arguments);
+        }, _this.reverseFps = function () {
+            var _this5;
+
+            return (_this5 = _this).__reverseFps__REACT_HOT_LOADER__.apply(_this5, arguments);
+        }, _this.selectFpsLayer = function () {
+            var _this6;
+
+            return (_this6 = _this).__selectFpsLayer__REACT_HOT_LOADER__.apply(_this6, arguments);
+        }, _temp), (0, _possibleConstructorReturn3.default)(_this, _ret);
+    }
+
+    (0, _createClass3.default)(TimeLine, [{
+        key: 'sortByFps',
+
+
+        // 根据 duration 排序 //
+        value: function sortByFps(arr) {
+            arr.sort(function (a, b) {
+                return a.fps - b.fps;
+            });
+            return arr;
+        }
+
+        // 获取最大fps
+
+    }, {
+        key: 'getMaxFps',
+        value: function getMaxFps(option) {
+            var maxFps = 0;
+            option.forEach(function (d) {
+                if (d.fps > maxFps) {
+                    maxFps = d.fps;
+                }
+            });
+            return maxFps;
+        }
+
+        // 获取,设置 fps 点。 fpsArr = [ ... ] // ...
+
+    }, {
+        key: 'getFpsPoint',
+        value: function getFpsPoint(fpsLayers) {
+            var _this7 = this;
+
+            var points = [];
+            fpsLayers.forEach(function (layer) {
+                var arr = layer.data.option; // option 是一个数组
+                _this7.sortByFps(arr); // 排序
+                var fpsArr = [0];
+                arr.forEach(function (d) {
+                    fpsArr.push(d.fps);
+                });
+                points.push(fpsArr);
+            });
+            // 找到选中的点
+            return points;
+        }
+
+        // 获取layers
+
+    }, {
+        key: '__getFpsLayers__REACT_HOT_LOADER__',
+
+
+        // 暂停帧动画
+        value: function __getFpsLayers__REACT_HOT_LOADER__() {
+            var _this8 = this;
+
+            // 调用this.props.app.getLayers方法会导致 整个组件执行render渲染。后期做优化处理
+            var layers = this.props.app.getLayers();
+            var num = this.props.app.edata.selectLayer;
+            var fpsLayers = [];
+            this.max = 0;
+            layers.forEach(function (layer, index) {
+                if (layer.type === 'fps') {
+                    var layerData = (0, _mobx.toJS)(layer);
+                    if (index === num) {
+                        layerData.active = true;
+                    }
+                    fpsLayers.push(layerData);
+                    // 求最大帧
+                    var max = _this8.getMaxFps(layer.data.option);
+                    if (_this8.max < max) {
+                        _this8.max = max;
+                    }
+                }
+            });
+            return fpsLayers;
+        }
+    }, {
+        key: '__pauseFps__REACT_HOT_LOADER__',
+
+
+        // 正常播放
+        value: function __pauseFps__REACT_HOT_LOADER__() {
+            // 帧动画执行
+            var fpsInstance = this.props.app.fpsInstance;
+
+            for (var key in fpsInstance) {
+                if (fpsInstance[key]) {
+                    fpsInstance[key].pause();
+                }
+            }
+        }
+    }, {
+        key: '__playFps__REACT_HOT_LOADER__',
+
+
+        // 回放
+        value: function __playFps__REACT_HOT_LOADER__() {
+            var fpsInstance = this.props.app.fpsInstance;
+
+            for (var key in fpsInstance) {
+                if (fpsInstance[key]) {
+                    if (this.backplay) {
+                        fpsInstance[key].reverse();
+                        this.backplay = false;
+                    }
+                    fpsInstance[key].play();
+                }
+            }
+        }
+    }, {
+        key: '__reverseFps__REACT_HOT_LOADER__',
+
+
+        // 选择fps 图层
+        value: function __reverseFps__REACT_HOT_LOADER__() {
+            var fpsInstance = this.props.app.fpsInstance;
+
+            for (var key in fpsInstance) {
+                if (fpsInstance[key]) {
+                    this.backplay = true;
+                    fpsInstance[key].reverse();
+                    fpsInstance[key].play();
+                }
+            }
+        }
+    }, {
+        key: '__selectFpsLayer__REACT_HOT_LOADER__',
+
+
+        // // 显示隐藏
+        // viewLayer = (e, elem) => {
+        //     e.stopPropagation();
+        //     elem.set.hide = !elem.set.hide;
+        //     this.props.app.edata.layerListKeys++;
+        // };
+
+        // // 锁
+        // lockLayer = (e, elem) => {
+        //     e.stopPropagation();
+        //     elem.set.lock = !elem.set.lock;
+        // };
+
+        value: function __selectFpsLayer__REACT_HOT_LOADER__(elem, index) {
+            $('#layerlist').find('[data-keyid="' + elem.keyid + '"]').trigger('click');
+        }
+    }, {
+        key: 'componentDidMount',
+        value: function componentDidMount() {
+            var _this9 = this;
+
+            var $timelineLayers = $('#timelineLayers');
+            var $timelineScale = $('#timelineScale');
+            var $bar = $('.timeline-bar');
+            $('.timeline-slider').on('scroll', function (e) {
+                // console.log($(this).scrollLeft());
+                var left = $(this).scrollLeft();
+                $timelineLayers.css({
+                    transform: 'translateX(' + -left + 'px)'
+                });
+                $timelineScale.css({
+                    transform: 'translateX(' + -left + 'px)'
+                });
+                $bar.css({
+                    transform: 'translateX(' + -left + 'px)'
+                });
+            });
+
+            // bar move
+            $(document).on('h5ds.fps.change', function (e, anim) {
+                // console.log('change >>>', ~~anim.progress, anim.duration);
+                _this9.currentTime = anim.currentTime;
+                _this9.left = anim.duration / 100 * 10 * anim.progress / 100;
+                $bar.css('left', _this9.left);
+            }).on('h5ds.fps.complete', function () {});
+
+            // bar event
+            $bar.on('mousedown', function (e) {
+                // console.log(this.left);
+                var left = _this9.left;
+                var fps = _this9.props.app.getFps();
+                $(document).on('mousemove.timelinebar', function (em) {
+                    var val = left + em.pageX - e.pageX;
+                    if (val < 0) {
+                        val = 0;
+                    }
+                    fps.seek(val * 10);
+                }).on('mouseup.timelinebar', function () {
+                    $(document).off('mousemove.timelinebar mouseup.timelinebar');
+                    // 选择关键帧
+                    _this9.props.app.edata.selectFPS = Math.round(_this9.currentTime / 100);
+                });
+            });
+
+            // 选择fps
+            $(document).on('click.h5ds.fps', '[data-fps]', function (e) {
+                if (!$(e.target).closest('.timeline-active')[0]) {
+                    var keyid = $(e.target).closest('li').attr('data-keyid');
+                    _this9.selectFpsLayer({ keyid: keyid });
+                }
+                _this9.props.app.edata.selectFPS = parseInt($(e.target).attr('data-fps'), 10);
+                var fps = _this9.props.app.getFps();
+                fps.seek(_this9.props.app.edata.selectFPS * 100);
+            });
+
+            // 设置高度
+            $(document).on('mousedown.timeline.height', '.h5ds-timeline-btn', function (e) {
+                var y = e.pageY;
+                var $timeline = $(_this9.refTimeLine);
+                var height = $timeline.height();
+                var maxHeight = $('#phone').height();
+                var minHeight = 14;
+                $(document).on('mousemove.timeline.height', function (em) {
+                    var ey = em.pageY - y;
+                    var hei = height - ey;
+                    if (hei > maxHeight) {
+                        hei = maxHeight;
+                    } else if (hei < minHeight) {
+                        hei = minHeight;
+                    }
+                    $timeline.css({
+                        height: hei
+                    });
+                }).on('mouseup.timeline.height', function () {
+                    $(document).off('mousemove.timeline.height mouseup.timeline.height');
+                });
+            });
+        }
+    }, {
+        key: 'componentWillUnmount',
+        value: function componentWillUnmount() {
+            $('.timeline-slider').off('scroll');
+            $('.timeline-bar').off('mousedown');
+            $(document).off('click.h5ds.fps');
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+            var _this10 = this;
+
+            // 切换后，这个组件也会跟着重新渲染
+            var _props$app$edata = this.props.app.edata,
+                selectPage = _props$app$edata.selectPage,
+                selectPopup = _props$app$edata.selectPopup,
+                selectFixed = _props$app$edata.selectFixed,
+                layerListKeys = _props$app$edata.layerListKeys;
+
+            var layers = this.getFpsLayers() || [];
+            console.log('TimeLine render', this.max);
+            var timeScale = new Array(parseInt(this.max / 5, 10) + 10).fill(1).map(function (elem, index) {
+                return index * 5;
+            });
+            var selectFPS = this.props.app.edata.selectFPS;
+            var points = this.getFpsPoint(layers);
+            console.log('points', points);
+            return _react2.default.createElement(
+                'div',
+                { ref: function ref(c) {
+                        return _this10.refTimeLine = c;
+                    }, className: 'h5ds-timeline-box' },
+                _react2.default.createElement(
+                    'div',
+                    { className: 'h5ds-timeline' },
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'h5ds-timeline-btn' },
+                        _react2.default.createElement('i', { className: 'h5ds ico5-tuodongcaozuo' })
+                    ),
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'timeline-header' },
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'timeline-left clearfix' },
+                            _react2.default.createElement(
+                                'span',
+                                { className: 'item1' },
+                                _react2.default.createElement(
+                                    'span',
+                                    { className: 'play' },
+                                    _react2.default.createElement(
+                                        'a',
+                                        { onClick: this.reverseFps },
+                                        _react2.default.createElement('i', { className: 'h5ds ico5-return' })
+                                    ),
+                                    _react2.default.createElement(
+                                        'a',
+                                        { onClick: this.pauseFps },
+                                        _react2.default.createElement('i', { className: 'h5ds ico5-zanting1' })
+                                    ),
+                                    _react2.default.createElement(
+                                        'a',
+                                        { onClick: this.playFps },
+                                        _react2.default.createElement('i', { className: 'h5ds ico5-forward' })
+                                    )
+                                )
+                            ),
+                            _react2.default.createElement(
+                                'span',
+                                { className: 'item2' },
+                                _react2.default.createElement(
+                                    'a',
+                                    null,
+                                    _react2.default.createElement('i', { className: 'h5ds ico5-kejian' })
+                                ),
+                                _react2.default.createElement(
+                                    'a',
+                                    null,
+                                    _react2.default.createElement('i', { className: 'h5ds ico5-suo' })
+                                )
+                            )
+                        ),
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'timeline-right' },
+                            _react2.default.createElement('div', { className: 'timeline-bar' }),
+                            _react2.default.createElement(
+                                'ul',
+                                { className: 'timeline-scale', id: 'timelineScale', style: { width: timeScale.length * 50 } },
+                                timeScale.map(function (elem) {
+                                    return _react2.default.createElement(
+                                        'li',
+                                        { key: elem },
+                                        _react2.default.createElement(
+                                            'span',
+                                            null,
+                                            elem
+                                        )
+                                    );
+                                })
+                            )
+                        )
+                    ),
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'timeline-body' },
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'timeline-left clearfix' },
+                            _react2.default.createElement(
+                                'ul',
+                                { className: 'timeline-layers-left' },
+                                layers.map(function (elem, index) {
+                                    return _react2.default.createElement(
+                                        'li',
+                                        {
+                                            onClick: function onClick() {
+                                                return _this10.selectFpsLayer(elem, index);
+                                            },
+                                            className: elem.active ? 'timeline-active' : '',
+                                            key: index
+                                        },
+                                        _react2.default.createElement(
+                                            'span',
+                                            { className: 'item1' },
+                                            'fps\u56FE\u5C42'
+                                        ),
+                                        _react2.default.createElement(
+                                            'span',
+                                            { className: 'item2' },
+                                            _react2.default.createElement('a', { className: 'view ' + (elem.set.hide ? '' : 'active') }),
+                                            _react2.default.createElement('a', { className: 'lock ' + (elem.set.lock ? 'active' : '') })
+                                        )
+                                    );
+                                })
+                            )
+                        ),
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'timeline-right clearfix' },
+                            _react2.default.createElement(
+                                'ul',
+                                {
+                                    className: 'timeline-layers-right',
+                                    id: 'timelineLayers',
+                                    style: { width: timeScale.length * 50 + 10 }
+                                },
+                                layers.map(function (elem, i) {
+                                    // console.log(toJS(elem), points[i]);
+                                    return _react2.default.createElement(
+                                        'li',
+                                        {
+                                            'data-keyid': elem.keyid,
+                                            className: elem.active ? 'timeline-active' : '',
+                                            key: i
+                                        },
+                                        _react2.default.createElement('i', { 'data-fps': 0, className: points[i].indexOf(0) === -1 ? '' : 'selected' }),
+                                        timeScale.map(function (elem, j) {
+                                            // console.log(j * 5 + 1);
+                                            // console.log(j * 5 + 2);
+                                            // console.log(j * 5 + 3);
+                                            // console.log(j * 5 + 4);
+                                            // console.log(j * 5 + 5);
+                                            return _react2.default.createElement(
+                                                'span',
+                                                { key: i + '_' + j },
+                                                _react2.default.createElement('i', {
+                                                    'data-fps': j * 5 + 1,
+                                                    className: points[i].indexOf(j * 5 + 1) === -1 ? '' : 'selected'
+                                                }),
+                                                _react2.default.createElement('i', {
+                                                    'data-fps': j * 5 + 2,
+                                                    className: points[i].indexOf(j * 5 + 2) === -1 ? '' : 'selected'
+                                                }),
+                                                _react2.default.createElement('i', {
+                                                    'data-fps': j * 5 + 3,
+                                                    className: points[i].indexOf(j * 5 + 3) === -1 ? '' : 'selected'
+                                                }),
+                                                _react2.default.createElement('i', {
+                                                    'data-fps': j * 5 + 4,
+                                                    className: points[i].indexOf(j * 5 + 4) === -1 ? '' : 'selected'
+                                                }),
+                                                _react2.default.createElement('i', {
+                                                    'data-fps': j * 5 + 5,
+                                                    className: points[i].indexOf(j * 5 + 5) === -1 ? '' : 'selected'
+                                                })
+                                            );
+                                        })
+                                    );
+                                })
+                            )
+                        )
+                    ),
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'timeline-footer' },
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'timeline-left clearfix' },
+                            '30FPS'
+                        ),
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'timeline-right clearfix' },
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'timeline-slider' },
+                                _react2.default.createElement('div', { style: { width: timeScale.length * 50 }, className: 'timeline-slider-leng' })
+                            )
+                        )
+                    )
+                )
+            );
+        }
+    }]);
+    return TimeLine;
+}(_react.Component)) || _class) || _class);
+exports.default = TimeLine;
+;
+
+var _temp2 = function () {
+    if (typeof __REACT_HOT_LOADER__ === 'undefined') {
+        return;
+    }
+
+    __REACT_HOT_LOADER__.register(TimeLine, 'TimeLine', 'C:/DT/h5ds/H5DS_All/h5ds-edit-hm/src/core/components/timeLine/TimeLine.jsx');
+}();
+
+;
+module.exports = exports['default'];
+
+/***/ }),
+/* 189 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 190 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
 // 模拟数据
 var data = exports.data = {
     img: '/assets/images/app.png', // 主图
@@ -20666,7 +21258,7 @@ var _temp = function () {
 ;
 
 /***/ }),
-/* 189 */
+/* 191 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";

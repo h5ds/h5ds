@@ -1,6 +1,6 @@
 // webpack 配置文档
 
-import { dist, resolve, src } from "./conf";
+import { dist, resolve, src, version } from "./conf";
 
 import CopyWebpackPlugin from "copy-webpack-plugin";
 import ExtractTextPlugin from "extract-text-webpack-plugin"; // css样式从js文件中分离出来
@@ -8,13 +8,13 @@ import HtmlWebpackPlugin from "html-webpack-plugin";
 
 // import webpack from "webpack";
 
-const sassExt = new ExtractTextPlugin(`assets/css/[name].[hash:8].css`);
+const sassExt = new ExtractTextPlugin(`assets/css/[name].${version}.css`);
 
 export default {
   output: {
     publicPath: "/",
     path: resolve(dist),
-    filename: `assets/js/[name].[hash:8].js`
+    filename: `assets/js/[name].${version}.js`
   },
   resolve: {
     extensions: [".js", ".jsx", ".scss", ".css", ".less"],
