@@ -13,7 +13,7 @@ const extractStyle = new ExtractTextPlugin(`assets/css/[name].[hash:8].css`);
 export default webpackMerge(baseConfig, {
   devtool: "source-map",
   entry: {
-    main: resolve(src + "/index.jsx"), // 主网站入口
+    main: resolve(src + "/app.js"), // 主网站入口
     common: ["react", "react-dom", "react-router"]
   },
   module: {

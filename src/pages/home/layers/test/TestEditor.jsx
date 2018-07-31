@@ -52,7 +52,7 @@ export default class TestEditor extends Component {
         const { data } = this.state;
         return (
             <div className="ex-set-test">
-                <TextArea onChange={this.changeTextArea} placeholder="请填写视频通用代码" rows={8} value={data} />
+                <TextArea onChange={this.changeTextArea} placeholder="请填写HTML代码" rows={8} value={data} />
             </div>
         );
     }
