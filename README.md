@@ -14,6 +14,8 @@
 
 - h5ds 官方站：http://www.h5ds.com
 
+- h5ds 技术文档：http://doc.h5ds.com
+
 # **技术交流群**
 
 [QQ群 549856478](https://jq.qq.com/?_wv=1027&k=5I0kPBX)
