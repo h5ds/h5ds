@@ -1616,7 +1616,7 @@ input[type="color"]::-webkit-color-swatch-wrapper {
   -webkit-box-shadow: 0 0 24px rgba(0, 0, 0, 0.26);
           box-shadow: 0 0 24px rgba(0, 0, 0, 0.26);
   width: 320px;
-  height: 486px;
+  height: 514px;
   overflow: hidden;
 }
 .pc-body .pc-infos {
@@ -4778,7 +4778,66 @@ input[type="color"]::-webkit-color-swatch-wrapper {
   -webkit-animation-timing-function: linear;
   animation-timing-function: linear;
 }
-/* 立即进入 */
+/* 放大消失 */
+@-webkit-keyframes toBigFade {
+  0% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: scale(2);
+            transform: scale(2);
+    opacity: 0;
+  }
+}
+@keyframes toBigFade {
+  0% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: scale(2);
+            transform: scale(2);
+    opacity: 0;
+  }
+}
+.toBigFade {
+  -webkit-animation-name: toBigFade;
+  animation-name: toBigFade;
+  -webkit-animation-timing-function: ease;
+  animation-timing-function: ease;
+}
+/* 放大消失 */
+@-webkit-keyframes fastShow {
+  0% {
+    opacity: 0;
+  }
+  0.0001% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fastShow {
+  0% {
+    opacity: 0;
+  }
+  0.0001% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.fastShow {
+  -webkit-animation-name: fastShow;
+  animation-name: fastShow;
+  -webkit-animation-timing-function: linear;
+  animation-timing-function: linear;
+}
 /* animation sets */
 /* move from / to  */
 .pt-page-moveToLeft {
@@ -7591,13 +7650,11 @@ body * {
   position: relative;
   z-index: 1;
   width: 320px;
-  height: 486px;
+  height: 514px;
   -webkit-transform-origin: 0 0;
           transform-origin: 0 0;
 }
 .h5ds-swiper-layers .layer {
-  -webkit-transform: translate3d(0, 0, 0) rotateZ(0deg);
-  transform: translate3d(0, 0, 0) rotateZ(0deg);
   position: absolute;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -7611,11 +7668,11 @@ body * {
           box-sizing: border-box;
   -webkit-animation-fill-mode: forwards;
   animation-fill-mode: forwards;
+  will-change: transform, opacity;
 }
 .h5ds-swiper-current {
   z-index: 100;
-  -webkit-transform: translate3d(0, 0, 0) rotateZ(0deg);
-  transform: translate3d(0, 0, 0) rotateZ(0deg);
+  will-change: transform, opacity;
   -webkit-animation-fill-mode: forwards;
           animation-fill-mode: forwards;
   display: block;
@@ -8256,7 +8313,7 @@ body * {
 #appViewShow .view-phone .view-phone-window {
   position: absolute;
   width: 320px;
-  height: 486px;
+  height: 514px;
   top: 51px;
   left: 60px;
   z-index: 100;
@@ -8272,7 +8329,7 @@ body * {
 }
 #appViewShow .view-phone .h5ds-swiper {
   width: 320px;
-  height: 486px;
+  height: 514px;
   position: relative;
 }
 #appViewShow .view-phone .change-page {
@@ -8323,9 +8380,17 @@ body * {
   height: 140px;
   background: #252a2e;
 }
-#appViewShow .other-info .box-left img {
+#appViewShow .other-info .box-left .h5ds-upload-btn {
+  display: inline-block;
   width: 100%;
   height: 140px;
+}
+#appViewShow .other-info .box-left .h5ds-upload-btn img {
+  width: 100%;
+  height: 100%;
+}
+#appViewShow .other-info .box-left .h5ds-upload-btn img[src=""], #appViewShow .other-info .box-left .h5ds-upload-btn img:not([src]) {
+  display: none;
 }
 #appViewShow .other-info .box-right {
   margin-left: 158px;
@@ -8823,21 +8888,76 @@ body * {
 .phonebox .phone-lines {
   position: absolute;
   z-index: 9999;
-  border: 1px dashed #a5b6c8;
   pointer-events: none;
-  left: -25px;
-  top: -30px;
+  left: 0;
+  top: 0;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   opacity: 0.2;
 }
-.phonebox .phone-lines .phone-lines-inner {
+.phonebox .phone-lines .phone-lines-iphone678 {
   position: absolute;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  left: 24px;
-  top: 29px;
-  border: 1px dashed #0e1113;
+  left: 0;
+  top: 0px;
+  border: 1px dashed #fff;
+  width: 320px;
+  height: 514px;
+}
+.phonebox .phone-lines .phone-lines-iphone678::before, .phonebox .phone-lines .phone-lines-iphone678::after {
+  content: 'iphone6/7/8';
+  display: inline-block;
+  position: absolute;
+  left: -75px;
+  width: 75px;
+  color: #fff;
+  font-size: 12px;
+}
+.phonebox .phone-lines .phone-lines-iphone678::before {
+  top: -1px;
+  border-top: 1px dashed #fff;
+}
+.phonebox .phone-lines .phone-lines-iphone678::after {
+  bottom: -1px;
+  border-bottom: 1px dashed #fff;
+}
+.phonebox .phone-lines .phone-lines-iphone678plus {
+  position: absolute;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  left: 0;
+  top: -3px;
+  border: 1px dashed #fff;
+  width: 320px;
+  height: 520px;
+}
+.phonebox .phone-lines .phone-lines-iphoneX {
+  position: absolute;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  left: 0;
+  top: -63px;
+  border: 1px dashed #fff;
+  width: 320px;
+  height: 640px;
+}
+.phonebox .phone-lines .phone-lines-iphoneX::before, .phonebox .phone-lines .phone-lines-iphoneX::after {
+  content: 'iphoneX';
+  display: inline-block;
+  position: absolute;
+  left: -75px;
+  width: 75px;
+  color: #fff;
+  font-size: 12px;
+}
+.phonebox .phone-lines .phone-lines-iphoneX::before {
+  top: -1px;
+  border-top: 1px dashed #fff;
+}
+.phonebox .phone-lines .phone-lines-iphoneX::after {
+  bottom: -1px;
+  border-bottom: 1px dashed #fff;
 }
 .phonebox .element-show .element {
   opacity: 1 !important;
@@ -9080,7 +9200,7 @@ body * {
   bottom: 5px;
 }
 .page-min {
-  height: 486px;
+  height: 514px;
   width: 320px;
   -webkit-transform-origin: 0 0;
           transform-origin: 0 0;
@@ -9586,8 +9706,8 @@ body * {
   color: #fff;
 }
 .setlayer .set-bgcolor {
-  border-bottom: 1px solid #252a2e;
-  margin-bottom: 10px;
+  border-top: 1px solid #252a2e;
+  padding-top: 10px;
 }
 .setlayer .set-baisc .tr {
   padding: 0 0 10px 0;
@@ -9615,7 +9735,7 @@ body * {
   color: #ff5402;
 }
 .setlayer .set-baiscmore {
-  margin-top: 10px;
+  padding-top: 20px;
 }
 .setlayer .set-baiscmore h5 {
   display: inline-block;

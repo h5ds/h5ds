@@ -1,5 +1,3 @@
-import testLayer from './test'; // 测试
+import domLayer from './dom'; // dom
 
-export {
-  testLayer
-};
+export { domLayer };

@@ -1,20 +1,15 @@
-import './phone.less';
 import './style.less';
 
-import { Input } from 'antd';
 import React, { Component } from 'react';
-import { inject, observer } from 'mobx-react';
-import lodash from 'lodash';
 
-// import { transaction } from 'mobx'; //
+import { Input } from 'antd';
+import debounce from 'lodash/debounce';
 
 const { TextArea } = Input;
 /**
- * @desc 图片
+ * @desc dom
  */
-@inject(['app'])
-@observer
-export default class TestEditor extends Component {
+export default class Editor extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -28,19 +23,19 @@ export default class TestEditor extends Component {
     };
 
     // renderLayer
-    renderLayer = lodash.debounce(() => {
+    renderLayer = debounce(() => {
         console.log('更新视图');
         this.props.layer.data = this.state.data;
         $(document).trigger('h5ds.setHistory');
-    }, 1000);
+    }, 500);
 
     componentDidMount() {
         // 渲染center 区域
         $(document).on(
             'h5ds.centerRenderEnd',
-            lodash.debounce(() => {
+            debounce(() => {
                 console.log('0000000000 重新渲染phone页面');
-            }, 1000)
+            }, 500)
         );
     }
 
@@ -51,8 +46,8 @@ export default class TestEditor extends Component {
     render() {
         const { data } = this.state;
         return (
-            <div className="ex-set-test">
-                <TextArea onChange={this.changeTextArea} placeholder="请填写HTML代码" rows={8} value={data} />
+            <div className="ex-set-dom">
+                <TextArea onChange={this.changeTextArea} placeholder="请填写视频通用代码" rows={8} value={data} />
             </div>
         );
     }

@@ -16,7 +16,7 @@
   -webkit-box-shadow: 0 0 24px rgba(0, 0, 0, 0.26);
           box-shadow: 0 0 24px rgba(0, 0, 0, 0.26);
   width: 320px;
-  height: 486px;
+  height: 514px;
   overflow: hidden;
 }
 .pc-body .pc-infos {
@@ -3057,7 +3057,66 @@
   -webkit-animation-timing-function: linear;
   animation-timing-function: linear;
 }
-/* 立即进入 */
+/* 放大消失 */
+@-webkit-keyframes toBigFade {
+  0% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: scale(2);
+            transform: scale(2);
+    opacity: 0;
+  }
+}
+@keyframes toBigFade {
+  0% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: scale(2);
+            transform: scale(2);
+    opacity: 0;
+  }
+}
+.toBigFade {
+  -webkit-animation-name: toBigFade;
+  animation-name: toBigFade;
+  -webkit-animation-timing-function: ease;
+  animation-timing-function: ease;
+}
+/* 放大消失 */
+@-webkit-keyframes fastShow {
+  0% {
+    opacity: 0;
+  }
+  0.0001% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fastShow {
+  0% {
+    opacity: 0;
+  }
+  0.0001% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.fastShow {
+  -webkit-animation-name: fastShow;
+  animation-name: fastShow;
+  -webkit-animation-timing-function: linear;
+  animation-timing-function: linear;
+}
 /* animation sets */
 /* move from / to  */
 .pt-page-moveToLeft {
@@ -5870,13 +5929,11 @@ body * {
   position: relative;
   z-index: 1;
   width: 320px;
-  height: 486px;
+  height: 514px;
   -webkit-transform-origin: 0 0;
           transform-origin: 0 0;
 }
 .h5ds-swiper-layers .layer {
-  -webkit-transform: translate3d(0, 0, 0) rotateZ(0deg);
-  transform: translate3d(0, 0, 0) rotateZ(0deg);
   position: absolute;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -5890,11 +5947,11 @@ body * {
           box-sizing: border-box;
   -webkit-animation-fill-mode: forwards;
   animation-fill-mode: forwards;
+  will-change: transform, opacity;
 }
 .h5ds-swiper-current {
   z-index: 100;
-  -webkit-transform: translate3d(0, 0, 0) rotateZ(0deg);
-  transform: translate3d(0, 0, 0) rotateZ(0deg);
+  will-change: transform, opacity;
   -webkit-animation-fill-mode: forwards;
           animation-fill-mode: forwards;
   display: block;

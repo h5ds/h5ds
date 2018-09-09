@@ -70,12 +70,12 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ 	__webpack_require__.p = "/";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 192);
+/******/ 	return __webpack_require__(__webpack_require__.s = 193);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ 12:
+/***/ 15:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -90,15 +90,10 @@ Object.defineProperty(exports, "__esModule", {
 
 var blankImg = exports.blankImg = ''; // 默认替代图片
 
-var version = exports.version = '4.0.0'; // 版本号
+var version = exports.version = '4.1.0'; // 版本号
 
-var appHeight = exports.appHeight = 486;
+var appHeight = exports.appHeight = 514;
 var appWidth = exports.appWidth = 320;
-
-// 生成后的APP地址
-// export const appUrl = 'http://app.h5ds.com'; //
-// export const appUrl = window.location.origin; //
-
 ;
 
 var _temp = function () {
@@ -106,13 +101,13 @@ var _temp = function () {
     return;
   }
 
-  __REACT_HOT_LOADER__.register(blankImg, 'blankImg', 'C:/DT/h5ds/H5DS_All/h5ds-edit-hm/src/core/conf/set.js');
+  __REACT_HOT_LOADER__.register(blankImg, 'blankImg', 'C:/DT/h5ds/H5DS_All/h5ds-edit-hm/src/core/conf/global.js');
 
-  __REACT_HOT_LOADER__.register(version, 'version', 'C:/DT/h5ds/H5DS_All/h5ds-edit-hm/src/core/conf/set.js');
+  __REACT_HOT_LOADER__.register(version, 'version', 'C:/DT/h5ds/H5DS_All/h5ds-edit-hm/src/core/conf/global.js');
 
-  __REACT_HOT_LOADER__.register(appHeight, 'appHeight', 'C:/DT/h5ds/H5DS_All/h5ds-edit-hm/src/core/conf/set.js');
+  __REACT_HOT_LOADER__.register(appHeight, 'appHeight', 'C:/DT/h5ds/H5DS_All/h5ds-edit-hm/src/core/conf/global.js');
 
-  __REACT_HOT_LOADER__.register(appWidth, 'appWidth', 'C:/DT/h5ds/H5DS_All/h5ds-edit-hm/src/core/conf/set.js');
+  __REACT_HOT_LOADER__.register(appWidth, 'appWidth', 'C:/DT/h5ds/H5DS_All/h5ds-edit-hm/src/core/conf/global.js');
 }();
 
 ;
@@ -129,14 +124,10 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 exports.swiperAfter = swiperAfter;
-
-var _set = __webpack_require__(12);
-
 /**
  * @desc 每次swiper 页面的时候调用
  */
 function swiperAfter($in, $out) {
-    // console.log('xxx>>>>>>>>>>>>>>>>>>>>', $in[0]);
     // $in 和 $out 可能是一个layer或者一个page
     if ($in && $in[0]) {
         $(document).trigger('h5ds.swiperAfter', { $in: $in, $out: $out });
@@ -146,7 +137,7 @@ function swiperAfter($in, $out) {
     $('.layer-val').each(function () {
         $(this).closest('.layer').off('mousedown touchstart');
     });
-} // import { initVideoIframe } from '@/core/layers/video/app';
+}
 ;
 
 var _temp = function () {
@@ -161,15 +152,56 @@ var _temp = function () {
 
 /***/ }),
 
-/***/ 192:
+/***/ 19:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(193);
+"use strict";
 
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.swiperBefore = swiperBefore;
+/**
+ * @desc 每次swiper 页面的前时候调用
+ */
+function swiperBefore($in, $out) {
+    // ...
+    // if ($out && $out[0]) {
+    //     $out.find('.element').css({
+    //         'will-change': 'auto'
+    //     });
+    // }
+    if ($in && $in[0]) {
+        // $in.find('.element').css({
+        //     'will-change': 'transform'
+        // });
+        $(document).trigger('h5ds.swiperBefore', { $in: $in, $out: $out });
+    }
+}
+;
+
+var _temp = function () {
+    if (typeof __REACT_HOT_LOADER__ === 'undefined') {
+        return;
+    }
+
+    __REACT_HOT_LOADER__.register(swiperBefore, 'swiperBefore', 'C:/DT/h5ds/H5DS_All/h5ds-edit-hm/src/app/common/h5ds.swiper.before.js');
+}();
+
+;
 
 /***/ }),
 
 /***/ 193:
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(194);
+
+
+/***/ }),
+
+/***/ 194:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -179,15 +211,15 @@ __webpack_require__(26);
 
 __webpack_require__(27);
 
-var _set = __webpack_require__(12);
+var _global = __webpack_require__(15);
 
-var _h5dsUtils = __webpack_require__(50);
+var _h5dsUtils = __webpack_require__(49);
 
-var _inpc = __webpack_require__(194);
+var _inpc = __webpack_require__(195);
 
 var _h5dsSwiper = __webpack_require__(16);
 
-var _h5dsSwiper2 = __webpack_require__(21);
+var _h5dsSwiper2 = __webpack_require__(19);
 
 // 初始化
 
@@ -236,8 +268,8 @@ $(function () {
         } else {
             // pc 端，设置swiper固定的宽度高度
             $h5dsSwiper.css({
-                width: _set.appWidth,
-                height: _set.appHeight
+                width: _global.appWidth,
+                height: _global.appHeight
             });
         }
         (0, _h5dsUtils.setAdsorbent)();
@@ -283,7 +315,7 @@ var _temp = function () {
 
 /***/ }),
 
-/***/ 194:
+/***/ 195:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -295,7 +327,7 @@ Object.defineProperty(exports, "__esModule", {
 exports.initPcHtml = initPcHtml;
 exports.initPcEvent = initPcEvent;
 
-var _wave = __webpack_require__(195);
+var _wave = __webpack_require__(196);
 
 var obj = {
     color1: 'rgba(0,120,255,.3)',
@@ -424,7 +456,7 @@ var _temp = function () {
 
 /***/ }),
 
-/***/ 195:
+/***/ 196:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -520,39 +552,6 @@ var _temp = function () {
 
 /***/ }),
 
-/***/ 21:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-exports.swiperBefore = swiperBefore;
-/**
- * @desc 每次swiper 页面的前时候调用
- */
-function swiperBefore($in, $out) {
-    // ...
-    if ($in && $in[0]) {
-        $(document).trigger('h5ds.swiperBefore', { $in: $in, $out: $out });
-    }
-}
-;
-
-var _temp = function () {
-    if (typeof __REACT_HOT_LOADER__ === 'undefined') {
-        return;
-    }
-
-    __REACT_HOT_LOADER__.register(swiperBefore, 'swiperBefore', 'C:/DT/h5ds/H5DS_All/h5ds-edit-hm/src/app/common/h5ds.swiper.before.js');
-}();
-
-;
-
-/***/ }),
-
 /***/ 26:
 /***/ (function(module, exports) {
 
@@ -582,7 +581,7 @@ var _h5dsMount2 = __webpack_require__(35);
 
 var _h5dsSwiper = __webpack_require__(16);
 
-var _h5dsSwiper2 = __webpack_require__(21);
+var _h5dsSwiper2 = __webpack_require__(19);
 
 /**
  * @desc 滑动函数
@@ -683,7 +682,7 @@ $.fn.h5dsSwiper = function (setting) {
 
     // 监听touch 事件
     $this.swipe({
-        excludedElements: 'button, input, select, textarea, a, .noSwipe',
+        excludedElements: 'button, input, select, textarea, a, .noSwiper',
         swipe: function swipe(event, direction, distance, duration, fingerCount, fingerData) {
             // console.log("你用" + fingerCount + "个手指以" + duration + "ms的时间，向" + direction + "滑动了" + distance + "像素 " + $(e.target).attr('class'));
             var $target = $(event.target);
@@ -1041,7 +1040,7 @@ var _temp = function () {
 
 /***/ }),
 
-/***/ 50:
+/***/ 49:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1060,7 +1059,7 @@ exports.isWeiXin = isWeiXin;
 exports.setAdsorbent = setAdsorbent;
 exports.langPage = langPage;
 
-var _set = __webpack_require__(12);
+var _global = __webpack_require__(15);
 
 /**
  * @desc 数组去重
@@ -1220,8 +1219,8 @@ function autoPlayMusic() {
  * @desc 设置自动适配的尺寸
  */
 function setSize($box, scale, fixed) {
-    var width = fixed ? _set.appWidth : $box.width(),
-        height = fixed ? _set.appHeight : $box.height();
+    var width = fixed ? _global.appWidth : $box.width(),
+        height = fixed ? _global.appHeight : $box.height();
     var _window = window,
         innerWidth = _window.innerWidth,
         innerHeight = _window.innerHeight;
@@ -1241,8 +1240,8 @@ function setSize($box, scale, fixed) {
  * @desc 计算sacle 和 偏移
  */
 function getScale() {
-    var width = _set.appWidth;
-    var height = _set.appHeight;
+    var width = _global.appWidth;
+    var height = _global.appHeight;
     // 自动适配
     var _window2 = window,
         innerWidth = _window2.innerWidth,

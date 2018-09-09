@@ -70,20 +70,20 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ 	__webpack_require__.p = "/";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 71);
+/******/ 	return __webpack_require__(__webpack_require__.s = 72);
 /******/ })
 /************************************************************************/
 /******/ ([
 /* 0 */
 /***/ (function(module, exports) {
 
-module.exports = require("react");
+module.exports = require("babel-runtime/helpers/classCallCheck");
 
 /***/ }),
 /* 1 */
 /***/ (function(module, exports) {
 
-module.exports = require("babel-runtime/helpers/classCallCheck");
+module.exports = require("react");
 
 /***/ }),
 /* 2 */
@@ -132,7 +132,7 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _stringify = __webpack_require__(13);
+var _stringify = __webpack_require__(12);
 
 var _stringify2 = _interopRequireDefault(_stringify);
 
@@ -408,61 +408,18 @@ module.exports = require("babel-runtime/helpers/extends");
 
 /***/ }),
 /* 12 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-/**
- * @desc 其他参数配置。可能是跨平台，跨版本的参数配置
- */
-
-var blankImg = exports.blankImg = ''; // 默认替代图片
-
-var version = exports.version = '4.0.0'; // 版本号
-
-var appHeight = exports.appHeight = 486;
-var appWidth = exports.appWidth = 320;
-
-// 生成后的APP地址
-// export const appUrl = 'http://app.h5ds.com'; //
-// export const appUrl = window.location.origin; //
-
-;
-
-var _temp = function () {
-  if (typeof __REACT_HOT_LOADER__ === 'undefined') {
-    return;
-  }
-
-  __REACT_HOT_LOADER__.register(blankImg, 'blankImg', 'C:/DT/h5ds/H5DS_All/h5ds-edit-hm/src/core/conf/set.js');
-
-  __REACT_HOT_LOADER__.register(version, 'version', 'C:/DT/h5ds/H5DS_All/h5ds-edit-hm/src/core/conf/set.js');
-
-  __REACT_HOT_LOADER__.register(appHeight, 'appHeight', 'C:/DT/h5ds/H5DS_All/h5ds-edit-hm/src/core/conf/set.js');
-
-  __REACT_HOT_LOADER__.register(appWidth, 'appWidth', 'C:/DT/h5ds/H5DS_All/h5ds-edit-hm/src/core/conf/set.js');
-}();
-
-;
-
-/***/ }),
-/* 13 */
 /***/ (function(module, exports) {
 
 module.exports = require("babel-runtime/core-js/json/stringify");
 
 /***/ }),
-/* 14 */
+/* 13 */
 /***/ (function(module, exports) {
 
 module.exports = require("babel-runtime/helpers/defineProperty");
 
 /***/ }),
-/* 15 */
+/* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -660,6 +617,44 @@ var _temp = function () {
 ;
 
 /***/ }),
+/* 15 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+/**
+ * @desc 其他参数配置。可能是跨平台，跨版本的参数配置
+ */
+
+var blankImg = exports.blankImg = ''; // 默认替代图片
+
+var version = exports.version = '4.1.0'; // 版本号
+
+var appHeight = exports.appHeight = 514;
+var appWidth = exports.appWidth = 320;
+;
+
+var _temp = function () {
+  if (typeof __REACT_HOT_LOADER__ === 'undefined') {
+    return;
+  }
+
+  __REACT_HOT_LOADER__.register(blankImg, 'blankImg', 'C:/DT/h5ds/H5DS_All/h5ds-edit-hm/src/core/conf/global.js');
+
+  __REACT_HOT_LOADER__.register(version, 'version', 'C:/DT/h5ds/H5DS_All/h5ds-edit-hm/src/core/conf/global.js');
+
+  __REACT_HOT_LOADER__.register(appHeight, 'appHeight', 'C:/DT/h5ds/H5DS_All/h5ds-edit-hm/src/core/conf/global.js');
+
+  __REACT_HOT_LOADER__.register(appWidth, 'appWidth', 'C:/DT/h5ds/H5DS_All/h5ds-edit-hm/src/core/conf/global.js');
+}();
+
+;
+
+/***/ }),
 /* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -670,14 +665,10 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 exports.swiperAfter = swiperAfter;
-
-var _set = __webpack_require__(12);
-
 /**
  * @desc 每次swiper 页面的时候调用
  */
 function swiperAfter($in, $out) {
-    // console.log('xxx>>>>>>>>>>>>>>>>>>>>', $in[0]);
     // $in 和 $out 可能是一个layer或者一个page
     if ($in && $in[0]) {
         $(document).trigger('h5ds.swiperAfter', { $in: $in, $out: $out });
@@ -687,7 +678,7 @@ function swiperAfter($in, $out) {
     $('.layer-val').each(function () {
         $(this).closest('.layer').off('mousedown touchstart');
     });
-} // import { initVideoIframe } from '@/core/layers/video/app';
+}
 ;
 
 var _temp = function () {
@@ -708,18 +699,6 @@ module.exports = require("babel-runtime/helpers/toConsumableArray");
 
 /***/ }),
 /* 18 */
-/***/ (function(module, exports) {
-
-module.exports = require("babel-runtime/regenerator");
-
-/***/ }),
-/* 19 */
-/***/ (function(module, exports) {
-
-module.exports = require("babel-runtime/helpers/asyncToGenerator");
-
-/***/ }),
-/* 20 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -734,7 +713,7 @@ var _extends2 = __webpack_require__(11);
 
 var _extends3 = _interopRequireDefault(_extends2);
 
-var _objectWithoutProperties2 = __webpack_require__(52);
+var _objectWithoutProperties2 = __webpack_require__(51);
 
 var _objectWithoutProperties3 = _interopRequireDefault(_objectWithoutProperties2);
 
@@ -742,7 +721,7 @@ var _getPrototypeOf = __webpack_require__(3);
 
 var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
 
-var _classCallCheck2 = __webpack_require__(1);
+var _classCallCheck2 = __webpack_require__(0);
 
 var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
 
@@ -758,9 +737,9 @@ var _inherits2 = __webpack_require__(5);
 
 var _inherits3 = _interopRequireDefault(_inherits2);
 
-__webpack_require__(137);
+__webpack_require__(138);
 
-var _react = __webpack_require__(0);
+var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -918,7 +897,7 @@ var _temp = function () {
 module.exports = exports['default'];
 
 /***/ }),
-/* 21 */
+/* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -933,7 +912,15 @@ exports.swiperBefore = swiperBefore;
  */
 function swiperBefore($in, $out) {
     // ...
+    // if ($out && $out[0]) {
+    //     $out.find('.element').css({
+    //         'will-change': 'auto'
+    //     });
+    // }
     if ($in && $in[0]) {
+        // $in.find('.element').css({
+        //     'will-change': 'transform'
+        // });
         $(document).trigger('h5ds.swiperBefore', { $in: $in, $out: $out });
     }
 }
@@ -950,7 +937,7 @@ var _temp = function () {
 ;
 
 /***/ }),
-/* 22 */
+/* 20 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1085,6 +1072,18 @@ var _temp = function () {
 }();
 
 ;
+
+/***/ }),
+/* 21 */
+/***/ (function(module, exports) {
+
+module.exports = require("babel-runtime/regenerator");
+
+/***/ }),
+/* 22 */
+/***/ (function(module, exports) {
+
+module.exports = require("babel-runtime/helpers/asyncToGenerator");
 
 /***/ }),
 /* 23 */
@@ -1347,7 +1346,7 @@ var _h5dsMount2 = __webpack_require__(35);
 
 var _h5dsSwiper = __webpack_require__(16);
 
-var _h5dsSwiper2 = __webpack_require__(21);
+var _h5dsSwiper2 = __webpack_require__(19);
 
 /**
  * @desc 滑动函数
@@ -1448,7 +1447,7 @@ $.fn.h5dsSwiper = function (setting) {
 
     // 监听touch 事件
     $this.swipe({
-        excludedElements: 'button, input, select, textarea, a, .noSwipe',
+        excludedElements: 'button, input, select, textarea, a, .noSwiper',
         swipe: function swipe(event, direction, distance, duration, fingerCount, fingerData) {
             // console.log("你用" + fingerCount + "个手指以" + duration + "ms的时间，向" + direction + "滑动了" + distance + "像素 " + $(e.target).attr('class'));
             var $target = $(event.target);
@@ -1911,7 +1910,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = undefined;
 
-var _defineProperty2 = __webpack_require__(14);
+var _defineProperty2 = __webpack_require__(13);
 
 var _defineProperty3 = _interopRequireDefault(_defineProperty2);
 
@@ -1919,7 +1918,7 @@ var _getPrototypeOf = __webpack_require__(3);
 
 var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
 
-var _classCallCheck2 = __webpack_require__(1);
+var _classCallCheck2 = __webpack_require__(0);
 
 var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
 
@@ -1941,21 +1940,21 @@ var _radio2 = _interopRequireDefault(_radio);
 
 __webpack_require__(43);
 
-__webpack_require__(101);
+__webpack_require__(102);
 
-var _indexedDB = __webpack_require__(15);
+var _indexedDB = __webpack_require__(14);
 
 var db = _interopRequireWildcard(_indexedDB);
 
-var _react = __webpack_require__(0);
+var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _SetColor = __webpack_require__(45);
+var _SetColor = __webpack_require__(57);
 
 var _SetColor2 = _interopRequireDefault(_SetColor);
 
-var _imgURLClear = __webpack_require__(47);
+var _imgURLClear = __webpack_require__(46);
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
@@ -2239,7 +2238,7 @@ var BackGround = function (_Component) {
                             ),
                             _react2.default.createElement(
                                 RadioButton,
-                                { value: 'cover' },
+                                { value: '100% 100%' },
                                 '\u62C9\u4F38'
                             )
                         )
@@ -2282,11 +2281,1019 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = undefined;
 
+var _extends2 = __webpack_require__(11);
+
+var _extends3 = _interopRequireDefault(_extends2);
+
+var _getPrototypeOf = __webpack_require__(3);
+
+var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
+
+var _classCallCheck2 = __webpack_require__(0);
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = __webpack_require__(2);
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _possibleConstructorReturn2 = __webpack_require__(4);
+
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+var _inherits2 = __webpack_require__(5);
+
+var _inherits3 = _interopRequireDefault(_inherits2);
+
+__webpack_require__(104);
+
+var _react = __webpack_require__(1);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactColor = __webpack_require__(105);
+
+var _util = __webpack_require__(8);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Colors = function (_Component) {
+    (0, _inherits3.default)(Colors, _Component);
+
+    function Colors(props) {
+        (0, _classCallCheck3.default)(this, Colors);
+
+        var _this = (0, _possibleConstructorReturn3.default)(this, (Colors.__proto__ || (0, _getPrototypeOf2.default)(Colors)).call(this, props));
+
+        _this.showPicker = function () {
+            return _this.__showPicker__REACT_HOT_LOADER__.apply(_this, arguments);
+        };
+
+        _this.changeColor = function () {
+            return _this.__changeColor__REACT_HOT_LOADER__.apply(_this, arguments);
+        };
+
+        _this.state = {
+            colorStyle: {},
+            show: false,
+            color: props.color || '#000'
+        };
+        _this.id = (0, _util.getRandomID)(6);
+        return _this;
+    }
+
+    (0, _createClass3.default)(Colors, [{
+        key: '__showPicker__REACT_HOT_LOADER__',
+        value: function __showPicker__REACT_HOT_LOADER__(e) {
+            // 获取当前对象的位置。设置colorStyle 220 * 246
+            var colorStyle = {};
+            if (window.innerWidth < $(e.target).offset().left + 220) {
+                colorStyle.left = window.innerWidth - ($(e.target).offset().left + 220);
+            }
+            if (window.innerHeight < $(e.target).offset().top + 246) {
+                colorStyle.top = window.innerHeight - ($(e.target).offset().top + 246 + 10);
+            }
+            this.setState({ show: !this.state.show, colorStyle: colorStyle });
+        }
+    }, {
+        key: '__changeColor__REACT_HOT_LOADER__',
+        value: function __changeColor__REACT_HOT_LOADER__(color) {
+            var onChange = this.props.onChange;
+
+            this.setState({
+                color: color.hex
+            }, function () {
+                if (onChange) {
+                    onChange(color);
+                }
+            });
+        }
+    }, {
+        key: 'componentWillReceiveProps',
+        value: function componentWillReceiveProps(props) {
+            var color = props.color;
+
+            this.setState({
+                color: color
+            });
+        }
+    }, {
+        key: 'componentDidMount',
+        value: function componentDidMount() {
+            var _this2 = this;
+
+            $(document).on('click.blank_' + this.id, function (e) {
+                if (!$(e.target).closest('.mt-color')[0]) {
+                    _this2.setState({
+                        show: false
+                    });
+                }
+            });
+        }
+    }, {
+        key: 'componentWillUnmount',
+        value: function componentWillUnmount() {
+            $(document).off('click.blank_' + this.id);
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+            var _state = this.state,
+                show = _state.show,
+                color = _state.color,
+                colorStyle = _state.colorStyle;
+            var children = this.props.children;
+
+            return _react2.default.createElement(
+                'div',
+                { className: 'mt-color' },
+                children ? _react2.default.createElement(
+                    'span',
+                    { onClick: this.showPicker },
+                    children
+                ) : _react2.default.createElement('span', { className: 'color-btn', style: { backgroundColor: color }, onClick: this.showPicker }),
+                show ? _react2.default.createElement(
+                    'div',
+                    { className: 'more-colors', style: (0, _extends3.default)({}, colorStyle) },
+                    _react2.default.createElement(_reactColor.SketchPicker, { presetColors: [], color: color, onChange: this.changeColor })
+                ) : null
+            );
+        }
+    }]);
+    return Colors;
+}(_react.Component);
+
+exports.default = Colors;
+;
+
+var _temp = function () {
+    if (typeof __REACT_HOT_LOADER__ === 'undefined') {
+        return;
+    }
+
+    __REACT_HOT_LOADER__.register(Colors, 'Colors', 'C:/DT/h5ds/H5DS_All/h5ds-edit-hm/src/core/common/colors/Colors.jsx');
+}();
+
+;
+module.exports = exports['default'];
+
+/***/ }),
+/* 46 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.imgURLClear = imgURLClear;
+exports.convertBase64UrlToBlob = convertBase64UrlToBlob;
+exports.base64ToUrl = base64ToUrl;
+
+var _indexedDB = __webpack_require__(14);
+
+var _util = __webpack_require__(8);
+
+// @param obj：对应层的obj对象 type:object，imgCacheObj 所有的图片缓存 type:[]
+// 清理 style.background 和 data.src
+function clearStyleImg(obj, imgCacheObj) {
+    // 过滤背景
+    if (obj['style'] && obj.style['backgroundImage']) {
+        var url = obj.style['backgroundImage'] || '';
+        // console.log(url);
+        if (url.isBlob()) {
+            var temp = url.split('#')[1];
+            obj.style['backgroundImage'] = base64ToUrl(imgCacheObj[temp], temp);
+            // 这里应该有个BUG  url(xxxx);
+        }
+    }
+
+    // 过滤 data
+    if (obj['data'] && obj.data['src']) {
+        var _url = obj.data['src'] || '';
+        // console.log(url);
+        if (_url.isBlob()) {
+            var _temp = _url.split('#')[1];
+            obj.data['src'] = base64ToUrl(imgCacheObj[_temp], _temp);
+        }
+    }
+}
+
+// @param data : APP本地缓存数据， callback: 数据清洗后的回调函数
+// 数据清洗
+function imgURLClear(data, callback) {
+    // 从本地数据库去拿缓存图片
+    (0, _indexedDB.openDB)().then(function (res) {
+        if (!res) {
+            return;
+        }
+        // 获取全部缓存图片
+        (0, _indexedDB.getAllData)('img', function (arr) {
+            if (arr.length > 0) {
+                // 图片的缓存对象
+                var imgCacheObj = (0, _util.arrToObj)(arr);
+
+                // 过滤 APP
+                clearStyleImg(data, imgCacheObj);
+                ['pages', 'popups', 'fixeds'].forEach(function (type) {
+                    for (var i = 0; i < data[type].length; i++) {
+                        // 过滤 pages
+                        clearStyleImg(data[type][i], imgCacheObj);
+                        for (var j = 0; j < data[type][i].layers.length; j++) {
+                            // 过滤 layers
+                            clearStyleImg(data[type][i].layers[j], imgCacheObj);
+                        }
+                    }
+                });
+
+                callback();
+            } else {
+                // 无缓存图片
+                callback();
+            }
+        });
+    });
+}
+
+/**
+ * 将以base64的图片url数据转换为Blob
+ * @param urlData
+ *        用url方式表示的base64图片数据
+ */
+function convertBase64UrlToBlob(urlData) {
+    var bytes = window.atob(urlData.split(',')[1]); //去掉url的头，并转换为byte
+    //处理异常,将ascii码小于0的转换为大于0
+    var ab = new ArrayBuffer(bytes.length);
+    var ia = new Uint8Array(ab);
+    for (var i = 0; i < bytes.length; i++) {
+        ia[i] = bytes.charCodeAt(i);
+    }
+    return new Blob([ab], { type: 'image/png' });
+}
+
+/**
+ * base64 to url
+ * @param base64
+ * @param temp 时间戳
+ * @return url
+ */
+function base64ToUrl(base64, temp) {
+    if (!base64) {
+        return false;
+    }
+    var URL = window.URL || window.webkitURL;
+    // 通过 file 生成目标 url
+    return URL.createObjectURL(convertBase64UrlToBlob(base64)) + ('#' + temp);
+}
+;
+
+var _temp2 = function () {
+    if (typeof __REACT_HOT_LOADER__ === 'undefined') {
+        return;
+    }
+
+    __REACT_HOT_LOADER__.register(clearStyleImg, 'clearStyleImg', 'C:/DT/h5ds/H5DS_All/h5ds-edit-hm/src/utils/imgURLClear.js');
+
+    __REACT_HOT_LOADER__.register(imgURLClear, 'imgURLClear', 'C:/DT/h5ds/H5DS_All/h5ds-edit-hm/src/utils/imgURLClear.js');
+
+    __REACT_HOT_LOADER__.register(convertBase64UrlToBlob, 'convertBase64UrlToBlob', 'C:/DT/h5ds/H5DS_All/h5ds-edit-hm/src/utils/imgURLClear.js');
+
+    __REACT_HOT_LOADER__.register(base64ToUrl, 'base64ToUrl', 'C:/DT/h5ds/H5DS_All/h5ds-edit-hm/src/utils/imgURLClear.js');
+}();
+
+;
+
+/***/ }),
+/* 47 */
+/***/ (function(module, exports) {
+
+module.exports = require("antd/lib/modal");
+
+/***/ }),
+/* 48 */
+/***/ (function(module, exports) {
+
+module.exports = require("antd/lib/modal/style");
+
+/***/ }),
+/* 49 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.ispc = ispc;
+exports.isBuild = isBuild;
+exports.lazyLoad = lazyLoad;
+exports.autoPlayMusic = autoPlayMusic;
+exports.setSize = setSize;
+exports.getScale = getScale;
+exports.isWeiXin = isWeiXin;
+exports.setAdsorbent = setAdsorbent;
+exports.langPage = langPage;
+
+var _global = __webpack_require__(15);
+
+/**
+ * @desc 数组去重
+ */
+function uniqueArr(arr) {
+    var obj = {};
+    var newArr = [];
+    for (var i = 0; i < arr.length; i++) {
+        var d = arr[i];
+        if (!obj[d]) {
+            obj[d] = true;
+            newArr.push(d);
+        }
+    }
+    return newArr;
+}
+
+/**
+ * @desc 判断是否是PC
+ * @return boolen
+ */
+function ispc() {
+    var userAgentInfo = navigator.userAgent;
+    var Agents = ['Android', 'iPhone', 'SymbianOS', 'Windows Phone', 'iPad', 'iPod'];
+    var flag = true;
+    for (var v = 0; v < Agents.length; v++) {
+        if (userAgentInfo.indexOf(Agents[v]) > 0) {
+            flag = false;
+            break;
+        }
+    }
+    return flag;
+}
+
+/**
+ * @desc 判断是否是生成的页面
+ */
+function isBuild() {
+    var isbuild = false;
+    try {
+        IMG_SOURCE;
+        isbuild = true;
+    } catch (e) {
+        isbuild = false;
+    }
+    return isbuild;
+}
+
+/**
+ * @desc 图片进行预加载
+ */
+function lazyLoad() {
+    // 进度条，绑定事件
+    var settime = null;
+    var $loading = $('#h5dsLoading');
+    var $h5dsProgress = $('#h5dsProgress');
+    $loading.show();
+    $(document).on('loadbar', function (e, pre) {
+        console.log('pre>>>', pre);
+        $h5dsProgress.text(pre.toFixed(2) * 100 + '%');
+        if (pre === 1) {
+            setTimeout(function () {
+                $loading.hide();
+                // 自动播放音乐
+                autoPlayMusic();
+                $(document).trigger('h5ds.loadingEnd', '#h5dsSwiper');
+            }, 200);
+        }
+    });
+
+    // ...
+    var maxLoad = 20; // 默认加载20个
+    var imgSource = [];
+    try {
+        if ($.isArray(IMG_SOURCE)) {
+            imgSource = IMG_SOURCE;
+        } else {
+            imgSource = JSON.parse(IMG_SOURCE);
+        }
+        imgSource = uniqueArr(imgSource); // 去重，重复图片不再加载
+    } catch (e) {}
+    // IMG_SOURCE 未定义
+
+
+    // 完成
+    if (imgSource.length === 0) {
+        $(document).trigger('loadbar', 1);
+    } else {
+        var num = 0;
+        var triggerLoad = function triggerLoad() {
+            if (num / imgSource.length === 1) {
+                settime && clearTimeout(settime);
+            }
+            $(document).trigger('loadbar', num / imgSource.length);
+        };
+        // 默认加载前20个图
+        imgSource.forEach(function (elem, index) {
+            if (index > maxLoad) {
+                return;
+            }
+            var img = new Image();
+            img.onload = function () {
+                num++;
+                triggerLoad();
+            };
+            img.onerror = function () {
+                num++;
+                triggerLoad();
+            };
+            img.src = elem;
+            // img.onload = triggerLoad;
+            // img.onerror = triggerLoad;
+        });
+    }
+
+    // 如果5秒后，还没载入数据完成，直接显示
+    settime = setTimeout(function () {
+        $(document).trigger('loadbar', 1);
+    }, 5000);
+}
+
+/**
+ * @desc 音乐播放
+ */
+function autoPlayMusic() {
+    var $audio = $('#h5dsBgMusic');
+    var $icon = $('.h5ds-video-icon');
+    var src = $audio.attr('src');
+    if ($audio[0] && src !== '') {
+        try {
+            $audio[0].src = src;
+            $audio[0].play();
+            $(document).one('WeixinJSBridgeReady', function () {
+                $audio[0].play();
+            });
+            $icon.addClass('h5ds-video-iconing');
+        } catch (e) {
+            console.error('音乐地址有错！');
+        }
+    }
+
+    // 控制音乐
+    $icon.swipe({
+        tap: function tap(e) {
+            if ($(this).hasClass('h5ds-video-iconing')) {
+                $audio[0].pause();
+                $(this).removeClass('h5ds-video-iconing');
+            } else {
+                $audio[0].play();
+                $(this).addClass('h5ds-video-iconing');
+            }
+        }
+    });
+}
+
+/**
+ * @desc 设置自动适配的尺寸
+ */
+function setSize($box, scale, fixed) {
+    var width = fixed ? _global.appWidth : $box.width(),
+        height = fixed ? _global.appHeight : $box.height();
+    var _window = window,
+        innerWidth = _window.innerWidth,
+        innerHeight = _window.innerHeight;
+
+    var top = (innerHeight - height * scale) / 2;
+    if (top < 0) {
+        top = 0;
+    }
+    $box.css({
+        left: (innerWidth - width * scale) / 2,
+        top: top,
+        transform: 'scale(' + scale + ')'
+    });
+}
+
+/**
+ * @desc 计算sacle 和 偏移
+ */
+function getScale() {
+    var width = _global.appWidth;
+    var height = _global.appHeight;
+    // 自动适配
+    var _window2 = window,
+        innerWidth = _window2.innerWidth,
+        innerHeight = _window2.innerHeight;
+    // 假设宽度适配 scale * width = innerWidth
+
+    var scale1 = innerWidth / width;
+    // 假设高度适配 scale * height = innerHeigh
+    var scale2 = innerHeight / height;
+    return scale1 > scale2 ? scale2 : scale1;
+}
+
+//判断是否微信登陆
+function isWeiXin() {
+    var ua = window.navigator.userAgent.toLowerCase();
+    // console.log(ua);//mozilla/5.0 (iphone; cpu iphone os 9_1 like mac os x) applewebkit/601.1.46 (khtml, like gecko)version/9.0 mobile/13b143 safari/601.1
+    if (ua.match(/MicroMessenger/i) == 'micromessenger') {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+/**
+ * @desc 设置吸附效果
+ */
+function setAdsorbent() {
+    var scale = getScale();
+    var setAdsorbent = function setAdsorbent(exHeight) {
+        var $this = $(this);
+        var adsorbent = JSON.parse($this.attr('data-adsorbent'));
+
+        var style = {};
+        if (adsorbent.abottom !== undefined) {
+            style.bottom = -exHeight / scale > 0 ? 0 : -exHeight / scale;
+        }
+        if (adsorbent.atop !== undefined) {
+            style.top = 0;
+        }
+        if (adsorbent.aleft !== undefined) {
+            style.left = 0;
+        }
+        if (adsorbent.aright !== undefined) {
+            style.right = 0;
+        }
+        $this.css(style);
+    };
+    // 设置吸附效果
+    var doAdsorbent = function doAdsorbent(target) {
+        var $target = $(target);
+        if (!$target[0]) {
+            return;
+        }
+        var $layers = $target.children().children().children();
+        var innerHeight = $layers.height() * scale;
+        var exHeight = (window.innerHeight - innerHeight) / 2;
+        $target.find('[data-adsorbent]').each(function () {
+            setAdsorbent.bind(this)(exHeight);
+        });
+    };
+
+    doAdsorbent('#h5dsSwiper');
+    doAdsorbent('#h5dsFixedsUp');
+    doAdsorbent('#h5dsFixedsDown');
+    doAdsorbent('#h5dsPopups');
+}
+
+/**
+ * @desc 监听 长页
+ */
+function langPage() {
+    // 长页控制
+    $('#h5dsSwiper').find('[data-langpage="true"]').each(function () {
+        // 如果有上一页，或者下一页
+        var $page = $(this).parent('.h5ds-swiper-page');
+        var $layers = $(this).children();
+        if ($page.prev()[0]) {
+            $layers.append('<div class="h5ds-pageprev">\u4E0A</div>');
+        }
+        if ($page.next()[0]) {
+            $layers.append('<div class="h5ds-pagenext">\u4E0B</div>');
+        }
+    });
+}
+;
+
+var _temp = function () {
+    if (typeof __REACT_HOT_LOADER__ === 'undefined') {
+        return;
+    }
+
+    __REACT_HOT_LOADER__.register(uniqueArr, 'uniqueArr', 'C:/DT/h5ds/H5DS_All/h5ds-edit-hm/src/app/common/h5ds.utils.js');
+
+    __REACT_HOT_LOADER__.register(ispc, 'ispc', 'C:/DT/h5ds/H5DS_All/h5ds-edit-hm/src/app/common/h5ds.utils.js');
+
+    __REACT_HOT_LOADER__.register(isBuild, 'isBuild', 'C:/DT/h5ds/H5DS_All/h5ds-edit-hm/src/app/common/h5ds.utils.js');
+
+    __REACT_HOT_LOADER__.register(lazyLoad, 'lazyLoad', 'C:/DT/h5ds/H5DS_All/h5ds-edit-hm/src/app/common/h5ds.utils.js');
+
+    __REACT_HOT_LOADER__.register(autoPlayMusic, 'autoPlayMusic', 'C:/DT/h5ds/H5DS_All/h5ds-edit-hm/src/app/common/h5ds.utils.js');
+
+    __REACT_HOT_LOADER__.register(setSize, 'setSize', 'C:/DT/h5ds/H5DS_All/h5ds-edit-hm/src/app/common/h5ds.utils.js');
+
+    __REACT_HOT_LOADER__.register(getScale, 'getScale', 'C:/DT/h5ds/H5DS_All/h5ds-edit-hm/src/app/common/h5ds.utils.js');
+
+    __REACT_HOT_LOADER__.register(isWeiXin, 'isWeiXin', 'C:/DT/h5ds/H5DS_All/h5ds-edit-hm/src/app/common/h5ds.utils.js');
+
+    __REACT_HOT_LOADER__.register(setAdsorbent, 'setAdsorbent', 'C:/DT/h5ds/H5DS_All/h5ds-edit-hm/src/app/common/h5ds.utils.js');
+
+    __REACT_HOT_LOADER__.register(langPage, 'langPage', 'C:/DT/h5ds/H5DS_All/h5ds-edit-hm/src/app/common/h5ds.utils.js');
+}();
+
+;
+
+/***/ }),
+/* 50 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.debounce = debounce;
+
+var _throttle = __webpack_require__(121);
+
+/**
+ * @desc 函数防抖 
+ * 与throttle不同的是，debounce保证一个函数在多少毫秒内不再被触发，只会执行一次，
+ * 要么在第一次调用return的防抖函数时执行，要么在延迟指定毫秒后调用。
+ * @example 适用场景：如在线编辑的自动存储防抖。
+ * @param  {Number}   delay         0或者更大的毫秒数。 对于事件回调，大约100或250毫秒（或更高）的延迟是最有用的。
+ * @param  {Boolean}  atBegin       可选，默认为false。
+ *                                  如果`atBegin`为false或未传入，回调函数则在第一次调用return的防抖函数后延迟指定毫秒调用。
+                                    如果`atBegin`为true，回调函数则在第一次调用return的防抖函数时直接执行
+ * @param  {Function} callback      延迟毫秒后执行的函数。`this`上下文和所有参数都是按原样传递的，
+ *                                  执行去抖动功能时，，调用`callback`。
+ *
+ * @return {Function} 新的防抖函数。
+ */
+function debounce(delay, atBegin, callback) {
+  return callback === undefined ? (0, _throttle.throttle)(delay, atBegin, false) : (0, _throttle.throttle)(delay, callback, atBegin !== false);
+}
+;
+
+var _temp = function () {
+  if (typeof __REACT_HOT_LOADER__ === 'undefined') {
+    return;
+  }
+
+  __REACT_HOT_LOADER__.register(debounce, 'debounce', 'C:/DT/h5ds/H5DS_All/h5ds-edit-hm/src/utils/debounce.js');
+}();
+
+;
+
+/***/ }),
+/* 51 */
+/***/ (function(module, exports) {
+
+module.exports = require("babel-runtime/helpers/objectWithoutProperties");
+
+/***/ }),
+/* 52 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.default = undefined;
+
+var _getPrototypeOf = __webpack_require__(3);
+
+var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
+
+var _classCallCheck2 = __webpack_require__(0);
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = __webpack_require__(2);
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _possibleConstructorReturn2 = __webpack_require__(4);
+
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+var _inherits2 = __webpack_require__(5);
+
+var _inherits3 = _interopRequireDefault(_inherits2);
+
+__webpack_require__(139);
+
+var _react = __webpack_require__(1);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _util = __webpack_require__(8);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+/**
+ * @desc by Mantou tab 切换
+ */
+var Tabs = function (_Component) {
+    (0, _inherits3.default)(Tabs, _Component);
+
+    function Tabs(props) {
+        (0, _classCallCheck3.default)(this, Tabs);
+
+        var _this = (0, _possibleConstructorReturn3.default)(this, (Tabs.__proto__ || (0, _getPrototypeOf2.default)(Tabs)).call(this, props));
+
+        _this.tabChange = function () {
+            return _this.__tabChange__REACT_HOT_LOADER__.apply(_this, arguments);
+        };
+
+        _this.state = {
+            active: props.active || 0
+        };
+        return _this;
+    }
+
+    // 切换
+
+
+    (0, _createClass3.default)(Tabs, [{
+        key: '__tabChange__REACT_HOT_LOADER__',
+
+
+        // 更新视图
+        value: function __tabChange__REACT_HOT_LOADER__(elem, index) {
+            var onChange = this.props.onChange;
+            // console.log(index);
+
+            this.setState({
+                active: index
+            }, function () {
+                if (onChange) {
+                    onChange(elem, index);
+                }
+            });
+        }
+    }, {
+        key: 'componentWillReceiveProps',
+        value: function componentWillReceiveProps(props) {
+            if (!(0, _util.isNot)(props.active) && props.active !== this.state.active) {
+                this.setState({
+                    active: props.active
+                });
+            }
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+            var _this2 = this;
+
+            var temp = +new Date();
+            var active = this.state.active;
+            var _props = this.props,
+                children = _props.children,
+                className = _props.className;
+
+            var cName = ['h5ds-tab'];
+            if (className) {
+                cName.push(className);
+            }
+            return _react2.default.createElement(
+                'div',
+                { className: cName.join(' ') },
+                _react2.default.createElement(
+                    'div',
+                    { className: 'h5ds-tab-header' },
+                    _react2.default.createElement(
+                        'ul',
+                        null,
+                        children.map(function (elem, index) {
+                            if (elem) {
+                                return _react2.default.createElement(
+                                    'li',
+                                    {
+                                        key: elem.key ? elem.key : index + temp,
+                                        onClick: function onClick(e) {
+                                            return _this2.tabChange(elem, index);
+                                        },
+                                        className: 'h5ds-tab-head' + (active === index ? ' h5ds-active' : '')
+                                    },
+                                    elem.props.title
+                                );
+                            }
+                        })
+                    )
+                ),
+                _react2.default.createElement(
+                    'div',
+                    { className: 'h5ds-tab-body' },
+                    children.map(function (elem, index) {
+                        if (elem) {
+                            return _react2.default.createElement(
+                                'div',
+                                {
+                                    key: elem.key ? elem.key : index + temp,
+                                    id: elem.props.id,
+                                    className: 'h5ds-tab-box' + (active === index ? ' h5ds-active' : '')
+                                },
+                                elem.props.children
+                            );
+                        }
+                    })
+                )
+            );
+        }
+    }]);
+    return Tabs;
+}(_react.Component);
+
+// 自定义的item 这里只是为了定义一个标签名称
+
+
+exports.default = Tabs;
+
+var Item = function (_Component2) {
+    (0, _inherits3.default)(Item, _Component2);
+
+    // 构造函数
+    function Item(props) {
+        (0, _classCallCheck3.default)(this, Item);
+        return (0, _possibleConstructorReturn3.default)(this, (Item.__proto__ || (0, _getPrototypeOf2.default)(Item)).call(this, props));
+    }
+
+    (0, _createClass3.default)(Item, [{
+        key: 'render',
+        value: function render() {
+            return null;
+        }
+    }]);
+    return Item;
+}(_react.Component);
+
+Tabs.Item = Item;
+;
+
+var _temp = function () {
+    if (typeof __REACT_HOT_LOADER__ === 'undefined') {
+        return;
+    }
+
+    __REACT_HOT_LOADER__.register(Tabs, 'Tabs', 'C:/DT/h5ds/H5DS_All/h5ds-edit-hm/src/core/common/tabs/Tabs.jsx');
+
+    __REACT_HOT_LOADER__.register(Item, 'Item', 'C:/DT/h5ds/H5DS_All/h5ds-edit-hm/src/core/common/tabs/Tabs.jsx');
+}();
+
+;
+module.exports = exports['default'];
+
+/***/ }),
+/* 53 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.default = undefined;
+
+var _getPrototypeOf = __webpack_require__(3);
+
+var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
+
+var _classCallCheck2 = __webpack_require__(0);
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = __webpack_require__(2);
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _possibleConstructorReturn2 = __webpack_require__(4);
+
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+var _inherits2 = __webpack_require__(5);
+
+var _inherits3 = _interopRequireDefault(_inherits2);
+
+__webpack_require__(95);
+
+var _react = __webpack_require__(1);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Center = function (_Component) {
+    (0, _inherits3.default)(Center, _Component);
+
+    function Center() {
+        (0, _classCallCheck3.default)(this, Center);
+        return (0, _possibleConstructorReturn3.default)(this, (Center.__proto__ || (0, _getPrototypeOf2.default)(Center)).apply(this, arguments));
+    }
+
+    (0, _createClass3.default)(Center, [{
+        key: 'render',
+        value: function render() {
+            var _props = this.props,
+                tips = _props.tips,
+                body = _props.body;
+
+            return _react2.default.createElement(
+                'div',
+                { className: 'h5ds-loading-window' },
+                body ? body : _react2.default.createElement(
+                    'div',
+                    { className: 'h5ds-loading-center' },
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'h5ds-loadbox' },
+                        tips ? tips : 'loading...'
+                    )
+                )
+            );
+        }
+    }]);
+    return Center;
+}(_react.Component);
+
+exports.default = Center;
+;
+
+var _temp = function () {
+    if (typeof __REACT_HOT_LOADER__ === 'undefined') {
+        return;
+    }
+
+    __REACT_HOT_LOADER__.register(Center, 'Center', 'C:/DT/h5ds/H5DS_All/h5ds-edit-hm/src/core/common/loading/Loading.jsx');
+}();
+
+;
+module.exports = exports['default'];
+
+/***/ }),
+/* 54 */
+/***/ (function(module, exports) {
+
+module.exports = require("antd/lib/popover");
+
+/***/ }),
+/* 55 */
+/***/ (function(module, exports) {
+
+module.exports = require("antd/lib/popover/style");
+
+/***/ }),
+/* 56 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _layer = __webpack_require__(98);
+
+var _CombinEditor = __webpack_require__(99);
+
+var _CombinEditor2 = _interopRequireDefault(_CombinEditor);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var _default = {
+    type: 'combin',
+    name: '合并层',
+    icon: null,
+    editor: _CombinEditor2.default,
+    layerdom: _layer.layerdom,
+    origindata: _layer.Origindata
+};
+exports.default = _default;
+;
+
+var _temp = function () {
+    if (typeof __REACT_HOT_LOADER__ === 'undefined') {
+        return;
+    }
+
+    __REACT_HOT_LOADER__.register(_default, 'default', 'C:/DT/h5ds/H5DS_All/h5ds-edit-hm/src/core/layers/combin/index.js');
+}();
+
+;
+module.exports = exports['default'];
+
+/***/ }),
+/* 57 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.default = undefined;
+
 var _slider = __webpack_require__(24);
 
 var _slider2 = _interopRequireDefault(_slider);
 
-var _defineProperty2 = __webpack_require__(14);
+var _defineProperty2 = __webpack_require__(13);
 
 var _defineProperty3 = _interopRequireDefault(_defineProperty2);
 
@@ -2294,7 +3301,7 @@ var _getPrototypeOf = __webpack_require__(3);
 
 var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
 
-var _classCallCheck2 = __webpack_require__(1);
+var _classCallCheck2 = __webpack_require__(0);
 
 var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
 
@@ -2312,13 +3319,13 @@ var _inherits3 = _interopRequireDefault(_inherits2);
 
 __webpack_require__(25);
 
-__webpack_require__(102);
+__webpack_require__(103);
 
-var _react = __webpack_require__(0);
+var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _Colors = __webpack_require__(46);
+var _Colors = __webpack_require__(45);
 
 var _Colors2 = _interopRequireDefault(_Colors);
 
@@ -2495,1009 +3502,6 @@ var _temp = function () {
 module.exports = exports['default'];
 
 /***/ }),
-/* 46 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-exports.default = undefined;
-
-var _extends2 = __webpack_require__(11);
-
-var _extends3 = _interopRequireDefault(_extends2);
-
-var _getPrototypeOf = __webpack_require__(3);
-
-var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
-
-var _classCallCheck2 = __webpack_require__(1);
-
-var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
-
-var _createClass2 = __webpack_require__(2);
-
-var _createClass3 = _interopRequireDefault(_createClass2);
-
-var _possibleConstructorReturn2 = __webpack_require__(4);
-
-var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
-
-var _inherits2 = __webpack_require__(5);
-
-var _inherits3 = _interopRequireDefault(_inherits2);
-
-__webpack_require__(103);
-
-var _react = __webpack_require__(0);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _reactColor = __webpack_require__(104);
-
-var _util = __webpack_require__(8);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var Colors = function (_Component) {
-    (0, _inherits3.default)(Colors, _Component);
-
-    function Colors(props) {
-        (0, _classCallCheck3.default)(this, Colors);
-
-        var _this = (0, _possibleConstructorReturn3.default)(this, (Colors.__proto__ || (0, _getPrototypeOf2.default)(Colors)).call(this, props));
-
-        _this.showPicker = function () {
-            return _this.__showPicker__REACT_HOT_LOADER__.apply(_this, arguments);
-        };
-
-        _this.changeColor = function () {
-            return _this.__changeColor__REACT_HOT_LOADER__.apply(_this, arguments);
-        };
-
-        _this.state = {
-            colorStyle: {},
-            show: false,
-            color: props.color || '#000'
-        };
-        _this.id = (0, _util.getRandomID)(6);
-        return _this;
-    }
-
-    (0, _createClass3.default)(Colors, [{
-        key: '__showPicker__REACT_HOT_LOADER__',
-        value: function __showPicker__REACT_HOT_LOADER__(e) {
-            // 获取当前对象的位置。设置colorStyle 220 * 246
-            var colorStyle = {};
-            if (window.innerWidth < $(e.target).offset().left + 220) {
-                colorStyle.left = window.innerWidth - ($(e.target).offset().left + 220);
-            }
-            if (window.innerHeight < $(e.target).offset().top + 246) {
-                colorStyle.top = window.innerHeight - ($(e.target).offset().top + 246 + 10);
-            }
-            this.setState({ show: !this.state.show, colorStyle: colorStyle });
-        }
-    }, {
-        key: '__changeColor__REACT_HOT_LOADER__',
-        value: function __changeColor__REACT_HOT_LOADER__(color) {
-            var onChange = this.props.onChange;
-
-            this.setState({
-                color: color.hex
-            }, function () {
-                if (onChange) {
-                    onChange(color);
-                }
-            });
-        }
-    }, {
-        key: 'componentWillReceiveProps',
-        value: function componentWillReceiveProps(props) {
-            var color = props.color;
-
-            this.setState({
-                color: color
-            });
-        }
-    }, {
-        key: 'componentDidMount',
-        value: function componentDidMount() {
-            var _this2 = this;
-
-            $(document).on('click.blank_' + this.id, function (e) {
-                if (!$(e.target).closest('.mt-color')[0]) {
-                    _this2.setState({
-                        show: false
-                    });
-                }
-            });
-        }
-    }, {
-        key: 'componentWillUnmount',
-        value: function componentWillUnmount() {
-            $(document).off('click.blank_' + this.id);
-        }
-    }, {
-        key: 'render',
-        value: function render() {
-            var _state = this.state,
-                show = _state.show,
-                color = _state.color,
-                colorStyle = _state.colorStyle;
-            var children = this.props.children;
-
-            return _react2.default.createElement(
-                'div',
-                { className: 'mt-color' },
-                children ? _react2.default.createElement(
-                    'span',
-                    { onClick: this.showPicker },
-                    children
-                ) : _react2.default.createElement('span', { className: 'color-btn', style: { backgroundColor: color }, onClick: this.showPicker }),
-                show ? _react2.default.createElement(
-                    'div',
-                    { className: 'more-colors', style: (0, _extends3.default)({}, colorStyle) },
-                    _react2.default.createElement(_reactColor.SketchPicker, { presetColors: [], color: color, onChange: this.changeColor })
-                ) : null
-            );
-        }
-    }]);
-    return Colors;
-}(_react.Component);
-
-exports.default = Colors;
-;
-
-var _temp = function () {
-    if (typeof __REACT_HOT_LOADER__ === 'undefined') {
-        return;
-    }
-
-    __REACT_HOT_LOADER__.register(Colors, 'Colors', 'C:/DT/h5ds/H5DS_All/h5ds-edit-hm/src/core/common/colors/Colors.jsx');
-}();
-
-;
-module.exports = exports['default'];
-
-/***/ }),
-/* 47 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-exports.imgURLClear = imgURLClear;
-exports.convertBase64UrlToBlob = convertBase64UrlToBlob;
-exports.base64ToUrl = base64ToUrl;
-
-var _indexedDB = __webpack_require__(15);
-
-var _util = __webpack_require__(8);
-
-// @param obj：对应层的obj对象 type:object，imgCacheObj 所有的图片缓存 type:[]
-// 清理 style.background 和 data.src
-function clearStyleImg(obj, imgCacheObj) {
-    // 过滤背景
-    if (obj['style'] && obj.style['backgroundImage']) {
-        var url = obj.style['backgroundImage'] || '';
-        // console.log(url);
-        if (url.isBlob()) {
-            var temp = url.split('#')[1];
-            obj.style['backgroundImage'] = base64ToUrl(imgCacheObj[temp], temp);
-            // 这里应该有个BUG  url(xxxx);
-        }
-    }
-
-    // 过滤 data
-    if (obj['data'] && obj.data['src']) {
-        var _url = obj.data['src'] || '';
-        // console.log(url);
-        if (_url.isBlob()) {
-            var _temp = _url.split('#')[1];
-            obj.data['src'] = base64ToUrl(imgCacheObj[_temp], _temp);
-        }
-    }
-}
-
-// @param data : APP本地缓存数据， callback: 数据清洗后的回调函数
-// 数据清洗
-function imgURLClear(data, callback) {
-    // 从本地数据库去拿缓存图片
-    (0, _indexedDB.openDB)().then(function (res) {
-        if (!res) {
-            return;
-        }
-        // 获取全部缓存图片
-        (0, _indexedDB.getAllData)('img', function (arr) {
-            if (arr.length > 0) {
-                // 图片的缓存对象
-                var imgCacheObj = (0, _util.arrToObj)(arr);
-
-                // 过滤 APP
-                clearStyleImg(data, imgCacheObj);
-                ['pages', 'popups', 'fixeds'].forEach(function (type) {
-                    for (var i = 0; i < data[type].length; i++) {
-                        // 过滤 pages
-                        clearStyleImg(data[type][i], imgCacheObj);
-                        for (var j = 0; j < data[type][i].layers.length; j++) {
-                            // 过滤 layers
-                            clearStyleImg(data[type][i].layers[j], imgCacheObj);
-                        }
-                    }
-                });
-
-                callback();
-            } else {
-                // 无缓存图片
-                callback();
-            }
-        });
-    });
-}
-
-/**
- * 将以base64的图片url数据转换为Blob
- * @param urlData
- *        用url方式表示的base64图片数据
- */
-function convertBase64UrlToBlob(urlData) {
-    var bytes = window.atob(urlData.split(',')[1]); //去掉url的头，并转换为byte
-    //处理异常,将ascii码小于0的转换为大于0
-    var ab = new ArrayBuffer(bytes.length);
-    var ia = new Uint8Array(ab);
-    for (var i = 0; i < bytes.length; i++) {
-        ia[i] = bytes.charCodeAt(i);
-    }
-    return new Blob([ab], { type: 'image/png' });
-}
-
-/**
- * base64 to url
- * @param base64
- * @param temp 时间戳
- * @return url
- */
-function base64ToUrl(base64, temp) {
-    if (!base64) {
-        return false;
-    }
-    var URL = window.URL || window.webkitURL;
-    // 通过 file 生成目标 url
-    return URL.createObjectURL(convertBase64UrlToBlob(base64)) + ('#' + temp);
-}
-;
-
-var _temp2 = function () {
-    if (typeof __REACT_HOT_LOADER__ === 'undefined') {
-        return;
-    }
-
-    __REACT_HOT_LOADER__.register(clearStyleImg, 'clearStyleImg', 'C:/DT/h5ds/H5DS_All/h5ds-edit-hm/src/utils/imgURLClear.js');
-
-    __REACT_HOT_LOADER__.register(imgURLClear, 'imgURLClear', 'C:/DT/h5ds/H5DS_All/h5ds-edit-hm/src/utils/imgURLClear.js');
-
-    __REACT_HOT_LOADER__.register(convertBase64UrlToBlob, 'convertBase64UrlToBlob', 'C:/DT/h5ds/H5DS_All/h5ds-edit-hm/src/utils/imgURLClear.js');
-
-    __REACT_HOT_LOADER__.register(base64ToUrl, 'base64ToUrl', 'C:/DT/h5ds/H5DS_All/h5ds-edit-hm/src/utils/imgURLClear.js');
-}();
-
-;
-
-/***/ }),
-/* 48 */
-/***/ (function(module, exports) {
-
-module.exports = require("antd/lib/modal");
-
-/***/ }),
-/* 49 */
-/***/ (function(module, exports) {
-
-module.exports = require("antd/lib/modal/style");
-
-/***/ }),
-/* 50 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-exports.ispc = ispc;
-exports.isBuild = isBuild;
-exports.lazyLoad = lazyLoad;
-exports.autoPlayMusic = autoPlayMusic;
-exports.setSize = setSize;
-exports.getScale = getScale;
-exports.isWeiXin = isWeiXin;
-exports.setAdsorbent = setAdsorbent;
-exports.langPage = langPage;
-
-var _set = __webpack_require__(12);
-
-/**
- * @desc 数组去重
- */
-function uniqueArr(arr) {
-    var obj = {};
-    var newArr = [];
-    for (var i = 0; i < arr.length; i++) {
-        var d = arr[i];
-        if (!obj[d]) {
-            obj[d] = true;
-            newArr.push(d);
-        }
-    }
-    return newArr;
-}
-
-/**
- * @desc 判断是否是PC
- * @return boolen
- */
-function ispc() {
-    var userAgentInfo = navigator.userAgent;
-    var Agents = ['Android', 'iPhone', 'SymbianOS', 'Windows Phone', 'iPad', 'iPod'];
-    var flag = true;
-    for (var v = 0; v < Agents.length; v++) {
-        if (userAgentInfo.indexOf(Agents[v]) > 0) {
-            flag = false;
-            break;
-        }
-    }
-    return flag;
-}
-
-/**
- * @desc 判断是否是生成的页面
- */
-function isBuild() {
-    var isbuild = false;
-    try {
-        IMG_SOURCE;
-        isbuild = true;
-    } catch (e) {
-        isbuild = false;
-    }
-    return isbuild;
-}
-
-/**
- * @desc 图片进行预加载
- */
-function lazyLoad() {
-    // 进度条，绑定事件
-    var settime = null;
-    var $loading = $('#h5dsLoading');
-    var $h5dsProgress = $('#h5dsProgress');
-    $loading.show();
-    $(document).on('loadbar', function (e, pre) {
-        console.log('pre>>>', pre);
-        $h5dsProgress.text(pre.toFixed(2) * 100 + '%');
-        if (pre === 1) {
-            setTimeout(function () {
-                $loading.hide();
-                // 自动播放音乐
-                autoPlayMusic();
-                $(document).trigger('h5ds.loadingEnd', '#h5dsSwiper');
-            }, 200);
-        }
-    });
-
-    // ...
-    var maxLoad = 20; // 默认加载20个
-    var imgSource = [];
-    try {
-        if ($.isArray(IMG_SOURCE)) {
-            imgSource = IMG_SOURCE;
-        } else {
-            imgSource = JSON.parse(IMG_SOURCE);
-        }
-        imgSource = uniqueArr(imgSource); // 去重，重复图片不再加载
-    } catch (e) {}
-    // IMG_SOURCE 未定义
-
-
-    // 完成
-    if (imgSource.length === 0) {
-        $(document).trigger('loadbar', 1);
-    } else {
-        var num = 0;
-        var triggerLoad = function triggerLoad() {
-            if (num / imgSource.length === 1) {
-                settime && clearTimeout(settime);
-            }
-            $(document).trigger('loadbar', num / imgSource.length);
-        };
-        // 默认加载前20个图
-        imgSource.forEach(function (elem, index) {
-            if (index > maxLoad) {
-                return;
-            }
-            var img = new Image();
-            img.onload = function () {
-                num++;
-                triggerLoad();
-            };
-            img.onerror = function () {
-                num++;
-                triggerLoad();
-            };
-            img.src = elem;
-            // img.onload = triggerLoad;
-            // img.onerror = triggerLoad;
-        });
-    }
-
-    // 如果5秒后，还没载入数据完成，直接显示
-    settime = setTimeout(function () {
-        $(document).trigger('loadbar', 1);
-    }, 5000);
-}
-
-/**
- * @desc 音乐播放
- */
-function autoPlayMusic() {
-    var $audio = $('#h5dsBgMusic');
-    var $icon = $('.h5ds-video-icon');
-    var src = $audio.attr('src');
-    if ($audio[0] && src !== '') {
-        try {
-            $audio[0].src = src;
-            $audio[0].play();
-            $(document).one('WeixinJSBridgeReady', function () {
-                $audio[0].play();
-            });
-            $icon.addClass('h5ds-video-iconing');
-        } catch (e) {
-            console.error('音乐地址有错！');
-        }
-    }
-
-    // 控制音乐
-    $icon.swipe({
-        tap: function tap(e) {
-            if ($(this).hasClass('h5ds-video-iconing')) {
-                $audio[0].pause();
-                $(this).removeClass('h5ds-video-iconing');
-            } else {
-                $audio[0].play();
-                $(this).addClass('h5ds-video-iconing');
-            }
-        }
-    });
-}
-
-/**
- * @desc 设置自动适配的尺寸
- */
-function setSize($box, scale, fixed) {
-    var width = fixed ? _set.appWidth : $box.width(),
-        height = fixed ? _set.appHeight : $box.height();
-    var _window = window,
-        innerWidth = _window.innerWidth,
-        innerHeight = _window.innerHeight;
-
-    var top = (innerHeight - height * scale) / 2;
-    if (top < 0) {
-        top = 0;
-    }
-    $box.css({
-        left: (innerWidth - width * scale) / 2,
-        top: top,
-        transform: 'scale(' + scale + ')'
-    });
-}
-
-/**
- * @desc 计算sacle 和 偏移
- */
-function getScale() {
-    var width = _set.appWidth;
-    var height = _set.appHeight;
-    // 自动适配
-    var _window2 = window,
-        innerWidth = _window2.innerWidth,
-        innerHeight = _window2.innerHeight;
-    // 假设宽度适配 scale * width = innerWidth
-
-    var scale1 = innerWidth / width;
-    // 假设高度适配 scale * height = innerHeigh
-    var scale2 = innerHeight / height;
-    return scale1 > scale2 ? scale2 : scale1;
-}
-
-//判断是否微信登陆
-function isWeiXin() {
-    var ua = window.navigator.userAgent.toLowerCase();
-    // console.log(ua);//mozilla/5.0 (iphone; cpu iphone os 9_1 like mac os x) applewebkit/601.1.46 (khtml, like gecko)version/9.0 mobile/13b143 safari/601.1
-    if (ua.match(/MicroMessenger/i) == 'micromessenger') {
-        return true;
-    } else {
-        return false;
-    }
-}
-
-/**
- * @desc 设置吸附效果
- */
-function setAdsorbent() {
-    var scale = getScale();
-    var setAdsorbent = function setAdsorbent(exHeight) {
-        var $this = $(this);
-        var adsorbent = JSON.parse($this.attr('data-adsorbent'));
-
-        var style = {};
-        if (adsorbent.abottom !== undefined) {
-            style.bottom = -exHeight / scale > 0 ? 0 : -exHeight / scale;
-        }
-        if (adsorbent.atop !== undefined) {
-            style.top = 0;
-        }
-        if (adsorbent.aleft !== undefined) {
-            style.left = 0;
-        }
-        if (adsorbent.aright !== undefined) {
-            style.right = 0;
-        }
-        $this.css(style);
-    };
-    // 设置吸附效果
-    var doAdsorbent = function doAdsorbent(target) {
-        var $target = $(target);
-        if (!$target[0]) {
-            return;
-        }
-        var $layers = $target.children().children().children();
-        var innerHeight = $layers.height() * scale;
-        var exHeight = (window.innerHeight - innerHeight) / 2;
-        $target.find('[data-adsorbent]').each(function () {
-            setAdsorbent.bind(this)(exHeight);
-        });
-    };
-
-    doAdsorbent('#h5dsSwiper');
-    doAdsorbent('#h5dsFixedsUp');
-    doAdsorbent('#h5dsFixedsDown');
-    doAdsorbent('#h5dsPopups');
-}
-
-/**
- * @desc 监听 长页
- */
-function langPage() {
-    // 长页控制
-    $('#h5dsSwiper').find('[data-langpage="true"]').each(function () {
-        // 如果有上一页，或者下一页
-        var $page = $(this).parent('.h5ds-swiper-page');
-        var $layers = $(this).children();
-        if ($page.prev()[0]) {
-            $layers.append('<div class="h5ds-pageprev">\u4E0A</div>');
-        }
-        if ($page.next()[0]) {
-            $layers.append('<div class="h5ds-pagenext">\u4E0B</div>');
-        }
-    });
-}
-;
-
-var _temp = function () {
-    if (typeof __REACT_HOT_LOADER__ === 'undefined') {
-        return;
-    }
-
-    __REACT_HOT_LOADER__.register(uniqueArr, 'uniqueArr', 'C:/DT/h5ds/H5DS_All/h5ds-edit-hm/src/app/common/h5ds.utils.js');
-
-    __REACT_HOT_LOADER__.register(ispc, 'ispc', 'C:/DT/h5ds/H5DS_All/h5ds-edit-hm/src/app/common/h5ds.utils.js');
-
-    __REACT_HOT_LOADER__.register(isBuild, 'isBuild', 'C:/DT/h5ds/H5DS_All/h5ds-edit-hm/src/app/common/h5ds.utils.js');
-
-    __REACT_HOT_LOADER__.register(lazyLoad, 'lazyLoad', 'C:/DT/h5ds/H5DS_All/h5ds-edit-hm/src/app/common/h5ds.utils.js');
-
-    __REACT_HOT_LOADER__.register(autoPlayMusic, 'autoPlayMusic', 'C:/DT/h5ds/H5DS_All/h5ds-edit-hm/src/app/common/h5ds.utils.js');
-
-    __REACT_HOT_LOADER__.register(setSize, 'setSize', 'C:/DT/h5ds/H5DS_All/h5ds-edit-hm/src/app/common/h5ds.utils.js');
-
-    __REACT_HOT_LOADER__.register(getScale, 'getScale', 'C:/DT/h5ds/H5DS_All/h5ds-edit-hm/src/app/common/h5ds.utils.js');
-
-    __REACT_HOT_LOADER__.register(isWeiXin, 'isWeiXin', 'C:/DT/h5ds/H5DS_All/h5ds-edit-hm/src/app/common/h5ds.utils.js');
-
-    __REACT_HOT_LOADER__.register(setAdsorbent, 'setAdsorbent', 'C:/DT/h5ds/H5DS_All/h5ds-edit-hm/src/app/common/h5ds.utils.js');
-
-    __REACT_HOT_LOADER__.register(langPage, 'langPage', 'C:/DT/h5ds/H5DS_All/h5ds-edit-hm/src/app/common/h5ds.utils.js');
-}();
-
-;
-
-/***/ }),
-/* 51 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.debounce = debounce;
-
-var _throttle = __webpack_require__(120);
-
-/**
- * @desc 函数防抖 
- * 与throttle不同的是，debounce保证一个函数在多少毫秒内不再被触发，只会执行一次，
- * 要么在第一次调用return的防抖函数时执行，要么在延迟指定毫秒后调用。
- * @example 适用场景：如在线编辑的自动存储防抖。
- * @param  {Number}   delay         0或者更大的毫秒数。 对于事件回调，大约100或250毫秒（或更高）的延迟是最有用的。
- * @param  {Boolean}  atBegin       可选，默认为false。
- *                                  如果`atBegin`为false或未传入，回调函数则在第一次调用return的防抖函数后延迟指定毫秒调用。
-                                    如果`atBegin`为true，回调函数则在第一次调用return的防抖函数时直接执行
- * @param  {Function} callback      延迟毫秒后执行的函数。`this`上下文和所有参数都是按原样传递的，
- *                                  执行去抖动功能时，，调用`callback`。
- *
- * @return {Function} 新的防抖函数。
- */
-function debounce(delay, atBegin, callback) {
-  return callback === undefined ? (0, _throttle.throttle)(delay, atBegin, false) : (0, _throttle.throttle)(delay, callback, atBegin !== false);
-}
-;
-
-var _temp = function () {
-  if (typeof __REACT_HOT_LOADER__ === 'undefined') {
-    return;
-  }
-
-  __REACT_HOT_LOADER__.register(debounce, 'debounce', 'C:/DT/h5ds/H5DS_All/h5ds-edit-hm/src/utils/debounce.js');
-}();
-
-;
-
-/***/ }),
-/* 52 */
-/***/ (function(module, exports) {
-
-module.exports = require("babel-runtime/helpers/objectWithoutProperties");
-
-/***/ }),
-/* 53 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-exports.default = undefined;
-
-var _getPrototypeOf = __webpack_require__(3);
-
-var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
-
-var _classCallCheck2 = __webpack_require__(1);
-
-var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
-
-var _createClass2 = __webpack_require__(2);
-
-var _createClass3 = _interopRequireDefault(_createClass2);
-
-var _possibleConstructorReturn2 = __webpack_require__(4);
-
-var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
-
-var _inherits2 = __webpack_require__(5);
-
-var _inherits3 = _interopRequireDefault(_inherits2);
-
-__webpack_require__(138);
-
-var _react = __webpack_require__(0);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _util = __webpack_require__(8);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-/**
- * @desc by Mantou tab 切换
- */
-var Tabs = function (_Component) {
-    (0, _inherits3.default)(Tabs, _Component);
-
-    function Tabs(props) {
-        (0, _classCallCheck3.default)(this, Tabs);
-
-        var _this = (0, _possibleConstructorReturn3.default)(this, (Tabs.__proto__ || (0, _getPrototypeOf2.default)(Tabs)).call(this, props));
-
-        _this.tabChange = function () {
-            return _this.__tabChange__REACT_HOT_LOADER__.apply(_this, arguments);
-        };
-
-        _this.state = {
-            active: props.active || 0
-        };
-        return _this;
-    }
-
-    // 切换
-
-
-    (0, _createClass3.default)(Tabs, [{
-        key: '__tabChange__REACT_HOT_LOADER__',
-
-
-        // 更新视图
-        value: function __tabChange__REACT_HOT_LOADER__(elem, index) {
-            var onChange = this.props.onChange;
-            // console.log(index);
-
-            this.setState({
-                active: index
-            }, function () {
-                if (onChange) {
-                    onChange(elem, index);
-                }
-            });
-        }
-    }, {
-        key: 'componentWillReceiveProps',
-        value: function componentWillReceiveProps(props) {
-            if (!(0, _util.isNot)(props.active) && props.active !== this.state.active) {
-                this.setState({
-                    active: props.active
-                });
-            }
-        }
-    }, {
-        key: 'render',
-        value: function render() {
-            var _this2 = this;
-
-            var temp = +new Date();
-            var active = this.state.active;
-            var _props = this.props,
-                children = _props.children,
-                className = _props.className;
-
-            var cName = ['h5ds-tab'];
-            if (className) {
-                cName.push(className);
-            }
-            return _react2.default.createElement(
-                'div',
-                { className: cName.join(' ') },
-                _react2.default.createElement(
-                    'div',
-                    { className: 'h5ds-tab-header' },
-                    _react2.default.createElement(
-                        'ul',
-                        null,
-                        children.map(function (elem, index) {
-                            if (elem) {
-                                return _react2.default.createElement(
-                                    'li',
-                                    {
-                                        key: elem.key ? elem.key : index + temp,
-                                        onClick: function onClick(e) {
-                                            return _this2.tabChange(elem, index);
-                                        },
-                                        className: 'h5ds-tab-head' + (active === index ? ' h5ds-active' : '')
-                                    },
-                                    elem.props.title
-                                );
-                            }
-                        })
-                    )
-                ),
-                _react2.default.createElement(
-                    'div',
-                    { className: 'h5ds-tab-body' },
-                    children.map(function (elem, index) {
-                        if (elem) {
-                            return _react2.default.createElement(
-                                'div',
-                                {
-                                    key: elem.key ? elem.key : index + temp,
-                                    id: elem.props.id,
-                                    className: 'h5ds-tab-box' + (active === index ? ' h5ds-active' : '')
-                                },
-                                elem.props.children
-                            );
-                        }
-                    })
-                )
-            );
-        }
-    }]);
-    return Tabs;
-}(_react.Component);
-
-// 自定义的item 这里只是为了定义一个标签名称
-
-
-exports.default = Tabs;
-
-var Item = function (_Component2) {
-    (0, _inherits3.default)(Item, _Component2);
-
-    // 构造函数
-    function Item(props) {
-        (0, _classCallCheck3.default)(this, Item);
-        return (0, _possibleConstructorReturn3.default)(this, (Item.__proto__ || (0, _getPrototypeOf2.default)(Item)).call(this, props));
-    }
-
-    (0, _createClass3.default)(Item, [{
-        key: 'render',
-        value: function render() {
-            return null;
-        }
-    }]);
-    return Item;
-}(_react.Component);
-
-Tabs.Item = Item;
-;
-
-var _temp = function () {
-    if (typeof __REACT_HOT_LOADER__ === 'undefined') {
-        return;
-    }
-
-    __REACT_HOT_LOADER__.register(Tabs, 'Tabs', 'C:/DT/h5ds/H5DS_All/h5ds-edit-hm/src/core/common/tabs/Tabs.jsx');
-
-    __REACT_HOT_LOADER__.register(Item, 'Item', 'C:/DT/h5ds/H5DS_All/h5ds-edit-hm/src/core/common/tabs/Tabs.jsx');
-}();
-
-;
-module.exports = exports['default'];
-
-/***/ }),
-/* 54 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-exports.default = undefined;
-
-var _getPrototypeOf = __webpack_require__(3);
-
-var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
-
-var _classCallCheck2 = __webpack_require__(1);
-
-var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
-
-var _createClass2 = __webpack_require__(2);
-
-var _createClass3 = _interopRequireDefault(_createClass2);
-
-var _possibleConstructorReturn2 = __webpack_require__(4);
-
-var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
-
-var _inherits2 = __webpack_require__(5);
-
-var _inherits3 = _interopRequireDefault(_inherits2);
-
-__webpack_require__(94);
-
-var _react = __webpack_require__(0);
-
-var _react2 = _interopRequireDefault(_react);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var Center = function (_Component) {
-    (0, _inherits3.default)(Center, _Component);
-
-    function Center() {
-        (0, _classCallCheck3.default)(this, Center);
-        return (0, _possibleConstructorReturn3.default)(this, (Center.__proto__ || (0, _getPrototypeOf2.default)(Center)).apply(this, arguments));
-    }
-
-    (0, _createClass3.default)(Center, [{
-        key: 'render',
-        value: function render() {
-            var _props = this.props,
-                tips = _props.tips,
-                body = _props.body;
-
-            return _react2.default.createElement(
-                'div',
-                { className: 'h5ds-loading-window' },
-                body ? body : _react2.default.createElement(
-                    'div',
-                    { className: 'h5ds-loading-center' },
-                    _react2.default.createElement(
-                        'div',
-                        { className: 'h5ds-loadbox' },
-                        tips ? tips : 'loading...'
-                    )
-                )
-            );
-        }
-    }]);
-    return Center;
-}(_react.Component);
-
-exports.default = Center;
-;
-
-var _temp = function () {
-    if (typeof __REACT_HOT_LOADER__ === 'undefined') {
-        return;
-    }
-
-    __REACT_HOT_LOADER__.register(Center, 'Center', 'C:/DT/h5ds/H5DS_All/h5ds-edit-hm/src/core/common/loading/Loading.jsx');
-}();
-
-;
-module.exports = exports['default'];
-
-/***/ }),
-/* 55 */
-/***/ (function(module, exports) {
-
-module.exports = require("antd/lib/popover");
-
-/***/ }),
-/* 56 */
-/***/ (function(module, exports) {
-
-module.exports = require("antd/lib/popover/style");
-
-/***/ }),
-/* 57 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.combin = exports.setCombinHTML = undefined;
-
-var _layer = __webpack_require__(97);
-
-var _CombinEditor = __webpack_require__(98);
-
-var _CombinEditor2 = _interopRequireDefault(_CombinEditor);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var _default = _CombinEditor2.default;
-exports.default = _default;
-exports.setCombinHTML = _layer.setCombinHTML;
-exports.combin = _layer.combin;
-;
-
-var _temp = function () {
-  if (typeof __REACT_HOT_LOADER__ === 'undefined') {
-    return;
-  }
-
-  __REACT_HOT_LOADER__.register(_default, 'default', 'C:/DT/h5ds/H5DS_All/h5ds-edit-hm/src/core/layers/combin/index.js');
-}();
-
-;
-
-/***/ }),
 /* 58 */
 /***/ (function(module, exports) {
 
@@ -3533,7 +3537,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = undefined;
 
-var _upload = __webpack_require__(116);
+var _upload = __webpack_require__(117);
 
 var _upload2 = _interopRequireDefault(_upload);
 
@@ -3545,7 +3549,7 @@ var _getPrototypeOf = __webpack_require__(3);
 
 var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
 
-var _classCallCheck2 = __webpack_require__(1);
+var _classCallCheck2 = __webpack_require__(0);
 
 var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
 
@@ -3561,11 +3565,11 @@ var _inherits2 = __webpack_require__(5);
 
 var _inherits3 = _interopRequireDefault(_inherits2);
 
-__webpack_require__(117);
+__webpack_require__(118);
 
 __webpack_require__(10);
 
-var _react = __webpack_require__(0);
+var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -3768,11 +3772,11 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _App = __webpack_require__(119);
+var _App = __webpack_require__(120);
 
 var _App2 = _interopRequireDefault(_App);
 
-var _LayerFun = __webpack_require__(121);
+var _LayerFun = __webpack_require__(122);
 
 var _LayerFun2 = _interopRequireDefault(_LayerFun);
 
@@ -3813,7 +3817,7 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _stringify = __webpack_require__(13);
+var _stringify = __webpack_require__(12);
 
 var _stringify2 = _interopRequireDefault(_stringify);
 
@@ -4119,19 +4123,15 @@ var _message2 = __webpack_require__(9);
 
 var _message3 = _interopRequireDefault(_message2);
 
-var _regenerator = __webpack_require__(18);
+var _stringify = __webpack_require__(12);
 
-var _regenerator2 = _interopRequireDefault(_regenerator);
-
-var _asyncToGenerator2 = __webpack_require__(19);
-
-var _asyncToGenerator3 = _interopRequireDefault(_asyncToGenerator2);
+var _stringify2 = _interopRequireDefault(_stringify);
 
 var _getPrototypeOf = __webpack_require__(3);
 
 var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
 
-var _classCallCheck2 = __webpack_require__(1);
+var _classCallCheck2 = __webpack_require__(0);
 
 var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
 
@@ -4147,29 +4147,33 @@ var _inherits2 = __webpack_require__(5);
 
 var _inherits3 = _interopRequireDefault(_inherits2);
 
-var _select = __webpack_require__(174);
+var _select = __webpack_require__(175);
 
 var _select2 = _interopRequireDefault(_select);
 
 __webpack_require__(10);
 
-__webpack_require__(175);
+__webpack_require__(176);
 
-var _react = __webpack_require__(0);
+var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _Colors = __webpack_require__(46);
+var _mobx = __webpack_require__(7);
+
+var _Colors = __webpack_require__(45);
 
 var _Colors2 = _interopRequireDefault(_Colors);
 
-var _PopoverInput = __webpack_require__(176);
+var _PopoverInput = __webpack_require__(177);
 
 var _PopoverInput2 = _interopRequireDefault(_PopoverInput);
 
-var _fonturl = __webpack_require__(180);
+var _debounce = __webpack_require__(71);
 
-var _mobx = __webpack_require__(7);
+var _debounce2 = _interopRequireDefault(_debounce);
+
+var _fonturl = __webpack_require__(181);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -4178,57 +4182,42 @@ var Option = _select2.default.Option;
 var FontSet = function (_Component) {
     (0, _inherits3.default)(FontSet, _Component);
 
-    function FontSet() {
-        var _ref,
-            _this3 = this;
-
-        var _temp, _this, _ret;
-
+    function FontSet(props) {
         (0, _classCallCheck3.default)(this, FontSet);
 
-        for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
-            args[_key] = arguments[_key];
-        }
+        var _this = (0, _possibleConstructorReturn3.default)(this, (FontSet.__proto__ || (0, _getPrototypeOf2.default)(FontSet)).call(this, props));
 
-        return _ret = (_temp = (_this = (0, _possibleConstructorReturn3.default)(this, (_ref = FontSet.__proto__ || (0, _getPrototypeOf2.default)(FontSet)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
-            keys: 1
-        }, _this.fontArr = [], _this.loadFont = function () {
-            var _this2;
+        _this.loadFont = function () {
+            return _this.__loadFont__REACT_HOT_LOADER__.apply(_this, arguments);
+        };
 
-            return (_this2 = _this).__loadFont__REACT_HOT_LOADER__.apply(_this2, arguments);
-        }, _this.syncRichTxt = (0, _asyncToGenerator3.default)( /*#__PURE__*/_regenerator2.default.mark(function _callee() {
-            var statekeys, str;
-            return _regenerator2.default.wrap(function _callee$(_context) {
-                while (1) {
-                    switch (_context.prev = _context.next) {
-                        case 0:
-                            statekeys = _this.state.keys;
+        _this.resetLayer = (0, _debounce2.default)(function () {
+            (0, _mobx.transaction)(function () {
+                _this.props.layer.data.style = JSON.parse((0, _stringify2.default)(_this.state.style));
+                _this.props.edata.keys++;
+                $(document).trigger('h5ds.setHistory');
+            });
+        }, 100);
 
-                            statekeys++;
-                            _context.next = 4;
-                            return _this.setState({ keys: statekeys });
+        _this.syncRichTxt = function () {
+            return _this.__syncRichTxt__REACT_HOT_LOADER__.apply(_this, arguments);
+        };
 
-                        case 4:
-                            str = $('.layerset-etext .fontedit').html();
+        _this.setFontStyle = function () {
+            return _this.__setFontStyle__REACT_HOT_LOADER__.apply(_this, arguments);
+        };
 
-                            $('#phone').find('.fontedit').html(str);
+        _this.clearFontStyle = function () {
+            return _this.__clearFontStyle__REACT_HOT_LOADER__.apply(_this, arguments);
+        };
 
-                        case 6:
-                        case 'end':
-                            return _context.stop();
-                    }
-                }
-            }, _callee, _this3);
-        })), _this.setFontStyle = function () {
-            var _this4;
-
-            return (_this4 = _this).__setFontStyle__REACT_HOT_LOADER__.apply(_this4, arguments);
-        }, _this.clearFontStyle = function () {
-            var _this5;
-
-            return (_this5 = _this).__clearFontStyle__REACT_HOT_LOADER__.apply(_this5, arguments);
-        }, _temp), (0, _possibleConstructorReturn3.default)(_this, _ret);
-    } // 存放已经载入的字体文件
+        _this.state = {
+            keys: 1,
+            style: (0, _mobx.toJS)(_this.props.layer.data.style) || {}
+        };
+        _this.fontArr = []; // 存放已经载入的字体文件
+        return _this;
+    }
 
     // 加载字体
 
@@ -4237,9 +4226,9 @@ var FontSet = function (_Component) {
         key: '__loadFont__REACT_HOT_LOADER__',
 
 
-        // 数据同步
+        // 渲染layer
         value: function __loadFont__REACT_HOT_LOADER__(name) {
-            var _this6 = this;
+            var _this2 = this;
 
             var url = _fonturl.fonturl[name];
             if (url && this.fontArr.indexOf(name) === -1) {
@@ -4256,10 +4245,10 @@ var FontSet = function (_Component) {
                 xhr.onload = function (e) {
                     //加载成功！
                     if (e.target.status == 200) {
-                        _this6.fontArr.push(name);
+                        _this2.fontArr.push(name);
                         $('head').append('<style>\n                    @font-face {\n                        font-family: ' + name + ';\n                        src: url(\'' + url + '\') format(\'truetype\');\n                    }\n                    </style>');
                         //设置字体
-                        _this6.setFontStyle(name, 'fontFamily');
+                        _this2.setFontStyle(name, 'fontFamily');
                     }
                 };
                 xhr.ontimeout = function () {
@@ -4272,58 +4261,58 @@ var FontSet = function (_Component) {
             }
         }
 
-        // 设置参数
+        // 数据同步
 
+    }, {
+        key: '__syncRichTxt__REACT_HOT_LOADER__',
+
+
+        // 设置参数
+        value: function __syncRichTxt__REACT_HOT_LOADER__(style) {
+            var _this3 = this;
+
+            this.setState({ style: style }, function () {
+                var str = $('.layerset-etext .fontedit').html();
+                $('#phone').find('.fontedit').html(str);
+                _this3.resetLayer();
+            });
+        }
     }, {
         key: '__setFontStyle__REACT_HOT_LOADER__',
 
 
         // 清除样式
         value: function __setFontStyle__REACT_HOT_LOADER__(val, keys, e) {
-            var _this7 = this;
-
             e && e.stopPropagation();
-            (0, _mobx.transaction)(function () {
-                _this7.props.layer.data.style[keys] = val;
-                _this7.props.edata.keys++;
-                $(document).trigger('h5ds.setHistory');
-                _this7.syncRichTxt();
-            });
+            var style = this.state.style;
+
+            style[keys] = val;
+            this.syncRichTxt(style);
         }
     }, {
         key: '__clearFontStyle__REACT_HOT_LOADER__',
         value: function __clearFontStyle__REACT_HOT_LOADER__() {
-            var _this8 = this;
-
-            (0, _mobx.transaction)(function () {
-                _this8.props.layer.data.style = {};
-                _this8.props.edata.keys++;
-                $(document).trigger('h5ds.setHistory');
-                _this8.syncRichTxt();
-            });
+            this.syncRichTxt({});
         }
     }, {
         key: 'render',
         value: function render() {
-            var _this9 = this;
+            var _this4 = this;
 
-            var layer = this.props.layer;
-            // console.log(layer.data.style.textAlign);
-
-            var _layer$data$style = layer.data.style,
-                fontWeight = _layer$data$style.fontWeight,
-                textAlign = _layer$data$style.textAlign,
-                textDecoration = _layer$data$style.textDecoration,
-                fontStyle = _layer$data$style.fontStyle,
-                textIndent = _layer$data$style.textIndent,
-                color = _layer$data$style.color,
-                backgroundColor = _layer$data$style.backgroundColor,
-                fontSize = _layer$data$style.fontSize,
-                lineHeight = _layer$data$style.lineHeight,
-                letterSpacing = _layer$data$style.letterSpacing,
-                marginLeft = _layer$data$style.marginLeft,
-                marginRight = _layer$data$style.marginRight,
-                fontFamily = _layer$data$style.fontFamily;
+            var style = this.state.style;
+            var fontWeight = style.fontWeight,
+                textAlign = style.textAlign,
+                textDecoration = style.textDecoration,
+                fontStyle = style.fontStyle,
+                textIndent = style.textIndent,
+                color = style.color,
+                backgroundColor = style.backgroundColor,
+                fontSize = style.fontSize,
+                lineHeight = style.lineHeight,
+                letterSpacing = style.letterSpacing,
+                marginLeft = style.marginLeft,
+                marginRight = style.marginRight,
+                fontFamily = style.fontFamily;
 
             return _react2.default.createElement(
                 'div',
@@ -4336,7 +4325,7 @@ var FontSet = function (_Component) {
                         {
                             className: fontWeight === 'bolder' ? 'active ex-btn' : 'ex-btn',
                             onClick: function onClick(e) {
-                                return _this9.setFontStyle(fontWeight === 'bolder' ? 'normal' : 'bolder', 'fontWeight', e);
+                                return _this4.setFontStyle(fontWeight === 'bolder' ? 'normal' : 'bolder', 'fontWeight', e);
                             }
                         },
                         _react2.default.createElement('i', { className: 'h5ds ico5-bold' })
@@ -4346,7 +4335,7 @@ var FontSet = function (_Component) {
                         {
                             className: fontStyle === 'oblique' ? 'active ex-btn' : 'ex-btn',
                             onClick: function onClick(e) {
-                                return _this9.setFontStyle(fontStyle === 'oblique' ? 'normal' : 'oblique', 'fontStyle', e);
+                                return _this4.setFontStyle(fontStyle === 'oblique' ? 'normal' : 'oblique', 'fontStyle', e);
                             }
                         },
                         _react2.default.createElement('i', { className: 'h5ds ico5-italic' })
@@ -4356,7 +4345,7 @@ var FontSet = function (_Component) {
                         {
                             className: textDecoration === 'line-through' ? 'active ex-btn' : 'ex-btn',
                             onClick: function onClick(e) {
-                                return _this9.setFontStyle(textDecoration === 'line-through' ? 'none' : 'line-through', 'textDecoration', e);
+                                return _this4.setFontStyle(textDecoration === 'line-through' ? 'none' : 'line-through', 'textDecoration', e);
                             }
                         },
                         _react2.default.createElement('i', { className: 'h5ds ico5-strikethrough' })
@@ -4366,7 +4355,7 @@ var FontSet = function (_Component) {
                         {
                             className: textDecoration === 'underline' ? 'active ex-btn' : 'ex-btn',
                             onClick: function onClick(e) {
-                                return _this9.setFontStyle(textDecoration === 'underline' ? 'none' : 'underline', 'textDecoration', e);
+                                return _this4.setFontStyle(textDecoration === 'underline' ? 'none' : 'underline', 'textDecoration', e);
                             }
                         },
                         _react2.default.createElement('i', { className: 'h5ds ico5-underline' })
@@ -4380,7 +4369,7 @@ var FontSet = function (_Component) {
                             {
                                 title: '\u5DE6\u7F29\u8FDB\uFF08px\uFF09',
                                 onChange: function onChange(n) {
-                                    return _this9.setFontStyle(n + 'px', 'marginLeft');
+                                    return _this4.setFontStyle(n + 'px', 'marginLeft');
                                 },
                                 value: parseInt(marginLeft || 0, 10)
                             },
@@ -4395,7 +4384,7 @@ var FontSet = function (_Component) {
                             {
                                 title: '\u53F3\u7F29\u8FDB\uFF08px\uFF09',
                                 onChange: function onChange(n) {
-                                    return _this9.setFontStyle(n + 'px', 'marginRight');
+                                    return _this4.setFontStyle(n + 'px', 'marginRight');
                                 },
                                 value: parseInt(marginRight || 0, 10)
                             },
@@ -4408,7 +4397,7 @@ var FontSet = function (_Component) {
                         {
                             className: textAlign === 'left' ? 'active ex-btn' : 'ex-btn',
                             onClick: function onClick(e) {
-                                return _this9.setFontStyle(textAlign === 'left' ? 'initial' : 'left', 'textAlign', e);
+                                return _this4.setFontStyle(textAlign === 'left' ? 'initial' : 'left', 'textAlign', e);
                             }
                         },
                         _react2.default.createElement('i', { className: 'h5ds ico5-alignleft' })
@@ -4418,7 +4407,7 @@ var FontSet = function (_Component) {
                         {
                             className: textAlign === 'center' ? 'active ex-btn' : 'ex-btn',
                             onClick: function onClick(e) {
-                                return _this9.setFontStyle(textAlign === 'center' ? 'initial' : 'center', 'textAlign', e);
+                                return _this4.setFontStyle(textAlign === 'center' ? 'initial' : 'center', 'textAlign', e);
                             }
                         },
                         _react2.default.createElement('i', { className: 'h5ds ico5-aligncenter' })
@@ -4428,7 +4417,7 @@ var FontSet = function (_Component) {
                         {
                             className: textAlign === 'right' ? 'active ex-btn' : 'ex-btn',
                             onClick: function onClick(e) {
-                                return _this9.setFontStyle(textAlign === 'right' ? 'initial' : 'right', 'textAlign', e);
+                                return _this4.setFontStyle(textAlign === 'right' ? 'initial' : 'right', 'textAlign', e);
                             }
                         },
                         _react2.default.createElement('i', { className: 'h5ds ico5-alignright' })
@@ -4445,7 +4434,7 @@ var FontSet = function (_Component) {
                         _react2.default.createElement(
                             _Colors2.default,
                             { color: color, onChange: function onChange(color) {
-                                    return _this9.setFontStyle(color.hex, 'color');
+                                    return _this4.setFontStyle(color.hex, 'color');
                                 } },
                             _react2.default.createElement('i', { className: 'h5ds ico5-zitiyanse' })
                         )
@@ -4458,7 +4447,7 @@ var FontSet = function (_Component) {
                             {
                                 color: backgroundColor,
                                 onChange: function onChange(color) {
-                                    return _this9.setFontStyle(color.hex, 'backgroundColor');
+                                    return _this4.setFontStyle(color.hex, 'backgroundColor');
                                 }
                             },
                             _react2.default.createElement('i', { className: 'h5ds ico5-a' })
@@ -4473,7 +4462,7 @@ var FontSet = function (_Component) {
                                 title: '\u5B57\u4F53\u5927\u5C0F\uFF08px\uFF09',
                                 min: 12,
                                 onChange: function onChange(n) {
-                                    return _this9.setFontStyle(n + 'px', 'fontSize');
+                                    return _this4.setFontStyle(n + 'px', 'fontSize');
                                 },
                                 value: parseInt(fontSize || 0, 10)
                             },
@@ -4488,7 +4477,7 @@ var FontSet = function (_Component) {
                             {
                                 title: '\u6587\u5B57\u95F4\u8DDD\uFF08px\uFF09',
                                 onChange: function onChange(n) {
-                                    return _this9.setFontStyle(n + 'px', 'letterSpacing');
+                                    return _this4.setFontStyle(n + 'px', 'letterSpacing');
                                 },
                                 value: parseInt(letterSpacing || 0, 10)
                             },
@@ -4503,7 +4492,7 @@ var FontSet = function (_Component) {
                             {
                                 title: '\u6587\u5B57\u884C\u9AD8\uFF08px\uFF09',
                                 onChange: function onChange(n) {
-                                    return _this9.setFontStyle(n + 'px', 'lineHeight');
+                                    return _this4.setFontStyle(n + 'px', 'lineHeight');
                                 },
                                 value: parseInt(lineHeight || 0, 10)
                             },
@@ -4516,7 +4505,7 @@ var FontSet = function (_Component) {
                         {
                             key: fontFamily,
                             onChange: function onChange(n) {
-                                return _this9.loadFont(n, 'fontFamily');
+                                return _this4.loadFont(n, 'fontFamily');
                             },
                             className: 'mt-select-min',
                             size: 'small',
@@ -4554,7 +4543,7 @@ var FontSet = function (_Component) {
 exports.default = FontSet;
 ;
 
-var _temp2 = function () {
+var _temp = function () {
     if (typeof __REACT_HOT_LOADER__ === 'undefined') {
         return;
     }
@@ -4569,6 +4558,12 @@ module.exports = exports['default'];
 
 /***/ }),
 /* 71 */
+/***/ (function(module, exports) {
+
+module.exports = require("lodash/debounce");
+
+/***/ }),
+/* 72 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4583,7 +4578,7 @@ var _getPrototypeOf = __webpack_require__(3);
 
 var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
 
-var _classCallCheck2 = __webpack_require__(1);
+var _classCallCheck2 = __webpack_require__(0);
 
 var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
 
@@ -4599,17 +4594,15 @@ var _inherits2 = __webpack_require__(5);
 
 var _inherits3 = _interopRequireDefault(_inherits2);
 
-__webpack_require__(72);
-
 __webpack_require__(73);
-
-__webpack_require__(26);
 
 __webpack_require__(74);
 
-__webpack_require__(27);
+__webpack_require__(26);
 
 __webpack_require__(75);
+
+__webpack_require__(27);
 
 __webpack_require__(76);
 
@@ -4635,11 +4628,13 @@ __webpack_require__(86);
 
 __webpack_require__(87);
 
-var _react = __webpack_require__(0);
+__webpack_require__(88);
+
+var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _App = __webpack_require__(88);
+var _App = __webpack_require__(89);
 
 var _App2 = _interopRequireDefault(_App);
 
@@ -4694,12 +4689,6 @@ var _temp = function () {
 module.exports = exports['default'];
 
 /***/ }),
-/* 72 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
 /* 73 */
 /***/ (function(module, exports) {
 
@@ -4713,6 +4702,12 @@ module.exports = exports['default'];
 
 /***/ }),
 /* 75 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 76 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4826,7 +4821,7 @@ var _temp = function () {
 ;
 
 /***/ }),
-/* 76 */
+/* 77 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4893,7 +4888,7 @@ var _temp = function () {
 ;
 
 /***/ }),
-/* 77 */
+/* 78 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4975,7 +4970,7 @@ var _temp = function () {
 ;
 
 /***/ }),
-/* 78 */
+/* 79 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5126,7 +5121,7 @@ var _temp = function () {
 ;
 
 /***/ }),
-/* 79 */
+/* 80 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5205,7 +5200,7 @@ var _temp = function () {
 ;
 
 /***/ }),
-/* 80 */
+/* 81 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5230,7 +5225,7 @@ var _temp = function () {
 ;
 
 /***/ }),
-/* 81 */
+/* 82 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5370,7 +5365,7 @@ var _temp = function () {
 ;
 
 /***/ }),
-/* 82 */
+/* 83 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5399,7 +5394,7 @@ var _temp = function () {
 ;
 
 /***/ }),
-/* 83 */
+/* 84 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5489,13 +5484,13 @@ var _temp = function () {
 ;
 
 /***/ }),
-/* 84 */
+/* 85 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _rect = __webpack_require__(22);
+var _rect = __webpack_require__(20);
 
 var _math = __webpack_require__(36);
 
@@ -5861,7 +5856,7 @@ var _temp = function () {
 ;
 
 /***/ }),
-/* 85 */
+/* 86 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6431,13 +6426,13 @@ var _temp = function () {
 ;
 
 /***/ }),
-/* 86 */
+/* 87 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _stringify = __webpack_require__(13);
+var _stringify = __webpack_require__(12);
 
 var _stringify2 = _interopRequireDefault(_stringify);
 
@@ -6471,7 +6466,7 @@ var _temp = function () {
 ;
 
 /***/ }),
-/* 87 */
+/* 88 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6564,7 +6559,7 @@ var _temp = function () {
 ;
 
 /***/ }),
-/* 88 */
+/* 89 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6575,11 +6570,11 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = undefined;
 
-var _localeProvider = __webpack_require__(89);
+var _localeProvider = __webpack_require__(90);
 
 var _localeProvider2 = _interopRequireDefault(_localeProvider);
 
-var _progress = __webpack_require__(90);
+var _progress = __webpack_require__(91);
 
 var _progress2 = _interopRequireDefault(_progress);
 
@@ -6603,7 +6598,7 @@ var _extends2 = __webpack_require__(11);
 
 var _extends3 = _interopRequireDefault(_extends2);
 
-var _stringify = __webpack_require__(13);
+var _stringify = __webpack_require__(12);
 
 var _stringify2 = _interopRequireDefault(_stringify);
 
@@ -6611,7 +6606,7 @@ var _getPrototypeOf = __webpack_require__(3);
 
 var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
 
-var _classCallCheck2 = __webpack_require__(1);
+var _classCallCheck2 = __webpack_require__(0);
 
 var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
 
@@ -6634,15 +6629,15 @@ var _dec, _class, _class2, _temp; // 额外添加的svg
 // 额外添加的svg
 
 
-__webpack_require__(91);
-
 __webpack_require__(92);
+
+__webpack_require__(93);
 
 __webpack_require__(10);
 
 var _util = __webpack_require__(8);
 
-var _zh_CN = __webpack_require__(93);
+var _zh_CN = __webpack_require__(94);
 
 var _zh_CN2 = _interopRequireDefault(_zh_CN);
 
@@ -6650,61 +6645,61 @@ var _mobx = __webpack_require__(7);
 
 var _mobxReact = __webpack_require__(6);
 
-var _react = __webpack_require__(0);
+var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _Loading = __webpack_require__(54);
+var _Loading = __webpack_require__(53);
 
 var _Loading2 = _interopRequireDefault(_Loading);
 
-var _FastBtn = __webpack_require__(95);
+var _FastBtn = __webpack_require__(96);
 
 var _FastBtn2 = _interopRequireDefault(_FastBtn);
 
-var _Header = __webpack_require__(105);
+var _Header = __webpack_require__(106);
 
 var _Header2 = _interopRequireDefault(_Header);
 
-var _LayerList = __webpack_require__(122);
+var _LayerList = __webpack_require__(123);
 
 var _LayerList2 = _interopRequireDefault(_LayerList);
 
-var _Index = __webpack_require__(124);
+var _Index = __webpack_require__(125);
 
 var _Index2 = _interopRequireDefault(_Index);
 
-var _Phone = __webpack_require__(127);
+var _Phone = __webpack_require__(128);
 
 var _Phone2 = _interopRequireDefault(_Phone);
 
-var _Setting = __webpack_require__(133);
+var _Setting = __webpack_require__(134);
 
 var _Setting2 = _interopRequireDefault(_Setting);
 
-var _combin = __webpack_require__(57);
+var _combin = __webpack_require__(56);
 
 var _combin2 = _interopRequireDefault(_combin);
 
-var _etext = __webpack_require__(167);
+var _etext = __webpack_require__(168);
 
 var _etext2 = _interopRequireDefault(_etext);
 
-var _img = __webpack_require__(182);
+var _img = __webpack_require__(183);
 
 var _img2 = _interopRequireDefault(_img);
 
-var _Layer = __webpack_require__(186);
+var _Layer = __webpack_require__(187);
 
 var _Layer2 = _interopRequireDefault(_Layer);
 
-var _TimeLine = __webpack_require__(188);
+var _TimeLine = __webpack_require__(189);
 
 var _TimeLine2 = _interopRequireDefault(_TimeLine);
 
-var _data = __webpack_require__(190);
+var _data = __webpack_require__(191);
 
-var _shortcuts = __webpack_require__(191);
+var _shortcuts = __webpack_require__(192);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -6733,7 +6728,7 @@ var App = (_dec = (0, _mobxReact.inject)('app', 'layerfun'), _dec(_class = (0, _
         return _this;
     }
 
-    // isPhoneView 不设置layer.id ， isMinPage 缩小页面
+    // isPhoneView 首页预览页面 ， isMinPage 缩小页面 set = {isPhoneView: false, isMinPage: false, isView: false }
 
 
     (0, _createClass3.default)(App, [{
@@ -6751,11 +6746,8 @@ var App = (_dec = (0, _mobxReact.inject)('app', 'layerfun'), _dec(_class = (0, _
 
 
         // 给layerfun赋值
-        value: function __pageToHTML__REACT_HOT_LOADER__(page) {
+        value: function __pageToHTML__REACT_HOT_LOADER__(page, set) {
             var _this2 = this;
-
-            var isPhoneView = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
-            var isMinPage = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
 
             if (!page || (0, _stringify2.default)(page) === '{}') {
                 return null;
@@ -6775,6 +6767,9 @@ var App = (_dec = (0, _mobxReact.inject)('app', 'layerfun'), _dec(_class = (0, _
                 style = { height: height, width: width };
             }
             var layersSet = this.props.layerfun.layersSet;
+            var isPhoneView = set.isPhoneView,
+                isMinPage = set.isMinPage,
+                isView = set.isView;
 
             var JSXDOM = _react2.default.createElement(
                 'div',
@@ -6784,7 +6779,8 @@ var App = (_dec = (0, _mobxReact.inject)('app', 'layerfun'), _dec(_class = (0, _
                     if (layersSet[layer.type]) {
                         dom = layersSet[layer.type].layerdom(layer, index, _this2.props.layerfun, {
                             isMinPage: isMinPage,
-                            isPhoneView: isPhoneView
+                            isPhoneView: isPhoneView,
+                            isView: isView
                         });
                     } else {
                         dom = _react2.default.createElement(
@@ -6807,8 +6803,11 @@ var App = (_dec = (0, _mobxReact.inject)('app', 'layerfun'), _dec(_class = (0, _
                     return _react2.default.createElement(
                         _Layer2.default,
                         {
-                            isPhoneView: isPhoneView,
-                            isMinPage: isMinPage,
+                            set: {
+                                isMinPage: isMinPage,
+                                isPhoneView: isPhoneView,
+                                isView: isView
+                            },
                             layer: layer,
                             zIndex: zIndex - index,
                             key: layer.keyid
@@ -6831,30 +6830,9 @@ var App = (_dec = (0, _mobxReact.inject)('app', 'layerfun'), _dec(_class = (0, _
 
             // 默认有图片和文字，合并图层
             var layersSet = {
-                img: {
-                    type: 'img',
-                    name: '图片',
-                    icon: _react2.default.createElement('i', { className: 'h5ds ico5-beijing' }),
-                    editor: _img2.default,
-                    layerdom: _img.setImgHTML,
-                    origindata: _img.img
-                },
-                etext: {
-                    type: 'etext',
-                    name: '文本',
-                    icon: _react2.default.createElement('i', { className: 'h5ds ico5-wenben' }),
-                    editor: _etext2.default,
-                    layerdom: _etext.setEtextHTML,
-                    origindata: _etext.etext
-                },
-                combin: {
-                    type: 'combin',
-                    name: '合并层',
-                    icon: null,
-                    editor: _combin2.default,
-                    layerdom: _combin.setCombinHTML,
-                    origindata: _combin.combin
-                }
+                img: _img2.default,
+                etext: _etext2.default,
+                combin: _combin2.default
             };
             var modals = [];
             this.props.plugins.forEach(function (plus) {
@@ -6872,7 +6850,7 @@ var App = (_dec = (0, _mobxReact.inject)('app', 'layerfun'), _dec(_class = (0, _
                 _this3.props.layerfun.publishApp = _this3.props.publishApp || null;
                 _this3.props.layerfun.uploadBase64 = _this3.props.uploadBase64 || null;
                 _this3.props.layerfun.uploadSet = _this3.props.uploadSet || null;
-                _this3.props.layerfun.conf = _this3.props.conf || {};
+                _this3.props.layerfun.config = _this3.props.config || {};
                 _this3.props.layerfun.layersSet = layersSet;
             });
 
@@ -6927,7 +6905,7 @@ var App = (_dec = (0, _mobxReact.inject)('app', 'layerfun'), _dec(_class = (0, _
         value: function componentWillReceiveProps(nextProps) {
             // 如果二次修改data参数的时候
             console.log('如果二次修改data参数的时候');
-            this.props.app.initApp(nextProps.data, nextProps.appset);
+            this.props.app.initApp(nextProps.data, nextProps.appid);
             this.setLayers();
             if (!this.shortcuts) {
                 this.shortcuts = true;
@@ -6940,7 +6918,7 @@ var App = (_dec = (0, _mobxReact.inject)('app', 'layerfun'), _dec(_class = (0, _
             // 如果初次进入，data存在，就执行渲染。
             if (this.props.data) {
                 console.log('如果初次进入，data存在，就执行渲染。');
-                this.props.app.initApp(this.props.data, this.props.appset);
+                this.props.app.initApp(this.props.data, this.props.appid);
                 this.setLayers();
             }
             if (!this.shortcuts) {
@@ -7043,7 +7021,7 @@ var App = (_dec = (0, _mobxReact.inject)('app', 'layerfun'), _dec(_class = (0, _
     }]);
     return App;
 }(_react.Component), _class2.defaultProps = {
-    appset: { appid: (0, _util.getRandomID)() },
+    appset: { appid: 'h5ds_demo_appid' },
     plugins: [],
     data: _data.data
 }, _temp)) || _class) || _class);
@@ -7062,43 +7040,43 @@ var _temp2 = function () {
 module.exports = exports['default'];
 
 /***/ }),
-/* 89 */
+/* 90 */
 /***/ (function(module, exports) {
 
 module.exports = require("antd/lib/locale-provider");
 
 /***/ }),
-/* 90 */
+/* 91 */
 /***/ (function(module, exports) {
 
 module.exports = require("antd/lib/progress");
 
 /***/ }),
-/* 91 */
+/* 92 */
 /***/ (function(module, exports) {
 
 module.exports = require("antd/lib/locale-provider/style");
 
 /***/ }),
-/* 92 */
+/* 93 */
 /***/ (function(module, exports) {
 
 module.exports = require("antd/lib/progress/style");
 
 /***/ }),
-/* 93 */
+/* 94 */
 /***/ (function(module, exports) {
 
 module.exports = require("antd/lib/locale-provider/zh_CN");
 
 /***/ }),
-/* 94 */
+/* 95 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 95 */
+/* 96 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7109,7 +7087,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = undefined;
 
-var _popover = __webpack_require__(55);
+var _popover = __webpack_require__(54);
 
 var _popover2 = _interopRequireDefault(_popover);
 
@@ -7125,15 +7103,15 @@ var _message2 = __webpack_require__(9);
 
 var _message3 = _interopRequireDefault(_message2);
 
-var _regenerator = __webpack_require__(18);
+var _regenerator = __webpack_require__(21);
 
 var _regenerator2 = _interopRequireDefault(_regenerator);
 
-var _asyncToGenerator2 = __webpack_require__(19);
+var _asyncToGenerator2 = __webpack_require__(22);
 
 var _asyncToGenerator3 = _interopRequireDefault(_asyncToGenerator2);
 
-var _stringify = __webpack_require__(13);
+var _stringify = __webpack_require__(12);
 
 var _stringify2 = _interopRequireDefault(_stringify);
 
@@ -7141,7 +7119,7 @@ var _getPrototypeOf = __webpack_require__(3);
 
 var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
 
-var _classCallCheck2 = __webpack_require__(1);
+var _classCallCheck2 = __webpack_require__(0);
 
 var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
 
@@ -7163,7 +7141,7 @@ var _radio2 = _interopRequireDefault(_radio);
 
 var _dec, _class;
 
-__webpack_require__(56);
+__webpack_require__(55);
 
 __webpack_require__(42);
 
@@ -7171,9 +7149,9 @@ __webpack_require__(10);
 
 __webpack_require__(43);
 
-__webpack_require__(96);
+__webpack_require__(97);
 
-var _react = __webpack_require__(0);
+var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -7183,9 +7161,11 @@ var _util = __webpack_require__(8);
 
 var _mobxReact = __webpack_require__(6);
 
-var _combin = __webpack_require__(57);
+var _combin = __webpack_require__(56);
 
-var _rect = __webpack_require__(22);
+var _combin2 = _interopRequireDefault(_combin);
+
+var _rect = __webpack_require__(20);
 
 var _mobx = __webpack_require__(7);
 
@@ -7386,19 +7366,15 @@ var Center = (_dec = (0, _mobxReact.inject)('app', 'layerfun'), _dec(_class = (0
                                 while (1) {
                                     switch (_context.prev = _context.next) {
                                         case 0:
-                                            originLayerSet(data.data);
-                                            // 如果有id，需要重新设置一个id
-                                            if (data.data.id) {
-                                                data.data.id = 'layer_' + (0, _util.getRandomID)();
-                                            }
+                                            originLayerSet(data.data, true);
                                             layers.unshift(data.data);
-                                            _context.next = 5;
+                                            _context.next = 4;
                                             return setLayer(0);
 
-                                        case 5:
+                                        case 4:
                                             $(document).trigger('h5ds.iniControl');
 
-                                        case 6:
+                                        case 5:
                                         case 'end':
                                             return _context.stop();
                                     }
@@ -7421,11 +7397,7 @@ var Center = (_dec = (0, _mobxReact.inject)('app', 'layerfun'), _dec(_class = (0
 
                                                 layer.style.top += 10;
                                                 layer.style.left += 10;
-                                                originLayerSet(layer);
-                                                // 如果有id，需要重新设置一个id
-                                                if (layer.id) {
-                                                    layer.id = 'layer_' + (0, _util.getRandomID)();
-                                                }
+                                                originLayerSet(layer, true);
                                                 layers.unshift(layer);
                                             }
                                             edata.setType = 'group';
@@ -7595,7 +7567,8 @@ var Center = (_dec = (0, _mobxReact.inject)('app', 'layerfun'), _dec(_class = (0
                 edata = _props$app4.edata,
                 getGroups = _props$app4.getGroups,
                 addLayer = _props$app4.addLayer,
-                delGroupLayer = _props$app4.delGroupLayer;
+                delGroupLayer = _props$app4.delGroupLayer,
+                newToObj = _props$app4.newToObj;
 
             if (!edata.selectGroup) {
                 _message3.default.warn('请先选择一组图层！');
@@ -7613,7 +7586,7 @@ var Center = (_dec = (0, _mobxReact.inject)('app', 'layerfun'), _dec(_class = (0
                 tops.push(size.top + size.boxHeight);
                 lefts.push(size.left);
                 lefts.push(size.left + size.boxWidth);
-                arr.push(JSON.parse((0, _stringify2.default)(elem.layer)));
+                arr.push(newToObj(elem.layer));
             });
             var top = Math.min.apply(Math, tops);
             var left = Math.min.apply(Math, lefts);
@@ -7630,13 +7603,15 @@ var Center = (_dec = (0, _mobxReact.inject)('app', 'layerfun'), _dec(_class = (0
             //     return a.
             // })
 
-            _combin.combin.style.top = top;
-            _combin.combin.style.left = left;
-            _combin.combin.originstyle.width = width;
-            _combin.combin.originstyle.height = height;
-            _combin.combin.style.width = width;
-            _combin.combin.style.height = height;
-            _combin.combin.layers = arr;
+            var oData = _combin2.default.origindata;
+            var combin = newToObj(new oData());
+            combin.style.top = top;
+            combin.style.left = left;
+            combin.originstyle.width = width;
+            combin.originstyle.height = height;
+            combin.style.width = width;
+            combin.style.height = height;
+            combin.layers = arr;
             (0, _mobx.transaction)((0, _asyncToGenerator3.default)( /*#__PURE__*/_regenerator2.default.mark(function _callee6() {
                 var mIndex;
                 return _regenerator2.default.wrap(function _callee6$(_context6) {
@@ -7651,7 +7626,7 @@ var Center = (_dec = (0, _mobxReact.inject)('app', 'layerfun'), _dec(_class = (0
 
                             case 3:
                                 _context6.next = 5;
-                                return addLayer(_combin.combin, mIndex);
+                                return addLayer(combin, mIndex);
 
                             case 5:
                                 edata.keys++;
@@ -7844,7 +7819,7 @@ var Center = (_dec = (0, _mobxReact.inject)('app', 'layerfun'), _dec(_class = (0
                     keyid: (0, _util.getRandomID)(),
                     name: '空白页面',
                     desc: '页面描述',
-                    style: { height: 486 },
+                    style: { height: 514 },
                     layers: [],
                     animate: [],
                     slider: {
@@ -8297,74 +8272,10 @@ var _temp2 = function () {
 module.exports = exports['default'];
 
 /***/ }),
-/* 96 */
+/* 97 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 97 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-exports.combin = undefined;
-exports.setCombinHTML = setCombinHTML;
-
-var _react = __webpack_require__(0);
-
-var _react2 = _interopRequireDefault(_react);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-// 设置 dom
-function setCombinHTML(layer, zIndex, layerfun) {
-    console.log('setCombinHTML do>>>>>>>>>');
-    return _react2.default.createElement(
-        'div',
-        { className: 'layer-combinbox' },
-        layer ? layerfun.pageToHTML(layer, true) : null
-    );
-}
-
-// 原始数据
-var combin = exports.combin = {
-    id: null,
-    animate: [],
-    layers: [],
-    estyle: {},
-    originstyle: {
-        // 原始尺寸，缩放的时候会用到
-        width: 0,
-        height: 0
-    },
-    style: {
-        width: 0,
-        height: 0,
-        top: 0,
-        left: 0
-    },
-    type: 'combin',
-    color: '',
-    ue: {}
-};
-;
-
-var _temp = function () {
-    if (typeof __REACT_HOT_LOADER__ === 'undefined') {
-        return;
-    }
-
-    __REACT_HOT_LOADER__.register(setCombinHTML, 'setCombinHTML', 'C:/DT/h5ds/H5DS_All/h5ds-edit-hm/src/core/layers/combin/layer.jsx');
-
-    __REACT_HOT_LOADER__.register(combin, 'combin', 'C:/DT/h5ds/H5DS_All/h5ds-edit-hm/src/core/layers/combin/layer.jsx');
-}();
-
-;
 
 /***/ }),
 /* 98 */
@@ -8376,9 +8287,82 @@ var _temp = function () {
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
+exports.Origindata = undefined;
+
+var _classCallCheck2 = __webpack_require__(0);
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+exports.layerdom = layerdom;
+
+var _react = __webpack_require__(1);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+// 设置 dom
+function layerdom(layer, zIndex, layerfun, set) {
+    // const { isPhoneView, isMinPage, isView } = set;
+    return _react2.default.createElement(
+        'div',
+        { className: 'layer-combinbox' },
+        layer ? layerfun.pageToHTML(layer, set) : null
+    );
+}
+
+// 原始数据
+
+var Origindata = exports.Origindata = function Origindata() {
+    (0, _classCallCheck3.default)(this, Origindata);
+
+    this.id = null;
+    this.animate = [];
+    this.layers = [];
+    this.estyle = {};
+    this.originstyle = {
+        // 原始尺寸，缩放的时候会用到
+        width: 0,
+        height: 0
+    };
+    this.style = {
+        width: 0,
+        height: 0,
+        top: 0,
+        left: 0
+    };
+    this.type = 'combin';
+    this.color = '';
+    this.ue = {};
+};
+
+;
+
+var _temp = function () {
+    if (typeof __REACT_HOT_LOADER__ === 'undefined') {
+        return;
+    }
+
+    __REACT_HOT_LOADER__.register(layerdom, 'layerdom', 'C:/DT/h5ds/H5DS_All/h5ds-edit-hm/src/core/layers/combin/layer.jsx');
+
+    __REACT_HOT_LOADER__.register(Origindata, 'Origindata', 'C:/DT/h5ds/H5DS_All/h5ds-edit-hm/src/core/layers/combin/layer.jsx');
+}();
+
+;
+
+/***/ }),
+/* 99 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
 exports.default = undefined;
 
-var _defineProperty2 = __webpack_require__(14);
+var _defineProperty2 = __webpack_require__(13);
 
 var _defineProperty3 = _interopRequireDefault(_defineProperty2);
 
@@ -8386,7 +8370,7 @@ var _getPrototypeOf = __webpack_require__(3);
 
 var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
 
-var _classCallCheck2 = __webpack_require__(1);
+var _classCallCheck2 = __webpack_require__(0);
 
 var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
 
@@ -8402,22 +8386,15 @@ var _inherits2 = __webpack_require__(5);
 
 var _inherits3 = _interopRequireDefault(_inherits2);
 
-var _dec, _class;
-
-// import 'simditor/styles/editor.less';
-
-
-__webpack_require__(99);
-
 __webpack_require__(100);
 
-var _react = __webpack_require__(0);
+__webpack_require__(101);
+
+var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
 var _mobx = __webpack_require__(7);
-
-var _mobxReact = __webpack_require__(6);
 
 var _BackGround = __webpack_require__(44);
 
@@ -8428,7 +8405,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 /**
  * @desc 倒计时
  */
-var CombinEditor = (_dec = (0, _mobxReact.inject)(['app']), _dec(_class = (0, _mobxReact.observer)(_class = function (_Component) {
+var CombinEditor = function (_Component) {
     (0, _inherits3.default)(CombinEditor, _Component);
 
     function CombinEditor(props) {
@@ -8497,7 +8474,11 @@ var CombinEditor = (_dec = (0, _mobxReact.inject)(['app']), _dec(_class = (0, _m
         }
     }]);
     return CombinEditor;
-}(_react.Component)) || _class) || _class);
+}(_react.Component);
+
+// import 'simditor/styles/editor.less';
+
+
 exports.default = CombinEditor;
 ;
 
@@ -8511,12 +8492,6 @@ var _temp = function () {
 
 ;
 module.exports = exports['default'];
-
-/***/ }),
-/* 99 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
 
 /***/ }),
 /* 100 */
@@ -8546,10 +8521,16 @@ module.exports = exports['default'];
 /* 104 */
 /***/ (function(module, exports) {
 
-module.exports = require("react-color");
+// removed by extract-text-webpack-plugin
 
 /***/ }),
 /* 105 */
+/***/ (function(module, exports) {
+
+module.exports = require("react-color");
+
+/***/ }),
+/* 106 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8568,7 +8549,7 @@ var _getPrototypeOf = __webpack_require__(3);
 
 var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
 
-var _classCallCheck2 = __webpack_require__(1);
+var _classCallCheck2 = __webpack_require__(0);
 
 var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
 
@@ -8588,29 +8569,29 @@ var _dec, _class;
 
 __webpack_require__(59);
 
-__webpack_require__(106);
+__webpack_require__(107);
 
-var _react = __webpack_require__(0);
+var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
 var _mobxReact = __webpack_require__(6);
 
-var _LayersMenu = __webpack_require__(107);
+var _LayersMenu = __webpack_require__(108);
 
 var _LayersMenu2 = _interopRequireDefault(_LayersMenu);
 
-var _Publish = __webpack_require__(111);
+var _Publish = __webpack_require__(112);
 
 var _Publish2 = _interopRequireDefault(_Publish);
 
 var _localStorage = __webpack_require__(66);
 
-var _indexedDB = __webpack_require__(15);
+var _indexedDB = __webpack_require__(14);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var Center = (_dec = (0, _mobxReact.inject)(['app']), _dec(_class = (0, _mobxReact.observer)(_class = function (_Component) {
+var Center = (_dec = (0, _mobxReact.inject)('app', 'layerfun'), _dec(_class = (0, _mobxReact.observer)(_class = function (_Component) {
     (0, _inherits3.default)(Center, _Component);
 
     function Center() {
@@ -8647,7 +8628,9 @@ var Center = (_dec = (0, _mobxReact.inject)(['app']), _dec(_class = (0, _mobxRea
 
         // 设置type
         value: function __clears__REACT_HOT_LOADER__() {
-            (0, _localStorage.clearStorage)();
+            (0, _localStorage.clearStorage)('APP_DATA');
+            (0, _localStorage.clearStorage)('APP_EDATA');
+            (0, _localStorage.clearStorage)('APP_STORE');
             (0, _indexedDB.deleteDB)('H5DS');
             window.location.reload();
         }
@@ -8715,6 +8698,7 @@ var Center = (_dec = (0, _mobxReact.inject)(['app']), _dec(_class = (0, _mobxRea
             var _this5 = this;
 
             var data = this.props.app.data;
+            var config = this.props.layerfun.config;
 
             return _react2.default.createElement(
                 'div',
@@ -8724,7 +8708,7 @@ var Center = (_dec = (0, _mobxReact.inject)(['app']), _dec(_class = (0, _mobxRea
                     { className: 'logo' },
                     _react2.default.createElement(
                         'a',
-                        { target: '_blank', href: 'http://www.h5ds.com' },
+                        { rel: 'noopener noreferrer', target: '_blank', href: 'http://www.h5ds.com' },
                         'H5',
                         _react2.default.createElement(
                             'span',
@@ -8822,9 +8806,9 @@ var Center = (_dec = (0, _mobxReact.inject)(['app']), _dec(_class = (0, _mobxRea
                     _react2.default.createElement(_Publish2.default, null),
                     _react2.default.createElement(
                         'a',
-                        { href: '/api/logout', className: 'logout' },
-                        _react2.default.createElement('i', { className: 'h5ds ico5-tuichu' }),
-                        ' \u9000\u51FA'
+                        { href: config.backUrl, className: 'logout' },
+                        _react2.default.createElement('i', { className: 'h5ds ico5-wangge' }),
+                        ' \u8FD4\u56DE'
                     )
                 )
             );
@@ -8847,13 +8831,13 @@ var _temp2 = function () {
 module.exports = exports['default'];
 
 /***/ }),
-/* 106 */
+/* 107 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 107 */
+/* 108 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8868,7 +8852,7 @@ var _message2 = __webpack_require__(9);
 
 var _message3 = _interopRequireDefault(_message2);
 
-var _stringify = __webpack_require__(13);
+var _stringify = __webpack_require__(12);
 
 var _stringify2 = _interopRequireDefault(_stringify);
 
@@ -8876,7 +8860,7 @@ var _getPrototypeOf = __webpack_require__(3);
 
 var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
 
-var _classCallCheck2 = __webpack_require__(1);
+var _classCallCheck2 = __webpack_require__(0);
 
 var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
 
@@ -8896,9 +8880,9 @@ var _dec, _class;
 
 __webpack_require__(10);
 
-__webpack_require__(108);
+__webpack_require__(109);
 
-var _react = __webpack_require__(0);
+var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -8906,7 +8890,7 @@ var _mobx = __webpack_require__(7);
 
 var _mobxReact = __webpack_require__(6);
 
-var _InputImgUrl = __webpack_require__(109);
+var _InputImgUrl = __webpack_require__(110);
 
 var _InputImgUrl2 = _interopRequireDefault(_InputImgUrl);
 
@@ -8966,81 +8950,97 @@ var LayersMenu = (_dec = (0, _mobxReact.inject)('app', 'layerfun'), _dec(_class 
             console.log('当前操作对象：', setType);
             url = url.replace(/\\/g, '/');
 
-            // appbg, pagebg, layerbg, addimg, changeimg 几个种类
-            if (setType === 'addimg') {
-                var layer = JSON.parse((0, _stringify2.default)(this.props.layerfun.layersSet.img.origindata));
-                (0, _mobx.transaction)(function () {
-                    // 需要修改原始尺寸
-                    var _img = $('<img src="' + url + '"/>')[0];
-                    layer.style.width = _img.naturalWidth / 2 || 200;
-                    layer.style.height = _img.naturalHeight / 2 || 200;
-                    layer.data.src = url;
-                    addLayer(layer);
-                    edata.keys++;
+            switch (setType) {
+                case 'addimg':
+                    {
+                        var Odata = this.props.layerfun.layersSet.img.origindata;
+                        var layer = JSON.parse((0, _stringify2.default)(new Odata()));
+                        (0, _mobx.transaction)(function () {
+                            // 需要修改原始尺寸
+                            var _img = $('<img src="' + url + '"/>')[0];
+                            layer.style.width = _img.naturalWidth / 2 || 200;
+                            layer.style.height = _img.naturalHeight / 2 || 200;
+                            layer.data.src = url;
+                            addLayer(layer);
+                            edata.keys++;
 
-                    // 添加图片后，选中添加的图层
-                    setTimeout(function () {
-                        $('#layerlist').find('.layer-item').eq(0).trigger('click');
-                    }, 0);
-                });
-            } else if (setType === 'changeimg') {
-                (0, _mobx.transaction)(function () {
-                    var layer = getLayer();
-                    layer.data.src = url;
-                    edata.keys++;
-                    edata.layerKeys++;
-                });
-            } else if (setType === 'layerbg') {
-                var _layer = getLayer();
-                (0, _mobx.transaction)(function () {
-                    // 如果是其他背景图片
-                    _layer.estyle.backgroundImage = 'url(' + url + ')';
-                    _layer.estyle.backgroundRepeat = 'no-repeat';
-                    _layer.estyle.backgroundSize = 'initial';
-                    _layer.estyle.backgroundColor = 'none';
-                    edata.layerKeys = +new Date();
-                    $(document).trigger('h5ds.changeLayerBg');
-                });
-            } else if (setType === 'pagebg') {
-                var page = getPage();
-                if (page.style.backgroundImage) {
-                    page.style.backgroundImage = 'url(' + url + ')';
-                } else {
-                    (0, _mobx.extendObservable)(page.style, {
-                        backgroundImage: 'url(' + url + ')'
-                    });
-                    edata.keys++;
-                }
-                $(document).trigger('h5ds.changePageBg');
-            } else if (setType === 'appbg') {
-                if (data.style.backgroundImage) {
-                    data.style.backgroundImage = 'url(' + url + ')';
-                } else {
-                    (0, _mobx.extendObservable)(data.style, {
-                        backgroundImage: 'url(' + url + ')'
-                    });
-                    edata.keys++;
-                }
-                $(document).trigger('h5ds.changeAppBg');
+                            // 添加图片后，选中添加的图层
+                            setTimeout(function () {
+                                $('#layerlist').find('.layer-item').eq(0).trigger('click');
+                            }, 0);
+                        });
+                    }
+                    break;
+                case 'changeimg':
+                    {
+                        (0, _mobx.transaction)(function () {
+                            var layer = getLayer();
+                            layer.data.src = url;
+                            edata.keys++;
+                            edata.layerKeys++;
+                        });
+                    }
+                    break;
+                case 'layerbg':
+                    {
+                        var _layer = getLayer();
+                        (0, _mobx.transaction)(function () {
+                            // 如果是其他背景图片
+                            _layer.estyle.backgroundImage = 'url(' + url + ')';
+                            _layer.estyle.backgroundRepeat = 'no-repeat';
+                            _layer.estyle.backgroundSize = 'initial';
+                            _layer.estyle.backgroundColor = 'none';
+                            edata.layerKeys = +new Date();
+                            $(document).trigger('h5ds.changeLayerBg');
+                        });
+                    }
+                    break;
+                case 'pagebg':
+                    {
+                        var page = getPage();
+                        if (page.style.backgroundImage) {
+                            page.style.backgroundImage = 'url(' + url + ')';
+                        } else {
+                            (0, _mobx.extendObservable)(page.style, {
+                                backgroundImage: 'url(' + url + ')'
+                            });
+                            edata.keys++;
+                        }
+                        $(document).trigger('h5ds.changePageBg');
+                    }
+                    break;
+                case 'appbg':
+                    {
+                        if (data.style.backgroundImage) {
+                            data.style.backgroundImage = 'url(' + url + ')';
+                        } else {
+                            (0, _mobx.extendObservable)(data.style, {
+                                backgroundImage: 'url(' + url + ')'
+                            });
+                            edata.keys++;
+                        }
+                        $(document).trigger('h5ds.changeAppBg');
+                    }
+                    break;
+                default:
+                    return;
             }
             $(document).trigger('h5ds.setHistory');
-            // this.closeModal();
             $(document).trigger('h5ds.addImageEnd');
+            // appbg, pagebg, layerbg, addimg, changeimg 几个种类
         }
     }, {
         key: '__addLayer__REACT_HOT_LOADER__',
         value: function __addLayer__REACT_HOT_LOADER__(name) {
-            // if (['img', 'text', 'svg', 'etext', 'map', 'video'].indexOf(name) === -1) {
-            //     message.warn('功能暂时没有开通！试试图片');
-            //     return;
-            // }
             $(document).trigger('h5ds.destoryControl');
             var _props$app2 = this.props.app,
                 addLayer = _props$app2.addLayer,
                 setLayer = _props$app2.setLayer;
             var layersSet = this.props.layerfun.layersSet;
 
-            var data = JSON.parse((0, _stringify2.default)(layersSet[name].origindata));
+            var Odata = layersSet[name].origindata;
+            var data = JSON.parse((0, _stringify2.default)(new Odata()));
+
             // setlayer后，多个组件之间有个执行顺序问题。这里异步处理
             setTimeout(function () {
                 // 如果是图片，打开图片资源
@@ -9154,7 +9154,7 @@ var LayersMenu = (_dec = (0, _mobxReact.inject)('app', 'layerfun'), _dec(_class 
                     'ul',
                     { className: 'moreuse' },
                     fastbtns.map(function (elem, index) {
-                        if (index > 7) {
+                        if (index > 6) {
                             return null;
                         }
                         return _react2.default.createElement(
@@ -9236,13 +9236,13 @@ var _temp2 = function () {
 module.exports = exports['default'];
 
 /***/ }),
-/* 108 */
+/* 109 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 109 */
+/* 110 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9253,7 +9253,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = undefined;
 
-var _modal = __webpack_require__(48);
+var _modal = __webpack_require__(47);
 
 var _modal2 = _interopRequireDefault(_modal);
 
@@ -9269,7 +9269,7 @@ var _getPrototypeOf = __webpack_require__(3);
 
 var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
 
-var _classCallCheck2 = __webpack_require__(1);
+var _classCallCheck2 = __webpack_require__(0);
 
 var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
 
@@ -9285,15 +9285,15 @@ var _inherits2 = __webpack_require__(5);
 
 var _inherits3 = _interopRequireDefault(_inherits2);
 
-__webpack_require__(49);
+__webpack_require__(48);
 
 __webpack_require__(61);
 
 __webpack_require__(10);
 
-__webpack_require__(110);
+__webpack_require__(111);
 
-var _react = __webpack_require__(0);
+var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -9419,13 +9419,13 @@ var _temp2 = function () {
 module.exports = exports['default'];
 
 /***/ }),
-/* 110 */
+/* 111 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 111 */
+/* 112 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9436,11 +9436,11 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = undefined;
 
-var _modal = __webpack_require__(48);
+var _modal = __webpack_require__(47);
 
 var _modal2 = _interopRequireDefault(_modal);
 
-var _icon = __webpack_require__(112);
+var _icon = __webpack_require__(113);
 
 var _icon2 = _interopRequireDefault(_icon);
 
@@ -9452,7 +9452,7 @@ var _extends2 = __webpack_require__(11);
 
 var _extends3 = _interopRequireDefault(_extends2);
 
-var _stringify = __webpack_require__(13);
+var _stringify = __webpack_require__(12);
 
 var _stringify2 = _interopRequireDefault(_stringify);
 
@@ -9464,7 +9464,7 @@ var _getPrototypeOf = __webpack_require__(3);
 
 var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
 
-var _classCallCheck2 = __webpack_require__(1);
+var _classCallCheck2 = __webpack_require__(0);
 
 var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
 
@@ -9487,29 +9487,29 @@ var _dec, _class; // indexedDB
 // import { loadings } from '@/core/conf/loading';
 
 
-__webpack_require__(49);
-
-__webpack_require__(113);
+__webpack_require__(48);
 
 __webpack_require__(114);
 
-var _indexedDB = __webpack_require__(15);
+__webpack_require__(115);
+
+var _indexedDB = __webpack_require__(14);
 
 var db = _interopRequireWildcard(_indexedDB);
 
 var _mobxReact = __webpack_require__(6);
 
-var _react = __webpack_require__(0);
+var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _set = __webpack_require__(12);
+var _global = __webpack_require__(15);
 
-var _h5dsUtils = __webpack_require__(50);
+var _h5dsUtils = __webpack_require__(49);
 
-var _utils = __webpack_require__(115);
+var _utils = __webpack_require__(116);
 
-var _Loading = __webpack_require__(54);
+var _Loading = __webpack_require__(53);
 
 var _Loading2 = _interopRequireDefault(_Loading);
 
@@ -9517,7 +9517,7 @@ var _Upload = __webpack_require__(62);
 
 var _Upload2 = _interopRequireDefault(_Upload);
 
-var _server = __webpack_require__(118);
+var _server = __webpack_require__(119);
 
 var _sliderAnimate = __webpack_require__(63);
 
@@ -9597,6 +9597,10 @@ var Publish = (_dec = (0, _mobxReact.inject)('app', 'layerfun'), _dec(_class = (
             var _this13;
 
             return (_this13 = _this).__uploadEnd__REACT_HOT_LOADER__.apply(_this13, arguments);
+        }, _this.changeVal = function () {
+            var _this14;
+
+            return (_this14 = _this).__changeVal__REACT_HOT_LOADER__.apply(_this14, arguments);
         }, _temp), (0, _possibleConstructorReturn3.default)(_this, _ret);
     }
 
@@ -9613,7 +9617,10 @@ var Publish = (_dec = (0, _mobxReact.inject)('app', 'layerfun'), _dec(_class = (
             // 载入外部JS文件
 
             var scripts = [];
-            var layersSet = this.props.layerfun.layersSet;
+            var _props$layerfun = this.props.layerfun,
+                layersSet = _props$layerfun.layersSet,
+                _props$layerfun$confi = _props$layerfun.config,
+                config = _props$layerfun$confi === undefined ? {} : _props$layerfun$confi;
 
             for (var type in layersSet) {
                 var arr = layersSet[type].scripts || [];
@@ -9625,11 +9632,14 @@ var Publish = (_dec = (0, _mobxReact.inject)('app', 'layerfun'), _dec(_class = (
                 data.type = 'phone';
             }
 
-            console.log('scripts, ', scripts);
+            // app默认目录是当前目录
+            var _config$appCDN = config.appCDN,
+                appCDN = _config$appCDN === undefined ? '/assets' : _config$appCDN;
 
-            var str = '\n<!doctype html>\n<html>\n<head>\n    <title>' + data.name + '</title>\n    <meta name="description" content="' + data.desc + '">\n    <meta name="keywords" content="' + data.desc + '">\n    <meta http-equiv="X-UA-Compatible" content="IE=edge">\n    <meta name="format-detection" content="telephone=no" />\n    <meta name="format-detection" content="email=no" />\n    <meta name="apple-mobile-web-app-capable" content="yes" />\n    <meta name="apple-mobile-web-app-status-bar-style" content="black" />\n    <meta http-equiv="Cache-Control" content="no-cache" />\n    <meta name="x5-fullscreen" content="true">\n    <meta name="x5-orientation" content="portrait">\n    <meta name="x5-page-mode" content="app">\n    <meta charset="utf-8">\n    <meta name="viewport" content="width=' + _set.appWidth + ', initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">\n    <meta name="apple-mobile-web-app-capable" content="yes" />\n    <!-- Set render engine for 360 browser -->\n    <meta name="renderer" content="webkit">\n    <!-- No Baidu Siteapp-->\n    <meta http-equiv="Cache-Control" content="no-siteapp" />\n    <!-- <link rel="stylesheet" type="text/css" href="/assets/css/h5ds.' + data.type + '.' + _set.version + '.css">-->\n    <link rel="stylesheet" type="text/css" href="https://cdn.h5ds.com/lib/plugins/h5ds.phone.' + _set.version + '.css">\n    <link rel="stylesheet" type="text/css" href="/assets/css/plus.' + _set.version + '.css">\n    <!--js-->\n    <script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>\n    <script src="https://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>\n    <script src="http://cdn.h5ds.com/lib/plugins/jquery.qrcode.min.js"></script>\n    <script src="http://cdn.h5ds.com/lib/plugins/jquery.touchSwipe.min.js"></script>\n    ' + scripts.map(function (elem) {
+            console.log('scripts, ', scripts, config);
+            var str = '\n<!doctype html>\n<html>\n<head>\n    <title>' + data.name + '</title>\n    <meta name="description" content="' + data.desc + '">\n    <meta name="keywords" content="' + data.desc + '">\n    <meta http-equiv="X-UA-Compatible" content="IE=edge">\n    <meta name="format-detection" content="telephone=no" />\n    <meta name="format-detection" content="email=no" />\n    <meta name="apple-mobile-web-app-capable" content="yes" />\n    <meta name="apple-mobile-web-app-status-bar-style" content="black" />\n    <meta http-equiv="Cache-Control" content="no-cache" />\n    <meta name="x5-fullscreen" content="true">\n    <meta name="x5-orientation" content="portrait">\n    <meta name="x5-page-mode" content="app">\n    <meta charset="utf-8">\n    <meta name="viewport" content="width=' + _global.appWidth + ', initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">\n    <meta name="apple-mobile-web-app-capable" content="yes" />\n    <!-- Set render engine for 360 browser -->\n    <meta name="renderer" content="webkit">\n    <!-- No Baidu Siteapp-->\n    <meta http-equiv="Cache-Control" content="no-siteapp" />\n    <link rel="stylesheet" type="text/css" href="' + appCDN + '/css/h5ds.phone.' + _global.version + '.css">\n    <link rel="stylesheet" type="text/css" href="' + appCDN + '/css/h5ds.plus.' + _global.version + '.css">\n    <!--js-->\n    <script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>\n    <script src="https://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>\n    <script src="http://cdn.h5ds.com/lib/plugins/jquery.qrcode.min.js"></script>\n    <script src="http://cdn.h5ds.com/lib/plugins/jquery.touchSwipe.min.js"></script>\n    <script src="http://cdn.h5ds.com/static/plugins/anime.js"></script>\n    ' + scripts.map(function (elem) {
                 return '<script src="' + elem + '"></script>';
-            }).join('') + '\n    <script>\n    var IMG_SOURCE = ' + ((0, _stringify2.default)((0, _utils.getAppDataImgs)(data)) || '[]') + ';\n    var sliderAnimate = ' + ((0, _stringify2.default)(_sliderAnimate.sliderAnimate[data.slider.animate]) || '{}') + ';\n    </script>\n    <!-- <script src="/assets/js/' + data.type + '.' + _set.version + '.js"></script> -->\n    <script src="https://cdn.h5ds.com/lib/plugins/h5ds.' + data.type + '.' + _set.version + '.js"></script>\n    <script src="/assets/js/plus.' + _set.version + '.js"></script>\n</head>\n' + (0, _server.renderToStaticMarkup)(_react2.default.createElement(
+            }).join('') + '\n    <script>\n    var IMG_SOURCE = ' + ((0, _stringify2.default)((0, _utils.getAppDataImgs)(data)) || '[]') + ';\n    var sliderAnimate = ' + ((0, _stringify2.default)(_sliderAnimate.sliderAnimate[data.slider.animate]) || '{}') + ';\n    </script>\n    <script src="' + appCDN + '/js/h5ds.' + data.type + '.' + _global.version + '.js"></script>\n    <script src="' + appCDN + '/js/h5ds.plus.' + _global.version + '.js"></script>\n</head>\n' + (0, _server.renderToStaticMarkup)(_react2.default.createElement(
                 'body',
                 { className: 'h5dsapp', onDragStart: 'return false' },
                 data.mp3.url ? _react2.default.createElement(
@@ -9647,9 +9657,9 @@ var Publish = (_dec = (0, _mobxReact.inject)('app', 'layerfun'), _dec(_class = (
                     _react2.default.createElement(
                         'div',
                         { className: 'h5ds-full', style: (0, _extends3.default)({}, data.style) },
-                        this.getPopupsHTML(data),
-                        this.getFixedsHTML(data),
-                        this.getPagesHTML(data)
+                        this.getPopupsHTML(data, { isMinPage: false, isPhoneView: false, isView: false }),
+                        this.getFixedsHTML(data, { isMinPage: false, isPhoneView: false, isView: false }),
+                        this.getPagesHTML(data, { isMinPage: false, isPhoneView: false, isView: false })
                     )
                 ),
                 _react2.default.createElement(
@@ -9687,7 +9697,7 @@ var Publish = (_dec = (0, _mobxReact.inject)('app', 'layerfun'), _dec(_class = (
 
         // 保存
         value: function __publish__REACT_HOT_LOADER__(mark) {
-            var _this14 = this;
+            var _this15 = this;
 
             if (this.saveSuccess) {
                 return;
@@ -9705,16 +9715,16 @@ var Publish = (_dec = (0, _mobxReact.inject)('app', 'layerfun'), _dec(_class = (
             (0, _utils.replaceImgSrc)(data, this.props.layerfun.uploadBase64).then(function () {
                 var promiseFun = null;
                 if (mark === 'save') {
-                    promiseFun = _this14.props.layerfun.saveApp(appid, (0, _mobx.toJS)(data));
+                    promiseFun = _this15.props.layerfun.saveApp(appid, (0, _mobx.toJS)(data));
                 } else {
-                    promiseFun = _this14.props.layerfun.publishApp(appid, (0, _mobx.toJS)(data), _this14.toFullHtml());
+                    promiseFun = _this15.props.layerfun.publishApp(appid, (0, _mobx.toJS)(data), _this15.toFullHtml());
                 }
                 promiseFun.then(function (res) {
                     if (res) {
                         db.clearData('img');
                     }
-                    _this14.saveSuccess = false;
-                    _this14.setState({
+                    _this15.saveSuccess = false;
+                    _this15.setState({
                         loading: false
                     });
                     $(document).trigger('h5ds.setHistory');
@@ -9735,20 +9745,20 @@ var Publish = (_dec = (0, _mobxReact.inject)('app', 'layerfun'), _dec(_class = (
 
         // 关闭弹窗
         value: function __modalShow__REACT_HOT_LOADER__() {
-            var _this15 = this;
+            var _this16 = this;
 
             var appid = this.props.app.edata.appid;
             // console.log(appid);
 
-            var _props$layerfun$conf$ = this.props.layerfun.conf.appUrl,
-                appUrl = _props$layerfun$conf$ === undefined ? '/' : _props$layerfun$conf$;
+            var _props$layerfun$confi2 = this.props.layerfun.config.appHost,
+                appHost = _props$layerfun$confi2 === undefined ? '/' : _props$layerfun$confi2;
 
             this.setState({
                 visible: true
             }, function () {
                 setTimeout(function () {
-                    (0, _utils.newQrcode)({ appid: appid, appUrl: appUrl });
-                    _this15.initSwiper();
+                    (0, _utils.newQrcode)({ appid: appid, appHost: appHost });
+                    _this16.initSwiper();
                 }, 100);
             });
         }
@@ -9768,7 +9778,7 @@ var Publish = (_dec = (0, _mobxReact.inject)('app', 'layerfun'), _dec(_class = (
 
 
         // 获取pages html
-        value: function __getPopupsHTML__REACT_HOT_LOADER__(data) {
+        value: function __getPopupsHTML__REACT_HOT_LOADER__(data, set) {
             var pageToHTML = this.props.layerfun.pageToHTML;
 
             var shtml = _react2.default.createElement(
@@ -9790,7 +9800,7 @@ var Publish = (_dec = (0, _mobxReact.inject)('app', 'layerfun'), _dec(_class = (
                                 style: { backgroundImage: backgroundImage, backgroundRepeat: backgroundRepeat, backgroundColor: backgroundColor, backgroundSize: backgroundSize },
                                 className: 'h5ds-swiper-pageinner'
                             },
-                            pageToHTML(elem)
+                            pageToHTML(elem, set)
                         )
                     );
                 })
@@ -9802,7 +9812,7 @@ var Publish = (_dec = (0, _mobxReact.inject)('app', 'layerfun'), _dec(_class = (
 
 
         // 获取fixeds html
-        value: function __getPagesHTML__REACT_HOT_LOADER__(data) {
+        value: function __getPagesHTML__REACT_HOT_LOADER__(data, set) {
             var pageToHTML = this.props.layerfun.pageToHTML;
 
             var pages = data.pages;
@@ -9825,7 +9835,7 @@ var Publish = (_dec = (0, _mobxReact.inject)('app', 'layerfun'), _dec(_class = (
                         desc = page.desc;
 
                     var langPage = false;
-                    if (page.style.height && page.style.height > _set.appHeight) {
+                    if (page.style.height && page.style.height > _global.appHeight) {
                         langPage = true;
                     }
                     var cName = ['h5ds-swiper-pageinner'];
@@ -9861,7 +9871,7 @@ var Publish = (_dec = (0, _mobxReact.inject)('app', 'layerfun'), _dec(_class = (
                                     backgroundSize: backgroundSize
                                 }
                             },
-                            pageToHTML(page)
+                            pageToHTML(page, set)
                         )
                     );
                 })
@@ -9873,7 +9883,7 @@ var Publish = (_dec = (0, _mobxReact.inject)('app', 'layerfun'), _dec(_class = (
 
 
         // 生成二维码
-        value: function __getFixedsHTML__REACT_HOT_LOADER__(data) {
+        value: function __getFixedsHTML__REACT_HOT_LOADER__(data, set) {
             var fixed0 = data.fixeds[0].style;
             var fixed1 = data.fixeds[1].style;
             var pageToHTML = this.props.layerfun.pageToHTML;
@@ -9898,7 +9908,7 @@ var Publish = (_dec = (0, _mobxReact.inject)('app', 'layerfun'), _dec(_class = (
                                 },
                                 className: 'h5ds-swiper-pageinner'
                             },
-                            pageToHTML(data.fixeds[0])
+                            pageToHTML(data.fixeds[0], set)
                         )
                     )
                 ),
@@ -9919,7 +9929,7 @@ var Publish = (_dec = (0, _mobxReact.inject)('app', 'layerfun'), _dec(_class = (
                                 },
                                 className: 'h5ds-swiper-pageinner'
                             },
-                            pageToHTML(data.fixeds[1])
+                            pageToHTML(data.fixeds[1], set)
                         )
                     )
                 )
@@ -9951,7 +9961,7 @@ var Publish = (_dec = (0, _mobxReact.inject)('app', 'layerfun'), _dec(_class = (
 
         // 切换page
         value: function __initSwiper__REACT_HOT_LOADER__() {
-            var _this16 = this;
+            var _this17 = this;
 
             var data = this.props.app.data;
 
@@ -9961,12 +9971,12 @@ var Publish = (_dec = (0, _mobxReact.inject)('app', 'layerfun'), _dec(_class = (
                 // 滑动
                 $h5dsSwiper.h5dsSwiper((0, _assign2.default)(_sliderAnimate.sliderAnimate[data.slider.animate] || {}));
                 $h5dsSwiper.off('h5ds.animateStart h5ds.animateEnd').on('h5ds.animateStart', function (e, index) {
-                    _this16.setState({
+                    _this17.setState({
                         nowpage: index + 1
                     });
-                    _this16.animated = true;
+                    _this17.animated = true;
                 }).on('h5ds.animateEnd', function (e) {
-                    _this16.animated = false;
+                    _this17.animated = false;
                 });
 
                 $(document).trigger('h5ds.swiperAfter', { $in: $('#h5dsFixedsUp').find('.h5ds-swiper-page'), $out: null });
@@ -9982,7 +9992,7 @@ var Publish = (_dec = (0, _mobxReact.inject)('app', 'layerfun'), _dec(_class = (
             this.setLoadingNum = setInterval(function () {
                 $('#h5dsProgress').html(num++ + '%');
                 if (num > 100) {
-                    clearInterval(_this16.setLoadingNum);
+                    clearInterval(_this17.setLoadingNum);
                 }
             }, 10);
             this.setLoadingTime = setTimeout(function () {
@@ -9990,7 +10000,7 @@ var Publish = (_dec = (0, _mobxReact.inject)('app', 'layerfun'), _dec(_class = (
                 // 自动播放音乐
                 (0, _h5dsUtils.autoPlayMusic)();
                 $(document).trigger('h5ds.loadingEnd', '#h5dsSwiper');
-                (0, _h5dsUtils.setAdsorbent)();
+                (0, _h5dsUtils.setAdsorbent)(); // 设置定位
                 doSwiper();
             }, 1000);
         }
@@ -10027,19 +10037,24 @@ var Publish = (_dec = (0, _mobxReact.inject)('app', 'layerfun'), _dec(_class = (
     }, {
         key: '__uploadEnd__REACT_HOT_LOADER__',
         value: function __uploadEnd__REACT_HOT_LOADER__(elem) {
-            console.log('>>>>>>', elem);
-            var data = this.props.app.data;
+            this.props.app.data.img = elem.path;
+        }
+    }, {
+        key: '__changeVal__REACT_HOT_LOADER__',
+        value: function __changeVal__REACT_HOT_LOADER__(val, key) {
+            var _props$app$data = this.props.app.data,
+                data = _props$app$data === undefined ? {} : _props$app$data;
 
-            data.img = elem.path;
+            data[key] = val;
         }
     }, {
         key: 'componentDidMount',
         value: function componentDidMount() {
-            var _this17 = this;
+            var _this18 = this;
 
             //  ctrl+s 保存预览APP
             $(document).on('h5ds.shortcuts_save', function () {
-                _this17.save();
+                _this18.save();
             });
         }
     }, {
@@ -10052,7 +10067,7 @@ var Publish = (_dec = (0, _mobxReact.inject)('app', 'layerfun'), _dec(_class = (
     }, {
         key: 'render',
         value: function render() {
-            var _this18 = this;
+            var _this19 = this;
 
             var _state = this.state,
                 visible = _state.visible,
@@ -10061,6 +10076,7 @@ var Publish = (_dec = (0, _mobxReact.inject)('app', 'layerfun'), _dec(_class = (
                 loading = _state.loading;
             var data = this.props.app.data;
 
+            console.log('img >>>>>>>>>>>', this.props.app, data, data.img);
             return _react2.default.createElement(
                 'span',
                 null,
@@ -10108,7 +10124,7 @@ var Publish = (_dec = (0, _mobxReact.inject)('app', 'layerfun'), _dec(_class = (
                                         _react2.default.createElement(
                                             'a',
                                             { className: 'prev', onClick: function onClick(e) {
-                                                    return _this18.changePage('prev');
+                                                    return _this19.changePage('prev');
                                                 } },
                                             _react2.default.createElement('i', { className: 'h5ds ico5-a3top' })
                                         ),
@@ -10126,7 +10142,7 @@ var Publish = (_dec = (0, _mobxReact.inject)('app', 'layerfun'), _dec(_class = (
                                         _react2.default.createElement(
                                             'a',
                                             { className: 'next', onClick: function onClick(e) {
-                                                    return _this18.changePage('next');
+                                                    return _this19.changePage('next');
                                                 } },
                                             _react2.default.createElement('i', { className: 'h5ds ico5-a3down' })
                                         )
@@ -10152,9 +10168,9 @@ var Publish = (_dec = (0, _mobxReact.inject)('app', 'layerfun'), _dec(_class = (
                                             _react2.default.createElement('i', null),
                                             _react2.default.createElement('i', null)
                                         ) : null,
-                                        this.getPopupsHTML(data),
-                                        this.getFixedsHTML(data),
-                                        this.getPagesHTML(data),
+                                        this.getPopupsHTML(data, { isMinPage: false, isPhoneView: false, isView: true }),
+                                        this.getFixedsHTML(data, { isMinPage: false, isPhoneView: false, isView: true }),
+                                        this.getPagesHTML(data, { isMinPage: false, isPhoneView: false, isView: true }),
                                         _react2.default.createElement(
                                             'div',
                                             { className: 'h5ds-loading', id: 'h5dsLoading' },
@@ -10213,9 +10229,18 @@ var Publish = (_dec = (0, _mobxReact.inject)('app', 'layerfun'), _dec(_class = (
                                             _react2.default.createElement('input', {
                                                 className: 'app-name-input',
                                                 type: 'text',
+                                                onChange: function onChange(e) {
+                                                    return _this19.changeVal(e.target.value, 'name');
+                                                },
                                                 defaultValue: data.name
                                             }),
-                                            _react2.default.createElement('textarea', { className: 'app-info-textarea', defaultValue: data.desc })
+                                            _react2.default.createElement('textarea', {
+                                                onChange: function onChange(e) {
+                                                    return _this19.changeVal(e.target.value, 'desc');
+                                                },
+                                                className: 'app-info-textarea',
+                                                defaultValue: data.desc
+                                            })
                                         )
                                     ),
                                     _react2.default.createElement(
@@ -10284,25 +10309,25 @@ var _temp2 = function () {
 module.exports = exports['default'];
 
 /***/ }),
-/* 112 */
+/* 113 */
 /***/ (function(module, exports) {
 
 module.exports = require("antd/lib/icon");
 
 /***/ }),
-/* 113 */
+/* 114 */
 /***/ (function(module, exports) {
 
 module.exports = require("antd/lib/icon/style");
 
 /***/ }),
-/* 114 */
+/* 115 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 115 */
+/* 116 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10330,7 +10355,7 @@ exports.replaceImgSrc = replaceImgSrc;
 exports.totalLayerType = totalLayerType;
 exports.getAppDataImgs = getAppDataImgs;
 
-var _indexedDB = __webpack_require__(15);
+var _indexedDB = __webpack_require__(14);
 
 var db = _interopRequireWildcard(_indexedDB);
 
@@ -10376,10 +10401,10 @@ function extendObj(obj, obj2) {
 
 function newQrcode(set) {
     var appid = set.appid,
-        appUrl = set.appUrl; // ...
+        appHost = set.appHost; // ...
     // 生成二维码
 
-    var path = appUrl + '/apps/' + appid;
+    var path = appHost + '/apps/' + appid;
     $('.qrcode-url-box').html('<a href="' + path + '" target="_blank">' + path + '</a>');
     var $qrcode = $('#qrcode').empty();
     $qrcode.qrcode({
@@ -10413,8 +10438,7 @@ function replaceImgSrc(app, uploadImgBase64) {
                     var p = new _promise2.default(function (resolve) {
                         if (uploadImgBase64) {
                             uploadImgBase64({
-                                imgData: d.value,
-                                name: 'crop_' + d.id
+                                content: d.value.content.split(',')[1]
                             }).then(function (res) {
                                 if (!res.error) {
                                     resolve({
@@ -10639,25 +10663,25 @@ var _temp = function () {
 ;
 
 /***/ }),
-/* 116 */
+/* 117 */
 /***/ (function(module, exports) {
 
 module.exports = require("antd/lib/upload");
 
 /***/ }),
-/* 117 */
+/* 118 */
 /***/ (function(module, exports) {
 
 module.exports = require("antd/lib/upload/style");
 
 /***/ }),
-/* 118 */
+/* 119 */
 /***/ (function(module, exports) {
 
 module.exports = require("react-dom/server");
 
 /***/ }),
-/* 119 */
+/* 120 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10672,23 +10696,23 @@ var _defineProperty = __webpack_require__(65);
 
 var _defineProperty2 = _interopRequireDefault(_defineProperty);
 
-var _stringify = __webpack_require__(13);
-
-var _stringify2 = _interopRequireDefault(_stringify);
-
 var _message2 = __webpack_require__(9);
 
 var _message3 = _interopRequireDefault(_message2);
 
-var _regenerator = __webpack_require__(18);
+var _regenerator = __webpack_require__(21);
 
 var _regenerator2 = _interopRequireDefault(_regenerator);
 
-var _asyncToGenerator2 = __webpack_require__(19);
+var _asyncToGenerator2 = __webpack_require__(22);
 
 var _asyncToGenerator3 = _interopRequireDefault(_asyncToGenerator2);
 
-var _classCallCheck2 = __webpack_require__(1);
+var _stringify = __webpack_require__(12);
+
+var _stringify2 = _interopRequireDefault(_stringify);
+
+var _classCallCheck2 = __webpack_require__(0);
 
 var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
 
@@ -10703,7 +10727,7 @@ var _desc, _value, _class, _descriptor, _descriptor2, _descriptor3, _descriptor4
 
 __webpack_require__(10);
 
-var _indexedDB = __webpack_require__(15);
+var _indexedDB = __webpack_require__(14);
 
 var db = _interopRequireWildcard(_indexedDB);
 
@@ -10713,11 +10737,11 @@ var _util = __webpack_require__(8);
 
 var _localStorage = __webpack_require__(66);
 
-var _set = __webpack_require__(12);
+var _global = __webpack_require__(15);
 
-var _debounce = __webpack_require__(51);
+var _debounce = __webpack_require__(50);
 
-var _imgURLClear = __webpack_require__(47);
+var _imgURLClear = __webpack_require__(46);
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
@@ -10786,6 +10810,10 @@ var App = (_class = function () {
         };
 
         _initDefineProp(this, 'initApp', _descriptor3, this);
+
+        this.newToObj = function () {
+            return _this.__newToObj__REACT_HOT_LOADER__.apply(_this, arguments);
+        };
 
         this.getFpsKey = function () {
             return _this.__getFpsKey__REACT_HOT_LOADER__.apply(_this, arguments);
@@ -10868,11 +10896,21 @@ var App = (_class = function () {
 
 
     /**
-     * @desc 获取当前fps的 key
+     * @desc 对象转化
      */
 
 
     (0, _createClass3.default)(App, [{
+        key: '__newToObj__REACT_HOT_LOADER__',
+
+
+        /**
+         * @desc 获取当前fps的 key
+         */
+        value: function __newToObj__REACT_HOT_LOADER__(newObj) {
+            return JSON.parse((0, _stringify2.default)(newObj));
+        }
+    }, {
         key: '__getFpsKey__REACT_HOT_LOADER__',
 
 
@@ -11073,7 +11111,7 @@ var App = (_class = function () {
         var _this3 = this;
 
         return function () {
-            var _ref = (0, _asyncToGenerator3.default)( /*#__PURE__*/_regenerator2.default.mark(function _callee(resdata, appset) {
+            var _ref = (0, _asyncToGenerator3.default)( /*#__PURE__*/_regenerator2.default.mark(function _callee(resdata, appid) {
                 return _regenerator2.default.wrap(function _callee$(_context) {
                     while (1) {
                         switch (_context.prev = _context.next) {
@@ -11082,14 +11120,12 @@ var App = (_class = function () {
                                 return db.openDB().then(function (res) {
                                     // 获取数据， 渲染app
                                     if (res) {
-                                        getData(resdata, appset, function (d) {
+                                        getData(resdata, appid, function (d) {
                                             // console.log('ddddd', d);
-                                            var tmp = +new Date();
                                             var scale = 1; // setScale(d.type);
                                             (0, _mobx.transaction)(function () {
                                                 _this3.edata = {
-                                                    owner: appset.owner || '',
-                                                    appid: appset.appid,
+                                                    appid: appid || '',
                                                     phoneStyle: {
                                                         // 画布样式
                                                         transform: 'translate(-50%, 0) scale(' + scale + ')'
@@ -11106,11 +11142,11 @@ var App = (_class = function () {
                                                     selectPopup: 0, // 选择popup的标号
                                                     selectLayer: null, // 当前选中的layer
                                                     selectGroup: false, // 选择组
-                                                    keys: tmp + (0, _util.getRandomID)(), // 设置渲染的，用于通知组件执行 render 函数，这个不会重新渲染整个phone，只是执行render
-                                                    layerKeys: tmp + (0, _util.getRandomID)(), // 重新选择layer 使用
-                                                    phoneKeys: tmp + (0, _util.getRandomID)(), // 重新渲染phone 使用
-                                                    layerListKeys: tmp + (0, _util.getRandomID)(), //  重新执行layerlist 的 render
-                                                    pageListKeys: tmp + (0, _util.getRandomID)() //  重新执行pagelist列表 的 render
+                                                    keys: (0, _util.getRandomID)(), // 设置渲染的，用于通知组件执行 render 函数，这个不会重新渲染整个phone，只是执行render
+                                                    layerKeys: (0, _util.getRandomID)(), // 重新选择layer 使用
+                                                    phoneKeys: (0, _util.getRandomID)(), // 重新渲染phone 使用
+                                                    layerListKeys: (0, _util.getRandomID)(), //  重新执行layerlist 的 render
+                                                    pageListKeys: (0, _util.getRandomID)() //  重新执行pagelist列表 的 render
                                                 };
 
                                                 _this3.data = _this3.addSet(d);
@@ -11144,6 +11180,8 @@ var App = (_class = function () {
     enumerable: true,
     initializer: function initializer() {
         return function (layer) {
+            var clone = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+
             layer.keyid = (0, _util.getRandomID)();
             if (layer.className === undefined) {
                 layer.className = '';
@@ -11155,6 +11193,18 @@ var App = (_class = function () {
             layer.set.hide = false;
             if (layer.set.lock === undefined) {
                 layer.set.lock = false;
+            }
+            // 如果是clone的，eid，和 id 都会变好
+            if (clone && layer.id) {
+                layer.id = 'ID_' + (0, _util.getRandomID)();
+            }
+            if (clone && layer.eid) {
+                layer.id = 'EID_' + (0, _util.getRandomID)();
+            }
+
+            // 临时方法，后期去掉， 如果是text。改成etext
+            if (layer.type === 'text') {
+                layer.type = 'etext';
             }
         };
     }
@@ -11640,7 +11690,7 @@ var App = (_class = function () {
         return function (obj) {
             // 如果obj不存在
             if (!obj) {
-                obj = JSON.parse('{\n                "id": null,\n                "name": "\u7A7A\u767D\u9875\u9762",\n                "desc": "\u9875\u9762\u63CF\u8FF0",\n                "style": {"height": ' + _set.appHeight + '},\n                "layers": [],\n                "animate": [],\n                "slider": {\n                    "animate": 1,\n                    "autoplay": false,\n                    "lock": false,\n                    "time": 5\n                }\n            }');
+                obj = JSON.parse('{\n                "id": null,\n                "name": "\u7A7A\u767D\u9875\u9762",\n                "desc": "\u9875\u9762\u63CF\u8FF0",\n                "style": {"height": ' + _global.appHeight + '},\n                "layers": [],\n                "animate": [],\n                "slider": {\n                    "animate": 1,\n                    "autoplay": false,\n                    "lock": false,\n                    "time": 5\n                }\n            }');
             }
             var pages = _this24.getPages();
             (0, _mobx.transaction)(function () {
@@ -11711,15 +11761,12 @@ var App = (_class = function () {
             (0, _mobx.transaction)(function () {
                 var layers = _this26.data[selectType][selectNum].layers;
                 var d = (0, _mobx.toJS)(data);
-                if (d.id) {
-                    d.id = 'layer_' + (0, _util.getRandomID)();
-                }
-
+                // 格式化copy的数据
+                _this26.originLayerSet(d, true);
                 // 帧图层有点特殊
                 if (d.type === 'fps') {
                     d.data.id = (0, _util.getRandomID)(6);
                 }
-                d.keyid = (0, _util.getRandomID)();
                 layers.splice(index, 0, d);
             });
         };
@@ -11799,18 +11846,11 @@ var App = (_class = function () {
 // 获取数据
 
 exports.default = App;
-function getData(data, appset, iniApp) {
+function getData(data, appid, iniApp) {
     // 获取缓存数据
     var appStore = (0, _localStorage.getStorage)('APP_STORE');
-    var appid = appset.appid;
-
-    // if (owner === null || appid === null) {
-    //     message.error('操作失败，请先选择APP，owner,id参数不能为空', 9999);
-    //     return;
-    // }
 
     // 如果有缓存， 且当前打开的 appid
-
     if (appid && appStore === appid) {
         var APP_DATA = (0, _localStorage.getStorage)('APP_DATA');
         // 数据清洗 - 将 缓存的图片进行数据清洗，因为刷新后，二进制缓存更新了。
@@ -11820,38 +11860,11 @@ function getData(data, appset, iniApp) {
     } else {
         // 如果没有 owner 和 appid 模拟一个
         if (!appid) {
-            appid = +new Date();
+            appid = 'h5ds_demo_appid';
         }
         (0, _localStorage.setStorage)('APP_STORE', appid);
         iniApp(data);
     }
-}
-
-/**
- * @desc 设置 scale
- */
-function setScale(type) {
-    var scale = 1;
-    var winWidth = $(window).width();
-
-    if (type === 'phone') {
-        if (winWidth >= 1920) {
-            scale = 1.2;
-        } else if (winWidth >= 1600) {
-            scale = 1;
-        } else {
-            // ...
-        }
-    } else {
-        if (winWidth >= 1920) {
-            scale = 1;
-        } else if (winWidth >= 1600) {
-            scale = 0.6;
-        } else {
-            scale = 0.5;
-        }
-    }
-    return scale;
 }
 ;
 
@@ -11863,15 +11876,13 @@ var _temp = function () {
     __REACT_HOT_LOADER__.register(App, 'App', 'C:/DT/h5ds/H5DS_All/h5ds-edit-hm/src/store/App.js');
 
     __REACT_HOT_LOADER__.register(getData, 'getData', 'C:/DT/h5ds/H5DS_All/h5ds-edit-hm/src/store/App.js');
-
-    __REACT_HOT_LOADER__.register(setScale, 'setScale', 'C:/DT/h5ds/H5DS_All/h5ds-edit-hm/src/store/App.js');
 }();
 
 ;
 module.exports = exports['default'];
 
 /***/ }),
-/* 120 */
+/* 121 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11978,7 +11989,7 @@ var _temp = function () {
 ;
 
 /***/ }),
-/* 121 */
+/* 122 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11993,7 +12004,7 @@ var _defineProperty = __webpack_require__(65);
 
 var _defineProperty2 = _interopRequireDefault(_defineProperty);
 
-var _classCallCheck2 = __webpack_require__(1);
+var _classCallCheck2 = __webpack_require__(0);
 
 var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
 
@@ -12072,7 +12083,7 @@ var _temp = function () {
 module.exports = exports['default'];
 
 /***/ }),
-/* 122 */
+/* 123 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12083,7 +12094,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = undefined;
 
-var _regenerator = __webpack_require__(18);
+var _regenerator = __webpack_require__(21);
 
 var _regenerator2 = _interopRequireDefault(_regenerator);
 
@@ -12095,7 +12106,7 @@ var _toConsumableArray2 = __webpack_require__(17);
 
 var _toConsumableArray3 = _interopRequireDefault(_toConsumableArray2);
 
-var _asyncToGenerator2 = __webpack_require__(19);
+var _asyncToGenerator2 = __webpack_require__(22);
 
 var _asyncToGenerator3 = _interopRequireDefault(_asyncToGenerator2);
 
@@ -12103,7 +12114,7 @@ var _getPrototypeOf = __webpack_require__(3);
 
 var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
 
-var _classCallCheck2 = __webpack_require__(1);
+var _classCallCheck2 = __webpack_require__(0);
 
 var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
 
@@ -12121,9 +12132,9 @@ var _inherits3 = _interopRequireDefault(_inherits2);
 
 var _dec, _class;
 
-__webpack_require__(123);
+__webpack_require__(124);
 
-var _react = __webpack_require__(0);
+var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -12468,13 +12479,13 @@ var _temp = function () {
 module.exports = exports['default'];
 
 /***/ }),
-/* 123 */
+/* 124 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 124 */
+/* 125 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12489,7 +12500,7 @@ var _getPrototypeOf = __webpack_require__(3);
 
 var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
 
-var _classCallCheck2 = __webpack_require__(1);
+var _classCallCheck2 = __webpack_require__(0);
 
 var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
 
@@ -12507,15 +12518,15 @@ var _inherits3 = _interopRequireDefault(_inherits2);
 
 var _dec, _class;
 
-__webpack_require__(125);
+__webpack_require__(126);
 
-var _react = __webpack_require__(0);
+var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
 var _mobxReact = __webpack_require__(6);
 
-var _PageList = __webpack_require__(126);
+var _PageList = __webpack_require__(127);
 
 var _PageList2 = _interopRequireDefault(_PageList);
 
@@ -12637,13 +12648,13 @@ var _temp = function () {
 module.exports = exports['default'];
 
 /***/ }),
-/* 125 */
+/* 126 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 126 */
+/* 127 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12654,7 +12665,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = undefined;
 
-var _modal = __webpack_require__(48);
+var _modal = __webpack_require__(47);
 
 var _modal2 = _interopRequireDefault(_modal);
 
@@ -12670,7 +12681,7 @@ var _getPrototypeOf = __webpack_require__(3);
 
 var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
 
-var _classCallCheck2 = __webpack_require__(1);
+var _classCallCheck2 = __webpack_require__(0);
 
 var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
 
@@ -12692,7 +12703,7 @@ var _input2 = _interopRequireDefault(_input);
 
 var _dec, _class;
 
-__webpack_require__(49);
+__webpack_require__(48);
 
 __webpack_require__(59);
 
@@ -12700,7 +12711,7 @@ __webpack_require__(10);
 
 __webpack_require__(61);
 
-var _react = __webpack_require__(0);
+var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -12951,7 +12962,7 @@ var PageList = (_dec = (0, _mobxReact.inject)('app', 'layerfun'), _dec(_class = 
                                         backgroundSize: elem.style.backgroundSize
                                     }
                                 },
-                                pageToHTML(elem, true, true)
+                                pageToHTML(elem, { isMinPage: true, isPhoneView: false, isView: false })
                             )
                         ),
                         _react2.default.createElement(
@@ -13073,7 +13084,7 @@ var _temp2 = function () {
 module.exports = exports['default'];
 
 /***/ }),
-/* 127 */
+/* 128 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13088,7 +13099,7 @@ var _extends2 = __webpack_require__(11);
 
 var _extends3 = _interopRequireDefault(_extends2);
 
-var _objectWithoutProperties2 = __webpack_require__(52);
+var _objectWithoutProperties2 = __webpack_require__(51);
 
 var _objectWithoutProperties3 = _interopRequireDefault(_objectWithoutProperties2);
 
@@ -13100,7 +13111,7 @@ var _getPrototypeOf = __webpack_require__(3);
 
 var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
 
-var _classCallCheck2 = __webpack_require__(1);
+var _classCallCheck2 = __webpack_require__(0);
 
 var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
 
@@ -13126,31 +13137,31 @@ var _dec, _class;
 // import { isNot } from '@/utils/util';
 
 
-__webpack_require__(128);
-
 __webpack_require__(129);
 
-var _react = __webpack_require__(0);
+__webpack_require__(130);
+
+var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _set = __webpack_require__(12);
+var _global = __webpack_require__(15);
 
-var _domUtils = __webpack_require__(130);
+var _domUtils = __webpack_require__(131);
 
 var _selectGroup = __webpack_require__(23);
 
 var _mobxReact = __webpack_require__(6);
 
-var _Grid = __webpack_require__(131);
+var _Grid = __webpack_require__(132);
 
 var _Grid2 = _interopRequireDefault(_Grid);
 
-var _Ruler = __webpack_require__(132);
+var _Ruler = __webpack_require__(133);
 
 var _Ruler2 = _interopRequireDefault(_Ruler);
 
-var _rect = __webpack_require__(22);
+var _rect = __webpack_require__(20);
 
 var _mobx = __webpack_require__(7);
 
@@ -13192,8 +13203,8 @@ var Center = (_dec = (0, _mobxReact.inject)('app', 'layerfun'), _dec(_class = (0
             showPanel: false,
             keys: +new Date()
         };
-        _this.defaultHeight = _set.appHeight;
-        _this.defaultWidth = _set.appWidth;
+        _this.defaultHeight = _global.appHeight;
+        _this.defaultWidth = _global.appWidth;
         return _this;
     }
 
@@ -13593,22 +13604,17 @@ var Center = (_dec = (0, _mobxReact.inject)('app', 'layerfun'), _dec(_class = (0
                             {
                                 className: 'phone-lines',
                                 style: {
-                                    width: _set.appWidth + 50,
-                                    height: pageStyle.height + 60
-                                }
-                            },
-                            _react2.default.createElement('div', {
-                                className: 'phone-lines-inner',
-                                style: {
-                                    width: _set.appWidth,
+                                    width: _global.appWidth,
                                     height: pageStyle.height
                                 }
-                            })
+                            },
+                            _react2.default.createElement('div', { className: 'phone-lines-iphone678' }),
+                            _react2.default.createElement('div', { className: 'phone-lines-iphoneX' })
                         ),
                         _react2.default.createElement(
                             'div',
                             { className: 'phone-app', id: 'phoneApp', style: (0, _extends3.default)({}, pageStyle) },
-                            _react2.default.createElement(_Grid2.default, { width: _set.appWidth, height: pageStyle.height }),
+                            _react2.default.createElement(_Grid2.default, { width: _global.appWidth, height: pageStyle.height }),
                             _react2.default.createElement(
                                 'div',
                                 { className: 'set-page-height' },
@@ -13627,12 +13633,12 @@ var Center = (_dec = (0, _mobxReact.inject)('app', 'layerfun'), _dec(_class = (0
                             edata.selectType === 'popups' ? _react2.default.createElement(
                                 'div',
                                 { className: 'page-viewup', id: 'pageViewPopup', style: (0, _extends3.default)({}, this.setStyle('popups')) },
-                                pageToHTML(getPage('popups'), true)
+                                pageToHTML(getPage('popups'), { isMinPage: false, isPhoneView: true, isView: false })
                             ) : null,
                             _react2.default.createElement(
                                 'div',
                                 { className: 'page-viewup', id: 'pageViewFixedUp', style: (0, _extends3.default)({}, this.setStyle('fixedUp')) },
-                                pageToHTML(getPage('fixeds', 0), true)
+                                pageToHTML(getPage('fixeds', 0), { isMinPage: false, isPhoneView: true, isView: false })
                             ),
                             _react2.default.createElement(
                                 'div',
@@ -13641,12 +13647,12 @@ var Center = (_dec = (0, _mobxReact.inject)('app', 'layerfun'), _dec(_class = (0
                                     id: 'pageViewFixedDown',
                                     style: (0, _extends3.default)({}, this.setStyle('fixedDown'))
                                 },
-                                pageToHTML(getPage('fixeds', 1), true)
+                                pageToHTML(getPage('fixeds', 1), { isMinPage: false, isPhoneView: true, isView: false })
                             ),
                             _react2.default.createElement(
                                 'div',
                                 { className: 'page-view', id: 'pageView', style: (0, _extends3.default)({}, this.setStyle('pages')) },
-                                page ? pageToHTML(page, true) : null
+                                page ? pageToHTML(page, { isMinPage: false, isPhoneView: true, isView: false }) : null
                             )
                         )
                     ),
@@ -13672,12 +13678,6 @@ var _temp = function () {
 module.exports = exports['default'];
 
 /***/ }),
-/* 128 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
 /* 129 */
 /***/ (function(module, exports) {
 
@@ -13685,6 +13685,12 @@ module.exports = exports['default'];
 
 /***/ }),
 /* 130 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 131 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13751,7 +13757,7 @@ var _temp = function () {
 ;
 
 /***/ }),
-/* 131 */
+/* 132 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13766,7 +13772,7 @@ var _getPrototypeOf = __webpack_require__(3);
 
 var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
 
-var _classCallCheck2 = __webpack_require__(1);
+var _classCallCheck2 = __webpack_require__(0);
 
 var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
 
@@ -13784,7 +13790,7 @@ var _inherits3 = _interopRequireDefault(_inherits2);
 
 var _dec, _class;
 
-var _react = __webpack_require__(0);
+var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -13816,7 +13822,7 @@ var Grid = (_dec = (0, _mobxReact.inject)(['app']), _dec(_class = (0, _mobxReact
                 _react2.default.createElement(
                     'ul',
                     { className: 'row' },
-                    Array(Math.ceil(height / gridSize)).fill(1).map(function (elem, index) {
+                    Array(Math.ceil(parseInt(height, 10) / gridSize)).fill(1).map(function (elem, index) {
                         return _react2.default.createElement('li', {
                             key: index,
                             style: {
@@ -13828,7 +13834,7 @@ var Grid = (_dec = (0, _mobxReact.inject)(['app']), _dec(_class = (0, _mobxReact
                 _react2.default.createElement(
                     'ul',
                     { className: 'col' },
-                    Array(Math.ceil(width / gridSize)).fill(1).map(function (elem, index) {
+                    Array(Math.ceil(parseInt(width, 10) / gridSize)).fill(1).map(function (elem, index) {
                         return _react2.default.createElement('li', {
                             key: index,
                             style: {
@@ -13857,7 +13863,7 @@ var _temp = function () {
 module.exports = exports['default'];
 
 /***/ }),
-/* 132 */
+/* 133 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13876,7 +13882,7 @@ var _getPrototypeOf = __webpack_require__(3);
 
 var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
 
-var _classCallCheck2 = __webpack_require__(1);
+var _classCallCheck2 = __webpack_require__(0);
 
 var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
 
@@ -13894,7 +13900,7 @@ var _inherits3 = _interopRequireDefault(_inherits2);
 
 var _dec, _class;
 
-var _react = __webpack_require__(0);
+var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -14157,7 +14163,7 @@ var _temp2 = function () {
 module.exports = exports['default'];
 
 /***/ }),
-/* 133 */
+/* 134 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -14172,7 +14178,7 @@ var _getPrototypeOf = __webpack_require__(3);
 
 var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
 
-var _classCallCheck2 = __webpack_require__(1);
+var _classCallCheck2 = __webpack_require__(0);
 
 var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
 
@@ -14190,27 +14196,27 @@ var _inherits3 = _interopRequireDefault(_inherits2);
 
 var _dec, _class;
 
-__webpack_require__(134);
+__webpack_require__(135);
 
-var _react = __webpack_require__(0);
+var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
 var _mobxReact = __webpack_require__(6);
 
-var _AppSet = __webpack_require__(135);
+var _AppSet = __webpack_require__(136);
 
 var _AppSet2 = _interopRequireDefault(_AppSet);
 
-var _LayerSet = __webpack_require__(140);
+var _LayerSet = __webpack_require__(141);
 
 var _LayerSet2 = _interopRequireDefault(_LayerSet);
 
-var _LayerSetAlign = __webpack_require__(163);
+var _LayerSetAlign = __webpack_require__(164);
 
 var _LayerSetAlign2 = _interopRequireDefault(_LayerSetAlign);
 
-var _PageSet = __webpack_require__(165);
+var _PageSet = __webpack_require__(166);
 
 var _PageSet2 = _interopRequireDefault(_PageSet);
 
@@ -14270,13 +14276,13 @@ var _temp = function () {
 module.exports = exports['default'];
 
 /***/ }),
-/* 134 */
+/* 135 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 135 */
+/* 136 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -14291,7 +14297,7 @@ var _extends2 = __webpack_require__(11);
 
 var _extends3 = _interopRequireDefault(_extends2);
 
-var _defineProperty2 = __webpack_require__(14);
+var _defineProperty2 = __webpack_require__(13);
 
 var _defineProperty3 = _interopRequireDefault(_defineProperty2);
 
@@ -14299,7 +14305,7 @@ var _getPrototypeOf = __webpack_require__(3);
 
 var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
 
-var _classCallCheck2 = __webpack_require__(1);
+var _classCallCheck2 = __webpack_require__(0);
 
 var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
 
@@ -14319,9 +14325,9 @@ var _dec, _class;
 // import { mp3Data } from './mp3';
 
 
-__webpack_require__(136);
+__webpack_require__(137);
 
-var _react = __webpack_require__(0);
+var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -14331,11 +14337,11 @@ var _BackGround = __webpack_require__(44);
 
 var _BackGround2 = _interopRequireDefault(_BackGround);
 
-var _InputMt = __webpack_require__(20);
+var _InputMt = __webpack_require__(18);
 
 var _InputMt2 = _interopRequireDefault(_InputMt);
 
-var _Tabs = __webpack_require__(53);
+var _Tabs = __webpack_require__(52);
 
 var _Tabs2 = _interopRequireDefault(_Tabs);
 
@@ -14345,7 +14351,7 @@ var _Upload2 = _interopRequireDefault(_Upload);
 
 var _mobx = __webpack_require__(7);
 
-var _loading = __webpack_require__(139);
+var _loading = __webpack_require__(140);
 
 var _sliderAnimate = __webpack_require__(63);
 
@@ -14448,10 +14454,9 @@ var AppSet = (_dec = (0, _mobxReact.inject)('app', 'layerfun'), _dec(_class = (0
     }, {
         key: '__uploadEnd__REACT_HOT_LOADER__',
         value: function __uploadEnd__REACT_HOT_LOADER__(elem) {
-            console.log('>>>>>>', elem);
             var data = this.props.app.data;
 
-            data.img = elem.url;
+            data.img = elem.path;
         }
     }, {
         key: '__changeTab__REACT_HOT_LOADER__',
@@ -14566,7 +14571,7 @@ var AppSet = (_dec = (0, _mobxReact.inject)('app', 'layerfun'), _dec(_class = (0
                                         onChange: function onChange(e) {
                                             return _this3.inputDo(e.target.value, 'desc');
                                         },
-                                        value: data.desc
+                                        defaultValue: data.desc
                                     })
                                 )
                             ),
@@ -14659,12 +14664,6 @@ var _temp = function () {
 module.exports = exports['default'];
 
 /***/ }),
-/* 136 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
 /* 137 */
 /***/ (function(module, exports) {
 
@@ -14678,6 +14677,12 @@ module.exports = exports['default'];
 
 /***/ }),
 /* 139 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 140 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -14703,7 +14708,7 @@ var _temp = function () {
 ;
 
 /***/ }),
-/* 140 */
+/* 141 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -14718,7 +14723,7 @@ var _getPrototypeOf = __webpack_require__(3);
 
 var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
 
-var _classCallCheck2 = __webpack_require__(1);
+var _classCallCheck2 = __webpack_require__(0);
 
 var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
 
@@ -14739,27 +14744,27 @@ var _dec, _class; // 动画
 // 样式设置
 
 
-__webpack_require__(141);
+__webpack_require__(142);
 
-var _react = __webpack_require__(0);
+var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
 var _mobxReact = __webpack_require__(6);
 
-var _Animate = __webpack_require__(142);
+var _Animate = __webpack_require__(143);
 
 var _Animate2 = _interopRequireDefault(_Animate);
 
-var _Interaction = __webpack_require__(144);
+var _Interaction = __webpack_require__(145);
 
 var _Interaction2 = _interopRequireDefault(_Interaction);
 
-var _StyleSet = __webpack_require__(160);
+var _StyleSet = __webpack_require__(161);
 
 var _StyleSet2 = _interopRequireDefault(_StyleSet);
 
-var _Tabs = __webpack_require__(53);
+var _Tabs = __webpack_require__(52);
 
 var _Tabs2 = _interopRequireDefault(_Tabs);
 
@@ -14843,13 +14848,13 @@ var _temp = function () {
 module.exports = exports['default'];
 
 /***/ }),
-/* 141 */
+/* 142 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 142 */
+/* 143 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -14868,7 +14873,7 @@ var _getPrototypeOf = __webpack_require__(3);
 
 var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
 
-var _classCallCheck2 = __webpack_require__(1);
+var _classCallCheck2 = __webpack_require__(0);
 
 var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
 
@@ -14888,21 +14893,21 @@ var _dec, _class;
 
 __webpack_require__(10);
 
-var _react = __webpack_require__(0);
+var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _animates = __webpack_require__(143);
+var _animates = __webpack_require__(144);
 
 var _math = __webpack_require__(36);
 
 var _mobxReact = __webpack_require__(6);
 
-var _InputMt = __webpack_require__(20);
+var _InputMt = __webpack_require__(18);
 
 var _InputMt2 = _interopRequireDefault(_InputMt);
 
-var _Tabs = __webpack_require__(53);
+var _Tabs = __webpack_require__(52);
 
 var _Tabs2 = _interopRequireDefault(_Tabs);
 
@@ -15400,7 +15405,7 @@ var _temp = function () {
 module.exports = exports['default'];
 
 /***/ }),
-/* 143 */
+/* 144 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -15412,12 +15417,12 @@ Object.defineProperty(exports, "__esModule", {
 /**
  * 进入动画
  */
-var animatesIn = exports.animatesIn = [{ name: '弹入', type: 'in', animate: 'bounceIn', time: '1s', delay: '0s', count: 1, fun: 'ease' }, { name: '上弹入', type: 'in', animate: 'bounceInDown', time: '1s', delay: '0s', count: 1, fun: 'ease' }, { name: '左弹入', type: 'in', animate: 'bounceInLeft', time: '1s', delay: '0s', count: 1, fun: 'ease' }, { name: '右弹入', type: 'in', animate: 'bounceInRight', time: '1s', delay: '0s', count: 1, fun: 'ease' }, { name: '下弹入', type: 'in', animate: 'bounceInUp', time: '1s', delay: '0s', count: 1, fun: 'ease' }, { name: '渐显', type: 'in', animate: 'fadeIn', time: '1s', delay: '0s', count: 1, fun: 'ease' }, { name: '上渐显', type: 'in', animate: 'fadeInDown', time: '1s', delay: '0s', count: 1, fun: 'ease' }, { name: '上远渐显', type: 'in', animate: 'fadeInDownBig', time: '1s', delay: '0s', count: 1, fun: 'ease' }, { name: '左渐显', type: 'in', animate: 'fadeInLeft', time: '1s', delay: '0s', count: 1, fun: 'ease' }, { name: '左远渐显', type: 'in', animate: 'fadeInLeftBig', time: '1s', delay: '0s', count: 1, fun: 'ease' }, { name: '右渐入', type: 'in', animate: 'fadeInRight', time: '1s', delay: '0s', count: 1, fun: 'ease' }, { name: '右远渐入', type: 'in', animate: 'fadeInRightBig', time: '1s', delay: '0s', count: 1, fun: 'ease' }, { name: '下渐入', type: 'in', animate: 'fadeInUp', time: '1s', delay: '0s', count: 1, fun: 'ease' }, { name: '下远渐入', type: 'in', animate: 'fadeInUpBig', time: '1s', delay: '0s', count: 1, fun: 'ease' }, { name: 'X翻牌', type: 'in', animate: 'flipInX', time: '1s', delay: '0s', count: 1, fun: 'ease' }, { name: 'Y翻牌', type: 'in', animate: 'flipInY', time: '1s', delay: '0s', count: 1, fun: 'ease' }, { name: '光速入', type: 'in', animate: 'lightSpeedIn', time: '1s', delay: '0s', count: 1, fun: 'ease' }, { name: '滚入', type: 'in', animate: 'rotateIn', time: '1s', delay: '0s', count: 1, fun: 'ease' }, { name: '左上滚入', type: 'in', animate: 'rotateInDownLeft', time: '1s', delay: '0s', count: 1, fun: 'ease' }, { name: '右上滚入', type: 'in', animate: 'rotateInDownRight', time: '1s', delay: '0s', count: 1, fun: 'ease' }, { name: '左下滚入', type: 'in', animate: 'rotateInUpLeft', time: '1s', delay: '0s', count: 1, fun: 'ease' }, { name: '右下滚入', type: 'in', animate: 'rotateInUpRight', time: '1s', delay: '0s', count: 1, fun: 'ease' }, { name: '下滑入', type: 'in', animate: 'slideInUp', time: '1s', delay: '0s', count: 1, fun: 'ease' }, { name: '上滑入', type: 'in', animate: 'slideInDown', time: '1s', delay: '0s', count: 1, fun: 'ease' }, { name: '左滑入', type: 'in', animate: 'slideInLeft', time: '1s', delay: '0s', count: 1, fun: 'ease' }, { name: '右滑入', type: 'in', animate: 'slideInRight', time: '1s', delay: '0s', count: 1, fun: 'ease' }, { name: '放大', type: 'in', animate: 'zoomIn', time: '1s', delay: '0s', count: 1, fun: 'ease' }, { name: '从上放大', type: 'in', animate: 'zoomInDown', time: '1s', delay: '0s', count: 1, fun: 'ease' }, { name: '从左放大', type: 'in', animate: 'zoomInLeft', time: '1s', delay: '0s', count: 1, fun: 'ease' }, { name: '从右放大', type: 'in', animate: 'zoomInRight', time: '1s', delay: '0s', count: 1, fun: 'ease' }, { name: '从下放大', type: 'in', animate: 'zoomInUp', time: '1s', delay: '0s', count: 1, fun: 'ease' }, { name: '左滚入', type: 'in', animate: 'rollIn', time: '1s', delay: '0s', count: 1, fun: 'ease' }];
+var animatesIn = exports.animatesIn = [{ name: '快闪', type: 'in', animate: 'fastShow', time: '0.1s', delay: '0s', count: 1, fun: 'linear' }, { name: '弹入', type: 'in', animate: 'bounceIn', time: '1s', delay: '0s', count: 1, fun: 'ease' }, { name: '上弹入', type: 'in', animate: 'bounceInDown', time: '1s', delay: '0s', count: 1, fun: 'ease' }, { name: '左弹入', type: 'in', animate: 'bounceInLeft', time: '1s', delay: '0s', count: 1, fun: 'ease' }, { name: '右弹入', type: 'in', animate: 'bounceInRight', time: '1s', delay: '0s', count: 1, fun: 'ease' }, { name: '下弹入', type: 'in', animate: 'bounceInUp', time: '1s', delay: '0s', count: 1, fun: 'ease' }, { name: '渐显', type: 'in', animate: 'fadeIn', time: '1s', delay: '0s', count: 1, fun: 'ease' }, { name: '上渐显', type: 'in', animate: 'fadeInDown', time: '1s', delay: '0s', count: 1, fun: 'ease' }, { name: '上远渐显', type: 'in', animate: 'fadeInDownBig', time: '1s', delay: '0s', count: 1, fun: 'ease' }, { name: '左渐显', type: 'in', animate: 'fadeInLeft', time: '1s', delay: '0s', count: 1, fun: 'ease' }, { name: '左远渐显', type: 'in', animate: 'fadeInLeftBig', time: '1s', delay: '0s', count: 1, fun: 'ease' }, { name: '右渐入', type: 'in', animate: 'fadeInRight', time: '1s', delay: '0s', count: 1, fun: 'ease' }, { name: '右远渐入', type: 'in', animate: 'fadeInRightBig', time: '1s', delay: '0s', count: 1, fun: 'ease' }, { name: '下渐入', type: 'in', animate: 'fadeInUp', time: '1s', delay: '0s', count: 1, fun: 'ease' }, { name: '下远渐入', type: 'in', animate: 'fadeInUpBig', time: '1s', delay: '0s', count: 1, fun: 'ease' }, { name: 'X翻牌', type: 'in', animate: 'flipInX', time: '1s', delay: '0s', count: 1, fun: 'ease' }, { name: 'Y翻牌', type: 'in', animate: 'flipInY', time: '1s', delay: '0s', count: 1, fun: 'ease' }, { name: '光速入', type: 'in', animate: 'lightSpeedIn', time: '1s', delay: '0s', count: 1, fun: 'ease' }, { name: '滚入', type: 'in', animate: 'rotateIn', time: '1s', delay: '0s', count: 1, fun: 'ease' }, { name: '左上滚入', type: 'in', animate: 'rotateInDownLeft', time: '1s', delay: '0s', count: 1, fun: 'ease' }, { name: '右上滚入', type: 'in', animate: 'rotateInDownRight', time: '1s', delay: '0s', count: 1, fun: 'ease' }, { name: '左下滚入', type: 'in', animate: 'rotateInUpLeft', time: '1s', delay: '0s', count: 1, fun: 'ease' }, { name: '右下滚入', type: 'in', animate: 'rotateInUpRight', time: '1s', delay: '0s', count: 1, fun: 'ease' }, { name: '下滑入', type: 'in', animate: 'slideInUp', time: '1s', delay: '0s', count: 1, fun: 'ease' }, { name: '上滑入', type: 'in', animate: 'slideInDown', time: '1s', delay: '0s', count: 1, fun: 'ease' }, { name: '左滑入', type: 'in', animate: 'slideInLeft', time: '1s', delay: '0s', count: 1, fun: 'ease' }, { name: '右滑入', type: 'in', animate: 'slideInRight', time: '1s', delay: '0s', count: 1, fun: 'ease' }, { name: '放大', type: 'in', animate: 'zoomIn', time: '1s', delay: '0s', count: 1, fun: 'ease' }, { name: '从上放大', type: 'in', animate: 'zoomInDown', time: '1s', delay: '0s', count: 1, fun: 'ease' }, { name: '从左放大', type: 'in', animate: 'zoomInLeft', time: '1s', delay: '0s', count: 1, fun: 'ease' }, { name: '从右放大', type: 'in', animate: 'zoomInRight', time: '1s', delay: '0s', count: 1, fun: 'ease' }, { name: '从下放大', type: 'in', animate: 'zoomInUp', time: '1s', delay: '0s', count: 1, fun: 'ease' }, { name: '左滚入', type: 'in', animate: 'rollIn', time: '1s', delay: '0s', count: 1, fun: 'ease' }];
 
 /**
  * 离开动画
  */
-var animatesOut = exports.animatesOut = [{ name: '弹走', type: 'out', animate: 'bounceOut', time: '1s', delay: '0s', count: 1, fun: 'ease' }, { name: '下弹走', type: 'out', animate: 'bounceOutDown', time: '1s', delay: '0s', count: 1, fun: 'ease' }, { name: '左弹走', type: 'out', animate: 'bounceOutLeft', time: '1s', delay: '0s', count: 1, fun: 'ease' }, { name: '右弹走', type: 'out', animate: 'bounceOutRight', time: '1s', delay: '0s', count: 1, fun: 'ease' }, { name: '上弹走', type: 'out', animate: 'bounceOutUp', time: '1s', delay: '0s', count: 1, fun: 'ease' }, { name: '渐隐', type: 'out', animate: 'fadeOut', time: '1s', delay: '0s', count: 1, fun: 'ease' }, { name: '下渐隐', type: 'out', animate: 'fadeOutDown', time: '1s', delay: '0s', count: 1, fun: 'ease' }, { name: '下渐隐快', type: 'out', animate: 'fadeOutDownBig', time: '1s', delay: '0s', count: 1, fun: 'ease' }, { name: '左渐隐', type: 'out', animate: 'fadeOutLeft', time: '1s', delay: '0s', count: 1, fun: 'ease' }, { name: '左渐隐快', type: 'out', animate: 'fadeOutLeftBig', time: '1s', delay: '0s', count: 1, fun: 'ease' }, { name: '右渐隐', type: 'out', animate: 'fadeOutRight', time: '1s', delay: '0s', count: 1, fun: 'ease' }, { name: '右渐隐快', type: 'out', animate: 'fadeOutRightBig', time: '1s', delay: '0s', count: 1, fun: 'ease' }, { name: '上渐隐', type: 'out', animate: 'fadeOutUp', time: '1s', delay: '0s', count: 1, fun: 'ease' }, { name: '上渐隐快', type: 'out', animate: 'fadeOutUpBig', time: '1s', delay: '0s', count: 1, fun: 'ease' }, { name: 'X翻牌隐', type: 'out', animate: 'flipOutX', time: '1s', delay: '0s', count: 1, fun: 'ease' }, { name: 'Y翻牌隐', type: 'out', animate: 'flipOutY', time: '1s', delay: '0s', count: 1, fun: 'ease' }, { name: '光速离开', type: 'out', animate: 'lightSpeedOut', time: '1s', delay: '0s', count: 1, fun: 'ease' }, { name: '滚隐', type: 'out', animate: 'rotateOut', time: '1s', delay: '0s', count: 1, fun: 'ease' }, { name: '左下滚出', type: 'out', animate: 'rotateOutDownLeft', time: '1s', delay: '0s', count: 1, fun: 'ease' }, { name: '右下滚出', type: 'out', animate: 'rotateOutDownRight', time: '1s', delay: '0s', count: 1, fun: 'ease' }, { name: '左上滚出', type: 'out', animate: 'rotateOutUpLeft', time: '1s', delay: '0s', count: 1, fun: 'ease' }, { name: '右上滚出', type: 'out', animate: 'rotateOutUpRight', time: '1s', delay: '0s', count: 1, fun: 'ease' }, { name: '上滑出', type: 'out', animate: 'slideOutUp', time: '1s', delay: '0s', count: 1, fun: 'ease' }, { name: '下滑出', type: 'out', animate: 'slideOutDown', time: '1s', delay: '0s', count: 1, fun: 'ease' }, { name: '左滑出', type: 'out', animate: 'slideOutLeft', time: '1s', delay: '0s', count: 1, fun: 'ease' }, { name: '右滑出', type: 'out', animate: 'slideOutRight', time: '1s', delay: '0s', count: 1, fun: 'ease' }, { name: '缩小', type: 'out', animate: 'zoomOut', time: '1s', delay: '0s', count: 1, fun: 'ease' }, { name: '下缩小', type: 'out', animate: 'zoomOutDown', time: '1s', delay: '0s', count: 1, fun: 'ease' }, { name: '左缩小', type: 'out', animate: 'zoomOutLeft', time: '1s', delay: '0s', count: 1, fun: 'ease' }, { name: '右缩小', type: 'out', animate: 'zoomOutRight', time: '1s', delay: '0s', count: 1, fun: 'ease' }, { name: '上缩小', type: 'out', animate: 'zoomOutUp', time: '1s', delay: '0s', count: 1, fun: 'ease' }, { name: '掉链子', type: 'out', animate: 'hinge', time: '1s', delay: '0s', count: 1, fun: 'ease' }, { name: '右滚走', type: 'out', animate: 'rollOut', time: '1s', delay: '0s', count: 1, fun: 'ease' }];
+var animatesOut = exports.animatesOut = [{ name: '弹走', type: 'out', animate: 'bounceOut', time: '1s', delay: '0s', count: 1, fun: 'ease' }, { name: '下弹走', type: 'out', animate: 'bounceOutDown', time: '1s', delay: '0s', count: 1, fun: 'ease' }, { name: '左弹走', type: 'out', animate: 'bounceOutLeft', time: '1s', delay: '0s', count: 1, fun: 'ease' }, { name: '右弹走', type: 'out', animate: 'bounceOutRight', time: '1s', delay: '0s', count: 1, fun: 'ease' }, { name: '上弹走', type: 'out', animate: 'bounceOutUp', time: '1s', delay: '0s', count: 1, fun: 'ease' }, { name: '渐隐', type: 'out', animate: 'fadeOut', time: '1s', delay: '0s', count: 1, fun: 'ease' }, { name: '下渐隐', type: 'out', animate: 'fadeOutDown', time: '1s', delay: '0s', count: 1, fun: 'ease' }, { name: '下渐隐快', type: 'out', animate: 'fadeOutDownBig', time: '1s', delay: '0s', count: 1, fun: 'ease' }, { name: '左渐隐', type: 'out', animate: 'fadeOutLeft', time: '1s', delay: '0s', count: 1, fun: 'ease' }, { name: '左渐隐快', type: 'out', animate: 'fadeOutLeftBig', time: '1s', delay: '0s', count: 1, fun: 'ease' }, { name: '右渐隐', type: 'out', animate: 'fadeOutRight', time: '1s', delay: '0s', count: 1, fun: 'ease' }, { name: '右渐隐快', type: 'out', animate: 'fadeOutRightBig', time: '1s', delay: '0s', count: 1, fun: 'ease' }, { name: '上渐隐', type: 'out', animate: 'fadeOutUp', time: '1s', delay: '0s', count: 1, fun: 'ease' }, { name: '上渐隐快', type: 'out', animate: 'fadeOutUpBig', time: '1s', delay: '0s', count: 1, fun: 'ease' }, { name: 'X翻牌隐', type: 'out', animate: 'flipOutX', time: '1s', delay: '0s', count: 1, fun: 'ease' }, { name: 'Y翻牌隐', type: 'out', animate: 'flipOutY', time: '1s', delay: '0s', count: 1, fun: 'ease' }, { name: '光速离开', type: 'out', animate: 'lightSpeedOut', time: '1s', delay: '0s', count: 1, fun: 'ease' }, { name: '滚隐', type: 'out', animate: 'rotateOut', time: '1s', delay: '0s', count: 1, fun: 'ease' }, { name: '左下滚出', type: 'out', animate: 'rotateOutDownLeft', time: '1s', delay: '0s', count: 1, fun: 'ease' }, { name: '右下滚出', type: 'out', animate: 'rotateOutDownRight', time: '1s', delay: '0s', count: 1, fun: 'ease' }, { name: '左上滚出', type: 'out', animate: 'rotateOutUpLeft', time: '1s', delay: '0s', count: 1, fun: 'ease' }, { name: '右上滚出', type: 'out', animate: 'rotateOutUpRight', time: '1s', delay: '0s', count: 1, fun: 'ease' }, { name: '上滑出', type: 'out', animate: 'slideOutUp', time: '1s', delay: '0s', count: 1, fun: 'ease' }, { name: '下滑出', type: 'out', animate: 'slideOutDown', time: '1s', delay: '0s', count: 1, fun: 'ease' }, { name: '左滑出', type: 'out', animate: 'slideOutLeft', time: '1s', delay: '0s', count: 1, fun: 'ease' }, { name: '右滑出', type: 'out', animate: 'slideOutRight', time: '1s', delay: '0s', count: 1, fun: 'ease' }, { name: '缩小', type: 'out', animate: 'zoomOut', time: '1s', delay: '0s', count: 1, fun: 'ease' }, { name: '下缩小', type: 'out', animate: 'zoomOutDown', time: '1s', delay: '0s', count: 1, fun: 'ease' }, { name: '左缩小', type: 'out', animate: 'zoomOutLeft', time: '1s', delay: '0s', count: 1, fun: 'ease' }, { name: '右缩小', type: 'out', animate: 'zoomOutRight', time: '1s', delay: '0s', count: 1, fun: 'ease' }, { name: '上缩小', type: 'out', animate: 'zoomOutUp', time: '1s', delay: '0s', count: 1, fun: 'ease' }, { name: '掉链子', type: 'out', animate: 'hinge', time: '1s', delay: '0s', count: 1, fun: 'ease' }, { name: '右滚走', type: 'out', animate: 'rollOut', time: '1s', delay: '0s', count: 1, fun: 'ease' }, { name: '放大消失', type: 'out', animate: 'toBigFade', time: '1s', delay: '0s', count: 1, fun: 'ease' }];
 
 /**
  * 强调动画
@@ -15440,7 +15445,7 @@ var _temp = function () {
 ;
 
 /***/ }),
-/* 144 */
+/* 145 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -15455,7 +15460,7 @@ var _getPrototypeOf = __webpack_require__(3);
 
 var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
 
-var _classCallCheck2 = __webpack_require__(1);
+var _classCallCheck2 = __webpack_require__(0);
 
 var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
 
@@ -15473,11 +15478,11 @@ var _inherits3 = _interopRequireDefault(_inherits2);
 
 var _dec, _class;
 
-var _interaction = __webpack_require__(145);
+var _interaction = __webpack_require__(146);
 
 var UE = _interopRequireWildcard(_interaction);
 
-var _react = __webpack_require__(0);
+var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -15571,7 +15576,7 @@ var LayerSet = (_dec = (0, _mobxReact.inject)(['app']), _dec(_class = (0, _mobxR
                 return null;
             }
 
-            var ue = layer.ue;
+            var ue = layer.ue || {};
             var setClass = function setClass(type) {
                 var cls = ['fun'];
                 if (ue[type] !== undefined) {
@@ -15722,7 +15727,7 @@ var _temp = function () {
 module.exports = exports['default'];
 
 /***/ }),
-/* 145 */
+/* 146 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -15732,31 +15737,31 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _LinkSet = __webpack_require__(146);
+var _LinkSet = __webpack_require__(147);
 
 var _LinkSet2 = _interopRequireDefault(_LinkSet);
 
-var _ToPageSet = __webpack_require__(148);
+var _ToPageSet = __webpack_require__(149);
 
 var _ToPageSet2 = _interopRequireDefault(_ToPageSet);
 
-var _TelSet = __webpack_require__(150);
+var _TelSet = __webpack_require__(151);
 
 var _TelSet2 = _interopRequireDefault(_TelSet);
 
-var _MsgSet = __webpack_require__(152);
+var _MsgSet = __webpack_require__(153);
 
 var _MsgSet2 = _interopRequireDefault(_MsgSet);
 
-var _HideShowSet = __webpack_require__(154);
+var _HideShowSet = __webpack_require__(155);
 
 var _HideShowSet2 = _interopRequireDefault(_HideShowSet);
 
-var _ShakeSet = __webpack_require__(156);
+var _ShakeSet = __webpack_require__(157);
 
 var _ShakeSet2 = _interopRequireDefault(_ShakeSet);
 
-var _TouchSet = __webpack_require__(158);
+var _TouchSet = __webpack_require__(159);
 
 var _TouchSet2 = _interopRequireDefault(_TouchSet);
 
@@ -15786,7 +15791,7 @@ var _temp = function () {
 module.exports = exports['default'];
 
 /***/ }),
-/* 146 */
+/* 147 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -15805,7 +15810,7 @@ var _getPrototypeOf = __webpack_require__(3);
 
 var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
 
-var _classCallCheck2 = __webpack_require__(1);
+var _classCallCheck2 = __webpack_require__(0);
 
 var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
 
@@ -15825,9 +15830,9 @@ var _dec, _class;
 
 __webpack_require__(10);
 
-__webpack_require__(147);
+__webpack_require__(148);
 
-var _react = __webpack_require__(0);
+var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -15968,13 +15973,13 @@ var _temp = function () {
 module.exports = exports['default'];
 
 /***/ }),
-/* 147 */
+/* 148 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 148 */
+/* 149 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -15993,7 +15998,7 @@ var _getPrototypeOf = __webpack_require__(3);
 
 var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
 
-var _classCallCheck2 = __webpack_require__(1);
+var _classCallCheck2 = __webpack_require__(0);
 
 var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
 
@@ -16013,9 +16018,9 @@ var _dec, _class;
 
 __webpack_require__(10);
 
-__webpack_require__(149);
+__webpack_require__(150);
 
-var _react = __webpack_require__(0);
+var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -16194,13 +16199,13 @@ var _temp = function () {
 module.exports = exports['default'];
 
 /***/ }),
-/* 149 */
+/* 150 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 150 */
+/* 151 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16219,7 +16224,7 @@ var _getPrototypeOf = __webpack_require__(3);
 
 var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
 
-var _classCallCheck2 = __webpack_require__(1);
+var _classCallCheck2 = __webpack_require__(0);
 
 var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
 
@@ -16239,9 +16244,9 @@ var _dec, _class;
 
 __webpack_require__(10);
 
-__webpack_require__(151);
+__webpack_require__(152);
 
-var _react = __webpack_require__(0);
+var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -16377,13 +16382,13 @@ var _temp = function () {
 module.exports = exports['default'];
 
 /***/ }),
-/* 151 */
+/* 152 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 152 */
+/* 153 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16402,7 +16407,7 @@ var _getPrototypeOf = __webpack_require__(3);
 
 var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
 
-var _classCallCheck2 = __webpack_require__(1);
+var _classCallCheck2 = __webpack_require__(0);
 
 var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
 
@@ -16422,9 +16427,9 @@ var _dec, _class;
 
 __webpack_require__(10);
 
-__webpack_require__(153);
+__webpack_require__(154);
 
-var _react = __webpack_require__(0);
+var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -16560,13 +16565,13 @@ var _temp = function () {
 module.exports = exports['default'];
 
 /***/ }),
-/* 153 */
+/* 154 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 154 */
+/* 155 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16581,7 +16586,7 @@ var _message2 = __webpack_require__(9);
 
 var _message3 = _interopRequireDefault(_message2);
 
-var _defineProperty2 = __webpack_require__(14);
+var _defineProperty2 = __webpack_require__(13);
 
 var _defineProperty3 = _interopRequireDefault(_defineProperty2);
 
@@ -16589,7 +16594,7 @@ var _getPrototypeOf = __webpack_require__(3);
 
 var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
 
-var _classCallCheck2 = __webpack_require__(1);
+var _classCallCheck2 = __webpack_require__(0);
 
 var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
 
@@ -16615,9 +16620,9 @@ __webpack_require__(10);
 
 __webpack_require__(43);
 
-__webpack_require__(155);
+__webpack_require__(156);
 
-var _react = __webpack_require__(0);
+var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -16790,13 +16795,13 @@ var _temp = function () {
 module.exports = exports['default'];
 
 /***/ }),
-/* 155 */
+/* 156 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 156 */
+/* 157 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16811,7 +16816,7 @@ var _getPrototypeOf = __webpack_require__(3);
 
 var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
 
-var _classCallCheck2 = __webpack_require__(1);
+var _classCallCheck2 = __webpack_require__(0);
 
 var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
 
@@ -16829,9 +16834,9 @@ var _inherits3 = _interopRequireDefault(_inherits2);
 
 var _dec, _class;
 
-__webpack_require__(157);
+__webpack_require__(158);
 
-var _react = __webpack_require__(0);
+var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -16963,13 +16968,13 @@ var _temp = function () {
 module.exports = exports['default'];
 
 /***/ }),
-/* 157 */
+/* 158 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 158 */
+/* 159 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16984,7 +16989,7 @@ var _getPrototypeOf = __webpack_require__(3);
 
 var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
 
-var _classCallCheck2 = __webpack_require__(1);
+var _classCallCheck2 = __webpack_require__(0);
 
 var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
 
@@ -17002,9 +17007,9 @@ var _inherits3 = _interopRequireDefault(_inherits2);
 
 var _dec, _class;
 
-__webpack_require__(159);
+__webpack_require__(160);
 
-var _react = __webpack_require__(0);
+var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -17136,13 +17141,13 @@ var _temp = function () {
 module.exports = exports['default'];
 
 /***/ }),
-/* 159 */
+/* 160 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 160 */
+/* 161 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -17161,7 +17166,7 @@ var _getPrototypeOf = __webpack_require__(3);
 
 var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
 
-var _classCallCheck2 = __webpack_require__(1);
+var _classCallCheck2 = __webpack_require__(0);
 
 var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
 
@@ -17181,17 +17186,17 @@ var _dec, _class;
 
 __webpack_require__(10);
 
-var _react = __webpack_require__(0);
+var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
 var _mobxReact = __webpack_require__(6);
 
-var _StyleBasicSet = __webpack_require__(161);
+var _StyleBasicSet = __webpack_require__(162);
 
 var _StyleBasicSet2 = _interopRequireDefault(_StyleBasicSet);
 
-var _StyleMoreSet = __webpack_require__(162);
+var _StyleMoreSet = __webpack_require__(163);
 
 var _StyleMoreSet2 = _interopRequireDefault(_StyleMoreSet);
 
@@ -17245,7 +17250,7 @@ var StyleSet = (_dec = (0, _mobxReact.inject)('app', 'layerfun'), _dec(_class = 
                 'span',
                 { key: layer.keyid },
                 _react2.default.createElement(_StyleBasicSet2.default, null),
-                Dom ? _react2.default.createElement(Dom, { layerfun: this.props.layerfun.layersSet, layer: layer }) : _react2.default.createElement(
+                Dom ? _react2.default.createElement(Dom, { app: this.props.app, layerfun: this.props.layerfun.layersSet, layer: layer }) : _react2.default.createElement(
                     'div',
                     null,
                     null
@@ -17271,7 +17276,7 @@ var _temp2 = function () {
 module.exports = exports['default'];
 
 /***/ }),
-/* 161 */
+/* 162 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -17286,7 +17291,7 @@ var _extends2 = __webpack_require__(11);
 
 var _extends3 = _interopRequireDefault(_extends2);
 
-var _defineProperty2 = __webpack_require__(14);
+var _defineProperty2 = __webpack_require__(13);
 
 var _defineProperty3 = _interopRequireDefault(_defineProperty2);
 
@@ -17294,7 +17299,7 @@ var _getPrototypeOf = __webpack_require__(3);
 
 var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
 
-var _classCallCheck2 = __webpack_require__(1);
+var _classCallCheck2 = __webpack_require__(0);
 
 var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
 
@@ -17312,13 +17317,13 @@ var _inherits3 = _interopRequireDefault(_inherits2);
 
 var _dec, _class;
 
-var _react = __webpack_require__(0);
+var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
 var _mobxReact = __webpack_require__(6);
 
-var _InputMt = __webpack_require__(20);
+var _InputMt = __webpack_require__(18);
 
 var _InputMt2 = _interopRequireDefault(_InputMt);
 
@@ -17597,7 +17602,7 @@ var _temp = function () {
 module.exports = exports['default'];
 
 /***/ }),
-/* 162 */
+/* 163 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -17624,7 +17629,7 @@ var _getPrototypeOf = __webpack_require__(3);
 
 var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
 
-var _classCallCheck2 = __webpack_require__(1);
+var _classCallCheck2 = __webpack_require__(0);
 
 var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
 
@@ -17646,7 +17651,7 @@ __webpack_require__(42);
 
 __webpack_require__(25);
 
-var _react = __webpack_require__(0);
+var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -17656,17 +17661,21 @@ var _mobx = __webpack_require__(7);
 
 var _mobxReact = __webpack_require__(6);
 
-var _Colors = __webpack_require__(46);
+var _Colors = __webpack_require__(45);
 
 var _Colors2 = _interopRequireDefault(_Colors);
 
-var _InputMt = __webpack_require__(20);
+var _InputMt = __webpack_require__(18);
 
 var _InputMt2 = _interopRequireDefault(_InputMt);
 
-var _debounce = __webpack_require__(51);
+var _debounce = __webpack_require__(50);
 
 var _util = __webpack_require__(8);
+
+var _SetColor = __webpack_require__(57);
+
+var _SetColor2 = _interopRequireDefault(_SetColor);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -17728,6 +17737,10 @@ var StyleMoreSet = (_dec = (0, _mobxReact.inject)('app', 'layerfun'), _dec(_clas
 
         _this.setBoxShadowColor = function () {
             return _this.__setBoxShadowColor__REACT_HOT_LOADER__.apply(_this, arguments);
+        };
+
+        _this.changeColor = function () {
+            return _this.__changeColor__REACT_HOT_LOADER__.apply(_this, arguments);
         };
 
         _this.layer = props.app.getLayer();
@@ -17957,8 +17970,24 @@ var StyleMoreSet = (_dec = (0, _mobxReact.inject)('app', 'layerfun'), _dec(_clas
         }
     }, {
         key: '__setBoxShadowColor__REACT_HOT_LOADER__',
+
+
+        // 设置背景色
         value: function __setBoxShadowColor__REACT_HOT_LOADER__(color) {
             this.setBoxshadow({ color: color.hex });
+        }
+    }, {
+        key: '__changeColor__REACT_HOT_LOADER__',
+        value: function __changeColor__REACT_HOT_LOADER__(obj) {
+            var _this3 = this;
+
+            var app = this.props.app;
+
+            (0, _mobx.transaction)(function () {
+                _this3.layer.estyle.backgroundColor = obj.color;
+                app.edata.keys++;
+                $(document).trigger('h5ds.setHistory');
+            });
         }
     }, {
         key: 'componentDidMount',
@@ -17968,18 +17997,17 @@ var StyleMoreSet = (_dec = (0, _mobxReact.inject)('app', 'layerfun'), _dec(_clas
     }, {
         key: 'render',
         value: function render() {
-            var _this3 = this;
+            var _this4 = this;
 
-            var _props$app = this.props.app,
-                getLayer = _props$app.getLayer,
-                edata = _props$app.edata;
+            var edata = this.props.app.edata;
+            // let layer = getLayer();
 
-            var layer = getLayer();
-            if (!layer) {
+            if (!this.layer) {
                 return null;
             }
-            var style = layer.style,
-                estyle = layer.estyle;
+            var _layer2 = this.layer,
+                style = _layer2.style,
+                estyle = _layer2.estyle;
 
             var rotate = this.getRotate(style);
             var borderRadius = estyle.borderRadius || 0;
@@ -18004,7 +18032,7 @@ var StyleMoreSet = (_dec = (0, _mobxReact.inject)('app', 'layerfun'), _dec(_clas
 
             // 不能删除
             var state = (0, _extends3.default)({}, edata);
-            var editor = this.props.layerfun.layersSet[layer.type] || {};
+            var editor = this.props.layerfun.layersSet[this.layer.type] || {};
             var editorSet = editor.editorSet || {};
 
             console.log('StyleMoreSet render');
@@ -18012,6 +18040,7 @@ var StyleMoreSet = (_dec = (0, _mobxReact.inject)('app', 'layerfun'), _dec(_clas
             return _react2.default.createElement(
                 'div',
                 { className: 'set-baiscmore' },
+                editorSet.backgroundColor === false ? null : _react2.default.createElement(_SetColor2.default, { color: estyle.backgroundColor || 'rgba(0,0,0,1)', onChange: this.changeColor }),
                 editorSet.rotate === false ? null : _react2.default.createElement(
                     'div',
                     { className: 'tr' },
@@ -18022,7 +18051,7 @@ var StyleMoreSet = (_dec = (0, _mobxReact.inject)('app', 'layerfun'), _dec(_clas
                     ),
                     _react2.default.createElement(_slider2.default, {
                         onChange: function onChange(e) {
-                            _this3.sliderChange(e, 'rotate');
+                            _this4.sliderChange(e, 'rotate');
                         },
                         tipFormatter: null,
                         step: 1,
@@ -18032,7 +18061,7 @@ var StyleMoreSet = (_dec = (0, _mobxReact.inject)('app', 'layerfun'), _dec(_clas
                     }),
                     _react2.default.createElement(_InputMt2.default, {
                         onChange: function onChange(e) {
-                            _this3.sliderChange(_this3.filterValue(e), 'rotate');
+                            _this4.sliderChange(_this4.filterValue(e), 'rotate');
                         },
                         wheel: true,
                         value: rotate,
@@ -18052,7 +18081,7 @@ var StyleMoreSet = (_dec = (0, _mobxReact.inject)('app', 'layerfun'), _dec(_clas
                     ),
                     _react2.default.createElement(_slider2.default, {
                         onChange: function onChange(e) {
-                            _this3.sliderChange(e, 'borderRadius');
+                            _this4.sliderChange(e, 'borderRadius');
                         },
                         min: 0,
                         max: 1000,
@@ -18062,7 +18091,7 @@ var StyleMoreSet = (_dec = (0, _mobxReact.inject)('app', 'layerfun'), _dec(_clas
                     }),
                     _react2.default.createElement(_InputMt2.default, {
                         onChange: function onChange(e) {
-                            _this3.sliderChange(_this3.filterValue(e), 'borderRadius');
+                            _this4.sliderChange(_this4.filterValue(e), 'borderRadius');
                         },
                         min: 0,
                         max: 1000,
@@ -18082,7 +18111,7 @@ var StyleMoreSet = (_dec = (0, _mobxReact.inject)('app', 'layerfun'), _dec(_clas
                     ),
                     _react2.default.createElement(_slider2.default, {
                         onChange: function onChange(e) {
-                            _this3.sliderChange(e, 'opacity');
+                            _this4.sliderChange(e, 'opacity');
                         },
                         tipFormatter: null,
                         step: 0.01,
@@ -18092,7 +18121,7 @@ var StyleMoreSet = (_dec = (0, _mobxReact.inject)('app', 'layerfun'), _dec(_clas
                     }),
                     _react2.default.createElement(_InputMt2.default, {
                         onChange: function onChange(e) {
-                            _this3.sliderChange(_this3.filterValue(e), 'opacity');
+                            _this4.sliderChange(_this4.filterValue(e), 'opacity');
                         },
                         wheel: true,
                         step: 0.01,
@@ -18134,7 +18163,7 @@ var StyleMoreSet = (_dec = (0, _mobxReact.inject)('app', 'layerfun'), _dec(_clas
                         ),
                         _react2.default.createElement(_slider2.default, {
                             onChange: function onChange(e) {
-                                _this3.sliderChange(e, 'boxShadowSize');
+                                _this4.sliderChange(e, 'boxShadowSize');
                             },
                             tipFormatter: null,
                             min: 0,
@@ -18144,7 +18173,7 @@ var StyleMoreSet = (_dec = (0, _mobxReact.inject)('app', 'layerfun'), _dec(_clas
                         }),
                         _react2.default.createElement(_InputMt2.default, {
                             onChange: function onChange(e) {
-                                _this3.sliderChange(_this3.filterValue(e), 'boxShadowSize');
+                                _this4.sliderChange(_this4.filterValue(e), 'boxShadowSize');
                             },
                             min: 0,
                             max: 100,
@@ -18171,7 +18200,7 @@ var StyleMoreSet = (_dec = (0, _mobxReact.inject)('app', 'layerfun'), _dec(_clas
                                 ),
                                 _react2.default.createElement(_slider2.default, {
                                     onChange: function onChange(e) {
-                                        _this3.sliderChange(e, 'boxShadowOpacity');
+                                        _this4.sliderChange(e, 'boxShadowOpacity');
                                     },
                                     tipFormatter: null,
                                     min: 0,
@@ -18250,7 +18279,7 @@ var StyleMoreSet = (_dec = (0, _mobxReact.inject)('app', 'layerfun'), _dec(_clas
                         ),
                         _react2.default.createElement(_InputMt2.default, {
                             onChange: function onChange(e) {
-                                _this3.sliderChange(_this3.filterValue(e), 'borderSize');
+                                _this4.sliderChange(_this4.filterValue(e), 'borderSize');
                             },
                             wheel: true,
                             min: 0,
@@ -18276,7 +18305,7 @@ var StyleMoreSet = (_dec = (0, _mobxReact.inject)('app', 'layerfun'), _dec(_clas
                                 ),
                                 _react2.default.createElement(_slider2.default, {
                                     onChange: function onChange(e) {
-                                        _this3.sliderChange(e, 'borderOpacity');
+                                        _this4.sliderChange(e, 'borderOpacity');
                                     },
                                     tipFormatter: null,
                                     min: 0,
@@ -18315,7 +18344,7 @@ var _temp = function () {
 module.exports = exports['default'];
 
 /***/ }),
-/* 163 */
+/* 164 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18334,7 +18363,7 @@ var _getPrototypeOf = __webpack_require__(3);
 
 var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
 
-var _classCallCheck2 = __webpack_require__(1);
+var _classCallCheck2 = __webpack_require__(0);
 
 var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
 
@@ -18352,15 +18381,15 @@ var _inherits3 = _interopRequireDefault(_inherits2);
 
 var _dec, _class; // 获取外框
 
-__webpack_require__(164);
+__webpack_require__(165);
 
-var _react = __webpack_require__(0);
+var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
 var _mobxReact = __webpack_require__(6);
 
-var _rect = __webpack_require__(22);
+var _rect = __webpack_require__(20);
 
 var _util = __webpack_require__(8);
 
@@ -18914,13 +18943,13 @@ var _temp2 = function () {
 module.exports = exports['default'];
 
 /***/ }),
-/* 164 */
+/* 165 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 165 */
+/* 166 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18939,7 +18968,7 @@ var _switch = __webpack_require__(40);
 
 var _switch2 = _interopRequireDefault(_switch);
 
-var _defineProperty2 = __webpack_require__(14);
+var _defineProperty2 = __webpack_require__(13);
 
 var _defineProperty3 = _interopRequireDefault(_defineProperty2);
 
@@ -18947,7 +18976,7 @@ var _getPrototypeOf = __webpack_require__(3);
 
 var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
 
-var _classCallCheck2 = __webpack_require__(1);
+var _classCallCheck2 = __webpack_require__(0);
 
 var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
 
@@ -18969,9 +18998,9 @@ __webpack_require__(25);
 
 __webpack_require__(42);
 
-__webpack_require__(166);
+__webpack_require__(167);
 
-var _react = __webpack_require__(0);
+var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -18983,13 +19012,13 @@ var _BackGround = __webpack_require__(44);
 
 var _BackGround2 = _interopRequireDefault(_BackGround);
 
-var _InputMt = __webpack_require__(20);
+var _InputMt = __webpack_require__(18);
 
 var _InputMt2 = _interopRequireDefault(_InputMt);
 
 var _common = __webpack_require__(69);
 
-var _debounce = __webpack_require__(51);
+var _debounce = __webpack_require__(50);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -19265,46 +19294,10 @@ var _temp = function () {
 module.exports = exports['default'];
 
 /***/ }),
-/* 166 */
+/* 167 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 167 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.etext = exports.setEtextHTML = undefined;
-
-var _layer = __webpack_require__(168);
-
-var _EtextEditor = __webpack_require__(169);
-
-var _EtextEditor2 = _interopRequireDefault(_EtextEditor);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var _default = _EtextEditor2.default;
-exports.default = _default;
-exports.setEtextHTML = _layer.setEtextHTML;
-exports.etext = _layer.etext;
-;
-
-var _temp = function () {
-  if (typeof __REACT_HOT_LOADER__ === 'undefined') {
-    return;
-  }
-
-  __REACT_HOT_LOADER__.register(_default, 'default', 'C:/DT/h5ds/H5DS_All/h5ds-edit-hm/src/core/layers/etext/index.js');
-}();
-
-;
 
 /***/ }),
 /* 168 */
@@ -19316,48 +19309,28 @@ var _temp = function () {
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-exports.etext = undefined;
 
-var _extends2 = __webpack_require__(11);
+var _layer = __webpack_require__(169);
 
-var _extends3 = _interopRequireDefault(_extends2);
+var _EtextEditor = __webpack_require__(170);
 
-exports.setEtextHTML = setEtextHTML;
+var _EtextEditor2 = _interopRequireDefault(_EtextEditor);
 
-var _react = __webpack_require__(0);
+var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-// 设置 dom
-function setEtextHTML(layer) {
-    return _react2.default.createElement("div", { className: "layer-etext-inner", style: (0, _extends3.default)({}, layer.data.style), dangerouslySetInnerHTML: { __html: layer.data.data } });
-}
-
-// 原始数据
-var etext = exports.etext = {
-    "id": null,
-    "animate": [],
-    "data": {
-        "style": {
-            fontSize: '14px',
-            color: '#000',
-            textAlign: 'left'
-        },
-        "data": "<div>\u8BF7\u8F93\u5165\u6587\u672C\u5185\u5BB9</div>"
-    },
-    "estyle": {},
-    "style": {
-        "width": 200,
-        "height": 30,
-        "top": 10,
-        "left": 10
-    },
-    "type": "etext",
-    "color": "",
-    "ue": {}
+var _default = {
+    type: 'etext',
+    name: '文本',
+    icon: _react2.default.createElement('i', { className: 'h5ds ico5-wenben' }),
+    editor: _EtextEditor2.default,
+    layerdom: _layer.layerdom,
+    origindata: _layer.Origindata
 };
+exports.default = _default;
 ;
 
 var _temp = function () {
@@ -19365,15 +19338,90 @@ var _temp = function () {
         return;
     }
 
-    __REACT_HOT_LOADER__.register(setEtextHTML, "setEtextHTML", "C:/DT/h5ds/H5DS_All/h5ds-edit-hm/src/core/layers/etext/layer.jsx");
+    __REACT_HOT_LOADER__.register(_default, 'default', 'C:/DT/h5ds/H5DS_All/h5ds-edit-hm/src/core/layers/etext/index.js');
+}();
 
-    __REACT_HOT_LOADER__.register(etext, "etext", "C:/DT/h5ds/H5DS_All/h5ds-edit-hm/src/core/layers/etext/layer.jsx");
+;
+module.exports = exports['default'];
+
+/***/ }),
+/* 169 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.Origindata = undefined;
+
+var _classCallCheck2 = __webpack_require__(0);
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _extends2 = __webpack_require__(11);
+
+var _extends3 = _interopRequireDefault(_extends2);
+
+exports.layerdom = layerdom;
+
+var _react = __webpack_require__(1);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+// 设置 dom
+function layerdom(layer) {
+    return _react2.default.createElement('div', {
+        className: 'layer-etext-inner',
+        style: (0, _extends3.default)({}, layer.data.style),
+        dangerouslySetInnerHTML: { __html: layer.data.data }
+    });
+}
+
+var Origindata = exports.Origindata = function Origindata() {
+    (0, _classCallCheck3.default)(this, Origindata);
+
+    this.id = null;
+    this.animate = [];
+    this.data = {
+        style: {
+            fontSize: '14px',
+            color: '#000',
+            textAlign: 'left'
+        },
+        data: '<div>\u8BF7\u8F93\u5165\u6587\u672C\u5185\u5BB9</div>'
+    };
+    this.estyle = {};
+    this.style = {
+        width: 200,
+        height: 30,
+        top: 10,
+        left: 10
+    };
+    this.type = 'etext';
+    this.color = '';
+    this.ue = {};
+};
+
+;
+
+var _temp = function () {
+    if (typeof __REACT_HOT_LOADER__ === 'undefined') {
+        return;
+    }
+
+    __REACT_HOT_LOADER__.register(layerdom, 'layerdom', 'C:/DT/h5ds/H5DS_All/h5ds-edit-hm/src/core/layers/etext/layer.jsx');
+
+    __REACT_HOT_LOADER__.register(Origindata, 'Origindata', 'C:/DT/h5ds/H5DS_All/h5ds-edit-hm/src/core/layers/etext/layer.jsx');
 }();
 
 ;
 
 /***/ }),
-/* 169 */
+/* 170 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -19388,7 +19436,7 @@ var _getPrototypeOf = __webpack_require__(3);
 
 var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
 
-var _classCallCheck2 = __webpack_require__(1);
+var _classCallCheck2 = __webpack_require__(0);
 
 var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
 
@@ -19404,19 +19452,15 @@ var _inherits2 = __webpack_require__(5);
 
 var _inherits3 = _interopRequireDefault(_inherits2);
 
-var _dec, _class;
-
-__webpack_require__(170);
-
 __webpack_require__(171);
 
-var _react = __webpack_require__(0);
+__webpack_require__(172);
+
+var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _mobxReact = __webpack_require__(6);
-
-var _FontEdit = __webpack_require__(172);
+var _FontEdit = __webpack_require__(173);
 
 var _FontEdit2 = _interopRequireDefault(_FontEdit);
 
@@ -19424,49 +19468,25 @@ var _FontSet = __webpack_require__(70);
 
 var _FontSet2 = _interopRequireDefault(_FontSet);
 
-var _SetColor = __webpack_require__(45);
-
-var _SetColor2 = _interopRequireDefault(_SetColor);
-
-var _mobx = __webpack_require__(7);
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+// import SetColor from '@/core/common/bgcolor/SetColor';
+// import { transaction } from 'mobx';
 
 // import { base64ToUrl } from '@/utils/imgURLClear';
 
 /**
  * @desc esay text 简称 etext 简单的文本
  */
-var EtextEditor = (_dec = (0, _mobxReact.inject)(['app']), _dec(_class = (0, _mobxReact.observer)(_class = function (_Component) {
+var EtextEditor = function (_Component) {
     (0, _inherits3.default)(EtextEditor, _Component);
 
     function EtextEditor(props) {
         (0, _classCallCheck3.default)(this, EtextEditor);
-
-        var _this = (0, _possibleConstructorReturn3.default)(this, (EtextEditor.__proto__ || (0, _getPrototypeOf2.default)(EtextEditor)).call(this, props));
-
-        _this.changeColor = function () {
-            return _this.__changeColor__REACT_HOT_LOADER__.apply(_this, arguments);
-        };
-
-        return _this;
+        return (0, _possibleConstructorReturn3.default)(this, (EtextEditor.__proto__ || (0, _getPrototypeOf2.default)(EtextEditor)).call(this, props));
     }
 
-    // 变化颜色
-
-
     (0, _createClass3.default)(EtextEditor, [{
-        key: '__changeColor__REACT_HOT_LOADER__',
-        value: function __changeColor__REACT_HOT_LOADER__(obj) {
-            var _this2 = this;
-
-            (0, _mobx.transaction)(function () {
-                _this2.props.layer.estyle.backgroundColor = obj.color;
-                _this2.props.app.edata.keys++;
-                $(document).trigger('h5ds.setHistory');
-            });
-        }
-    }, {
         key: 'render',
         value: function render() {
             var _props = this.props,
@@ -19480,14 +19500,14 @@ var EtextEditor = (_dec = (0, _mobxReact.inject)(['app']), _dec(_class = (0, _mo
                     'div',
                     { className: 'layerset-etext' },
                     _react2.default.createElement(_FontSet2.default, { layer: layer, edata: app.edata }),
-                    _react2.default.createElement(_FontEdit2.default, { hideExtend: this.hideExtend, layer: layer }),
-                    _react2.default.createElement(_SetColor2.default, { onChange: this.changeColor, color: layer.estyle.backgroundColor })
+                    _react2.default.createElement(_FontEdit2.default, { hideExtend: this.hideExtend, layer: layer })
                 )
             );
         }
     }]);
     return EtextEditor;
-}(_react.Component)) || _class) || _class);
+}(_react.Component);
+
 exports.default = EtextEditor;
 ;
 
@@ -19503,12 +19523,6 @@ var _temp = function () {
 module.exports = exports['default'];
 
 /***/ }),
-/* 170 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
 /* 171 */
 /***/ (function(module, exports) {
 
@@ -19516,6 +19530,12 @@ module.exports = exports['default'];
 
 /***/ }),
 /* 172 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 173 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -19534,7 +19554,7 @@ var _getPrototypeOf = __webpack_require__(3);
 
 var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
 
-var _classCallCheck2 = __webpack_require__(1);
+var _classCallCheck2 = __webpack_require__(0);
 
 var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
 
@@ -19552,13 +19572,13 @@ var _inherits3 = _interopRequireDefault(_inherits2);
 
 var _dec, _class;
 
-var _react = __webpack_require__(0);
+var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
 var _mobxReact = __webpack_require__(6);
 
-var _reactContenteditable = __webpack_require__(173);
+var _reactContenteditable = __webpack_require__(174);
 
 var _reactContenteditable2 = _interopRequireDefault(_reactContenteditable);
 
@@ -19566,11 +19586,15 @@ var _FontSet = __webpack_require__(70);
 
 var _FontSet2 = _interopRequireDefault(_FontSet);
 
-var _reactDom = __webpack_require__(181);
+var _reactDom = __webpack_require__(182);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
 var _mobx = __webpack_require__(7);
+
+var _debounce = __webpack_require__(71);
+
+var _debounce2 = _interopRequireDefault(_debounce);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -19578,78 +19602,98 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var FontEdit = (_dec = (0, _mobxReact.inject)(['app']), _dec(_class = (0, _mobxReact.observer)(_class = function (_Component) {
     (0, _inherits3.default)(FontEdit, _Component);
 
-    function FontEdit() {
-        var _ref;
-
-        var _temp, _this, _ret;
-
+    function FontEdit(props) {
         (0, _classCallCheck3.default)(this, FontEdit);
 
-        for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
-            args[_key] = arguments[_key];
-        }
+        var _this = (0, _possibleConstructorReturn3.default)(this, (FontEdit.__proto__ || (0, _getPrototypeOf2.default)(FontEdit)).call(this, props));
 
-        return _ret = (_temp = (_this = (0, _possibleConstructorReturn3.default)(this, (_ref = FontEdit.__proto__ || (0, _getPrototypeOf2.default)(FontEdit)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
-            keys: 1
-        }, _this.htmlToI = function () {
-            var _this2;
+        _this.htmlAddSpan = function () {
+            return _this.__htmlAddSpan__REACT_HOT_LOADER__.apply(_this, arguments);
+        };
 
-            return (_this2 = _this).__htmlToI__REACT_HOT_LOADER__.apply(_this2, arguments);
-        }, _this.handleChange = function () {
-            var _this3;
+        _this.filterText = function () {
+            return _this.__filterText__REACT_HOT_LOADER__.apply(_this, arguments);
+        };
 
-            return (_this3 = _this).__handleChange__REACT_HOT_LOADER__.apply(_this3, arguments);
-        }, _this.intEditor = function () {
-            var _this4;
+        _this.resetLayer = (0, _debounce2.default)(function () {
+            (0, _mobx.transaction)(function () {
+                _this.props.layer.data.data = _this.state.data;
+                $(document).trigger('h5ds.setHistory');
+            });
+        }, 500);
 
-            return (_this4 = _this).__intEditor__REACT_HOT_LOADER__.apply(_this4, arguments);
-        }, _temp), (0, _possibleConstructorReturn3.default)(_this, _ret);
+        _this.handleChange = function () {
+            return _this.__handleChange__REACT_HOT_LOADER__.apply(_this, arguments);
+        };
+
+        _this.intEditor = function () {
+            return _this.__intEditor__REACT_HOT_LOADER__.apply(_this, arguments);
+        };
+
+        _this.state = {
+            data: props.layer.data.data
+        };
+        return _this;
     }
 
-    // 文字加上i标签
+    // 文字加上span标签
 
 
     (0, _createClass3.default)(FontEdit, [{
-        key: '__htmlToI__REACT_HOT_LOADER__',
-        value: function __htmlToI__REACT_HOT_LOADER__(str) {
-            str = str.replace(/<i>|<\/i>/g, '');
-            var shtml = '';
-            if (str[0] === '<') {
-                var p = str.split('<div>')[0];
-                p.split('').map(function (chart) {
-                    shtml += '<i>' + chart + '</i>';
-                });
-            }
+        key: '__htmlAddSpan__REACT_HOT_LOADER__',
 
-            // 匹配
-            var divArr = str.match(/<div>(.+?)<\/div>/g) || [];
-            divArr.forEach(function (str) {
-                var p = str.replace(/<div>(.+?)<\/div>/, '$1');
-                shtml += '<div>';
-                p.split('').map(function (chart) {
-                    shtml += '<i>' + chart + '</i>';
+
+        // 格式化数据，只保留<div> <br> <span>
+        value: function __htmlAddSpan__REACT_HOT_LOADER__(str) {
+            // const arr = str.split('');
+            var setTarget = function setTarget(str) {
+                var shtml = '';
+                var target = $('<div>' + str + '</div>')[0];
+                target.childNodes.forEach(function (d) {
+                    if (d.nodeName === '#text' && d.nodeValue.length > 1) {
+                        var arr = d.nodeValue.split('');
+                        arr.map(function (c) {
+                            return '<span>' + c + '</span>';
+                        });
+                        shtml += arr.join('');
+                    } else {
+                        shtml += d.outerHTML;
+                    }
                 });
-                shtml += '</div>';
-            });
-            return shtml;
+                setTarget(shtml);
+            };
+            setTarget(str);
+            // console.log(shtml);
+        }
+    }, {
+        key: '__filterText__REACT_HOT_LOADER__',
+
+
+        // 重置layer数据
+        value: function __filterText__REACT_HOT_LOADER__(str) {
+            str = str.replace(/<\/?([^dbs])*>/g, '');
+            str = str.replace(/\sstyle=\".*?\"/g, '');
+            return str;
         }
     }, {
         key: '__handleChange__REACT_HOT_LOADER__',
-        value: function __handleChange__REACT_HOT_LOADER__(e) {
-            var _this5 = this;
 
-            // console.log(e.target.value);
-            (0, _mobx.transaction)(function () {
-                // let hei = $('.layerset-etext .font-layer').height();
-                // this.props.layer.style.height = hei + 30;
-                _this5.props.layer.data.data = e.target.value;
-                $(document).trigger('h5ds.setHistory');
+
+        // 实例化layer里面的编辑器
+        value: function __handleChange__REACT_HOT_LOADER__(e) {
+            var _this2 = this;
+
+            // let data = $(`<div>${e.target.value}</div>`).text();
+            // data = this.htmlAddSpan(data);
+            // 复制过来的清除格式, 只保留div，p
+            this.setState({ data: this.filterText(e.target.value) }, function () {
+                _this2.resetLayer();
             });
         }
     }, {
         key: '__intEditor__REACT_HOT_LOADER__',
         value: function __intEditor__REACT_HOT_LOADER__() {
-            var _this6 = this;
+            var _this3 = this;
 
             var _props = this.props,
                 app = _props.app,
@@ -19680,7 +19724,7 @@ var FontEdit = (_dec = (0, _mobxReact.inject)(['app']), _dec(_class = (0, _mobxR
                 ), this.div);
 
                 $('#temporaryEditor').on('input', function () {
-                    _this6.handleChange({
+                    _this3.handleChange({
                         target: { value: $('#temporaryEditor').html() }
                     });
                 });
@@ -19689,22 +19733,22 @@ var FontEdit = (_dec = (0, _mobxReact.inject)(['app']), _dec(_class = (0, _mobxR
     }, {
         key: 'componentDidMount',
         value: function componentDidMount() {
-            var _this7 = this;
+            var _this4 = this;
 
             $('.font-layer').focus();
 
             // 双击文本框，可编辑
             $('#phone').on('dblclick.etexteditor', '.h5ds-control', function (e) {
-                _this7.intEditor();
+                _this4.intEditor();
             });
 
             $('.layerset-etext').on('mousedown', function (e) {
                 // 销毁 xx
-                _this7.div && _this7.div.remove();
-                _this7.div && _reactDom2.default.unmountComponentAtNode(_this7.div);
-                if (_this7.$layer) {
-                    _this7.$layer.find('.element').show();
-                    _this7.$layer = null;
+                _this4.div && _this4.div.remove();
+                _this4.div && _reactDom2.default.unmountComponentAtNode(_this4.div);
+                if (_this4.$layer) {
+                    _this4.$layer.find('.element').show();
+                    _this4.$layer = null;
                 }
             });
         }
@@ -19725,8 +19769,9 @@ var FontEdit = (_dec = (0, _mobxReact.inject)(['app']), _dec(_class = (0, _mobxR
         key: 'render',
         value: function render() {
             var layer = this.props.layer;
+            var data = this.state.data;
+            // this.props.app.edata.keys;
 
-            this.props.app.edata.keys;
             return _react2.default.createElement(
                 'div',
                 { className: 'fontedit' },
@@ -19735,7 +19780,7 @@ var FontEdit = (_dec = (0, _mobxReact.inject)(['app']), _dec(_class = (0, _mobxR
                     { className: 'fontbox', style: (0, _extends3.default)({}, layer.data.style) },
                     _react2.default.createElement(_reactContenteditable2.default, {
                         className: 'font-layer',
-                        html: layer.data.data // innerHTML of the editable div
+                        html: data // innerHTML of the editable div
                         , onChange: this.handleChange // handle innerHTML change
                     })
                 )
@@ -19747,7 +19792,7 @@ var FontEdit = (_dec = (0, _mobxReact.inject)(['app']), _dec(_class = (0, _mobxR
 exports.default = FontEdit;
 ;
 
-var _temp2 = function () {
+var _temp = function () {
     if (typeof __REACT_HOT_LOADER__ === 'undefined') {
         return;
     }
@@ -19759,25 +19804,25 @@ var _temp2 = function () {
 module.exports = exports['default'];
 
 /***/ }),
-/* 173 */
+/* 174 */
 /***/ (function(module, exports) {
 
 module.exports = require("react-contenteditable");
 
 /***/ }),
-/* 174 */
+/* 175 */
 /***/ (function(module, exports) {
 
 module.exports = require("antd/lib/select");
 
 /***/ }),
-/* 175 */
+/* 176 */
 /***/ (function(module, exports) {
 
 module.exports = require("antd/lib/select/style");
 
 /***/ }),
-/* 176 */
+/* 177 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -19788,11 +19833,11 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = undefined;
 
-var _popover = __webpack_require__(55);
+var _popover = __webpack_require__(54);
 
 var _popover2 = _interopRequireDefault(_popover);
 
-var _inputNumber = __webpack_require__(177);
+var _inputNumber = __webpack_require__(178);
 
 var _inputNumber2 = _interopRequireDefault(_inputNumber);
 
@@ -19804,7 +19849,7 @@ var _getPrototypeOf = __webpack_require__(3);
 
 var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
 
-var _classCallCheck2 = __webpack_require__(1);
+var _classCallCheck2 = __webpack_require__(0);
 
 var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
 
@@ -19820,15 +19865,15 @@ var _inherits2 = __webpack_require__(5);
 
 var _inherits3 = _interopRequireDefault(_inherits2);
 
-__webpack_require__(56);
-
-__webpack_require__(178);
-
-__webpack_require__(25);
+__webpack_require__(55);
 
 __webpack_require__(179);
 
-var _react = __webpack_require__(0);
+__webpack_require__(25);
+
+__webpack_require__(180);
+
+var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -19912,25 +19957,25 @@ var _temp2 = function () {
 module.exports = exports['default'];
 
 /***/ }),
-/* 177 */
+/* 178 */
 /***/ (function(module, exports) {
 
 module.exports = require("antd/lib/input-number");
 
 /***/ }),
-/* 178 */
+/* 179 */
 /***/ (function(module, exports) {
 
 module.exports = require("antd/lib/input-number/style");
 
 /***/ }),
-/* 179 */
+/* 180 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 180 */
+/* 181 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -19956,46 +20001,10 @@ var _temp = function () {
 ;
 
 /***/ }),
-/* 181 */
+/* 182 */
 /***/ (function(module, exports) {
 
 module.exports = require("react-dom");
-
-/***/ }),
-/* 182 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.img = exports.setImgHTML = undefined;
-
-var _layer = __webpack_require__(183);
-
-var _ImgEditor = __webpack_require__(184);
-
-var _ImgEditor2 = _interopRequireDefault(_ImgEditor);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var _default = _ImgEditor2.default;
-exports.default = _default;
-exports.setImgHTML = _layer.setImgHTML;
-exports.img = _layer.img;
-;
-
-var _temp = function () {
-  if (typeof __REACT_HOT_LOADER__ === 'undefined') {
-    return;
-  }
-
-  __REACT_HOT_LOADER__.register(_default, 'default', 'C:/DT/h5ds/H5DS_All/h5ds-edit-hm/src/core/layers/img/index.js');
-}();
-
-;
 
 /***/ }),
 /* 183 */
@@ -20007,36 +20016,28 @@ var _temp = function () {
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-exports.img = undefined;
-exports.setImgHTML = setImgHTML;
 
-var _react = __webpack_require__(0);
+var _layer = __webpack_require__(184);
+
+var _ImgEditor = __webpack_require__(185);
+
+var _ImgEditor2 = _interopRequireDefault(_ImgEditor);
+
+var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-// 设置 dom
-function setImgHTML(layer, zIndex) {
-    return _react2.default.createElement('img', { src: layer.data.src || 'http://cdn.h5ds.com/lib/images/imgDom.jpg' });
-}
-
-// 原始数据
-var img = exports.img = {
-    id: null,
-    animate: [],
-    data: { src: 'http://cdn.h5ds.com/lib/images/imgDom.jpg' },
-    estyle: {},
-    style: {
-        width: 200,
-        height: 150,
-        top: 10,
-        left: 10
-    },
+var _default = {
     type: 'img',
-    color: 'none',
-    ue: {}
+    name: '图片',
+    icon: _react2.default.createElement('i', { className: 'h5ds ico5-beijing' }),
+    editor: _ImgEditor2.default,
+    layerdom: _layer.layerdom,
+    origindata: _layer.Origindata
 };
+exports.default = _default;
 ;
 
 var _temp = function () {
@@ -20044,15 +20045,77 @@ var _temp = function () {
         return;
     }
 
-    __REACT_HOT_LOADER__.register(setImgHTML, 'setImgHTML', 'C:/DT/h5ds/H5DS_All/h5ds-edit-hm/src/core/layers/img/layer.jsx');
+    __REACT_HOT_LOADER__.register(_default, 'default', 'C:/DT/h5ds/H5DS_All/h5ds-edit-hm/src/core/layers/img/index.js');
+}();
 
-    __REACT_HOT_LOADER__.register(img, 'img', 'C:/DT/h5ds/H5DS_All/h5ds-edit-hm/src/core/layers/img/layer.jsx');
+;
+module.exports = exports['default'];
+
+/***/ }),
+/* 184 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.Origindata = undefined;
+
+var _classCallCheck2 = __webpack_require__(0);
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+exports.layerdom = layerdom;
+
+var _react = __webpack_require__(1);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+// 设置 dom
+function layerdom(layer, zIndex) {
+    return _react2.default.createElement('img', { src: layer.data.src || 'http://cdn.h5ds.com/lib/images/imgDom.jpg' });
+}
+
+// 原始数据
+
+var Origindata = exports.Origindata = function Origindata() {
+    (0, _classCallCheck3.default)(this, Origindata);
+
+    this.id = null;
+    this.animate = [];
+    this.data = { src: 'http://cdn.h5ds.com/lib/images/imgDom.jpg' };
+    this.estyle = {};
+    this.style = {
+        width: 200,
+        height: 150,
+        top: 10,
+        left: 10
+    };
+    this.type = 'img';
+    this.color = 'none';
+    this.ue = {};
+};
+
+;
+
+var _temp = function () {
+    if (typeof __REACT_HOT_LOADER__ === 'undefined') {
+        return;
+    }
+
+    __REACT_HOT_LOADER__.register(layerdom, 'layerdom', 'C:/DT/h5ds/H5DS_All/h5ds-edit-hm/src/core/layers/img/layer.jsx');
+
+    __REACT_HOT_LOADER__.register(Origindata, 'Origindata', 'C:/DT/h5ds/H5DS_All/h5ds-edit-hm/src/core/layers/img/layer.jsx');
 }();
 
 ;
 
 /***/ }),
-/* 184 */
+/* 185 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -20067,7 +20130,7 @@ var _getPrototypeOf = __webpack_require__(3);
 
 var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
 
-var _classCallCheck2 = __webpack_require__(1);
+var _classCallCheck2 = __webpack_require__(0);
 
 var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
 
@@ -20083,36 +20146,30 @@ var _inherits2 = __webpack_require__(5);
 
 var _inherits3 = _interopRequireDefault(_inherits2);
 
-var _dec, _class; // indexedDB
+__webpack_require__(186);
 
-__webpack_require__(185);
-
-var _indexedDB = __webpack_require__(15);
+var _indexedDB = __webpack_require__(14);
 
 var db = _interopRequireWildcard(_indexedDB);
 
-var _react = __webpack_require__(0);
+var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _mobxReact = __webpack_require__(6);
-
-var _SetColor = __webpack_require__(45);
-
-var _SetColor2 = _interopRequireDefault(_SetColor);
-
-var _imgURLClear = __webpack_require__(47);
-
-var _mobx = __webpack_require__(7);
+var _imgURLClear = __webpack_require__(46);
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+// import { transaction } from 'mobx';
+
 /**
  * @desc 图片
  */
-var ImgEditor = (_dec = (0, _mobxReact.inject)(['app']), _dec(_class = (0, _mobxReact.observer)(_class = function (_Component) {
+// indexedDB
+
+var ImgEditor = function (_Component) {
     (0, _inherits3.default)(ImgEditor, _Component);
 
     function ImgEditor(props) {
@@ -20126,10 +20183,6 @@ var ImgEditor = (_dec = (0, _mobxReact.inject)(['app']), _dec(_class = (0, _mobx
 
         _this.showSourceImgs = function () {
             return _this.__showSourceImgs__REACT_HOT_LOADER__.apply(_this, arguments);
-        };
-
-        _this.changeColor = function () {
-            return _this.__changeColor__REACT_HOT_LOADER__.apply(_this, arguments);
         };
 
         _this.state = {};
@@ -20196,21 +20249,19 @@ var ImgEditor = (_dec = (0, _mobxReact.inject)(['app']), _dec(_class = (0, _mobx
         }
     }, {
         key: '__showSourceImgs__REACT_HOT_LOADER__',
+
+
+        // changeColor = obj => {
+        //     let { layer, app } = this.props;
+        //     transaction(() => {
+        //         layer.estyle.backgroundColor = obj.color;
+        //         app.edata.keys++;
+        //         $(document).trigger('h5ds.setHistory');
+        //     });
+        // };
+
         value: function __showSourceImgs__REACT_HOT_LOADER__(e) {
             $(document).trigger('h5ds.showImgSource', 'changeimg');
-        }
-    }, {
-        key: '__changeColor__REACT_HOT_LOADER__',
-        value: function __changeColor__REACT_HOT_LOADER__(obj) {
-            var _props = this.props,
-                layer = _props.layer,
-                app = _props.app;
-
-            (0, _mobx.transaction)(function () {
-                layer.estyle.backgroundColor = obj.color;
-                app.edata.keys++;
-                $(document).trigger('h5ds.setHistory');
-            });
         }
     }, {
         key: 'componentDidMount',
@@ -20249,13 +20300,16 @@ var ImgEditor = (_dec = (0, _mobxReact.inject)(['app']), _dec(_class = (0, _mobx
                     'div',
                     { id: 'imgCrop', 'data-src': layer.data.src || '', 'data-oldsrc': this.oldsrc, className: 'set_img_crop' },
                     layer.data.src ? null : imgNullTpl
-                ),
-                _react2.default.createElement(_SetColor2.default, { color: layer.style.backgroundColor || 'rgba(0,0,0,1)', onChange: this.changeColor })
+                )
             );
         }
     }]);
     return ImgEditor;
-}(_react.Component)) || _class) || _class);
+}(_react.Component);
+
+// import SetColor from '@/core/common/bgcolor/SetColor';
+
+
 exports.default = ImgEditor;
 ;
 
@@ -20271,13 +20325,13 @@ var _temp = function () {
 module.exports = exports['default'];
 
 /***/ }),
-/* 185 */
+/* 186 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 186 */
+/* 187 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -20288,7 +20342,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = undefined;
 
-var _stringify = __webpack_require__(13);
+var _stringify = __webpack_require__(12);
 
 var _stringify2 = _interopRequireDefault(_stringify);
 
@@ -20296,11 +20350,11 @@ var _extends2 = __webpack_require__(11);
 
 var _extends3 = _interopRequireDefault(_extends2);
 
-var _objectWithoutProperties2 = __webpack_require__(52);
+var _objectWithoutProperties2 = __webpack_require__(51);
 
 var _objectWithoutProperties3 = _interopRequireDefault(_objectWithoutProperties2);
 
-var _regenerator = __webpack_require__(18);
+var _regenerator = __webpack_require__(21);
 
 var _regenerator2 = _interopRequireDefault(_regenerator);
 
@@ -20312,7 +20366,7 @@ var _toConsumableArray2 = __webpack_require__(17);
 
 var _toConsumableArray3 = _interopRequireDefault(_toConsumableArray2);
 
-var _asyncToGenerator2 = __webpack_require__(19);
+var _asyncToGenerator2 = __webpack_require__(22);
 
 var _asyncToGenerator3 = _interopRequireDefault(_asyncToGenerator2);
 
@@ -20320,7 +20374,7 @@ var _getPrototypeOf = __webpack_require__(3);
 
 var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
 
-var _classCallCheck2 = __webpack_require__(1);
+var _classCallCheck2 = __webpack_require__(0);
 
 var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
 
@@ -20340,7 +20394,7 @@ var _dec, _class;
 // import { message } from 'antd';
 
 
-__webpack_require__(187);
+__webpack_require__(188);
 
 var _util = __webpack_require__(8);
 
@@ -20348,7 +20402,7 @@ var _mobx = __webpack_require__(7);
 
 var _mobxReact = __webpack_require__(6);
 
-var _react = __webpack_require__(0);
+var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -20389,7 +20443,9 @@ var Layer = (_dec = (0, _mobxReact.inject)('app', 'layerfun'), _dec(_class = (0,
 
             e.stopPropagation();
             e.preventDefault();
-            if (!this.props.isPhoneView) {
+
+            // 如果不是可视化页面，不初始化控制器
+            if (!this.props.set.isPhoneView) {
                 return;
             }
 
@@ -20470,13 +20526,20 @@ var Layer = (_dec = (0, _mobxReact.inject)('app', 'layerfun'), _dec(_class = (0,
             var layersSet = this.props.layerfun.layersSet;
 
             var layer = this.props.layer;
-            var _props = this.props,
-                isMinPage = _props.isMinPage,
-                isPhoneView = _props.isPhoneView;
+            var _props$set = this.props.set,
+                isMinPage = _props$set.isMinPage,
+                isPhoneView = _props$set.isPhoneView,
+                isView = _props$set.isView;
+
+            // 如果是预览页面，不执行
+
+            if (isView) {
+                return;
+            }
 
             var obj = layersSet[layer.type];
             if (obj && obj.willMount) {
-                obj.willMount.bind(this)(layer, { isMinPage: isMinPage, isPhoneView: isPhoneView });
+                obj.willMount.bind(this)(layer, { isMinPage: isMinPage, isPhoneView: isPhoneView, isView: isView });
             }
         }
 
@@ -20488,14 +20551,21 @@ var Layer = (_dec = (0, _mobxReact.inject)('app', 'layerfun'), _dec(_class = (0,
             var layersSet = this.props.layerfun.layersSet;
 
             var layer = this.props.layer;
-            var _props2 = this.props,
-                isMinPage = _props2.isMinPage,
-                isPhoneView = _props2.isPhoneView;
-            // 初始化layer 附带的方法
+            var _props$set2 = this.props.set,
+                isMinPage = _props$set2.isMinPage,
+                isPhoneView = _props$set2.isPhoneView,
+                isView = _props$set2.isView;
 
+            // 如果是预览页面，不执行
+
+            if (isView) {
+                return;
+            }
+
+            // 初始化layer 附带的方法
             var obj = layersSet[layer.type];
             if (obj && obj.didMount) {
-                obj.didMount.bind(this)(this.layerRef, layer, { isMinPage: isMinPage, isPhoneView: isPhoneView });
+                obj.didMount.bind(this)(this.layerRef, layer, { isMinPage: isMinPage, isPhoneView: isPhoneView, isView: isView });
             }
         }
     }, {
@@ -20504,14 +20574,19 @@ var Layer = (_dec = (0, _mobxReact.inject)('app', 'layerfun'), _dec(_class = (0,
             var layersSet = this.props.layerfun.layersSet;
 
             var layer = this.props.layer;
-            var _props3 = this.props,
-                isMinPage = _props3.isMinPage,
-                isPhoneView = _props3.isPhoneView;
-            // 初始化layer 附带的方法
+            var _props$set3 = this.props.set,
+                isMinPage = _props$set3.isMinPage,
+                isPhoneView = _props$set3.isPhoneView,
+                isView = _props$set3.isView;
+            // 如果是预览页面，不执行
 
+            if (isView) {
+                return;
+            }
+            // 初始化layer 附带的方法
             var obj = layersSet[layer.type];
             if (obj && obj.willUnmount) {
-                obj.willUnmount.bind(this)(this.layerRef, layer, { isMinPage: isMinPage, isPhoneView: isPhoneView });
+                obj.willUnmount.bind(this)(this.layerRef, layer, { isMinPage: isMinPage, isPhoneView: isPhoneView, isView: isView });
             }
         }
     }, {
@@ -20519,12 +20594,13 @@ var Layer = (_dec = (0, _mobxReact.inject)('app', 'layerfun'), _dec(_class = (0,
         value: function render() {
             var _this4 = this;
 
-            var _props4 = this.props,
-                layer = _props4.layer,
-                zIndex = _props4.zIndex,
-                children = _props4.children,
-                isPhoneView = _props4.isPhoneView,
-                isMinPage = _props4.isMinPage;
+            var _props = this.props,
+                layer = _props.layer,
+                zIndex = _props.zIndex,
+                children = _props.children,
+                set = _props.set;
+            var isPhoneView = set.isPhoneView,
+                isMinPage = set.isMinPage;
 
             var cName = ['layer'];
             var _layer$style = layer.style,
@@ -20562,16 +20638,20 @@ var Layer = (_dec = (0, _mobxReact.inject)('app', 'layerfun'), _dec(_class = (0,
             // 设置其他 element 上面的样式
             var estyle = layer.estyle || {};
 
-            // fps 图层需要单独处理
-            var effectId = null;
-            if (layer.type === 'fps') {
-                effectId = 'fps_' + layer.data.id + (isPhoneView ? '_phoneview' : '') + (isMinPage ? '_min' : '');
+            var id = '',
+                eid = '';
+            if (layer.id) {
+                id = '' + layer.id + (isPhoneView ? '_phoneview' : '') + (isMinPage ? '_min' : '');
             }
+            if (layer.eid) {
+                eid = '' + layer.eid + (isPhoneView ? '_phoneview' : '') + (isMinPage ? '_min' : '');
+            }
+
             return _react2.default.createElement(
                 'div',
                 {
                     'data-adsorbent': (0, _stringify2.default)({ abottom: abottom, atop: atop, aleft: aleft, aright: aright }),
-                    id: isPhoneView ? null : layer.id,
+                    id: id,
                     'data-uefun': layer.ue ? (0, _stringify2.default)(layer.ue) : '',
                     onClick: function onClick(e) {
                         return _this4.control(9999 - zIndex, e);
@@ -20586,7 +20666,7 @@ var Layer = (_dec = (0, _mobxReact.inject)('app', 'layerfun'), _dec(_class = (0,
                             return _this4.layerRef = c;
                         },
                         className: 'element',
-                        id: effectId,
+                        id: eid,
                         style: (0, _extends3.default)({
                             WebkitAnimation: animateArr.join(','),
                             animation: animateArr.join(',')
@@ -20614,13 +20694,13 @@ var _temp2 = function () {
 module.exports = exports['default'];
 
 /***/ }),
-/* 187 */
+/* 188 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 188 */
+/* 189 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -20635,7 +20715,7 @@ var _getPrototypeOf = __webpack_require__(3);
 
 var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
 
-var _classCallCheck2 = __webpack_require__(1);
+var _classCallCheck2 = __webpack_require__(0);
 
 var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
 
@@ -20653,11 +20733,11 @@ var _inherits3 = _interopRequireDefault(_inherits2);
 
 var _dec, _class;
 
-__webpack_require__(189);
+__webpack_require__(190);
 
 var _mobxReact = __webpack_require__(6);
 
-var _react = __webpack_require__(0);
+var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -20765,7 +20845,7 @@ var TimeLine = (_dec = (0, _mobxReact.inject)('app', 'layerfun'), _dec(_class = 
             var _this8 = this;
 
             // 调用this.props.app.getLayers方法会导致 整个组件执行render渲染。后期做优化处理
-            var layers = this.props.app.getLayers();
+            var layers = this.props.app.getLayers() || [];
             var num = this.props.app.edata.selectLayer;
             var fpsLayers = [];
             this.max = 0;
@@ -20774,6 +20854,8 @@ var TimeLine = (_dec = (0, _mobxReact.inject)('app', 'layerfun'), _dec(_class = 
                     var layerData = (0, _mobx.toJS)(layer);
                     if (index === num) {
                         layerData.active = true;
+                    } else {
+                        layerData.active = false;
                     }
                     fpsLayers.push(layerData);
                     // 求最大帧
@@ -21170,13 +21252,13 @@ var _temp2 = function () {
 module.exports = exports['default'];
 
 /***/ }),
-/* 189 */
+/* 190 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 190 */
+/* 191 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -21208,7 +21290,7 @@ var data = exports.data = {
     style: {
         // body的样式
         width: 320,
-        height: 486
+        height: 514
     },
     fixeds: [
     // 浮动层
@@ -21216,7 +21298,7 @@ var data = exports.data = {
         id: null,
         name: '浮动层上',
         style: {
-            height: 486
+            height: 514
         },
         layers: [],
         index: 0
@@ -21224,7 +21306,7 @@ var data = exports.data = {
         id: null,
         name: '浮动层下',
         style: {
-            height: 486
+            height: 514
         },
         layers: [],
         index: 1
@@ -21234,7 +21316,7 @@ var data = exports.data = {
         id: null,
         name: '空白页面',
         desc: '页面描述',
-        style: { height: 486 },
+        style: { height: 514 },
         layers: [],
         animate: [],
         slider: {
@@ -21258,7 +21340,7 @@ var _temp = function () {
 ;
 
 /***/ }),
-/* 191 */
+/* 192 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";

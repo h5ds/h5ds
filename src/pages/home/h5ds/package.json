@@ -1,9 +1,9 @@
 {
   "name": "h5ds",
   "author": "Mantou",
-  "version": "4.0.0",
+  "version": "4.1.0",
   "description": "webpack for react",
-  "main": "js/h5ds.4.0.0.js",
+  "main": "js/h5ds.4.1.0.js",
   "license": "other",
   "keywords": [
     "h5ds",
