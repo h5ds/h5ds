@@ -66,6 +66,7 @@ export default {
   plugins: [
     sassExt, // 提取出来的样式放在css-文件中
     new HtmlWebpackPlugin({
+      chunks: ['h5ds'],
       template: resolve(src + "/index.html"),
       filename: "index.html"
     }),

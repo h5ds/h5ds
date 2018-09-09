@@ -92,7 +92,7 @@ export default class HomePage extends Component {
       <div>
         <H5DS
           appid="h5ds_demoid" 
-          config={{ appHost: '', appCDN: '/assets', backUrl: '/' }}
+          config={{ appHost: '', appCDN: 'http://cdn.h5ds.com/lib', backUrl: '/' }}
           uploadSet={{}}
           savePage={this.savePage}
           saveApp={this.saveApp}
