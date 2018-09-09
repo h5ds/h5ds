@@ -4,7 +4,6 @@ import { dist, resolve, src, version } from "./conf";
 
 import CopyWebpackPlugin from "copy-webpack-plugin";
 import ExtractTextPlugin from "extract-text-webpack-plugin"; // css样式从js文件中分离出来
-import HtmlWebpackPlugin from "html-webpack-plugin";
 
 // import webpack from "webpack";
 
@@ -65,11 +64,6 @@ export default {
   },
   plugins: [
     sassExt, // 提取出来的样式放在css-文件中
-    new HtmlWebpackPlugin({
-      chunks: ['h5ds'],
-      template: resolve(src + "/index.html"),
-      filename: "index.html"
-    }),
     new CopyWebpackPlugin([
       {
         from: resolve(src + "/assets"),

@@ -2,6 +2,7 @@ import { dist, resolve, src, version } from './conf';
 
 import CleanWebpackPlugin from 'clean-webpack-plugin';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
+import HtmlWebpackPlugin from "html-webpack-plugin";
 import baseConfig from './webpack.config.base';
 import { theme } from './theme';
 import webpack from 'webpack';
@@ -46,6 +47,11 @@ export default webpackMerge(baseConfig, {
   plugins: [
     extractAntd,
     extractStyle,
+    new HtmlWebpackPlugin({
+      chunks: ['h5ds'],
+      template: resolve(src + '/index.html'),
+      filename: 'index.html'
+    }),
     new CleanWebpackPlugin([dist.replace('../', '') + '/assets'], {
       root: __dirname.replace('webpack', '')
     }),
