@@ -69,7 +69,7 @@ export default class HomePage extends Component {
           savePage={this.savePage}
           saveApp={this.saveApp}
           publishApp={this.publishApp}
-          plugins={[layers.domLayer]}
+          plugins={[...Object.values(layers)]}
         />
         <Modal width={1200} title="生成代码" visible={visible} onOk={this.handleCancel} onCancel={this.handleCancel}>
           <div className="codes-detail">
