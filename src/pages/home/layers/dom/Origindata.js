@@ -1,10 +1,3 @@
-import React from 'react';
-
-// 设置 dom
-export function layerdom(layer, zIndex) {
-    return <div className="dom-inner" dangerouslySetInnerHTML={{ __html: layer.data }} />;
-}
-
 // 原始数据
 export class Origindata {
     constructor() {

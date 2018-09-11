@@ -5,8 +5,8 @@ import { didMount } from './didMount';
 import { layerdom } from './layerdom';
 
 export default {
-  type: 'dom',
-  name: 'DOM',
+  type: 'test',
+  name: '测试',
   icon: <i className="h5ds ico5-domnode" />,
   editor: Editor, // 图层独有的编辑区域
   layerdom, // 图层对应生成的HTML

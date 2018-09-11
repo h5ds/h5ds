@@ -4,6 +4,8 @@
 - H5DS 官方 Git (https://github.com/h5ds/h5ds) ，简体中文 UTF8 版本，其他版本请自行转码
 - h5ds 官方站：http://www.h5ds.com
 
+![img](doc/images/h5ds.gif)
+
 ![img](doc/images/demo.png)
 
 ![img](doc/images/demo2.png)
