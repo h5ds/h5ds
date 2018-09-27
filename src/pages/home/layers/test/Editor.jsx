@@ -23,25 +23,29 @@ export default class Editor extends Component {
     };
 
     // renderLayer
-    renderLayer = debounce((str) => {
+    renderLayer = debounce(str => {
         console.log('更新视图');
         this.props.layer.data = str;
         $(document).trigger('h5ds.setHistory');
     }, 500);
 
-    // componentDidMount() {
-    //     // 渲染center 区域
-    //     $(document).on(
-    //         'h5ds.centerRenderEnd',
-    //         debounce(() => {
-    //             console.log('0000000000 重新渲染phone页面');
-    //         }, 500)
-    //     );
-    // }
+    componentDidMount() {
+        // 渲染center 区域
+        $(document).on(
+            'h5ds.centerRenderEnd',
+            debounce(() => {
+                const { eid, style } = this.props.layer;
+                console.log('0000000000 重新渲染phone页面', eid, );
+                const { width, height } = style;
+                const lightAnimate = $('#' + eid + '_phoneview').data('lightAnimate');
+                lightAnimate.resize({ width, height });
+            }, 500)
+        );
+    }
 
-    // componentWillUnmount() {
-    //     $(document).off('h5ds.centerRenderEnd');
-    // }
+    componentWillUnmount() {
+        $(document).off('h5ds.centerRenderEnd');
+    }
 
     render() {
         const { data } = this.state;
