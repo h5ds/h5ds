@@ -29,20 +29,6 @@ export default class Editor extends Component {
         $(document).trigger('h5ds.setHistory');
     }, 500);
 
-    componentDidMount() {
-        // 渲染center 区域
-        $(document).on(
-            'h5ds.centerRenderEnd',
-            debounce(() => {
-                console.log('0000000000 重新渲染phone页面');
-            }, 500)
-        );
-    }
-
-    componentWillUnmount() {
-        $(document).off('h5ds.centerRenderEnd');
-    }
-
     render() {
         const { data } = this.state;
         return (
