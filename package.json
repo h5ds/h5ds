@@ -56,6 +56,8 @@
   },
   "dependencies": {
     "antd": "^3.0.3",
+    "dayjs": "^1.7.7",
+    "localforage": "^1.7.2",
     "lodash": "^4.17.10",
     "mobx": "^5.0.3",
     "mobx-react": "^5.2.3",
