@@ -9,6 +9,7 @@ import React, { Component } from 'react'; // ...
 import H5DS from './h5ds'; // ..
 import { Modal } from 'antd';
 import SyntaxHighlighter from 'react-syntax-highlighter';
+import { data2 } from './data';
 import { github } from 'react-syntax-highlighter/styles/hljs';
 import pretty from 'pretty';
 
@@ -24,7 +25,8 @@ import pretty from 'pretty';
 export default class HomePage extends Component {
   state = {
     visible: false,
-    shtml: ''
+    shtml: '',
+    data: null
   };
 
   // 保存当前页面
@@ -58,12 +60,22 @@ export default class HomePage extends Component {
     this.setState({ visible: false });
   };
 
+  componentDidMount() {
+    setTimeout(() => {
+      this.setState({ data: data2 });
+    }, 3000);
+  }
+
   render() {
-    const { visible, shtml } = this.state;
+    const { visible, shtml, data } = this.state;
+    if (!data) {
+      return <span>loading...</span>;
+    }
     return (
       <div>
         <H5DS
-          appid="h5ds_demoid" 
+          data={data}
+          appid="h5ds_demoids"
           config={{ appHost: '', appCDN: 'http://cdn.h5ds.com/lib', backUrl: '/' }}
           uploadSet={{}}
           savePage={this.savePage}
