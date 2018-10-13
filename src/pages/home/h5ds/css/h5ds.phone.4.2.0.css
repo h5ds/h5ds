@@ -6142,9 +6142,9 @@ body * {
   position: absolute;
   bottom: 0;
 }
-.pc-body .pc-infos .pc-qrcode img {
-  width: 100%;
-  height: 100%;
+.pc-body .pc-infos .pc-qrcode canvas, .pc-body .pc-infos .pc-qrcode img {
+  width: 100%!important;
+  height: 100%!important;
 }
 .pc-wave {
   position: fixed;
