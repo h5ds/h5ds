@@ -55,6 +55,7 @@
     "ftp": "gulp default"
   },
   "dependencies": {
+    "h5ds": "file:core/h5ds",
     "antd": "^3.0.3",
     "dayjs": "^1.7.7",
     "localforage": "^1.7.2",
