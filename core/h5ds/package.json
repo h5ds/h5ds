@@ -1,8 +1,8 @@
 {
   "name": "h5ds",
-  "author": "Mantou",
-  "version": "4.2.0",
-  "description": "webpack for react",
+  "author": "四川爱趣五科技有限公司",
+  "version": "4.2.9",
+  "description": "html5 design software",
   "main": "js/h5ds.4.2.0.js",
   "license": "other",
   "keywords": [
@@ -10,8 +10,8 @@
     "react",
     "mobx"
   ],
-  "homepage": "https://gitee.com/676015863/H5DS",
+  "homepage": "https://github.com/h5ds/h5ds",
   "directories": {
-    "example": "example"
+    "example": "http://www.h5ds.com"
   }
 }

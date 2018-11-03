@@ -6017,7 +6017,7 @@ body * {
 #h5dsPopups, #h5dsFixedsUp, #h5dsFixedsDown {
   position: absolute;
   z-index: 1000;
-  width: 0;
+  width: 100%;
   height: 0;
   top: 0;
   left: 0;
@@ -6046,7 +6046,7 @@ body * {
 #h5dsFixedsUp .h5ds-swiper-page {
   display: block;
   overflow: visible;
-  width: 0;
+  width: 100%;
   height: 0;
 }
 #h5dsFixedsUp .h5ds-swiper-page .h5ds-swiper-layers {
@@ -6055,6 +6055,16 @@ body * {
 }
 #h5dsFixedsUp .h5ds-swiper-page .layer, #h5dsFixedsDown .h5ds-swiper-page .layer, #h5dsPopups .h5ds-swiper-page .layer {
   display: block;
+}
+.h5dsapp-pc .h5ds-swiper-pageinner > .h5ds-swiper-layers {
+  margin: 0 auto;
+}
+.h5dsapp-pc .h5ds-video-icon {
+  top: auto;
+  bottom: 8px;
+  right: auto;
+  left: 10px;
+  border-radius: 0;
 }
 .pc-body {
   position: absolute;
@@ -6143,8 +6153,8 @@ body * {
   bottom: 0;
 }
 .pc-body .pc-infos .pc-qrcode canvas, .pc-body .pc-infos .pc-qrcode img {
-  width: 100%!important;
-  height: 100%!important;
+  width: 100% !important;
+  height: 100% !important;
 }
 .pc-wave {
   position: fixed;
