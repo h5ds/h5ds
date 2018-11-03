@@ -28,7 +28,7 @@
 
 运行环境 node v6.x npm 5.x
 
-### 1. 安装主程序
+### 1. 加载第三方资源库
 
 > HTML(index.html)必须载入图标库的CSS和第三方插件
 ```html
