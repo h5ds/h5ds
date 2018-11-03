@@ -63,7 +63,6 @@ export default class HomePage extends Component {
         return (
             <div>
                 <H5DS
-                    testVersion={true}
                     appid="h5ds_demoid"
                     config={{ appHost: '', appCDN: 'http://cdn.h5ds.com/lib', backUrl: '/' }}
                     uploadSet={{}}

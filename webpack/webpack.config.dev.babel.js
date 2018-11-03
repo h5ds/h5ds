@@ -6,7 +6,7 @@ import { theme } from './theme';
 import webpack from 'webpack';
 import webpackMerge from 'webpack-merge';
 
-const PORT = 8080; // 服务器端口
+const PORT = 8787; // 服务器端口
 const HOST = '127.0.0.1';
 
 export default webpackMerge(baseConfig, {
