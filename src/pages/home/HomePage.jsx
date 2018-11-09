@@ -58,13 +58,23 @@ export default class HomePage extends Component {
         this.setState({ visible: false });
     };
 
+    saveFile = fileText => {
+        if (this.refDownload) {
+            let myBlob = new Blob([fileText], { type: 'text/plain' });
+            this.refDownload.download = 'index.html';
+            this.refDownload.href = window.URL.createObjectURL(myBlob);
+            console.log('下载文件已就绪');
+        }
+    };
+
     render() {
         const { visible, shtml } = this.state;
+        let str = pretty(shtml);
         return (
             <div>
                 <H5DS
                     appid="h5ds_demoid"
-                    config={{ appHost: '', appCDN: 'http://cdn.h5ds.com/lib', backUrl: '/' }}
+                    config={{ appHost: '', appCDN: 'http://cdn.h5ds.com/static', backUrl: '/' }}
                     uploadSet={{}}
                     savePage={this.savePage}
                     saveApp={this.saveApp}
@@ -83,6 +93,15 @@ export default class HomePage extends Component {
                         <SyntaxHighlighter language="htmlbars" style={github}>
                             {shtml}
                         </SyntaxHighlighter>
+                        <a
+                            target="_blank"
+                            key="1"
+                            ref={c => (this.refDownload = c)}
+                            onClick={() => this.saveFile(str)}
+                            className="h5ds-publish-btn-code"
+                        >
+                            <i className="h5ds-ico h5ds-ico-xiazai" /> 下载源码
+                        </a>
                     </div>
                 </Modal>
             </div>
