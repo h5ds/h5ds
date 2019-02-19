@@ -57,7 +57,8 @@
   "dependencies": {
     "antd": "^3.10.4",
     "dayjs": "^1.7.7",
-    "h5ds": "^4.2.11",
+    "dom-to-image": "^2.6.0",
+    "h5ds": "^4.4.0",
     "localforage": "^1.7.3",
     "lodash": "^4.17.11",
     "mobx": "^5.6.0",

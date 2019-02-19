@@ -1,5 +1,5 @@
 import './style.less';
-import 'h5ds/css/h5ds.4.2.1.css'; // 编辑器样式
+import 'h5ds/css/h5ds.4.4.0.css'; // 编辑器样式
 import './layers/plus'; // 手机端会执行的代码
 
 import * as layers from './layers';
