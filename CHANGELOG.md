@@ -1,6 +1,14 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+### 2019-02-19
+1. 新增磁吸线对齐方式
+2. 新增PC页面切换，可以制作PC页面
+3. 新增另存页面为图片的功能
+4. 新增禁用动画的功能
+5. 新增文字艺术字效果
+6. 修改文本编辑器的交互方式，简单实用，修复若干BUG
+
 ### 2018-07-30
 1. 采用react16 + mobx 架构体系
 2. 插件模块化
