@@ -43,12 +43,12 @@
 > npm install h5ds --save
 
 ### 3. 安装第三方依赖库
-> npm install antd dayjs localforage lodash mobx mobx-react moment react react-color react-contenteditable react-dom tinycolor2 url-parse --save
+> npm install antd dayjs preload-js localforage lodash mobx mobx-react moment react react-color react-contenteditable react-dom tinycolor2 url-parse --save
 
 ### 4. 使用H5DS组件
 
 ```javascript
-import 'h5ds/css/h5ds.4.2.0.css';
+import 'h5ds/css/h5ds.4.5.0.css';
 import H5DS from 'h5ds';
 
 const setting = {

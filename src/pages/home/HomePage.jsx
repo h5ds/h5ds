@@ -1,5 +1,5 @@
 import './style.less';
-import 'h5ds/css/h5ds.4.4.0.css'; // 编辑器样式
+import 'h5ds/css/h5ds.4.5.0.css'; // 编辑器样式
 import './layers/plus'; // 手机端会执行的代码
 
 import * as layers from './layers';
@@ -9,6 +9,7 @@ import React, { Component } from 'react'; // ...
 import H5DS from 'h5ds'; // ..
 import { Modal } from 'antd';
 import SyntaxHighlighter from 'react-syntax-highlighter';
+import { appData } from './appData';
 import { github } from 'react-syntax-highlighter/styles/hljs';
 import pretty from 'pretty';
 
@@ -24,7 +25,8 @@ import pretty from 'pretty';
 export default class HomePage extends Component {
     state = {
         visible: false,
-        shtml: ''
+        shtml: '',
+        data: null
     };
 
     // 保存当前页面
@@ -67,12 +69,20 @@ export default class HomePage extends Component {
         }
     };
 
+    componentDidMount() {
+        // 模拟数据请求
+        setTimeout(() => {
+            this.setState({ data: appData });
+        }, 100);
+    }
+
     render() {
-        const { visible, shtml } = this.state;
+        const { visible, shtml, data } = this.state;
         let str = pretty(shtml);
         return (
             <div>
                 <H5DS
+                    data={data}
                     appid="h5ds_demoid"
                     config={{ appHost: '', appCDN: 'http://cdn.h5ds.com/static', backUrl: '/' }}
                     uploadSet={{}}
