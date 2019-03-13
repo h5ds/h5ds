@@ -34,9 +34,8 @@
 ```html
 <link rel="stylesheet" type="text/css" href="http://at.alicdn.com/t/font_157397_gh8aos5s98.css">
 <script src="http://cdn.h5ds.com/lib/plugins/jquery.min.js"></script>
-<script src="http://cdn.h5ds.com/lib/plugins/jquery.touchSwipe.min.js"></script>
 <script src="http://cdn.h5ds.com/lib/plugins/qrcode.min.js"></script>
-<script src="http://cdn.h5ds.com/lib/plugins/anime.js"></script>
+<script src="http://cdn.h5ds.com/lib/plugins/hammer.min.js"></script>
 ```
 
 ### 2. 安装主程序
