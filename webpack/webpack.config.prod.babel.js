@@ -8,7 +8,7 @@ import { theme } from './theme';
 import webpack from 'webpack';
 import webpackMerge from 'webpack-merge';
 
-const extractAntd = new ExtractTextPlugin('assets/css/h5ds.ui.css'); // antd 的 css
+// const extractAntd = new ExtractTextPlugin('assets/css/h5ds.ui.css'); // antd 的 css
 const extractStyle = new ExtractTextPlugin(`assets/css/[name].${version}.css`);
 
 export default webpackMerge(baseConfig, {
@@ -27,7 +27,7 @@ export default webpackMerge(baseConfig, {
             {
                 test: /\.(css|less)$/,
                 include: [resolve('../node_modules'), resolve(src)],
-                use: extractAntd.extract([
+                use: extractStyle.extract([
                     'css-loader',
                     'postcss-loader',
                     `less-loader?{javascriptEnabled: true, modifyVars: ${JSON.stringify(theme)}}`
@@ -36,7 +36,7 @@ export default webpackMerge(baseConfig, {
         ]
     },
     plugins: [
-        extractAntd,
+        // extractAntd,
         extractStyle,
         new HtmlWebpackPlugin({
             chunks: ['h5ds'],
