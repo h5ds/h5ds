@@ -1,0 +1,82 @@
+@color1: #a5b6c8;
+@color2: #535f6b;
+@color3: #30373f;
+@color4: #252a2e;
+@color5: #0e1113;
+@color6: #1d2225;
+@text1: #a5b6c8; // 文本颜色
+@text2: #fff; // 文本颜色
+@text3: rgb(226, 26, 26); // 文本颜色
+// @main: #ff5402;
+@main: #1890ff;
+@mainHover: #f04e00;
+@bg1: #fff;
+@bg2: #d2d2d2;
+@line: #00feff;
+@hoverDanger: #ff3535;
+@boxShadow: 0 0 10px rgba(0, 0, 0, .3);
+@appWidth: 320px;
+@appHeight: 514px;
+@headerHeight: 60px;
+@pageListWidth: 140px;
+@editWidth: 350px;
+
+@canvasBorder: rgba(0, 0, 0, .7);
+@timebg: #1d2225;
+
+.h5ds-scrollbar-modal {
+
+  /*滚动条*/
+  &::-webkit-scrollbar {
+      width: 5px;
+      height: 5px;
+  }
+
+  &::-webkit-scrollbar-track {
+      background: @color6;
+  }
+
+  &::-webkit-scrollbar-thumb {
+      background: @color2;
+      border-radius: 100px;
+  }
+
+  &::-webkit-scrollbar-thumb:window-inactive {
+      background: @color2;
+  }
+
+  &::-webkit-scrollbar-button:vertical:decrement,
+  &::-webkit-scrollbar-button:vertical:increment {
+      height: 5px;
+      width: 5px;
+      background: @color6;
+  }
+}
+.h5ds-scrollbar {
+
+    /*滚动条*/
+    ::-webkit-scrollbar {
+        width: 5px;
+        height: 5px;
+    }
+
+    ::-webkit-scrollbar-track {
+        background: @color6;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: @color2;
+        border-radius: 100px;
+    }
+
+    ::-webkit-scrollbar-thumb:window-inactive {
+        background: @color2;
+    }
+
+    ::-webkit-scrollbar-button:vertical:decrement,
+    ::-webkit-scrollbar-button:vertical:increment {
+        height: 5px;
+        width: 5px;
+        background: @color6;
+    }
+}
