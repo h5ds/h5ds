@@ -1,5 +1,34 @@
+# 简介
 
-# 1. 引入必须的资源包。
+> H5DS (HTML5 Design software) 这是一款基于 WEB 的 HTML5 制作工具的内核。让不会写代码的人也能轻松快速上手编写HTML5页面。H5DS同时也是一款基于react+mobx的在线HTML制作工具，灵活的内核可快速改造成各种
+可视化制作工具（基于该内核，可以做BI工具，建站工具，图形设计工具，在线PPT工具等一系列工具），H5DS提供了丰富的插件扩展接口，让插件可自由快速扩展和动态加载，同时也支持API接入
+
+
+### 该产品的特点：
+
+ 1. 【高维护性】采用react+mobx模块化开发，源码结构清晰，注释规范，高可维护，方便进行二次开发和迭代升级。
+ 2. 【高扩展性】编辑器内核独立存在，官方提供了插件开发教程以及CLI工具，可独立开发插件，动态加载插件。
+ 3. 【高性能】采用mobx统一管理数据，底层proxy数据监听，做了大量节流和防抖优化，插件按需加载，不占内存。
+ 4. 【多终端支持】支持手机页面、PC页面独立制作，设计界面可自由切换，采用缩放模式兼容各种屏幕分辨率，PC/Mobile一网打尽。
+
+官方网站：[www.h5ds.com](https://www.h5ds.com)
+
+github地址：[https://github.com/h5ds/h5ds](https://github.com/h5ds/h5ds)
+
+软件截图：
+
+![](http://cdn.h5ds.com/doc/images/pc.png)
+
+# 加入我们
+
+QQ群：549856478
+
+![image](https://cdn.h5ds.com/doc/images/qq.jpg)
+
+
+# 如何使用
+
+### 1. 引入必须的资源包。
 
 ```html
 <link rel="stylesheet" href="https://at.alicdn.com/t/font_157397_ze6q8vjbeme.css">
@@ -14,7 +43,7 @@
 <script src="https://cdn.bootcss.com/antd/3.23.0-beta.0/antd.min.js"></script>
 ```
 
-# 2. 安装使用H5DS
+### 2. 安装使用H5DS
 
 > npm install h5ds --save
 
@@ -76,7 +105,7 @@ export default Editor;
 
 ```
 
-# 也可以使用下面H5DS的JS-SDK
+# 直接使用JS-SDK
 
 ### editor.html 编辑器文件
 
