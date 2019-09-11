@@ -1,0 +1,17 @@
+{
+  "name": "h5ds",
+  "author": "四川爱趣五科技有限公司",
+  "version": "5.0.1",
+  "description": "html5 design software",
+  "main": "editor/index.js",
+  "license": "other",
+  "keywords": [
+    "h5ds",
+    "react",
+    "mobx"
+  ],
+  "homepage": "https://github.com/h5ds/h5ds",
+  "directories": {
+    "example": "https://www.h5ds.com"
+  }
+}
