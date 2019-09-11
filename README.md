@@ -17,7 +17,7 @@ github地址：[https://github.com/h5ds/h5ds](https://github.com/h5ds/h5ds)
 
 软件截图：
 
-![](http://cdn.h5ds.com/doc/images/pc.png)
+![](http://cdn.h5ds.com/doc/images/h5ds.png)
 
 # 加入我们
 
