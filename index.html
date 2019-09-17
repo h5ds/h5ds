@@ -11,6 +11,10 @@
       href="https://at.alicdn.com/t/font_157397_ze6q8vjbeme.css"
     />
     <link
+      rel="stylesheet"
+      href="https://at.alicdn.com/t/font_1160472_ybl2xl0ao8.css"
+    />
+    <link
       href="https://cdn.bootcss.com/Swiper/4.5.0/css/swiper.min.css"
       rel="stylesheet"
     />
@@ -71,11 +75,29 @@
           const { H5dsEditor } = H5DS_GLOBAL.editor;
           return (
             <H5dsEditor
-              plugins={[]} // 第三方插件包
+              plugins={[
+                "h5ds-form",
+                "h5ds-video",
+                "h5ds-map",
+                "h5ds-button",
+                "h5ds-save-to-image",
+                "h5ds-drawer-menu",
+                "h5ds-css-effect",
+                "h5ds-count-time",
+                "h5ds-chart",
+                "h5ds-qrcode",
+                "swiper-cube",
+                "swiper-overflow",
+                "swiper-flip",
+                "swiper-slide",
+                "threejs-360",
+                "threejs-obj-loader"
+              ]} // 第三方插件包
               data={data}
               debugger={false} // debugger=true用于调试插件
               options={{
                 noServer: true, // 开启无后台模式
+                pluginsHost: "https://www.h5ds.com",
                 publishApp: this.publishApp,
                 saveApp: this.saveApp, // 保存应用
                 appId: "test_app_id" // 当前appId
