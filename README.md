@@ -37,13 +37,21 @@ QQ群：549856478
 <!-- 编辑器所需第三方资源库 -->
 <script src="https://cdn.h5ds.com/lib/plugins/swiper.min.js"></script>
 <script src="https://cdn.h5ds.com/lib/plugins/jquery.min.js"></script>
-<script src="https://cdn.h5ds.com/lib/plugins/h5ds-vendor-0.0.2.min.js"></script>
+<script src="https://cdn.h5ds.com/lib/plugins/h5ds.vendor.min.js"></script>
 <!-- 外部引入antd -->
 <script src="https://cdn.bootcss.com/moment.js/2.24.0/moment.min.js"></script>
 <script src="https://cdn.bootcss.com/antd/3.23.0-beta.0/antd.min.js"></script>
 ```
 
 ### 2. 安装使用H5DS
+
+> webpack必须配置
+
+```javascript
+
+externals: ['React', 'ReactDOM', 'ReactRouter', 'ReactRouterDOM', 'mobx', '_', 'antd', 'PubSub', 'moment']
+
+```
 
 > npm install h5ds --save
 
@@ -105,7 +113,7 @@ export default Editor;
 
 ```
 
-# 直接使用JS-SDK
+# 直接使用H5DS JS-SDK
 
 ### index.html 双击打开即可
 
