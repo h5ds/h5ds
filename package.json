@@ -6,7 +6,10 @@
   "scripts": {
     "start": "npm run dev",
     "dev": "webpack-dev-server --config webpackset/webpack.config.dev.js --open",
-    "build": "webpack --config webpackset/webpack.config.prod.js --colors --display-error-details --progress"
+    "build": "webpack --config webpackset/webpack.config.prod.js --colors --display-error-details --progress",
+    "build:editor": "webpack --config webpackset/webpack.config.editor.js --colors --display-error-details --progress",
+    "build:layer": "webpack --config webpackset/webpack.config.layer.js --colors --display-error-details --progress",
+    "build:plus": "npm run build:layer && npm run build:editor"
   },
   "repository": {
     "type": "git",
@@ -71,6 +74,7 @@
     "babel-plugin-react-css-modules": "^5.2.6",
     "dayjs": "^1.8.15",
     "h5ds": "^5.0.3",
+    "h5ds-mount-plugin": "^1.1.0",
     "localforage": "^1.7.3",
     "lodash": "^4.17.14",
     "mobx": "^5.9.4",
