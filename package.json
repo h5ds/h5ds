@@ -73,18 +73,22 @@
     "axios": "^0.18.0",
     "babel-plugin-react-css-modules": "^5.2.6",
     "dayjs": "^1.8.15",
+    "dom-to-image": "^2.6.0",
     "h5ds": "^5.0.3",
     "h5ds-mount-plugin": "^1.1.0",
     "localforage": "^1.7.3",
     "lodash": "^4.17.14",
     "mobx": "^5.9.4",
     "mobx-react": "^5.4.4",
+    "qrcode.react": "^1.0.0",
     "react": "^16.8.6",
+    "react-color": "^2.17.3",
     "react-dom": "^16.10.2",
     "react-loadable": "^5.5.0",
     "react-mobx": "^0.0.4",
     "react-router": "^5.0.0",
     "react-router-dom": "^5.0.0",
+    "tinycolor2": "^1.4.1",
     "uuid": "^3.3.2"
   }
 }

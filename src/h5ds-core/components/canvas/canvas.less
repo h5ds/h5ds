@@ -1,0 +1,238 @@
+@import '../../less/variables.less';
+
+.h5ds-center {
+    position: absolute;
+    left: 140px;
+    top: 60px;
+    bottom: 0;
+    right: 350px;
+    overflow: hidden;
+
+    .h5ds-canvas-border {
+        box-sizing: content-box;
+        position: absolute;
+        z-index: 9999;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        transform-origin: center;
+        transform: translate(-10000px, -10000px);
+        border: 10000px solid @canvasBorder;
+        pointer-events: none;
+    }
+
+    // 真实的尺寸
+    .h5ds-canvas-realsize {
+        position: absolute;
+
+    }
+}
+
+// // 在设置参数的时候，需要取消掉动画效果
+// .h5ds-noneAnimate {
+//     .element {
+//         animation: none !important;
+//     }
+// }
+.layer-group-select {
+    position: absolute;
+    z-index: 3000;
+    background: rgba(0, 0, 0, .2);
+    border: 1px dotted @main;
+    box-sizing: border-box;
+}
+
+.layer-group-eventbox {
+    position: absolute;
+    z-index: 100;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.h5ds-canvas {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    // transition: 0.5s; //
+    overflow: hidden;
+    background: @color2;
+    z-index: 99;
+
+    * {
+        touch-action: none;
+    }
+}
+
+.h5ds-canvas-box {
+    background: @bg1;
+    display: inline-block;
+    box-shadow: 0 0 5px rgba(0, 0, 0, .5);
+    position: absolute;
+    transform-origin: 0 0;
+    z-index: 100;
+
+    // margin-bottom: 200px;
+    // transition: transform 0.1s;
+    .h5ds-canvas-lines {
+        position: absolute;
+        z-index: 10000;
+        pointer-events: none;
+        left: 0;
+        top: 0;
+        box-sizing: border-box;
+        opacity: 0.2;
+        @lineWidth: 75px;
+
+        .h5ds-canvas-lines-iphone678 {
+            position: absolute;
+            box-sizing: border-box;
+            left: 0;
+            top: -(514px - @appHeight) / 2;
+            border: 1px dashed @bg1;
+            width: @appWidth;
+            height: 514px;
+
+            &::before,
+            &::after {
+                content: 'iphone6/7/8';
+                display: inline-block;
+                position: absolute;
+                left: -@lineWidth;
+                width: @lineWidth;
+                color: @text2;
+                font-size: 12px;
+            }
+
+            &::before {
+                top: -1px;
+                border-top: 1px dashed @bg1;
+            }
+
+            &::after {
+                bottom: -1px;
+                border-bottom: 1px dashed @bg1;
+            }
+        }
+
+        .h5ds-canvas-lines-iphone678plus {
+            position: absolute;
+            box-sizing: border-box;
+            left: 0; // top: -(520px - @appHeight) / 2;
+            border: 1px dashed @bg1;
+            width: @appWidth;
+            height: 520px;
+        }
+
+        .h5ds-canvas-lines-iphoneX {
+            position: absolute;
+            box-sizing: border-box;
+            left: 0; // top: -(640px - @appHeight) / 2;
+            border: 1px dashed @bg1;
+            width: @appWidth;
+            height: 640px;
+
+            &::before,
+            &::after {
+                content: 'iphoneX';
+                display: inline-block;
+                position: absolute;
+                right: -@lineWidth;
+                width: @lineWidth;
+                color: @text2;
+                font-size: 12px;
+                text-align: right;
+            }
+
+            &::before {
+                top: -1px;
+                border-top: 1px dashed @bg1;
+            }
+
+            &::after {
+                bottom: -1px;
+                border-bottom: 1px dashed @bg1;
+            }
+        }
+    }
+
+    .element-show {
+        .element {
+            opacity: 1 !important;
+        }
+    }
+
+    .animation-disabled {
+        .layer .element {
+            animation: none !important;
+        }
+    }
+
+    .h5ds-canvas-app,
+    .h5ds-pages-app {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        z-index: 999;
+    }
+
+    .h5ds-page-view {
+        width: 100%;
+        height: 100% !important;
+        position: relative;
+        z-index: 1000;
+    }
+
+    .h5ds-fixed-view {
+        position: absolute;
+        width: 0;
+        height: 0;
+        z-index: 1100;
+    }
+
+    #h5dsPageViewFixedUp {
+        height: 0 !important;
+    }
+
+    #h5dsPageViewFixedDown {
+        z-index: 900;
+        width: 100%;
+        height: 100%;
+    }
+
+    #h5dsPageViewFixedLoading {
+        width: 100%;
+        height: 100%;
+        z-index: 2000;
+        background: #fff;
+    }
+
+    // .pageViewFixed{
+    // 	pointer-events: none;
+    // }
+    .h5ds-page-viewup-full.h5dsPageViewFixed {
+        width: 100%;
+        height: 100%;
+        pointer-events: inherit;
+    }
+
+    #h5dsPageViewPopup {
+        display: none;
+        height: 100%;
+        width: 100%;
+        z-index: 1200;
+    }
+
+    .h5ds-swiper-layers {
+        display: block;
+        height: 100%;
+    }
+}
+
+.h5ds-swiper-page[data-langpage]>.h5ds-swiper-pageinner {
+    .h5ds-scrollbar;
+}

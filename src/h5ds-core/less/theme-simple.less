@@ -1,0 +1,482 @@
+.h5ds-theme-simple {
+    @main: #40a9ff;
+    @bg: #fff;
+    @bg2: #f8f8f8;
+    @color0: #fff;
+    @color1: rgb(231, 231, 231);
+    @color2: #999;
+    @color3: #666;
+    @color4: #333;
+    @color5: #000;
+
+    #App {
+
+        .ant-input,
+        .ant-input-number-input,
+        .ant-input-number {
+            background: @color1;
+            color: @color4;
+            border-radius: 0;
+        }
+
+        .ant-input-number-handler-wrap {
+            border-radius: 0;
+            background: @color1;
+            border-color: @color2 ;
+        }
+
+        .h5ds-basic-animateset-addbtn {
+            background: @color0 ;
+            border-color: @color2 ;
+            color: @color2 ;
+        }
+
+        .ant-radio-button-wrapper {
+            background: @color0;
+            color: @color2;
+        }
+
+        .ant-radio-button-wrapper-checked {
+            background: @main;
+            color: @color0;
+        }
+
+        .ant-select-selection {
+            background: @color1;
+            color: @color3;
+
+            .ant-select-arrow {
+                color: @color3;
+            }
+        }
+
+        .h5ds-basic-animateset-item {
+            background: @color1;
+
+            .h5ds-layout-setitem-name {
+                color: @color2;
+            }
+        }
+
+        .h5ds-basic-animateset-item.h5ds-basic-animateset-active {
+            background: @main;
+
+            .h5ds-layout-setitem-name {
+                color: @color0;
+            }
+        }
+
+        .h5ds-basic-animateset-item .h5ds-layout-setitem-content {
+            color: @color5;
+        }
+
+        .h5ds-basic-animateset-btndel,
+        .h5ds-basic-animateset-btnset {
+            background: @main;
+        }
+    }
+
+    .h5ds-layout-setitem-name {
+        color: @color3;
+    }
+
+    .h5ds-modal-source {
+        background: @bg;
+    }
+
+    .h5ds-modal.h5ds-modal-hastitle .h5ds-modal-title .h5ds-modal-title-icon {
+        background: @main;
+    }
+
+    .h5ds-source .h5ds-source-content .h5ds-source-item {
+        background: @color1;
+        color: @color3;
+    }
+
+    .h5dsSlider {
+        &::-webkit-scrollbar {
+            width: 5px;
+            height: 5px;
+        }
+
+        &::-webkit-scrollbar-track {
+            background: @color1;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background: @color2;
+            border-radius: 100px;
+        }
+
+        &::-webkit-scrollbar-thumb:window-inactive {
+            background: @color2;
+        }
+
+        &::-webkit-scrollbar-button:vertical:decrement,
+        &::-webkit-scrollbar-button:vertical:increment {
+            height: 5px;
+            width: 5px;
+            background: @color2;
+        }
+    }
+
+    /*滚动条*/
+    div {
+        .h5dsSlider;
+    }
+
+    .h5ds-layout-frame {
+        background: @bg;
+    }
+
+    // header
+    .h5ds-header {
+        background: @bg;
+        box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
+
+        .h5ds-publish-box {
+            .h5ds-ico {
+                color: @color3;
+            }
+
+            a {
+                color: @color3;
+            }
+        }
+
+        .h5ds-h5set .h5ds-btn-yellow {
+            color: @color0;
+        }
+
+        .h5ds-h5type {
+            background: @color1;
+
+            a {
+                color: @color3;
+            }
+
+            a.active {
+                color: @color0;
+                background: @main;
+            }
+        }
+
+        .h5ds-logo {
+            a {
+                color: #000;
+            }
+
+            span {
+                color: @main;
+            }
+        }
+    }
+
+    // 菜单
+    .h5ds-layermenu {
+        a {
+            color: @color3;
+        }
+    }
+
+    // 左侧
+    .h5ds-pagelist {
+        background: @color1;
+        box-shadow: 1px 0px 5px rgba(0, 0, 0, 0.2);
+
+        .h5ds-pagelist-pages {
+            .h5ds-pagelist-page-item {
+                background: @color0;
+            }
+
+            .h5ds-pagelist-page-info a {
+                background: @main;
+                color: @color0;
+            }
+
+            .h5ds-pagelist-active:after {
+                color: @main;
+            }
+        }
+
+        .h5ds-pagelist-btn {
+            li {
+                background: @color1;
+                color: @color3;
+            }
+
+            li.h5ds-active {
+                background: @main;
+            }
+        }
+    }
+
+    // center
+    .h5ds-center {
+        background: @bg;
+
+        .h5ds-ruler-line {
+            canvas {
+                background: @bg2;
+            }
+        }
+
+        .h5ds-canvas-border {
+            border: 10000px solid rgba(217, 217, 217, 0.4);
+        }
+    }
+
+    // 时间轴
+    .h5ds-timeline-box {
+        background: @color0;
+
+        .h5ds-timeline-slider {
+            background: @color1;
+
+            &::-webkit-scrollbar-track {
+                background: @color1;
+            }
+
+            &::-webkit-scrollbar-thumb {
+                background: @color2;
+            }
+
+            &::-webkit-scrollbar-thumb:window-inactive {
+                background: @color2;
+            }
+
+            &::-webkit-scrollbar-button:vertical:decrement,
+            &::-webkit-scrollbar-button:vertical:increment {
+                background: @color2;
+            }
+        }
+
+        .h5ds-timeline {
+            border-color: @color1;
+
+            .h5ds-timeline-header .h5ds-timeline-bar {
+                border-color: @color3;
+                background: rgba(255, 255, 255, 0.3);
+
+                &::before {
+                    background: @color3;
+                }
+            }
+
+            .h5ds-timeline-footer .h5ds-timeline-right {
+                background: @color1;
+            }
+
+            .h5ds-timeline-scale li {
+                span {
+                    color: @color2;
+                }
+
+                &::before {
+                    background: @color2;
+                }
+
+                .h5ds-timeline-dot {
+                    background: @color5;
+                }
+            }
+
+            .h5ds-ico {
+                color: @color4;
+            }
+        }
+
+        .h5ds-timeline-btn {
+            background: @color1;
+        }
+
+        .h5ds-timeline-left {
+            background: @color1;
+        }
+
+        .h5ds-timeline .h5ds-timeline-body .h5ds-timeline-left li {
+            background: @color0;
+            border-color: @color1;
+        }
+
+        .h5ds-timeline .h5ds-timeline-body .h5ds-timeline-left .h5ds-timeline-active {
+            background: @main;
+            border-color: @color0;
+        }
+
+        .h5ds-timeline .h5ds-timeline-footer .h5ds-timeline-left {
+            background: @color1;
+        }
+
+        .h5ds-timeline .h5ds-timeline-item1 {
+            border-color: @color1;
+        }
+
+        .h5ds-timeline .h5ds-timeline-body .h5ds-timeline-right li {
+            border-color: @color1;
+        }
+    }
+
+    // canvas
+    .h5ds-canvas {
+        background: @bg;
+    }
+
+    .h5ds-layerlist {
+        background: @color0;
+
+        h1 span {
+            color: @color4;
+        }
+
+        .h5ds-ico {
+            color: @main;
+        }
+
+        ul {
+            border-top: 1px solid @color2;
+
+            .h5ds-layerlist-active {
+                background: @main;
+
+                span {
+                    color: #fff;
+                }
+            }
+        }
+
+        ul .h5ds-layerlist-active .h5ds-layerlist-locklayer .h5ds-ico {
+            color: @color1;
+        }
+
+        ul li {
+            background: @color0;
+            color: @color4;
+            border-color: @color2;
+
+            span.name {
+                border-color: @color2;
+            }
+        }
+    }
+
+    .h5ds-util-cropimage-btns,
+    .h5ds-util-cropimage {
+        background: @color1;
+
+        a {
+            color: @color4;
+        }
+    }
+
+    .h5ds-shortcut {
+        background: @bg;
+        box-shadow: 0 0 10px rgba(0, 0, 0, .3);
+
+        a,
+        span {
+            color: @color3;
+
+            &:hover {
+                color: @main;
+            }
+        }
+
+        .h5ds-ico-caidan {
+            color: @main;
+        }
+
+        h5 {
+            background: @bg;
+            color: @color3;
+
+            a {
+                color: @main;
+            }
+        }
+    }
+
+    .h5ds-editarea {
+        background: @bg;
+
+        input {
+            background: @color1;
+        }
+    }
+
+    .h5ds-basic-tabs .ant-tabs-bar {
+        border-color: @color1;
+    }
+
+    .h5ds-animatelist {
+        background: @color0;
+
+        ul.h5ds-basic-animatelist-ul li {
+            background: @color1;
+            color: @color3;
+        }
+
+        .ant-tabs-tab {
+            color: @color3;
+        }
+    }
+
+    .h5ds-basic-animatelist-close {
+        background: @main;
+    }
+
+    .h5ds-layerset-tabsbox>.ant-tabs>.ant-tabs-bar .ant-tabs-nav .ant-tabs-tab {
+        color: @color3;
+    }
+
+    .h5ds-layerset-tabsbox>.ant-tabs>.ant-tabs-bar {
+        border-color: @color1;
+    }
+
+    .h5ds-eventlist li.h5ds-event-item {
+        background: @color1;
+        color: @color3;
+    }
+
+    .h5ds-event-list li.h5ds-event {
+        background: @color1;
+        color: @color3;
+    }
+
+    .h5ds-event-set .h5ds-close-event {
+        background: @main;
+    }
+
+    .h5ds-event-set .h5ds-clear-event {
+        background: @color1;
+        color: @color3;
+    }
+
+    .h5ds-event-set {
+        background: @color0;
+
+        textarea,
+        input {
+            background: @color1;
+        }
+
+        .h5ds-eventbox-content,
+        .h5ds-event-title {
+            color: @color2;
+        }
+    }
+
+    .h5ds-util-cropimage-nullimg {
+        background: @color1;
+    }
+
+    .h5ds-ex-h5ds_text-btn {
+        background: @color1;
+    }
+
+    .h5ds-ex-h5ds_text-btn.h5ds-active {
+        background: @color2;
+        color: @color0;
+    }
+
+}

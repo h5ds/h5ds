@@ -1,0 +1,293 @@
+@import './variables.less';
+
+// 修改antd 的样式
+.h5ds-edit,
+.h5ds-modal,
+.h5ds-layout-frame {
+
+  .ant-tabs-nav .ant-tabs-tab-active,
+  .ant-tabs-nav .ant-tabs-tab:hover {
+    color: @main;
+  }
+
+  .ant-radio-button-wrapper-checked {
+    color: @main;
+    border-color: @main;
+    box-shadow: -1px 0 0 0 @main;
+  }
+
+  .ant-radio-button-wrapper-checked::before {
+    background-color: @main!important;
+  }
+
+  .ant-radio-button-wrapper-checked:first-child {
+    border-color: @main;
+  }
+
+  .ant-radio-button-wrapper-checked:hover {
+    box-shadow: -1px 0 0 0 @main;
+  }
+
+  .ant-btn {
+    border-radius: 0;
+  }
+
+  .ant-btn:hover,
+  .ant-btn:active,
+  .ant-btn:focus {
+    color: #fff;
+    background-color: @main;
+    border-color: @main;
+  }
+
+  .ant-tabs-ink-bar {
+    background-color: @main;
+  }
+
+  .ant-switch-checked {
+    background: @main;
+  }
+
+  .ant-btn-primary {
+    background-color: @main;
+    border-color: @main;
+  }
+
+  .ant-divider {
+    background: @color2;
+  }
+
+  // popover
+  .ant-popover-inner-content {
+    color: @color1;
+  }
+
+  .ant-popover-title {
+    color: @color1;
+    border-bottom-color: @color4;
+  }
+
+  .ant-popover-inner {
+    background: @color3;
+  }
+
+  .ant-popover-message-title {
+    color: @color1;
+  }
+
+  .ant-popover-placement-left>.ant-popover-content>.ant-popover-arrow,
+  .ant-popover-placement-leftTop>.ant-popover-content>.ant-popover-arrow,
+  .ant-popover-placement-leftBottom>.ant-popover-content>.ant-popover-arrow,
+  .ant-popover-placement-top>.ant-popover-content>.ant-popover-arrow,
+  .ant-popover-placement-topLeft>.ant-popover-content>.ant-popover-arrow,
+  .ant-popover-placement-topRight>.ant-popover-content>.ant-popover-arrow,
+  .ant-popover-placement-bottom>.ant-popover-content>.ant-popover-arrow,
+  .ant-popover-placement-bottomLeft>.ant-popover-content>.ant-popover-arrow,
+  .ant-popover-placement-bottomRight>.ant-popover-content>.ant-popover-arrow {
+    border-top-color: @color3;
+    border-left-color: @color3;
+    border-right-color: @color3;
+    border-bottom-color: @color3;
+  }
+
+  .mt-select-min {
+    .ant-select-selection {
+      color: @color1;
+      background: @color4;
+      border: 1px solid @color3;
+    }
+
+    .ant-select-arrow {
+      color: @color1;
+    }
+  }
+
+  .ant-btn-default {
+    background-color: @color2;
+    color: #fff;
+  }
+
+  // slider
+  .ant-slider {
+    width: 160px;
+    display: inline-block;
+    margin: 0 5px;
+    height: 10px;
+    box-sizing: border-box;
+  }
+
+  .ant-slider-rail {
+    height: 3px;
+    background: @color4;
+  }
+
+  .ant-slider-track {
+    height: 3px;
+    background: @main;
+  }
+
+  .ant-slider-step {
+    height: 3px;
+  }
+
+  .ant-slider-handle {
+    width: 9px;
+    height: 9px;
+    margin-top: -3px;
+    border-radius: 100px;
+    background: @main;
+    border: none;
+
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+
+  .ant-slider:hover .ant-slider-track {
+    background-color: @main;
+  }
+
+  .ant-slider:hover .ant-slider-rail {
+    background-color: #181b1e;
+  }
+
+  // switch
+  .ant-switch:before,
+  .ant-switch:after {
+    background: @color2;
+  }
+
+  .ant-switch-checked:before,
+  .ant-switch-checked:after {
+    background: #fff;
+  }
+
+  .ant-radio-inner {
+
+    &::before,
+    &::after {
+      border-radius: 50%;
+    }
+  }
+
+  .ant-tabs-bar {
+    border-bottom: 1px solid @color3;
+    color: @color1;
+  }
+
+  .ant-pagination {
+
+    .ant-pagination-item-link,
+    .ant-pagination-item {
+      background: @color2;
+      border-color: @color3;
+      color: @color1;
+    }
+
+    a {
+      color: @color1;
+    }
+
+    .ant-pagination-item-active {
+      background: @main;
+
+      a {
+        color: @bg1;
+      }
+    }
+  }
+
+  .ant-pagination.mini .ant-pagination-prev .ant-pagination-item-link:after,
+  .ant-pagination.mini .ant-pagination-next .ant-pagination-item-link:after,
+  .ant-pagination-jump-prev:after,
+  .ant-pagination-jump-next:after,
+  .ant-pagination-item a {
+    color: #999;
+  }
+
+  .ant-pagination-item-active {
+    background: @main;
+
+    a {
+      color: #fff;
+    }
+  }
+
+  .ant-radio-button-wrapper:last-child,
+  .ant-radio-button-wrapper:first-child {
+    border-radius: 0;
+  }
+
+  .ant-radio-button-wrapper:not(:first-child)::before {
+    background: @color4;
+  }
+
+  .ant-radio-button-wrapper {
+    border-color: @main;
+    background: @color4;
+    color: @color1;
+  }
+
+  .ant-radio-group-solid .ant-radio-button-wrapper-checked:not(.ant-radio-button-wrapper-disabled) {
+    background: @main;
+    color: #fff;
+    border-color: @main;
+  }
+
+  .ant-radio-button-wrapper-checked {
+    background: @main;
+    color: #fff;
+  }
+
+  .ant-input {
+    background: @color4;
+    color: @color1;
+    border: none;
+
+    &::-webkit-input-placeholder {
+      color: @color2;
+      text-indent: 5px;
+    }
+  }
+
+  .ant-select-selection {
+    background: @color4;
+    color: @color1;
+    border: none;
+  }
+
+  .ant-select-arrow {
+    color: @color1;
+  }
+
+  // 数字
+  .ant-input-number {
+    background: @color4;
+    border: none;
+    width: 70px !important;
+    border-radius: 2px;
+    color: @color1;
+  }
+
+  .ant-input-number-handler-wrap {
+    background: @color2;
+    border-color: @color5  !important;
+  }
+
+  .ant-input-number-handler-down {
+    border-color: @color5  !important;
+  }
+
+  // 弹窗
+  .ant-modal-content {
+    border-radius: 0;
+  }
+
+  .ant-modal-close-x {
+    font-size: 24px;
+  }
+
+  .ant-modal-body {
+    padding: 0;
+  }
+}

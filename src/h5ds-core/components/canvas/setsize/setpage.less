@@ -1,0 +1,87 @@
+@import '../../../less/variables.less';
+
+.h5ds-setpage-width {
+    position: absolute;
+    height: 100%;
+    width: 0px;
+    right: 0;
+    z-index: 9999;
+
+    a {
+        cursor: move;
+        position: absolute;
+        top: 50%;
+        left: -7px;
+        margin-top: -8px;
+        transform: rotate(90deg);
+    }
+
+    .h5ds-ico {
+        color: @text2;
+        font-size: 20px;
+        background: @main;
+        border-radius: 4px;
+        position: relative;
+        z-index: 100;
+        top: 1px;
+        transform: translate3d(0, 0, 0);
+    }
+
+    &:after {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 50%;
+        width: 100%;
+    }
+
+    .h5ds-setpage-px {
+        top: 50%;
+        left: 40px;
+    }
+}
+
+.h5ds-setpage-height {
+    @sethei: 50px;
+    text-align: center;
+    bottom: 16px;
+    position: absolute;
+    width: 100%;
+    background: none;
+    height: 0px;
+    z-index: 9999;
+
+    a {
+        cursor: move;
+    }
+
+    .h5ds-ico {
+        color: @text2;
+        font-size: 20px;
+        background: @main;
+        border-radius: 4px;
+        position: relative;
+        z-index: 100;
+        top: 1px;
+        transform: translate3d(0, 0, 0);
+    }
+
+    &:after {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 50%;
+        width: 100%;
+    }
+}
+
+.h5ds-setpage-px {
+    position: absolute;
+    font-size: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: @text2;
+    line-height: normal;
+    top: 40px;
+    z-index: 100;
+}

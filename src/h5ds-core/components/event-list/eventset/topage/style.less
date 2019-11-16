@@ -1,0 +1,33 @@
+@import '../../../../less/variables.less';
+
+.h5ds-uebox-topages{
+    h4{
+        color: @text1;
+        font-size: 14px;
+    }
+    li{
+        cursor: pointer;
+        vertical-align: top;
+        display: inline-block;
+        margin: 10px 10px 0 0;
+        width: 90px;
+        height: 55px;
+        padding: 5px;
+        text-align: center;
+        color: @text1;
+        background: @color5;
+        span{
+            display: block;
+        }
+        .name{
+            font-size: 12px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+        &.active{
+            background: @main;
+            color: @text2;
+        }
+    }
+}

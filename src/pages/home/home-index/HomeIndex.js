@@ -1,13 +1,12 @@
 import './home-index.less';
-import 'h5ds/editor/style.css';
 import React, { Component } from 'react';
 import { inject, observer } from 'mobx-react';
 
-import H5dsEditor from 'h5ds';
+import H5dsEditor from '@/h5ds-core';
 import ImageList from './ImageList';
 
 // 载入自定义插件
-import * as demo from '../../../plugins/demo';
+import '../../../plugins/demo';
 
 @inject('user')
 @observer
@@ -48,30 +47,13 @@ class Editor extends Component {
     // const { H5dsEditor } = H5DS_GLOBAL.editor;
     return (
       <H5dsEditor
-        plugins={[
-          'h5ds-form',
-          'h5ds-video',
-          'h5ds-map',
-          'h5ds-button',
-          'h5ds-save-to-image',
-          'h5ds-drawer-menu',
-          'h5ds-css-effect',
-          'h5ds-count-time',
-          'h5ds-chart',
-          'h5ds-qrcode',
-          'swiper-cube',
-          'swiper-overflow',
-          'swiper-flip',
-          'swiper-slide',
-          'threejs-360',
-          'threejs-obj-loader'
-        ]} // 第三方插件包
+        plugins={[]} //插件包
         data={data}
         debugger={false} // debugger=true用于调试插件
         options={{
           noServer: true, // 开启无后台模式
           imageSourceModal: ImageList,
-          pluginsHost: 'https://www.h5ds.com',
+          pluginsHost: '.',
           publishApp: this.publishApp,
           saveApp: this.saveApp, // 保存应用
           appId: 'test_app_id' // 当前appId

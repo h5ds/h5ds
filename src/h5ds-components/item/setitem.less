@@ -1,0 +1,51 @@
+@import '../variables.less';
+
+.h5ds-layout-setitem {
+  position: relative;
+  padding: 6px 0;
+  // height: 40px;
+}
+
+.h5ds-layout-setitem-name {
+  color: @color1;
+  display: inline-block;
+  width: 60px;
+  font-size: 12px;
+  position: absolute;
+  left: 0;
+  vertical-align: top;
+  line-height: 24px;
+}
+
+.h5ds-layout-setitem-content {
+  margin-left: 70px;
+
+  .ant-input-number {
+    width: 100%;
+  }
+
+  .ant-input {
+    width: 100%;
+  }
+}
+
+.h5ds-layout-setitem-subsection {
+  &>.h5ds-layout-setitem-name {
+    display: block;
+    width: initial;
+    position: relative;
+    padding: 10px 0;
+  }
+
+  &>.h5ds-layout-setitem-content {
+    margin-left: 0;
+  }
+}
+
+.h5ds-layout-m5 {
+  margin: 5px;
+}
+
+.h5ds-layout-m10 {
+  margin: 10px;
+}

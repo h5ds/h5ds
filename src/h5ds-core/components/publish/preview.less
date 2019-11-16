@@ -1,0 +1,150 @@
+@import '../../less/variables.less';
+
+.h5ds-phone-preview-pagebutton {
+  position: absolute;
+  height: 200px;
+  width: 14px;
+  top: 200px;
+  right: -20px;
+  font-size: 12px;
+
+  a {
+    color: #fff;
+    line-height: 12px;
+    margin: 10px 0;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    display: inline-block;
+    padding: 10px 4px;
+
+    &:hover {
+      background: rgba(255, 255, 255, 1);
+      color: #000;
+    }
+  }
+
+  span {
+    width: 60px;
+    display: block;
+    color: #fff;
+  }
+}
+
+.h5ds-pc-preview {
+  width: 100%;
+  height: 100%;
+
+  .h5ds-pc-preview-bodyer {
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    position: relative;
+  }
+
+  .h5ds-pc-preview-down {
+    position: absolute;
+    z-index: 1000;
+    bottom: 0px;
+    right: 0px;
+
+    .ant-btn-primary {
+      background-color: rgba(0, 0, 0, 0.4);
+      border-color: rgba(0, 0, 0, 0.1);
+
+      a {
+        color: #fff;
+      }
+
+      &:hover a {
+        color: @main;
+      }
+    }
+  }
+
+}
+
+.h5ds-phone-preview {
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  .h5ds-scrollbar-modal;
+
+  @padding: 50px;
+  @maxWidth: 1000px;
+
+  .h5ds-phone-preview-box {
+    width: @maxWidth;
+    margin: 0 auto;
+    padding: @padding 0;
+    position: relative;
+    min-height: 680px + @padding * 2;
+  }
+
+  .h5ds-phone-preview-content {
+    position: relative;
+  }
+
+  // 预览区域
+  .h5ds-phone-preview-view {
+    width: 320px;
+    position: relative;
+
+    .h5ds-phone-preview-header {
+      position: relative;
+      text-align: center;
+      padding: 10px;
+    }
+
+    .h5ds-phone-preview-bodyer {
+      position: relative;
+    }
+  }
+
+  // 参数设置区域
+  @infoWidth: @maxWidth - 320px - 80px;
+  @imgSize: 160px;
+
+  .h5ds-phone-preview-info {
+    width: @infoWidth;
+    float: right;
+
+    .h5ds-phone-preview-wx {
+      margin-bottom: 20px;
+      position: relative;
+    }
+
+    .h5ds-phone-preview-img {
+      width: @imgSize;
+      height: @imgSize;
+      position: absolute;
+      top: 0;
+      left: 0;
+      background: @color4;
+
+      img {
+        width: 100%;
+        height: 100%;
+        background: #000;
+      }
+    }
+
+    .h5ds-phone-preview-title,
+    .h5ds-phone-preview-desc {
+      margin-left: @imgSize + 20px;
+      margin-bottom: 10px;
+      width: @infoWidth - @imgSize - 20px;
+      display: inline-block;
+
+      &.h5ds-phone-preview-title {
+        height: 32px;
+      }
+
+      &.h5ds-phone-preview-desc {
+        height: @imgSize - 32px - 10px;
+      }
+
+      textarea.ant-input {
+        resize: none;
+      }
+    }
+  }
+}

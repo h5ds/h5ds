@@ -1,0 +1,44 @@
+.h5ds-canvas-navigator-box {
+    position: absolute;
+    z-index: 1000;
+    bottom: 10px;
+    right: 10px;
+}
+
+.h5ds-canvas-navigator-btn {
+    position: absolute;
+    z-index: 200;
+    width: 20px;
+    height: 20px;
+    bottom: -5px;
+    right: -5px;
+    border-radius: 100px;
+    background: #000;
+    color: #fff;
+    transition: 0.3s;
+    transform-origin: center;
+    text-align: center;
+    transform: rotate(-180deg);
+}
+
+.h5ds-canvas-navigator {
+    @width: 200px;
+    @height: 200px;
+    background: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    border-radius: 2px;
+    overflow: hidden;
+    position: relative;
+
+    .h5ds-canvas-navigator-page {
+        position: absolute;
+        background: #ccc;
+    }
+
+    .h5ds-canvas-navigator-control {
+        position: absolute;
+        z-index: 100;
+        background: rgba(0, 0, 0, 0.3);
+        cursor: move;
+    }
+}

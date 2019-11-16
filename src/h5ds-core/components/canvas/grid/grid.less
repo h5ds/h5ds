@@ -1,0 +1,46 @@
+/*  网格 */
+.h5ds-grid {
+    pointer-events: none;
+    position: absolute;
+    z-index: 1200;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    display: none;
+
+    .h5ds-grid-row,
+    .h5ds-grid-col {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        opacity: 0.3;
+
+        li {
+            position: absolute;
+        }
+    }
+
+    .h5ds-grid-row li {
+        height: 1px;
+        margin-top: -1px;
+        background: #00ffff;
+        width: 100%;
+    }
+
+    .h5ds-grid-col li {
+        width: 1px;
+        margin-left: -1px;
+        background: #00ffff;
+        height: 100%;
+        float: left;
+    }
+}
+
+.h5ds-grid-show {
+    display: block;
+}

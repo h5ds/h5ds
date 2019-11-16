@@ -1,0 +1,71 @@
+@import '../../../../less/variables.less';
+
+.h5ds-basic-animateset-addbtn {
+    width: 100%;
+    height: 100px;
+    background: @color4 !important;
+    border: 1px dashed @color2 !important;
+    color: @text1 !important;
+
+    &:focus,
+    &:active {
+        color: @text2;
+        background-color: @color4;
+        border-color: @color2;
+    }
+
+    &:hover {
+        background: @color3;
+        border: 1px dashed @color1;
+    }
+}
+
+.h5ds-basic-animateset-list {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    left: 0;
+    padding: 10px;
+    overflow: hidden;
+    overflow-y: scroll;
+}
+
+.h5ds-scroll-whitebg{
+  background: #fff!important;
+}
+
+.h5ds-basic-animateset-item {
+    padding: 0 10px;
+    position: relative;
+    user-select: none;
+
+    .h5ds-layout-setitem-content {
+        color: @text2;
+    }
+
+    &.h5ds-basic-animateset-active {
+        background: @color2;
+    }
+}
+
+.h5ds-basic-animateset-btndel,
+.h5ds-basic-animateset-btnset {
+    position: absolute;
+    right: 0;
+    top: 0;
+    background: @main;
+    color: @text2;
+    font-size: 18px;
+    padding: 0 5px;
+    z-index: 100;
+
+    i {
+        cursor: pointer;
+    }
+}
+
+.h5ds-basic-animateset-btnset {
+    top: 27px;
+    background: @color2;
+}

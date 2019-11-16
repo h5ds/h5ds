@@ -1,0 +1,73 @@
+@import '../../../less/variables.less';
+@moveSize: 30px;
+
+.h5ds-ruler-span-x {
+    width: @moveSize;
+    position: absolute;
+    top: 0;
+    background: @main;
+    z-index: 4000;
+    pointer-events: none;
+    opacity: 0.3;
+}
+
+
+.h5ds-ruler-span-y {
+    height: @moveSize;
+    position: absolute;
+    left: 0;
+    background: @main;
+    z-index: 4000;
+    opacity: 0.3;
+    pointer-events: none;
+}
+
+
+.h5ds-ruler-line {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    z-index: 1000;
+
+    canvas {
+        background: rgba(0, 0, 0, 0.7);
+        position: absolute;
+        top: 0;
+        left: 0;
+        cursor: move;
+        z-index: 100;
+    }
+
+    // 参考线
+    .h5ds-ruler-guides {
+        position: absolute;
+        box-sizing: content-box;
+        width: 4px;
+        background: #00ffff;
+        cursor: move;
+
+        @linewidth: 4px;
+
+        &::after {
+            content: '';
+            display: block;
+            height: 100%;
+            width: 100%;
+            top: 0;
+            left: 0;
+            position: absolute;
+        }
+
+        &.h5ds-ruler-guides-row::after {
+            height: @linewidth;
+            top: -(@linewidth - 1)/2;
+        }
+
+        &.h5ds-ruler-guides-col::after {
+            width: @linewidth;
+            left: -(@linewidth - 1)/2;
+        }
+    }
+}

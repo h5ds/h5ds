@@ -1,0 +1,198 @@
+@import '../../less/variables.less';
+
+.h5ds-pagelist {
+    position: absolute;
+    width: @pageListWidth;
+    top: @headerHeight;
+    left: 0;
+    bottom: 0;
+    background: @color3;
+    z-index: 1002;
+
+    .h5ds-page-name{
+      word-break: break-all;
+      padding: 5px;
+      span{
+        display: inline-block;
+        border-radius: 100px;
+        width: 20px;
+        height: 20px;
+        line-height: 20px;
+        text-align: center;
+        background: @color2;
+        color: #fff;
+        font-size: 12px;
+        margin-right: 5px;
+      }
+    }
+
+    .h5ds-pagelist-btn {
+        position: absolute;
+        top: 0;
+        width: 100%;
+        height: 30px;
+        font-size: 12px;
+        text-align: center;
+        line-height: 29px;
+        border-top: 1px solid #000;
+        color: @text1;
+
+        li {
+            display: inline-block;
+            height: 30px;
+            width: 33.333%;
+            background: @color5;
+
+            &.h5ds-active {
+                background: @main;
+                color: @text2;
+            }
+        }
+    }
+
+    .h5ds-pagelist-pages {
+        position: absolute;
+        top: 31px;
+        bottom: 0;
+        width: 100%;
+        left: 0;
+        overflow: hidden;
+        overflow-y: scroll;
+        padding-bottom: 20px;
+    }
+}
+
+@liwidth : 22px;
+
+.h5ds-pagelist-pages {
+    li {
+        width: 100px;
+        height: 160px;
+        margin-left: 10px;
+        margin-top: 10px;
+        position: relative;
+        cursor: pointer;
+        color: @color3;
+        font-size: 14px;
+        background: #fff;
+        box-sizing: content-box;
+    }
+
+    .h5ds-pagelist-page-item {
+        background: #fff;
+    }
+
+    .h5ds-pagelist-edit-page {
+        .h5ds-ico {
+            font-size: 14px;
+        }
+    }
+
+    .h5ds-pagelist-active:after {
+        display: inline-block;
+        content: '\e618';
+        font-family: "h5ds-ico" !important;
+        font-size: 20px;
+        position: absolute;
+        z-index: 1000;
+        top: 50%;
+        left: 50%;
+        margin: -10px 0 0 -12px;
+        color: @main;
+    }
+
+    .h5ds-pagelist-active:before {
+        display: inline-block;
+        content: '';
+        pointer-events: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 999;
+        background: rgba(0, 0, 0, .3);
+    }
+
+    .h5ds-pagelist-page-content {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        overflow: hidden;
+        overflow: hidden;
+
+        .h5ds-page-min {
+            pointer-events: none;
+            transform: scale(0.312);
+        }
+    }
+
+    .h5ds-pagelist-page-info {
+        position: absolute;
+        right: -@liwidth;
+        top: 0;
+        height: 100%;
+        width: @liwidth;
+
+        a {
+            width: 100%;
+            height: @liwidth;
+            font-size: 12px;
+            color: @text2;
+            float: left;
+            text-align: center;
+            cursor: pointer;
+            line-height: @liwidth;
+
+            &.h5ds-pagelist-add {
+                background: @color4;
+            }
+
+            &.h5ds-pagelist-important {
+                background: @main;
+            }
+        }
+    }
+}
+
+.h5ds-pagelist-fixeds-info {
+    position: absolute;
+    z-index: 9999;
+    bottom: 0;
+    background: @color2;
+    width: 100%;
+    height: 22px;
+    text-indent: 5px;
+    line-height: 1.5em;
+    color: @text2;
+}
+
+.h5ds-pagelist-page-info {
+    .h5ds-pagelist-item {
+        margin: 20px 20px 20px 20px;
+    }
+
+    label {
+        display: inline-block;
+        width: 80px;
+        vertical-align: top;
+        text-align: right;
+    }
+
+    input {
+        width: 300px;
+        border-radius: 0;
+    }
+
+    textarea {
+        width: 300px;
+        border-radius: 0;
+    }
+}
+
+.h5ds-pagelist-loading {
+    text-align: center;
+    padding: 20px;
+    font-size: 12px;
+    color: @color2;
+}

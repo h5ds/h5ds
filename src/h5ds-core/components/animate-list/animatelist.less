@@ -1,0 +1,68 @@
+@import '../../less/variables.less';
+
+.h5ds-animatelist {
+    width: 250px;
+    transform: translateX(250px);
+    transition: transform 0.5s;
+    position: absolute;
+    z-index: 1000;
+    right: 350px;
+    top: 60px;
+    bottom: 0;
+    background: @color3;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    border-right: 4px solid @color4;
+
+    .ant-tabs-nav {
+        line-height: 29px;
+        .ant-tabs-tab {
+          margin-right: 20px;
+        }
+    }
+    // .ant-tabs-small>.ant-tabs-bar .ant-tabs-tab {
+    //     width: 48px;
+    // }
+
+    .ant-tabs-bar {
+        border-bottom: 4px solid @color4;
+    }
+
+    .ant-tabs-tab {
+        padding: 12px 10px;
+        color: @text1;
+    }
+
+    ul.h5ds-basic-animatelist-ul {
+        overflow: auto;
+
+        li {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            text-align: center;
+            line-height: 50px;
+            overflow: hidden;
+            margin: 5px;
+            font-size: 12px;
+            background: #535f6b;
+            cursor: pointer;
+            vertical-align: top;
+            word-break: break-word;
+            color: @text1;
+        }
+    }
+}
+
+.h5ds-animatelist-show {
+    transform: translateX(0);
+}
+
+.h5ds-basic-animatelist-close {
+    position: absolute;
+    top: 10px;
+    right: 0;
+    background: @main;
+    color: @text2;
+    padding: 2px 6px;
+    z-index: 100;
+}

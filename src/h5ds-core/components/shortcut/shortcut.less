@@ -1,0 +1,79 @@
+@import '../../less/variables.less';
+
+// 禁用动画
+.h5ds-ban-animate {
+    animation-play-state: paused !important;
+
+    .element {
+        animation-play-state: paused !important;
+    }
+
+    .layer-h5ds_text {
+        .animated {
+            animation-play-state: paused !important;
+            opacity: 1!important;
+        }
+    }
+}
+
+.h5ds-shortcut {
+    position: absolute;
+    right: 600px;
+    top: 100px;
+    width: 100px;
+    z-index: 1010;
+    text-align: left;
+    background: @color5;
+    font-size: 12px;
+
+    h5 {
+        font-size: 14px;
+        color: @text1;
+        text-align: center;
+        line-height: 32px;
+        background: @color5;
+        cursor: move;
+    }
+
+    ul {
+        padding: 0 10px;
+    }
+
+    li {
+        padding: 5px 0;
+        cursor: pointer;
+
+        &:hover {
+            a {
+                color: @main;
+            }
+        }
+    }
+
+    a {
+        color: @text2;
+        display: inline-block;
+        margin-right: 5px;
+    }
+
+    span {
+        color: @text1;
+    }
+
+    .h5ds-ico-caidan {
+        color: @main;
+    }
+
+    .h5ds-ico {
+        font-size: 14px;
+    }
+}
+
+.h5ds-shortcut-bottom-btns {
+    border-top: 1px solid @color5;
+    margin-top: 4px;
+
+    .h5ds-shortcut-add {
+        color: @main;
+    }
+}

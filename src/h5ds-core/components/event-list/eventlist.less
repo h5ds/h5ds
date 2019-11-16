@@ -1,0 +1,39 @@
+@import '../../less/variables.less';
+
+.h5ds-eventlist {
+    ul {
+        overflow: auto;
+    }
+
+    li.h5ds-event-item {
+        display: inline-block;
+        height: 70px;
+        width: 100px;
+        background: @color4;
+        margin: 0 10px 10px 10px;
+        padding-top: 10px;
+        text-align: center;
+        color: @text1;
+        cursor: pointer;
+
+        .h5ds {
+            font-size: 20px;
+        }
+
+        span {
+            display: block;
+            font-size: 12px;
+        }
+
+        &:hover {
+            color: @text2;
+            background: @color5;
+        }
+
+        &.active,
+        &.active:hover {
+            color: @text2;
+            background: @main;
+        }
+    }
+}

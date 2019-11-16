@@ -1,0 +1,68 @@
+@import '../../../less/variables.less';
+
+.h5ds-appset {
+    height: 100%;
+
+    .h5ds-basic-tabs .ant-tabs-nav .ant-tabs-tab {
+        padding: 12px 10px;
+        margin-right: 10px;
+    }
+
+    .ant-tabs-tab-arrow-show {
+        color: @text1;
+    }
+}
+
+.h5ds-appset-item {
+    .h5ds-layout-setitem-name {
+        display: block;
+        position: initial;
+        padding: 10px 0;
+        font-size: 12px;
+    }
+
+    .h5ds-layout-setitem-content {
+        margin-left: 0;
+    }
+}
+
+/* 设置翻页动画 */
+.h5ds-appset-slider {
+    //...
+}
+
+/*  loading */
+.h5ds-appset-loading {
+    .loaders {
+        &:after {
+            content: "";
+            display: block;
+            height: 0;
+            clear: both;
+            visibility: hidden;
+        }
+    }
+
+    .loader {
+        float: left;
+        background: @color4;
+        box-sizing: border-box;
+        width: 100px;
+        height: 100px;
+        margin: 2px;
+        vertical-align: middle;
+        text-align: center;
+        position: relative;
+        cursor: pointer;
+
+        &>div {
+            position: relative;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+    }
+
+    .active {
+        background: @main;
+    }
+}

@@ -1,0 +1,104 @@
+@import '../../less/variables.less';
+
+.h5ds-header {
+    background: @color5;
+    vertical-align: middle;
+    height: @headerHeight;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    z-index: 1001;
+
+    .h5ds-logo {
+        display: inline-block;
+        height: 100%;
+        line-height: @headerHeight;
+        text-align: center;
+        text-indent: 20px;
+        font-size: 20px;
+
+        a {
+            color: @text1;
+        }
+
+        span {
+            color: @main;
+        }
+
+        i {
+            font-size: 12px;
+            font-style: normal;
+            color: #5C6773;
+            margin-left: 10px;
+        }
+
+        em {
+            font-size: 12px;
+        }
+    }
+
+    .h5ds-h5set {
+        display: inline-block;
+        margin-right: 10px;
+        cursor: pointer;
+
+        .h5ds-btn-yellow {
+            font-size: 14px;
+        }
+
+        &:hover {
+            .appset-list {
+                display: block;
+            }
+        }
+    }
+
+    .h5ds-h5type {
+        position: relative;
+        margin-left: 30px;
+        display: inline-block;
+        background: @color3;
+        font-size: 12px;
+        top: -3px;
+        z-index: 100;
+
+        a {
+            color: @text1;
+            display: inline-block;
+            width: 50px;
+            line-height: 24px;
+            text-align: center;
+            height: 100%;
+
+            &.active {
+                background: @main;
+                color: @text2;
+            }
+        }
+    }
+
+    .h5ds-publish-box {
+        vertical-align: middle;
+        float: right;
+        margin: 17px 20px 0 0;
+        position: relative;
+        z-index: 100;
+
+        a {
+            color: @text2;
+        }
+
+        .h5ds-ico {
+            color: @main;
+            font-size: 20px;
+            vertical-align: middle;
+        }
+
+        .h5ds-logout {
+            padding-left: 40px;
+            color: @text1;
+            font-size: 14px;
+        }
+    }
+}

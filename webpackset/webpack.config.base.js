@@ -15,8 +15,10 @@ module.exports = (src, dist) => {
     },
     externals: ['React', 'ReactDOM', 'ReactRouter', 'ReactRouterDOM', 'mobx', '_', 'antd', 'PubSub', 'moment'],
     resolve: {
-      extensions: ['.js', '.es', '.css', '.less'],
-      alias: {}
+      extensions: ['.js', '.jsx', '.es', '.css', '.less'],
+      alias: {
+        '@': resolve('../src')
+      }
     },
     module: {
       rules: [

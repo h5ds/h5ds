@@ -1,0 +1,42 @@
+.layer-h5ds_text {
+    text-size-adjust: none;
+
+    .element {
+        overflow: initial!important;
+    }
+
+    .layer-h5ds_text-inner {
+        height: 100%;
+        width: 100%; // overflow: hidden;
+        text-size-adjust: none;
+
+        .layer-h5ds_text-box {
+            transform-origin: 0 0;
+            text-size-adjust: none;
+        }
+
+        .layer-h5ds_text-auto {
+            display: block;
+            word-break: break-all;
+            div {
+                // -webkit-text-fill-color: inherit;
+                background-clip: inherit;
+                -webkit-background-clip: inherit;
+                background: inherit;
+            }
+
+            span {
+                display: inline-block;
+                position: relative;
+                color: inherit;
+                background-clip: inherit;
+                -webkit-background-clip: inherit;
+                background-image: inherit;
+                -webkit-text-fill-color: inherit;
+                background: inherit;
+                text-decoration: inherit;
+                transform: translate3d(0,0,0);
+            }
+        }
+    }
+}

@@ -1,0 +1,615 @@
+@import './variables.less';
+
+// utils 里面的jquery插件会用到以下css
+.h5ds-win-loading {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 4001;
+  background: rgba(0, 0, 0, 0.4);
+
+  .h5ds-win-loading-inner {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    font-size: 18px;
+    color: #fff;
+  }
+}
+
+/*清除浮动*/
+.h5ds-global-clear {
+    clear: both;
+    display: block;
+    font-size: 0;
+    height: 0;
+    line-height: 0;
+    width: 100%;
+}
+
+.h5ds-global-clearfix:after {
+    content: "";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+
+.h5ds-global-textjustify {
+    float: left;
+    text-align: justify;
+    text-justify: inter-word;
+    text-justify: inter-ideograph;
+    width: 100%;
+    min-height: 12px;
+
+    &::before {
+        content: '';
+        display: inline-block;
+        width: 100%;
+    }
+
+    &::after {
+        content: "";
+        display: block;
+        height: 0;
+        clear: both;
+        visibility: hidden;
+    }
+}
+
+.h5ds-global-show {
+    display: block !important;
+}
+
+.h5ds-global-hide {
+    display: none !important;
+}
+
+.h5ds-layout-frame {
+    width: 100%;
+    height: 100%;
+    background: @color5;
+    overflow: hidden;
+    position: absolute;
+    z-index: 1000;
+    -webkit-user-select: none;
+    user-select: none;
+    font-family: '微软雅黑';
+
+    /*滚动条*/
+    .h5ds-scrollbar;
+}
+
+.h5ds-layout-finner {
+    width: 100%;
+    height: 100%;
+}
+
+.h5ds-basic-btn-min {
+    font-size: 14px;
+    color: #fff;
+    margin: 0 5px;
+
+    .h5ds-ico {
+        color: @main;
+        font-size: 20px;
+        vertical-align: middle;
+    }
+}
+
+.h5ds-tabs {
+    height: 100%;
+
+    .ant-tabs-nav .ant-tabs-tab {
+        padding: 12px 16px 12px 16px;
+        color: @text1;
+    }
+
+    .ant-tabs-bar {
+        border-bottom: 4px solid @color4;
+    }
+}
+
+.h5ds-basic-tabs {
+    height: 100%;
+
+    .ant-tabs-bar {
+        border-bottom: 4px solid @color4;
+    }
+
+    .ant-tabs-nav .ant-tabs-tab {
+        padding: 12px 16px 12px 16px;
+        color: @text1;
+    }
+
+    .ant-tabs-content {
+        position: absolute;
+        top: 50px;
+        bottom: 0;
+        width: 100%;
+    }
+
+    .ant-tabs-tabpane {
+        height: 100%;
+        overflow: auto;
+        padding: 10px;
+        position: relative;
+        width: 100%;
+    }
+}
+
+/* 帮助信息 */
+.h5ds-helps {
+    position: absolute;
+    border: 3000px solid rgba(0, 0, 0, 0.7);
+    z-index: 9999;
+    transform: translate(-3000px, -3000px);
+    transition: 0.3s;
+    box-sizing: content-box;
+
+    &:after {
+        content: '';
+        display: inline-block;
+        height: 100%;
+        width: 100%;
+        border: 2px solid @main;
+        box-sizing: border-box;
+    }
+
+    .h5ds-helps-content {
+        padding: 20px;
+        padding-top: 30px;
+        width: 300px;
+        min-height: 160px;
+        position: absolute;
+        background: #fff;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+
+        .h5ds-helps-close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+
+        &:before {
+            content: '';
+            display: inline-block;
+            width: 0;
+            height: 0;
+            position: absolute;
+            border: 10px solid transparent;
+        }
+
+        .h5ds-helps-prev,
+        .h5ds-helps-end,
+        .h5ds-helps-next {
+            display: inline-block;
+            padding: 4px 16px;
+            background: @main;
+            color: @text2;
+            font-size: 14px;
+            text-align: center;
+            margin-left: 10px;
+        }
+
+        .h5ds-helps-prev {
+            background: @color1;
+            color: @color4;
+        }
+    }
+
+    .h5ds-helps-info {
+        height: 140px;
+        overflow: auto;
+        margin-bottom: 10px;
+    }
+
+    .h5ds-helps-btns {
+        text-align: right;
+    }
+
+    .h5ds-helps-bottom {
+        left: 50%;
+        top: 100%;
+        margin-top: 10px;
+        transform: translateX(-50%);
+
+        &:before {
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-bottom: 10px solid @text2;
+        }
+    }
+
+    .h5ds-helps-right {
+        left: 100%;
+        top: 50%;
+        margin-left: 10px;
+        transform: translateY(-50%);
+
+        &:before {
+            left: -20px;
+            top: 50%;
+            transform: translateY(-50%);
+            border-right: 10px solid @text2;
+        }
+    }
+
+    .h5ds-helps-left {
+        right: 100%;
+        top: 50%;
+        margin-right: 10px;
+        transform: translateY(-50%);
+
+        &:before {
+            right: -20px;
+            top: 50%;
+            transform: translateY(-50%);
+            border-left: 10px solid @text2;
+        }
+    }
+}
+
+/* loading */
+
+.h5ds-loading {
+    color: @text1;
+    font-size: 12px;
+}
+
+.h5ds-loading-window {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 4000;
+    background: rgba(0, 0, 0, .3);
+}
+
+.h5ds-loading-center {
+    font-size: 12px;
+    color: @text2;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.h5ds-loading-center:before {
+    content: '';
+    display: inline-block;
+    width: 31px;
+    height: 31px;
+    background: url(http://cdn.h5ds.cn/lib/images/loading.gif) no-repeat;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+
+/* 黄色按钮 */
+.h5ds-btn-yellow {
+    padding: 3px 10px 5px 10px;
+    display: inline-block;
+    color: @text2;
+    background: @main;
+    border-radius: 2px;
+    font-size: 16px;
+
+    &:hover {
+        color: @text2;
+        background: @mainHover;
+    }
+}
+
+/* 图标 */
+
+// 变量
+#h5dsBeforeIcon {
+    font-family: "h5ds" !important;
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    color: @text1;
+    font-size: 14px;
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    line-height: 12px;
+    text-align: center;
+    margin-top: -6px;
+}
+
+/* 可拖动框 */
+
+.h5ds-drag {
+    position: absolute;
+    z-index: 1000;
+}
+
+/* 拖动排序 */
+
+.h5ds-uniqlist {
+    position: relative;
+
+    .h5ds-active {
+        background: @main;
+        border: 1px solid @main;
+    }
+
+    li {
+        position: relative;
+        background: @color4;
+        margin-bottom: 10px;
+
+        a {
+            display: inline-block;
+            cursor: move;
+            color: @bg1;
+        }
+    }
+
+    .h5ds-uniq-start {
+        z-index: 1000;
+        opacity: 0.3;
+    }
+
+    .h5ds-uniq-clone {
+        z-index: 1000;
+    }
+}
+
+#control(@size: 12px, @margin: -6px, @color: '#fff', @borderRadius: 100px) {
+    position: absolute;
+    z-index: 100;
+    width: 100%;
+    height: 100%;
+    cursor: move;
+    margin: -1px 0 0 -1px;
+    top: 0;
+    left: 0;
+    box-sizing: initial;
+    transform: translate3d(0, 0, 0);
+
+    &::after,
+    &::before {
+        display: inline-block;
+        content: '';
+        position: absolute;
+        pointer-events: none;
+        top: 1px;
+        left: 1px;
+        width: 100%;
+        height: 100%;
+        border: 1px solid #fff;
+        transform: translate3d(0, 0, 0);
+    }
+
+    &::after {
+        z-index: 1;
+        border: 1px dashed #000;
+    }
+
+    span {
+        display: inline-block;
+        position: absolute;
+        z-index: 100;
+        background: #fff;
+        width: @size;
+        height: @size;
+        border: 1px solid #000;
+        box-sizing: border-box;
+        transform: translate3d(0, 0, 0);
+        cursor: pointer; // border-radius: @borderRadius;
+    }
+
+    .h5ds-control-center {
+        top: 50%;
+        left: 50%;
+        border: none;
+        width: 0px;
+        height: 0px;
+    }
+
+    .h5ds-control-top {
+        top: @margin;
+        left: 50%;
+        margin-left: @margin;
+        cursor: n-resize;
+    }
+
+    .h5ds-control-bottom {
+        bottom: @margin;
+        left: 50%;
+        margin-left: @margin;
+        cursor: n-resize;
+    }
+
+    .h5ds-control-left {
+        top: 50%;
+        left: @margin;
+        margin-top: @margin;
+        cursor: e-resize;
+    }
+
+    .h5ds-control-right {
+        top: 50%;
+        right: @margin;
+        margin-top: @margin;
+        cursor: e-resize;
+    }
+
+    .h5ds-control-topleft {
+        top: @margin;
+        left: @margin;
+        cursor: se-resize;
+    }
+
+    .h5ds-control-topright {
+        top: @margin;
+        right: @margin;
+        cursor: ne-resize;
+    }
+
+    .h5ds-control-bottomleft {
+        bottom: @margin;
+        left: @margin;
+        cursor: ne-resize;
+    }
+
+    .h5ds-control-bottomright {
+        bottom: @margin;
+        right: @margin;
+        cursor: nw-resize;
+    }
+
+    .h5ds-control-rotate {
+        border-radius: 100px;
+        top: -30px;
+        left: 50%;
+        transform: translateX(-50%) translate3d(0, 0, 0);
+        width: @size + 4px;
+        height: @size + 4px;
+        border: 2px solid #000;
+        background: url('http://cdn.h5ds.cn/lib/images/rotate.png') no-repeat #000;
+        background-size: cover;
+        cursor: -webkit-grabbing;
+    }
+}
+
+/* 控制杆 */
+
+.h5ds-control {
+    #control(8px,
+    -4px)
+}
+
+/* 裁剪 */
+
+.h5ds-crop-control {
+    #control(8px,
+    -4px,
+    rgba(255, 255, 255, .5),
+    0)
+}
+
+.h5ds-crop-controlbox {
+    @borderWidth: 500px;
+    box-sizing: content-box;
+    /* 图片剪切使用 */
+    display: none;
+    width: 100px;
+    height: 60px;
+    position: absolute;
+    margin: 1px 0 0 1px;
+    top: 100px - @borderWidth;
+    left: 100px - @borderWidth;
+    border: @borderWidth solid rgba(0, 0, 0, 0.5);
+}
+
+.h5ds-crop {
+    width: 323px;
+    height: 248px;
+    font-size: 12px;
+    position: relative;
+    margin-bottom: 30px;
+
+    .h5ds-crop-bg {
+        background: @color5;
+        text-align: center;
+        height: 218px;
+        width: 100%;
+    }
+
+    .h5ds-crop-fun {
+        background: @color4;
+
+        a {
+            display: inline-block;
+            width: 20%;
+            text-align: center;
+
+            &:hover {
+                background: @color5;
+            }
+        }
+    }
+
+    .h5ds-crop-box {
+        display: inline-block;
+        width: 100%;
+        height: 100%;
+        position: relative;
+        overflow: hidden;
+
+        img {
+            max-height: 100%;
+            max-width: 100%;
+            display: inline-block;
+            position: relative;
+        }
+
+        .h5ds-crop-controlbox {
+            z-index: 100;
+        }
+    }
+
+    .h5ds-crop-fun {
+        height: 30px;
+        line-height: 30px;
+    }
+
+    .h5ds-crop-btns {
+        height: 30px;
+        line-height: 30px;
+
+        a {
+            display: inline-block;
+            text-align: center;
+            width: 25%;
+            font-size: 14px;
+            color: @text1;
+
+            &:hover {
+                background: @color4;
+            }
+        }
+    }
+}
+
+/* 上传按钮 */
+
+.h5ds-upload-btn {
+    position: relative;
+}
+
+.h5ds-contextmenu {
+    position: absolute;
+    z-index: 3000;
+    background: @color4;
+    color: @color1;
+    padding: 10px;
+    font-size: 12px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+
+    .h5ds-ico {
+        font-size: 14px;
+    }
+
+    li {
+        width: 100px;
+        padding: 4px;
+        cursor: pointer;
+
+        &:hover {
+            background: @main;
+            color: @text2;
+        }
+    }
+}

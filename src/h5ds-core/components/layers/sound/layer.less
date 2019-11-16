@@ -1,0 +1,78 @@
+.layer-h5ds_sound {
+
+    audio {
+        display: none;
+    }
+
+    @keyframes mp3play {
+        from {
+            height: 2px;
+        }
+
+        to {
+            height: 12px;
+        }
+    }
+
+    .h5ds_sound-iconing {
+        i {
+            animation-name: mp3play;
+            animation-duration: 0.4s;
+            animation-direction: alternate;
+            animation-iteration-count: infinite;
+        }
+
+        i:nth-child(1) {
+            animation-delay: 0.2s;
+        }
+
+        i:nth-child(2) {
+            animation-delay: 0.5s;
+        }
+
+        i:nth-child(3) {
+            animation-delay: 0.1s;
+        }
+
+        i:nth-child(4) {
+            animation-delay: 0.4s;
+        }
+    }
+
+    /* MP3 图标 */
+    .h5ds_sound-icon {
+        display: inline-block;
+        vertical-align: middle;
+        transform-origin: 0 0;
+        padding: 2px 5px;
+        // border-radius: 3px;
+        background: rgba(0, 0, 0, 0.3);
+        position: absolute;
+        z-index: 99999;
+        cursor: pointer;
+
+        i {
+            display: inline-block;
+            width: 1px;
+            background: #fff;
+            margin-left: 3px;
+        }
+
+        i:nth-child(1) {
+            height: 3px;
+        }
+
+        i:nth-child(2) {
+            height: 6px;
+        }
+
+        i:nth-child(3) {
+            height: 9px;
+        }
+
+        i:nth-child(4) {
+            height: 12px;
+        }
+    }
+
+}

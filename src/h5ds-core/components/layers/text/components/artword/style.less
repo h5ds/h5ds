@@ -1,0 +1,30 @@
+.h5ds-artword {
+    position: relative;
+    display: inline-block;
+    text-decoration: inherit;
+    .h5ds-artword-up {
+        text-decoration: inherit;
+        position: absolute;
+        top: 0;
+        z-index: 200;
+        width: 100%;
+    }
+    .h5ds-artword-down {
+        text-decoration: inherit;
+        position: relative;
+        z-index: 100;
+        width: 100%;
+    }
+}
+
+.h5ds-artword-border {
+    &::before {
+        content: attr(data-text);
+    }
+}
+
+.h5ds-artword-fire {
+    .h5ds-artword-up {
+        text-shadow: 0 0 4px #FFF, 0 -5px 4px #ff3, 2px -10px 6px #fd3, -2px -15px 11px #f80, 2px -25px 18px #f20;
+    }
+}

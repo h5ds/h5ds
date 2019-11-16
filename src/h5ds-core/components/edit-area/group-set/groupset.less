@@ -1,0 +1,37 @@
+@import '../../../less/variables.less';
+
+/*  组合框 */
+.h5ds-setlayer-group {
+    .h5ds-setlayer-group-box {
+        margin: 0 10px;
+
+        li.h5ds-item {
+            vertical-align: top;
+            display: inline-block;
+            text-align: center;
+            color: @text1;
+            font-size: 12px;
+            width: 72px;
+            height: 80px;
+            padding-top: 10px;
+            margin: 4px 4px 0 0;
+            background: @color4;
+            cursor: pointer;
+            transition: .3s;
+
+            &:hover {
+                background: @main;
+                color: @text2;
+            }
+
+            .h5ds-ico {
+                font-size: 24px;
+            }
+
+            span {
+                padding-top: 5px;
+                display: block;
+            }
+        }
+    }
+}

@@ -1,0 +1,71 @@
+@import '../variables.less';
+
+.h5ds-drawer {
+    position: fixed;
+    z-index: 1000;
+    background: @color4;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: @headerHeight;
+    transition: 0.5s transform;
+    transform: translateY(-100%);
+
+    &.h5ds-drawer-show {
+        transform: translateY(0);
+    }
+
+    &.h5ds-drawer-hastitle {
+        .h5ds-drawer-title {
+            height: @headerHeight;
+            text-align: left;
+            vertical-align: middle;
+
+            h3 {
+                display: inline-block;
+                font-size: 16px;
+                color: @color1;
+            }
+
+            &::before {
+                content: '';
+                display: inline-block;
+                height: 100%;
+                width: 0;
+                vertical-align: middle;
+            }
+
+            .h5ds-drawer-title-icon {
+                display: inline-block;
+                margin-right: 20px;
+                height: 30px;
+                background: @main;
+                width: 6px;
+                vertical-align: middle;
+            }
+        }
+
+        .h5ds-drawer-content {
+            height: calc(100% - @headerHeight);
+        }
+    }
+
+    .h5ds-drawer-close {
+        font-size: 40px;
+        line-height: 40px;
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        color: @color1;
+        z-index: 100;
+    }
+
+    .h5ds-drawer-content {
+        height: 100%;
+        width: 100%;
+        overflow: auto;
+
+        /*滚动条*/
+        .h5ds-scrollbar;
+    }
+}

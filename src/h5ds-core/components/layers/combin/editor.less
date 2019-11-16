@@ -1,0 +1,42 @@
+@import '../../../less/variables.less';
+
+.h5ds-ex-h5ds_combin-set {
+
+  .h5ds-ex-h5ds_combin-titles {
+    color: @text1;
+    border-left: 4px solid @main;
+    text-indent: 10px;
+    font-size: 14px;
+    margin: 20px 0;
+  }
+
+  .ant-collapse {
+    background: none;
+    border: none;
+
+    &>.ant-collapse-item {
+      border: none;
+
+      &>.ant-collapse-header {
+        color: @text1;
+        background: @color4;
+      }
+    }
+
+    .ant-collapse-content {
+      border: none;
+      overflow: initial;
+      background: none;
+
+      &>.ant-collapse-content-box {
+        padding: 0;
+      }
+    }
+  }
+}
+
+.h5ds-canvas-preview .layer-h5ds_combin {
+  .layer-h5ds_combin {
+    pointer-events: none;
+  }
+}

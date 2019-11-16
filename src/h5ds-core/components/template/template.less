@@ -1,0 +1,85 @@
+@import '../../less/variables.less';
+
+.h5ds-template {
+  position: absolute;
+  width: 330px;
+  background: @color3;
+  top: @headerHeight;
+  left: @pageListWidth;
+  bottom: 0;
+  z-index: 200;
+  // transition: 0.5s;
+  transform: translateX(-330px);
+
+  /* 折叠按钮 */
+  .h5ds-temps-flodbtn {
+    position: absolute;
+    top: 50%;
+    margin-top: -54px;
+    right: -24px - 24px;
+    width: 24px;
+    height: 108px;
+    line-height: 108px;
+    text-align: center;
+    color: #fff;
+    background: @main;
+    opacity: 1;
+    transition: none;
+
+    &:hover {
+      background: @mainHover;
+    }
+  }
+
+  &.h5ds-temps-showpanel {
+    transform: translateX(0);
+    z-index: 1001;
+
+    .h5ds-temps-flodbtn {
+      right: -24px;
+    }
+  }
+}
+
+.h5ds-template {
+  .h5ds-tab-header {
+    li {
+      width: 50%;
+      padding: 0;
+      text-align: center;
+      font-size: 16px;
+    }
+  }
+
+  .h5ds-tab-body {
+    position: absolute;
+    top: 30px;
+    bottom: 0;
+    width: 100%;
+  }
+
+  .h5ds-tab-box {
+    padding: 10px;
+  }
+}
+
+.h5ds-page-min {
+  height: @appHeight;
+  width: @appWidth;
+  transform-origin: 0 0;
+  transform: scale(0.28);
+  z-index: 0;
+  position: relative;
+  background: #fff;
+
+  .h5ds-swiper-layers,
+  .h5ds-swiper-page {
+    pointer-events: none;
+    display: block;
+
+    .element {
+      animation: none !important;
+      opacity: 1 !important;
+    }
+  }
+}

@@ -1,0 +1,135 @@
+@import './variables.less';
+
+/**
+*	h5ds平台5.0版本
+*	z-index 10为单位递增
+
+css命名规范 v1.0
+h5ds-theme-* theme主题
+h5ds-basic-* basic基本样式
+h5ds-global-* global全局
+h5ds-color-* color颜色
+h5ds-js-* js钩子
+h5ds-layout-* layout布局
+h5ds-state-* state状态
+h5ds-util-* util工具
+h5ds-ico-* 图标
+
+// 插件
+h5ds-plus-*
+
+less变量
+h5dsvar-* less变量名称
+*/
+
+body {
+
+    dl,
+    dt,
+    dd,
+    ul,
+    ol,
+    li,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    pre,
+    form,
+    fieldset,
+    input,
+    textarea,
+    p,
+    blockquote,
+    th,
+    td {
+        padding: 0;
+        margin: 0;
+        color: inherit;
+    }
+
+    a {
+        text-decoration: none;
+        cursor: pointer;
+        outline: none;
+        transition: 0.3s;
+    }
+
+    table {
+        border-spacing: 0;
+    }
+
+    fieldset,
+    img {
+        border: 0;
+    }
+
+    address,
+    caption,
+    cite,
+    code,
+    dfn,
+    em,
+    strong,
+    th,
+    var {
+        font-weight: normal;
+        font-style: normal;
+    }
+
+    strong {
+        font-weight: bold;
+    }
+
+    ol,
+    ul,
+    li {
+        list-style: none;
+    }
+
+    caption,
+    th {
+        text-align: left;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-weight: normal;
+        margin: 0;
+        padding: 0;
+    }
+
+    q:before,
+    q:after {
+        content: '';
+    }
+
+    abbr,
+    acronym {
+        border: 0;
+    }
+
+    textarea,
+    input {
+        outline: none;
+    }
+
+    button {
+        border: none;
+        outline: none;
+    }
+
+    hr {
+        border-color: @color5;
+        border-width: 1px;
+        border-top: none;
+    }
+
+    -webkit-text-size-adjust:none;
+}

@@ -1,0 +1,110 @@
+@import '../../../less/variables.less';
+
+@height: 700px;
+
+.h5ds-sound-controls {
+    width: 250px;
+    height: 40px;
+    padding: 5px;
+}
+
+.h5ds-ex-h5ds_sound {
+
+    max-height: @height;
+
+    .h5ds-ex-h5ds_sound-name {
+        color: @text2;
+    }
+
+    .h5ds-ex-h5ds_sound-list {
+        max-height: @height - 300px;
+        overflow: auto;
+
+        @keyframes mp3play {
+            from {
+                height: 2px;
+            }
+
+            to {
+                height: 12px;
+            }
+        }
+
+        .try {
+            color: @main;
+            padding: 2px 5px;
+            margin: 0 2px;
+            display: inline-block;
+            vertical-align: middle;
+            cursor: pointer;
+        }
+
+        .mp3-play-iconing {
+            i {
+                animation-name: mp3play;
+                animation-duration: 0.4s;
+                animation-direction: alternate;
+                animation-iteration-count: infinite;
+
+                &:nth-child(1) {
+                    animation-delay: 0.2s;
+                }
+
+                &:nth-child(2) {
+                    animation-delay: 0.5s;
+                }
+
+                &:nth-child(3) {
+                    animation-delay: 0.1s;
+                }
+
+                &:nth-child(4) {
+                    animation-delay: 0.4s;
+                }
+            }
+        }
+
+        .mp3-play-icon {
+            display: inline-block;
+            vertical-align: middle;
+            width: 24px;
+            height: 20px;
+
+            i {
+                display: inline-block;
+                width: 1px;
+                background: @main;
+                margin-left: 3px;
+
+                &:nth-child(1) {
+                    height: 3px;
+                }
+
+                &:nth-child(2) {
+                    height: 6px;
+                }
+
+                &:nth-child(3) {
+                    height: 9px;
+                }
+
+                &:nth-child(4) {
+                    height: 12px;
+                }
+            }
+        }
+
+        li {
+            padding: 5px 10px;
+            color: @text1;
+            background: @color4;
+            font-size: 12px;
+            border-bottom: 1px dashed @color3;
+
+            &:hover {
+                background: @color2;
+                color: @text2;
+            }
+        }
+    }
+}

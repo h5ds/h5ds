@@ -1,0 +1,77 @@
+@import "../../../../../less/variables.less";
+
+.h5ds-adsorbset {
+    @size: 10px;
+
+    .h5ds-adsorbset-tips{
+      color: @text1;
+      font-size: 12px;
+      padding: 10px 0;
+    }
+    .h5ds-adsorbset-dots {
+        margin: 20px 0;
+        width: 60px;
+        height: 40px;
+        position: relative;
+        border: 1px dashed @color1;
+        a {
+            display: inline-block;
+            width: @size;
+            height: @size;
+            background: @color3;
+            border: 1px dashed @color1;
+            position: absolute;
+            &:hover{
+              background: @color5;
+            }
+        }
+        a.h5ds-adsorbset-active {
+          background: @main;
+          border: 1px solid @main;
+        }
+
+        .h5ds-adsorbset-top-left {
+            top: -@size/2;
+            left: -@size/2;
+        }
+
+        .h5ds-adsorbset-top-center {
+            top: -@size/2;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .h5ds-adsorbset-top-right {
+            top: -@size/2;
+            right: -@size/2;
+        }
+
+        .h5ds-adsorbset-left-center {
+            left: -@size/2;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .h5ds-adsorbset-right-center {
+            right: -@size/2;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .h5ds-adsorbset-bottom-left {
+            bottom: -@size/2;
+            left: -@size/2;
+        }
+
+        .h5ds-adsorbset-bottom-center {
+            bottom: -@size/2;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .h5ds-adsorbset-bottom-right {
+            bottom: -@size/2;
+            right: -@size/2;
+        }
+    }
+}

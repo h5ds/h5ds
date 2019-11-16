@@ -1,0 +1,288 @@
+@import '../../less/variables.less';
+// 载入公共样式
+@import '../../less/animate.less';
+@import '../../less/animations.less';
+@import '../../less/h5ds.app.less';
+@import '../../less/initialize.less';
+@import '../../less/initantd.less';
+@import '../../less/utils.less';
+@import '../../components/layers/layer.less';
+
+.h5ds-preview {
+  width: 320px;
+  height: 514px;
+  position: relative;
+  background: #000;
+  overflow: hidden;
+
+  transform-origin: 0 0;
+
+  &>.swiper-container {
+    background: #fff;
+  }
+
+  .swiper-container-vertical>.swiper-scrollbar-hideScroll {
+    display: none !important;
+  }
+}
+
+.h5ds-preview-ppt {
+  overflow: initial;
+
+  .h5ds-ppt-btn {
+    position: absolute;
+    z-index: 3000;
+    bottom: 20px;
+    right: 20px;
+
+    a {
+      display: inline-block;
+      font-size: 40px;
+      width: 50px;
+      height: 50px;
+      box-sizing: content-box;
+    }
+
+    .h5ds-ppt-next {
+      background: url(https://cdn.h5ds.com/static/images/pptnext.png) no-repeat;
+      margin-left: 10px;
+    }
+
+    .h5ds-ppt-prev {
+      background: url(https://cdn.h5ds.com/static/images/pptprev.png) no-repeat;
+    }
+  }
+}
+
+.h5ds-preview-pc .swiper-container {
+  overflow: initial;
+}
+
+// .h5ds-preview-ppt>.swiper-container {
+//   background: #000;
+// }
+// .h5ds-preview-ppt .h5ds-swiper-pageinner{
+//   background: #fff;
+// }
+
+.h5ds-swiper-ban-animate {
+
+  .element {
+    animation-play-state: paused !important;
+    transform: translate3d(0, 0, 0);
+  }
+
+  .layer-h5ds_text {
+    .animated {
+      animation-play-state: paused !important;
+      opacity: 1 !important;
+    }
+  }
+}
+
+.h5ds-swiper-page {
+  overflow: hidden;
+}
+
+// 浮动层的page 要显示
+.h5ds-fixeds {
+  .h5ds-swiper-page {
+    overflow: initial;
+  }
+}
+
+.h5ds-swiper-page-lange {
+  overflow: hidden;
+  // overflow-x: hidden;
+}
+
+.h5ds-swiper-layers-box {
+  width: 100%;
+  height: 100%;
+}
+
+.h5ds-swiper-layers {
+  position: relative;
+  transform-origin: 0 0;
+  transform: translate3d(0, 0, 0);
+  transform-origin: center;
+
+  .layer {
+    position: absolute;
+    box-sizing: border-box;
+  }
+
+  .layer-temporary-lock {
+    pointer-events: none;
+  }
+
+  .element {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    box-sizing: border-box;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+    will-change: transform, opacity; // -webkit-transform: translate3d(0, 0, 0) rotateZ(0deg);
+    // transform: translate3d(0, 0, 0) rotateZ(0deg);
+  }
+}
+
+.h5ds-canvas-preview,
+.h5ds-preview {
+  perspective: 1000px;
+  transform-style: preserve-3d;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  backface-visibility: hidden;
+  transform: translate3d(0, 0, 0);
+
+  .swiper-container {
+    overflow: hidden;
+
+    .swiper-wrapper {
+      .swiper-slide-active {
+        z-index: 100;
+      }
+    }
+
+    .swiper-pagination {
+      top: auto;
+      bottom: 0;
+      height: 3px;
+
+      .swiper-pagination-progressbar-fill {
+        background: @main;
+      }
+    }
+  }
+
+  img {
+    user-select: none;
+  }
+
+  .h5ds-pages-box {
+    width: 100%;
+    height: 100%;
+  }
+
+  .h5ds-swiper-pageinner {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    top: 0;
+    left: 0;
+    margin: 0 auto;
+  }
+
+  &.h5ds-preview-phone {
+    .h5ds-swiper-pageinner {
+      margin: 0;
+    }
+  }
+
+  .h5ds-swiper-swipe-btn {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 10px;
+    z-index: 10000;
+
+    span {
+      background: rgba(0, 0, 0, 0.3);
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 12px;
+      padding: 4px 10px;
+
+      &:first-child {
+        border-right: 1px solid rgba(0, 0, 0, 0.2);
+      }
+    }
+  }
+
+  .h5ds-swiper-page-scroll {
+    overflow: hidden;
+  }
+
+  .h5ds-popups {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    z-index: 3000;
+
+    .h5ds-swiper-page {
+      display: none;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+  }
+
+  .h5ds-pages {
+    position: relative;
+    z-index: 2000;
+  }
+
+  .h5ds-fixeds {
+
+    #h5dsFixedsUp {
+      width: 100%;
+      height: 0;
+
+      .h5ds-swiper-layers {
+        height: 0 !important;
+      }
+    }
+
+    #h5dsFixedsDown {
+      height: 100%;
+      width: 100%;
+    }
+
+    #h5dsFixedsUp,
+    #h5dsFixedsDown {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+
+      .h5ds-swiper-page {
+        width: 100%;
+        height: 100%;
+
+        .h5ds-swiper-pageinner {
+          overflow: visible;
+          width: 100%;
+          height: 100%;
+
+          .h5ds-swiper-layers {
+            width: 100%;
+            height: 100%;
+          }
+        }
+      }
+    }
+
+    #h5dsFixedsUp {
+      z-index: 2100;
+    }
+
+    #h5dsFixedsDown {
+      width: 100%;
+    }
+
+    .h5ds-swiper-page {
+      height: 0;
+      width: 0;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+  }
+}
