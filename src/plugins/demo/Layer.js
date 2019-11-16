@@ -9,9 +9,10 @@ import { mountPlugin } from 'h5ds-mount-plugin';
  * props: layer, renderIn, plugins{pluginsKey}, isRenderThis
  */
 class LayerComp extends React.Component {
+
   render() {
     const { data } = this.props.layer;
-    return <div className="layerinner-mantou-demo">{data}123123123</div>;
+    return <div className="layerinner-mantou-demo">{data}</div>;
   }
 }
 
