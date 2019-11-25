@@ -150,7 +150,7 @@ class PhonePreview extends Component {
                 </Radio.Group>
               </div>
               {this.H5SwiperRef ? <PageButton H5SwiperRef={this.H5SwiperRef} pageLength={data.pages.length} /> : null}
-              <div className="h5ds-phone-preview-bodyer" style={{ left }}>
+              <div id="h5ds-phone-preview-bodyer" style={{ left }} className="h5ds-phone-preview-bodyer" >
                 <H5dsSwiper ref={c => (this.H5SwiperRef = c)} style={style} plugins={{ pluginsKey }} data={data} appId={this.props.appId} renderIn={renderIn.RENDER_IN_PREVIEW} />
               </div>
             </div>

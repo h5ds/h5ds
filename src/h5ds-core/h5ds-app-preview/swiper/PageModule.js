@@ -105,7 +105,7 @@ export default class PageModule extends Component {
       roundLengths: true, // 如果设置为true，则将slide的宽和高取整(四舍五入)，以防止某些分辨率的屏幕上文字或边界(border)模糊。
       direction, // 垂直切换选项
       effect,
-      mousewheel: true,
+      mousewheel: false,
       noSwipingClass: 'h5ds-swiper-stop-swiping', // 锁定翻页
       watchOverflow: true // 仅有1个slide，swiper无效
       // on: {

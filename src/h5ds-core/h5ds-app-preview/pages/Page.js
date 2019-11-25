@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import Layer from './Layer';
 import PowerbyModule from './PowerbyModule';
 import { renderIn } from '../../config';
-import debounce from 'lodash/debounce';
+// import debounce from 'lodash/debounce';
 
 /**
  * @desc 重要说明，hack

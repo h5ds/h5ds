@@ -1,4 +1,4 @@
-import { Page, config, setConfig } from '../config';
+import { Page, getInitData, config, setConfig } from '../config';
 import { action, observable, toJS, transaction } from 'mobx';
 import { pubsubEvent, util } from '../utils';
 
@@ -37,11 +37,17 @@ export default class App {
     // 如果有缓存， 且当前打开的 appid
     if (appId && appStoreId === appId) {
       data = util.getStorage('H5DS_APP_DATA');
+      // 检测data的合法性
+      if (data && typeof data === 'object') {
+        // 数据正常
+      } else {
+        console.error('数据异常，使用默认数据初始化页面！');
+        data = getInitData();
+      }
     } else {
       util.setStorage('H5DS_APP_ID', appId);
     }
     return Promise.resolve(data);
-    // iniApp(data, appId);
   };
 
   // 初始化加载数据，设置数据
@@ -382,7 +388,7 @@ export default class App {
   // 添加layer, 如果index 存在，则插入制定位置，如果不存在，插入到最后
   @action
   addLayer = (data, index) => {
-    let page = this.getPage();
+    const page = this.getPage();
     if (!page) {
       message.error('未选择任何页面！');
       return;
@@ -396,6 +402,37 @@ export default class App {
       }
       this.edata.layerListKeys = util.randomID();
     });
+  };
+
+  @action
+  addLayerGetCenterPosition = layerData => {
+    const page = this.getPage();
+    if (!page) {
+      message.error('未选择任何页面！');
+      return;
+    }
+    if (!layerData) {
+      message.error('layerData异常');
+      return;
+    }
+    const { width = 0, height = 0 } = page.style;
+    const layerWidth = layerData.width || 0;
+    const layerHeight = layerData.height || 0;
+    // let left = width / 2 - layerWidth / 2;
+    // let top = height / 2 - layerHeight / 2;
+    const $realsize = $('.h5ds-canvas-realsize');
+    let { top, left } = $realsize.position();
+    top = -top / this.edata.phoneScale;
+    left = -left / this.edata.phoneScale;
+    if (top < 0) {
+      top = 0;
+    }
+    if (left < 0) {
+      left = 0;
+    }
+    left = left + (width / 2 - layerWidth) / this.edata.phoneScale;
+    console.log({ top, left });
+    return { top, left };
   };
 
   // 插入多个layer，拆分combin 的时候用。size是外框的尺寸。index 表示要插入的位置

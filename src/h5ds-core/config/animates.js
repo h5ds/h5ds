@@ -94,5 +94,6 @@ export const animatesEm = [
     { name: '拉扯', type: 'em', animate: 'jello', time: '1s', delay: '0s', count: 1, fun: 'ease' },
     { name: '翻转', type: 'em', animate: 'flip', time: '1s', delay: '0s', count: 1, fun: 'ease' },
     { name: '旋转', type: 'em', animate: 'rollOneCount', time: '1s', delay: '0s', count: 1, fun: 'linear' },
-    { name: '逆转', type: 'em', animate: 'rollInfinite2', time: '1s', delay: '0s', count: 1, fun: 'linear' }
+    { name: '逆转', type: 'em', animate: 'rollInfinite2', time: '1s', delay: '0s', count: 1, fun: 'linear' },
+    { name: '浮动', type: 'em', animate: 'floating', time: '1s', delay: '0s', count: 1, fun: 'linear' }
 ];

@@ -60,7 +60,7 @@ class Publish extends Component {
   downCode() {
     const data = this.props.h5ds.data;
     data.plugins = appUtil.getPidByData(data);
-    util.saveShareContent(previewHtml.replace('{{__html}}', `var h5dsAppData = ${JSON.stringify(data)};`), 'preivew.html');
+    util.saveShareContent(previewHtml.replace('{{__html}}', `${JSON.stringify(data)};`), 'preivew.html');
   }
 
   // 确认发布

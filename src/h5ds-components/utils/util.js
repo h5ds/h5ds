@@ -1,9 +1,6 @@
-import cloneDeep from 'lodash/cloneDeep';
+import { cloneDeep, debounce, isObject, throttle, uniq } from 'lodash';
+
 import dayjs from 'dayjs';
-import debounce from 'lodash/debounce';
-import isObject from 'lodash/isObject';
-import throttle from 'lodash/throttle';
-import uniq from 'lodash/uniq';
 
 const dateFormatPreset = {
   datetime: 'YYYY/MM/DD HH:mm:ss',
@@ -49,41 +46,19 @@ class Util {
   }
 
   /**
-   * @desc 将AppData里面的 img, sound 单独拿出来
-   * @param data 也就是 传入一个 app 对象
+   *
+   * @desc   url参数转对象
+   * @param  {String} url  default: window.location.href
+   * @return {Object}
    */
-  getSource(data, setting = { loadSound: false }) {
-    const arr = [];
-    const { pages = [], fixeds = [], popups = [] } = data;
-    if (data.style && data.style['backgroundImage']) {
-      arr.push(this.getBackGroundImageUrl(data.style['backgroundImage']));
+  getUrlData(name) {
+    let reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)');
+    let r = window.location.search.substr(1).match(reg);
+    let data = null;
+    if (r != null) {
+      data = unescape(r[2]);
     }
-    [...pages, ...fixeds, ...popups].forEach(page => {
-      if (page.style && page.style['backgroundImage']) {
-        arr.push(this.getBackGroundImageUrl(page.style['backgroundImage']));
-      }
-      if (page.estyle && page.estyle['backgroundImage']) {
-        arr.push(this.getBackGroundImageUrl(page.estyle['backgroundImage']));
-      }
-      page.layers &&
-        page.layers.forEach(layer => {
-          if (layer.pid === 'h5ds_img') {
-            arr.push(layer.data.src);
-          } else if (layer.pid === 'h5ds_combin') {
-            // 合并图层只做浅对象处理
-            layer.layers.forEach(layerInner => {
-              if (layerInner.pid === 'h5ds_img') {
-                arr.push(layerInner.data.src);
-              }
-            });
-          }
-          // 手机端暂时不要加载声音，声音在IOS有BUG
-          else if (setting.loadSound && layer.pid === 'h5ds_sound') {
-            arr.push(layer.data.sound);
-          }
-        });
-    });
-    return Array.from(new Set(arr));
+    return data;
   }
 
   /**
@@ -406,49 +381,6 @@ class Util {
       c += String.fromCharCode(code.charCodeAt(i) - c.charCodeAt(i - 1));
     }
     return c;
-  }
-
-  /**
-   * 保存为文件，下载文件
-   */
-  saveShareContent(content, fileName) {
-    let downLink = document.createElement('a');
-    downLink.download = fileName;
-    //字符内容转换为blod地址
-    let blob = new Blob([content]);
-    downLink.href = URL.createObjectURL(blob);
-    // 链接插入到页面
-    document.body.appendChild(downLink);
-    downLink.click();
-    // 移除下载链接
-    document.body.removeChild(downLink);
-  }
-
-  //全屏
-  fullScreen() {
-    const element = document.documentElement;
-    if (element.requestFullscreen) {
-      element.requestFullscreen();
-    } else if (element.msRequestFullscreen) {
-      element.msRequestFullscreen();
-    } else if (element.mozRequestFullScreen) {
-      element.mozRequestFullScreen();
-    } else if (element.webkitRequestFullscreen) {
-      element.webkitRequestFullscreen();
-    }
-  }
-
-  //退出全屏
-  exitFullscreen() {
-    if (document.exitFullscreen) {
-      document.exitFullscreen();
-    } else if (document.msExitFullscreen) {
-      document.msExitFullscreen();
-    } else if (document.mozCancelFullScreen) {
-      document.mozCancelFullScreen();
-    } else if (document.webkitExitFullscreen) {
-      document.webkitExitFullscreen();
-    }
   }
 }
 

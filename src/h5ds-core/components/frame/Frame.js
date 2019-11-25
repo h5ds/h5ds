@@ -158,8 +158,6 @@ class Frame extends Component {
       appData = getInitData();
     }
 
-    console.log('appData',appData);
-
     // 初始化app数据
     h5ds.initApp(appData, this.props.options.appId).then(() => {
       // 挂载plugins插件

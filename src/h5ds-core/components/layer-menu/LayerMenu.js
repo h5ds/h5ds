@@ -10,8 +10,6 @@ import { message } from 'antd';
 
 // import { transaction } from 'mobx';
 
-
-
 @inject('h5ds', 'scope')
 @observer
 class LayerMenu extends Component {
@@ -44,17 +42,9 @@ class LayerMenu extends Component {
 
     // 设置初始位置
     if (data.pid !== 'h5ds_shape') {
-      let { top, left } = $('.h5ds-canvas-realsize').position();
-      top = -top / h5ds.edata.phoneScale;
-      left = -left / h5ds.edata.phoneScale;
-      if (top < 0) {
-        top = 0;
-      }
-      if (left < 0) {
-        left = 0;
-      }
-      // data.style.top = top + 20;
-      // data.style.left = left + 20;
+      const { left, top } = h5ds.addLayerGetCenterPosition(data);
+      data.style.left = left;
+      data.style.top = top;
     }
 
     // 添加图层
