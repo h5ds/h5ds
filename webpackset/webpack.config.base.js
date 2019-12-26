@@ -29,7 +29,7 @@ module.exports = (src, dist) => {
         },
         {
           test: /\.(css|less)$/,
-          include: [resolve('../src'), resolve('../node_modules')],
+          include: [srcPath, resolve('../node_modules')],
           use: [
             { loader: 'style-loader', options: {} },
             { loader: 'css-loader', options: { sourceMap: true } },

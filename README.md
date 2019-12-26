@@ -119,91 +119,72 @@ export default Editor;
 
 # 直接使用H5DS JS-SDK
 
-### index.html 双击打开即可
+> 执行 npm run build:libs 会生成一个libs包。可以直接通过 new H5DSCore() 的方式去使用libs包
+
+### 下面的 index.html 双击打开即可
 
 ```html
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>H5DS</title>
-    <link rel="stylesheet" href="https://at.alicdn.com/t/font_157397_ujac0trx9i.css">
-    <link href="https://cdn.h5ds.com/lib/plugins/swiper.min.css" rel="stylesheet">
-    <link href="https://cdn.bootcss.com/antd/3.23.0-beta.0/antd.min.css" rel="stylesheet">
-    <!-- 编辑器所需第三方资源库 -->
-    <script src="https://cdn.h5ds.com/lib/plugins/swiper.min.js"></script>
-    <script src="https://cdn.h5ds.com/lib/plugins/jquery.min.js"></script>
-    <script src="https://cdn.h5ds.com/lib/plugins/h5ds.vendor.min.js"></script>
-    <!-- 外部引入antd -->
-    <script src="https://cdn.bootcss.com/moment.js/2.24.0/moment.min.js"></script>
-    <script src="https://cdn.bootcss.com/antd/3.23.0-beta.0/antd.min.js"></script>
-    <!-- es6语法支持 -->
-    <script src="https://cdn.bootcss.com/lib/babel/6.26.0/babel.min.js"></script>
-    <!-- H5DS资源 -->
-    <script src="https://cdn.h5ds.com/umd/editor/index.js"></script>
-  </head>
-  <body></body>
-  <script type="text/babel">
-    $(async function() {
-      // 使用编辑器
-      class Editor extends React.Component {
-        constructor(props) {
-          super(props);
-          this.state = {
-            data: null
-          };
-        }
+<html>
 
-        /**
-         * 保存APP
-         */
-        saveApp = async data => {
-          console.log("saveApp ->", data);
-        };
+<head lang="zh-cn">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>React Mobx</title>
+  <meta name="renderer" content="webkit">
+  <!-- No Baidu Siteapp-->
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-title" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <link rel="shortcut icon" href="/assets/images/favicon.ico">
+  <link rel="stylesheet" href="https://at.alicdn.com/t/font_157397_ujac0trx9i.css">
+  <link href="https://cdn.h5ds.com/lib/plugins/swiper.min.css" rel="stylesheet">
+  <link href="https://cdn.bootcss.com/antd/3.23.0-beta.0/antd.min.css" rel="stylesheet">
+  <!-- 编辑器所需第三方资源库 -->
+  <script src="https://cdn.h5ds.com/lib/plugins/swiper.min.js"></script>
+  <script src="https://cdn.h5ds.com/lib/plugins/jquery.min.js"></script>
+  <script src="https://cdn.h5ds.com/lib/plugins/h5ds.vendor.min.js"></script>
+  <!-- 外部引入antd -->
+  <script src="https://cdn.bootcss.com/moment.js/2.24.0/moment.min.js"></script>
+  <script src="https://cdn.bootcss.com/antd/3.23.0-beta.0/antd.min.js"></script>
+  <!-- 引入打包后的libs包 -->
+  <link href="/editor/style.css" rel="stylesheet">
+  <script src="/editor/index.js" type="text/javascript"></script>
+</head>
 
-        /**
-         * 发布 app
-         */
-        publishApp = async data => {
-          console.log("publshApp ->", data);
-        };
+<body>
+  <div id="App"></div>
+</body>
 
-        componentDidMount() {
-          // 模拟异步加载数，设置 defaultData 会默认加载一个初始化数据
-          setTimeout(() => {
-            this.setState({ data: "defaultData" });
-          }, 100);
-        }
-
-        /**
-         * 使用编辑器部分
-         */
-        render() {
-          const { data } = this.state;
-          const { H5dsEditor } = H5DS_GLOBAL.editor;
-          return (
-            <H5dsEditor
-              plugins={[]} // 第三方插件包
-              data={data}
-              debugger={false} // debugger=true用于调试插件
-              options={{
-                noServer: true, // 开启无后台模式
-                publishApp: this.publishApp,
-                saveApp: this.saveApp, // 保存应用
-                appId: "test_app_id" // 当前appId
-              }}
-            />
-          );
-        }
-      }
-
-      // 使用
-      ReactDOM.render(<Editor />, document.querySelector("body"));
-    });
-  </script>
+<script>
+$(function() {
+  /**
+   * 参数说明：
+    callBack, // 渲染完成后的回调函数 Function
+    data, // 默认加载的数据 Object
+    plugins = [], // 加载的插件名称 eg: ['demo']
+    imageSourceModal, // 图片资源弹窗 ReactDOM
+    soundSourceModal, // 音乐资源弹窗 ReactDOM
+    template, // 单页模板列表 ReactDOM
+    publishHost = '', // 发布应用的HOST地址：eg: http://localhost:8888
+    pluginsHost = '.', // 插件加载地址，默认： '.'，自动会加上 '/plugins'
+    publishApp, // 发布APP。Function return Promise
+    saveApp, // 保存APP 。 Function return Promise
+    headerNav, // 右上角的链接。右上角可以自定义菜单 ReactDOM
+    savePage, // 收藏页面调用 Function return Promise
+    saveLayer, // 收藏图层调用 Function reutrn Promise
+    appId = 'test_app_id', // appId
+    target = document.querySelector('body') // 默认渲染的区域，默认是document.querySelector('body')
+   */
+  new H5DSCore({
+    target: document.querySelector('App')
+  });
+})
+</script>
 </html>
-
-
 ```

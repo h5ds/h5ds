@@ -7,6 +7,7 @@
     "start": "npm run dev",
     "dev": "webpack-dev-server --config webpackset/webpack.config.dev.js --open",
     "build": "webpack --config webpackset/webpack.config.prod.js --colors --display-error-details --progress",
+    "build:libs": "webpack --config webpackset/webpack.config.libs.js --colors --display-error-details --progress",
     "build:editor": "webpack --config webpackset/webpack.config.editor.js --colors --display-error-details --progress",
     "build:layer": "webpack --config webpackset/webpack.config.layer.js --colors --display-error-details --progress",
     "build:plus": "npm run build:layer && npm run build:editor"
