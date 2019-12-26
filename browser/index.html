@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="zh-cn">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>H5DS</title>
+  <meta name="renderer" content="webkit">
+  <!-- No Baidu Siteapp-->
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-title" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <link rel="shortcut icon" href="/assets/images/favicon.ico">
+  <link rel="stylesheet" href="https://at.alicdn.com/t/font_157397_ujac0trx9i.css">
+  <link href="https://cdn.h5ds.com/lib/plugins/swiper.min.css" rel="stylesheet">
+  <link href="https://cdn.bootcss.com/antd/3.23.0-beta.0/antd.min.css" rel="stylesheet">
+  <!-- 编辑器所需第三方资源库 -->
+  <script src="https://cdn.h5ds.com/lib/plugins/swiper.min.js"></script>
+  <script src="https://cdn.h5ds.com/lib/plugins/jquery.min.js"></script>
+  <script src="https://cdn.h5ds.com/lib/plugins/h5ds.vendor.min.js"></script>
+  <!-- 外部引入antd -->
+  <script src="https://cdn.bootcss.com/moment.js/2.24.0/moment.min.js"></script>
+  <script src="https://cdn.bootcss.com/antd/3.23.0-beta.0/antd.min.js"></script>
+  <!-- 引入打包后的libs包 -->
+  <link href="https://cdn.h5ds.com/lib/editor/style.css" rel="stylesheet">
+  <script src="https://cdn.h5ds.com/lib/editor/index.js" type="text/javascript"></script>
+</head>
+
+<body>
+  <div id="App"></div>
+</body>
+
+<script>
+$(function() {
+  /**
+   * 参数说明：
+    callBack, // 渲染完成后的回调函数 Function
+    data, // 默认加载的数据 Object
+    plugins = [], // 加载的插件名称 eg: ['demo']
+    imageSourceModal, // 图片资源弹窗 ReactDOM
+    soundSourceModal, // 音乐资源弹窗 ReactDOM
+    template, // 单页模板列表 ReactDOM
+    publishHost = '', // 发布应用的HOST地址：eg: http://localhost:8888
+    pluginsHost = '.', // 插件加载地址，默认： '.'，自动会加上 '/plugins'
+    publishApp, // 发布APP。Function return Promise
+    saveApp, // 保存APP 。 Function return Promise
+    headerNav, // 右上角的链接。右上角可以自定义菜单 ReactDOM
+    savePage, // 收藏页面调用 Function return Promise
+    saveLayer, // 收藏图层调用 Function reutrn Promise
+    appId = 'test_app_id', // appId
+    target = document.querySelector('body') // 默认渲染的区域，默认是document.querySelector('body')
+   */
+  new H5DSCore({
+    target: document.getElementById('App')
+  });
+})
+</script>
+</html>

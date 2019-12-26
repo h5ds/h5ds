@@ -133,7 +133,7 @@ export default Editor;
   <meta name="description" content="">
   <meta name="keywords" content="">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>React Mobx</title>
+  <title>H5DS</title>
   <meta name="renderer" content="webkit">
   <!-- No Baidu Siteapp-->
   <meta http-equiv="Cache-Control" content="no-siteapp" />
@@ -153,8 +153,8 @@ export default Editor;
   <script src="https://cdn.bootcss.com/moment.js/2.24.0/moment.min.js"></script>
   <script src="https://cdn.bootcss.com/antd/3.23.0-beta.0/antd.min.js"></script>
   <!-- 引入打包后的libs包 -->
-  <link href="/editor/style.css" rel="stylesheet">
-  <script src="/editor/index.js" type="text/javascript"></script>
+  <link href="https://cdn.h5ds.com/lib/editor/style.css" rel="stylesheet">
+  <script src="https://cdn.h5ds.com/lib/editor/index.js" type="text/javascript"></script>
 </head>
 
 <body>
@@ -182,7 +182,7 @@ $(function() {
     target = document.querySelector('body') // 默认渲染的区域，默认是document.querySelector('body')
    */
   new H5DSCore({
-    target: document.querySelector('App')
+    target: document.getElementById('App')
   });
 })
 </script>
